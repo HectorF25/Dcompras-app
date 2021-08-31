@@ -1,0 +1,9 @@
+<i> is used for icons
+download from ionicons.com and then paste the css file ionicons.min into the vendors css file cause we got it from 
+the internet.
+link this css file wiith the html. using <i></i> give it the class name equal to the 
+icon name you want...search the icon name from the website and copy paste it.
+also copy and paste the fonts folder from ionicons into vendors fonts.
+
+WAYPOINTS :- omakewebthings folder...for jquery of navigation bar for scrolling 
+

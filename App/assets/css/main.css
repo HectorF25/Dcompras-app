@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+@import "header.css";
+@import "main-section.css";
+@import "card.css";
+@import "footer.css";
+@import "restaurant.css";
+@import "restaurant-menu.css";
+@import "appetizers.css";
+@import "appetizers_card.css";
+@import "variables.css";
+
+body {
+  margin: 0;
+  padding: 0;
+}

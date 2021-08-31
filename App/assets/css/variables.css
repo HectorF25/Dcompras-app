@@ -1,0 +1,12 @@
+html {
+  --main-font: roboto, sans-serif;
+
+  --border: #e0e0e0;
+  --btn-color: #262626;
+  --font-color: #1d1d1d;
+  --white: #fff;
+  --green: #327430;
+  --gray: #757575;
+  --light-gray-font: #626262;
+  --hover: #f9f9f9;
+}

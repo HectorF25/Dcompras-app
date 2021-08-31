@@ -1,0 +1,63 @@
+.restaurant-card__background {
+  background: url("../img/rest_background.png") no-repeat center;
+  background-size: cover;
+  /*height: 364px;*/
+  display: flex;
+  justify-content: center;
+  margin-top: 72px;
+  padding: 0;
+}
+
+.restaurant-card__wrapper {
+  width: 956px;
+}
+
+.restaurant-card {
+  background-color: var(--white);
+  box-shadow: 0 0 16px rgba(117, 117, 117, 0.2);
+  border-radius: 2px;
+  width: 389px;
+  height: 204px;
+  display: flex;
+  flex-direction: column;
+  margin: 80px auto 80px 0;
+  align-items: center;
+  padding: 38px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.restaurant-card__title {
+  font-family: var(--main-font);
+  font-size: 36px;
+  line-height: 42px;
+  color: var(--font-color);
+}
+
+.restaurant-card__footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.restaurant-card__price {
+  font-family: var(--main-font);
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--gray);
+}
+
+.restaurant-card__time {
+  font-family: var(--main-font);
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--white);
+  background: var(--btn-color);
+  border-radius: 16px;
+  width: 97px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

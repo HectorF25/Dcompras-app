@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 308px;
+  padding: 0 0 21px;
+  text-decoration: none;
+}
+
+.card__restaurant {
+  font-family: var(--main-font);
+  font-size: 16px;
+  color: var(--font-color);
+  margin-top: 16px;
+}
+
+.card__category {
+  font-family: var(--main-font);
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--gray);
+  margin: 4px 0;
+}
+
+.card__time {
+  font-family: var(--main-font);
+  font-size: 13px;
+  line-height: 21px;
+  color: var(--font-color);
+}

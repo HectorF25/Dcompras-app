@@ -1,0 +1,105 @@
+@import "button.css";
+
+.header {
+  height: 125px;
+  background: var(--white);
+  box-shadow: 0 0 20px rgba(38, 38, 38, 0.16);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header__wrapper {
+  width: 956px;
+  display: flex;
+  justify-content: space-between;
+  padding: 49px 0 100px;
+}
+
+.image-link{
+  width: 150px;
+  height: 50px;
+}
+
+.header__logo {
+  width: 150px;
+  height: 50px;
+  
+}
+
+.centrar{
+  padding-top: 49px;
+}
+
+.centrar2{
+  padding-top: 1px;
+  padding-left: 150px;
+}
+
+.delivery-info{
+  padding: 5px 150px 7px 150px;
+}
+
+.header__input {
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.header__input::placeholder {
+  font-family: var(--main-font);
+  font-size: 16px;
+  line-height: 24px;
+  color: gray;
+}
+
+.left_input {
+  width: 65px;
+  height: 40px;
+  padding: 8px 7px;
+}
+
+.header__span {
+  font-family: var(--main-font);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--light-gray-font);
+  margin: 10px 9px;
+}
+
+.header__label {
+  position: relative;
+}
+
+.header__label:before {
+  content: url("../img/location.svg");
+  position: absolute;
+  top: 0;
+  left: 12px;
+}
+
+.right_input {
+  width: 292px;
+  height: 40px;
+  padding: 8px 68px 8px 36px;
+}
+
+.user_opportunities {
+  display: flex;
+}
+
+.button--black {
+  background-color: var(--btn-color);
+  color: var(--white);
+  margin-left: 16px;
+}
+
+.basket {
+  width: 19px;
+  height: 22px;
+  margin: 9px 9px 9px 27px;
+}

@@ -1,0 +1,145 @@
+.cards {
+    display: flex;
+    justify-content: center;
+    margin-top: 71px;
+  }
+  
+  .cards_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 956px;
+    justify-content: center;
+  }
+  
+  .search {
+    width: 956px;
+    height: 79px;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 30px 0 0 30px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  .search_wrapper {
+    position: relative;
+  }
+  
+  .search__label {
+    margin-top: 73px;
+  }
+  
+  .search__label:before {
+    content: url("../img/search.svg");
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    bottom: 15px;
+  }
+  
+  .search::placeholder {
+    font-family: var(--main-font);
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--light-gray-font);
+    opacity: 0.5;
+  }
+  
+  .cards__title {
+    font-family: var(--main-font);
+    font-size: 22px;
+    line-height: 34px;
+    color: var(--font-color);
+    align-self: flex-start;
+    margin: 56px 0 16px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .cards_list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 0 40px;
+    justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  #btn-abrir-popup {
+    width:20px;
+	padding:3px;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+
+#btn-abrir-popup:hover {
+    background-color: #008CBA;
+    color: white;
+
+}
+
+
+*{box-sizing:border-box;}
+
+form{
+	width:1000px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#ccc;
+}
+
+form label{
+	width:150px;
+	font-weight:bold;
+	display:inline-block;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select{
+	width:380px;
+	padding:3px 10px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;
+	margin:8px 0;
+	display:inline-block;
+}
+
+form input[type="submit"]{
+	width:25%;
+	padding:8px 16px;
+	margin-top:32px;
+	
+	border-radius:5px;
+	display:block;
+
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+} 
+
+form input[type="submit"]:hover{
+	cursor:pointer;
+  background-color: #008CBA;
+  color: white;
+
+}
+
+textarea{
+	width:100%;
+	height:100px;
+	border:1px solid #f6f6f6;
+	border-radius:3px;
+	background-color:#f6f6f6;			
+	margin:8px 0;
+	/*resize: vertical | horizontal | none | both*/
+	resize:none;
+	display:block;
+}

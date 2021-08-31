@@ -1,0 +1,16 @@
+.footer {
+  height: 116px;
+  background: var(--btn-color);
+  display: flex;
+  justify-content: center;
+}
+
+.footer__wrapper {
+  width: 956px;
+  margin-top: 50px;
+}
+
+.footer__logo {
+  width: 300px;
+  height: 60px;
+}
