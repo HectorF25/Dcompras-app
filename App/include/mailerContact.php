@@ -21,11 +21,11 @@ $textForm = $_POST['textForm'];
 try {
     $phpmailer = new PHPMailer();
 	$phpmailer->isSMTP();
-	$phpmailer->Host = 'smtp.mailtrap.io';
+	$phpmailer->Host = '';
 	$phpmailer->SMTPAuth = true;
-	$phpmailer->Port = 2525;
-	$phpmailer->Username = '5f30a79e1517cf';
-	$phpmailer->Password = '2e1796babcca35';
+	$phpmailer->Port = ;
+	$phpmailer->Username = '';
+	$phpmailer->Password = '';
 	$phpmailer->Subject = "RESET PASSWORD";
 //Set sender email
 	$phpmailer->setFrom($emailForm, $name);
@@ -144,7 +144,7 @@ Dcompras</p>
 </html>
     ';
 //Add recipient
-	$phpmailer->addAddress('decompras498@gmail.com', 'DCompras-Contact');
+	$phpmailer->addAddress('', 'DCompras-Contact');
     $phpmailer->send();
     echo  "<script> alert ('Se ha enviado su informacion Correctamente');
             location.href = '../../Public/Views/index.php';
