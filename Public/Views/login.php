@@ -1,5 +1,5 @@
-<?php 
-    include '../../Config/appConfig.php';
+<?php
+include '../../Config/appConfig.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,12 @@
                     <h2>Iniciar Sesión</h2>
                     <input type="text" id="correo" name="correo" placeholder="Correo Electronico" required>
                     <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+                    <br />
+                    <br />
+                    <p>Para poder iniciar sesion debes estar previamente registrado.<br />
+                        Contacta un administrador si tienes problemas.</P>
                     <button>Entrar</button>
+                    <a class="Button" href="http://localhost/imake/" style="background-color: #ee557b; color: #fff;padding: 10.5px;">Regresar</a>
                 </form>
 
                 <!--Register-->

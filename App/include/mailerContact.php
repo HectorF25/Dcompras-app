@@ -19,6 +19,14 @@ $phoneNumber = $_POST['phoneForm'];
 $textForm = $_POST['textForm'];
 
 try {
+	/* $phpmailer = new PHPMailer();
+	$phpmailer->isSMTP();
+	$phpmailer->Host = 'smtp.gmail.com';
+	$phpmailer->SMTPAuth = true;
+	$phpmailer->Port = 587;
+	$phpmailer->Username = $emailForm;
+	$phpmailer->Password = '(decompras498)*';
+	$phpmailer->Subject = "RESET PASSWORD"; */
     $phpmailer = new PHPMailer();
 	$phpmailer->isSMTP();
 	$phpmailer->Host = 'smtp.mailtrap.io';
@@ -26,7 +34,7 @@ try {
 	$phpmailer->Port = 2525;
 	$phpmailer->Username = '5f30a79e1517cf';
 	$phpmailer->Password = '2e1796babcca35';
-	$phpmailer->Subject = "RESA";
+	$phpmailer->Subject = "RESET PASSWORD";
 //Set sender email
 	$phpmailer->setFrom($emailForm, $name);
 //Enable HTML
@@ -35,11 +43,12 @@ try {
 	$phpmailer->addAttachment('../assets/img/Recurso 4LogoDocumentacion.png');
 //Email body
 	$phpmailer->Body = '
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+    <!DOCTYPE html>
+<html lang="es">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="supported-color-schemes" content="light">
 <style>
@@ -82,7 +91,7 @@ width: 100% !important;
 <tr>
 <td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; max-width: 100vw; padding: 32px;">
 <h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; color: #3d4852; font-size: 18px; font-weight: bold; margin-top: 0; text-align: left;">Hello!</h1>
-<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">You are receiving this email because we received a password reset request for your account.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Recientemente se envio una solicitud para restablecer una contraseña para su cuenta. Si esto fue un error, simplemente ignore este correo electrónico y no pasara nada.</p>
 <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%;">
 <tr>
 <td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative;">
@@ -92,7 +101,7 @@ width: 100% !important;
 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative;">
 <tr>
 <td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative;">
-<a href="http://localhost:8000/password/reset/b07261db511db487904304213d596183252fa3a339e29290d1a4b27f6f16cda8?email=hectorflorez25%40hotmail.es" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748;">Reset Password</a>
+<a href="http://localhost:8000/password/reset/b07261db511db487904304213d596183252fa3a339e29290d1a4b27f6f16cda8?email=hectorflorez25%40hotmail.es" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748;">Restablecer Contraseña</a>
 </td>
 </tr>
 </table>
@@ -102,17 +111,17 @@ width: 100% !important;
 </td>
 </tr>
 </table>
-<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">This password reset link will expire in 60 minutes.</p>
-<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">If you did not request a password reset, no further action is required.</p>
-<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Regards,<br>
-Laravel</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Este enlace sera valido solo durante 60 minutos.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Si no solicitó un restablecimiento de contraseña, no es necesario realizar ninguna otra acción.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Saludos,<br>
+Dcompras</p>
 
 
 <table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; border-top: 1px solid #e8e5ef; margin-top: 25px; padding-top: 25px;">
 <tr>
 <td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative;">
-<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you re having trouble clicking the "Reset Password" button, copy and paste the URL below
-into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; word-break: break-all;"><a href="http://localhost:8000/password/reset/b07261db511db487904304213d596183252fa3a339e29290d1a4b27f6f16cda8?email=hectorflorez25%40hotmail.es" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; color: #3869d4;">http://localhost:8000/password/reset/b07261db511db487904304213d596183252fa3a339e29290d1a4b27f6f16cda8?email=hectorflorez25%40hotmail.es</a></span></p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">Para restablecer su contraseña, visite el siguiente enlace:
+<span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; word-break: break-all;"><a href="http://localhost:8000/password/reset/b07261db511db487904304213d596183252fa3a339e29290d1a4b27f6f16cda8?email=hectorflorez25%40hotmail.es" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; position: relative; color: #3869d4;">http://localhost:8000/password/reset/b07261db511db487904304213d596183252fa3a339e29290d1a4b27f6f16cda8?email=hectorflorez25%40hotmail.es</a></span></p>
 
 </td>
 </tr>
@@ -143,7 +152,7 @@ into your web browser: <span class="break-all" style="box-sizing: border-box; fo
 </html>
     ';
 //Add recipient
-	$phpmailer->addAddress('norequest@mailtrap.io', 'DCompras-Contact');
+	$phpmailer->addAddress('decompras498@gmail.com', 'DCompras-Contact');
     $phpmailer->send();
     echo  "<script> alert ('Se ha enviado su informacion Correctamente');
             location.href = '../../Public/Views/index.php';

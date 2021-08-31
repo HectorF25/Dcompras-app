@@ -81,6 +81,12 @@ main {
     transition: all 300ms;
 }
 
+a.Button {
+    background-color: #ee557b;
+    color: #fff;
+    padding: 10.5px;
+}
+
 .caja__trasera button:hover {
     background: #fff;
     color: #ee557b;
