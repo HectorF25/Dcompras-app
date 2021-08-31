@@ -19,14 +19,6 @@ $phoneNumber = $_POST['phoneForm'];
 $textForm = $_POST['textForm'];
 
 try {
-	/* $phpmailer = new PHPMailer();
-	$phpmailer->isSMTP();
-	$phpmailer->Host = 'smtp.gmail.com';
-	$phpmailer->SMTPAuth = true;
-	$phpmailer->Port = 587;
-	$phpmailer->Username = $emailForm;
-	$phpmailer->Password = '(decompras498)*';
-	$phpmailer->Subject = "RESET PASSWORD"; */
     $phpmailer = new PHPMailer();
 	$phpmailer->isSMTP();
 	$phpmailer->Host = 'smtp.mailtrap.io';
