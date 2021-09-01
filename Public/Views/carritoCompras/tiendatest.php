@@ -1,4 +1,4 @@
-<?php include_once "encabezado.php" ?>
+<?php include_once "encabezadotest.php" ?>
 <?php
 include_once "../../../App/model/productosModel.php";
 $productos = obtenerProductos();

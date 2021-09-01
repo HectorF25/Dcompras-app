@@ -44,7 +44,7 @@ include '../../Config/appConfig.php';
                     <p>Para poder iniciar sesion debes estar previamente registrado.<br />
                         Contacta un administrador si tienes problemas.</P>
                     <button>Entrar</button>
-                    <a class="Button" href="http://localhost/imake/" style="background-color: #ee557b; color: #fff;padding: 10.5px;">Regresar</a>
+                    <a class="Button" href="http://localhost/Dcompras-app/" style="background-color: #ee557b; color: #fff;padding: 10.5px;">Regresar</a>
                 </form>
 
                 <!--Register-->
