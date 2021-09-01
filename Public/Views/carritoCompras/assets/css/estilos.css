@@ -128,3 +128,7 @@ header #menu-bar{
     cursor: pointer;
     display: none;
 }
+.res{
+    width: 150px;
+    height: 150px;
+}
