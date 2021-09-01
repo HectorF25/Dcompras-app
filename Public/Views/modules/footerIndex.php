@@ -5,7 +5,7 @@
         <div class="box">
             <h3>Información de contacto</h3>
             <p> <i class="fas fa-map-marker-alt"></i> Bogotá, Colombia 110111 </p>
-            <p> <i class="fas fa-envelope"></i> lcmartinez261@misena.edu.co </p>
+            <p> <i class="fas fa-envelope"></i> dcomprasteam@gmail.com</p>
             <p> <i class="fas fa-phone"></i> 3024358217 </p>
         </div>
 
