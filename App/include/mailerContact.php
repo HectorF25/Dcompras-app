@@ -23,7 +23,7 @@ try {
 	$phpmailer->isSMTP();
 	$phpmailer->Host = '';
 	$phpmailer->SMTPAuth = true;
-	$phpmailer->Port = ;
+	$phpmailer->Port = 2525;
 	$phpmailer->Username = '';
 	$phpmailer->Password = '';
 	$phpmailer->Subject = "RESET PASSWORD";
@@ -144,7 +144,7 @@ Dcompras</p>
 </html>
     ';
 //Add recipient
-	$phpmailer->addAddress('', 'DCompras-Contact');
+	$phpmailer->addAddress('decompras498@gmail.com', 'DCompras-Contact');
     $phpmailer->send();
     echo  "<script> alert ('Se ha enviado su informacion Correctamente');
             location.href = '../../Public/Views/index.php';
