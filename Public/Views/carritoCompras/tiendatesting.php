@@ -49,7 +49,42 @@ $productos = obtenerProductos();
 
         <?php foreach ($productos as $producto) { ?>
 
-     
+        <div class="container" id="lista-productos">
+            
+            <div class="card-deck mb-3 text-center">
+                
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-bold">
+                        <?php echo $producto->nombreProducto?>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <img src= "<?php echo $producto->imgProducto?>" class="card-img-top res">
+                        <h1 class="card-title pricing-card-title precio">$ <span class="">
+                        <?php echo number_format($producto->precioProducto, 0) ?>
+                        </span></h1>
+
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li></li>
+                            <li>
+                            <?php echo $producto->especificacionProducto?>
+                            </li>
+                         
+                            <li>
+                            <?php echo $producto->nombreProducto?>
+                            </li>
+                        </ul>
+                        <?php ?>
+                        <form action="../../../App/controller/agregar_al_carrito.php" method="post">
+                            <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
+                            <a href="javascript:void(0);"> <button class="btn btn-block agregar-carrito">
+                                Agregar al carrito
+                            </button></a>
+                        </form>
+                        <?php ?>
+                    </div>
+                </div>
 
                
 
@@ -72,6 +107,20 @@ $productos = obtenerProductos();
     <script src="js/pedido.js"></script>
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type='text/javascript' src="js/carrito.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $('.agregar-carrito').on('click',function(){
+        //Scroll to top if cart icon is hidden on top
+        $('html, body').animate({
+            'scrollTop' : $(".cart_anchor").position().top
+        });
+        //Select item image and pass to the function
+        var itemImg = $(this).parent().find('img').eq(0);
+        flyToElement($(itemImg), $('.cart_anchor'));
+    });
+    });
+    </script>
 
 </body>
 
