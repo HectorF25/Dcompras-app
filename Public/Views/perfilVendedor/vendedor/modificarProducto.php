@@ -49,7 +49,7 @@
                                 <input type="text" name="cantidadProducto" id="cantidadProducto" placeholder="Escribe la cantidad" value="<?php echo $crearP->cantidadProducto; ?>"><br />
                                 <center>
                                     <input type="submit"href="?c=crearProductos&a=mostrarProductos" name="salir" value="Volver" class="btn btn-primary"/>
-                                    <input class="form__button" type="submit" name="enviar" value="Modificar" />
+                                    <input class="btn btn-primary" type="submit" name="enviar" value="Modificar"/>
                                 </center>
                                 
                             </form>

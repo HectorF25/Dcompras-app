@@ -47,6 +47,7 @@
                                                         <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Ciudad: activate to sort column ascending" style="width: 169.889px;">Precio Producto</th>
                                                         <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Cantidad del Producto</th>
                                                         <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Acción</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Acción</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -59,6 +60,10 @@
                                                            
                                                             <td>
                                                                 <a id="btn-abrir-popup" href="?c=crearProductos&a=crudCrearP&idProductoNegocio=<?php echo $c->idProductoNegocio; ?>" class="btn-abrir-popup">Modificar</a>
+                                                            </td>
+                                                            <td>
+                                                                <a onclick="javascript:return confirm('¿Seguro de inactivar este registro?');"
+                                                                    href="?c=crearProductos&a=inactivar&idProductoNegocio=<?php echo $r->idProductoNegocio; ?>">Inactvar</a>
                                                             </td>
                                                             <td>
 

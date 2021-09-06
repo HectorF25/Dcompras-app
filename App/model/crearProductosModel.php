@@ -189,12 +189,24 @@ class crearProducto
                         $data->getIdProducto(),
                         $data->getIdNegocio(),
                         $data->getPrecioProducto(),
-                        $data->getCantidadProducto()                   
+                        $data->getCantidadProducto(),
+                        $data->getIdProductoNegocio()                
                     )
                 );
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
+    public function InactivarProducto($idProductoNegocio){
+        try {
+            $sql =$this->pdo->prepare("UPDATE producto_negocio SET 
+						estadoProductoNegocio  = 0,
+				    WHERE idProductoNegocio = ?");
 
+            $sql->execute(array($idProductoNegocio));
+		    } catch (Exception $e) 
+		    {
+			die($e->getMessage());
+		    }
+	}
 }

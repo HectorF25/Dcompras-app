@@ -53,4 +53,9 @@ class crearProductosController{
         
         header('Location: index.php?c=crearProductos&a=mostrarProductos');
     }
+
+    public function inactivar(){
+        $this->model->InactivarProducto($_REQUEST['idProductoNegocio']);
+        header('Location: index.php?c=crearProductos&a=mostrarProductos');
+    }
 }
