@@ -4,11 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>iMake | Food & Services</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="assets/img/Logo_Nuevo.png">
-    <link rel="shortcut icon" href="assets/img/Logo_Nuevo.png">
+    <title>D compras | Vendedor</title>
+    <link rel="apple-touch-icon" href="../../../App/assets/img/Recurso 1LogoD.png">
+    <link rel="shortcut icon" href="../../../App/assets/img/Recurso 1LogoD.png">
+
     <script src="https://kit.fontawesome.com/11509ce6e2.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -68,12 +67,7 @@
                     </li>
                     <li class="menu-title">Menú</li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <img src="assets/images/product.png" alt="Correo:" width="25" height="23"><a href="#">Productos</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Crear Producto</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Modificar Productos</a></li>
-                        </ul>
+                       <a href="./vendedor/index.php?c=crearProductos&a=mostrarProductos">Productos</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -119,8 +113,8 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="menu.html"><img src="assets/img/Marca.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="menu.html"><img src="assets/img/Marca.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="menu.html"><img src="" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="menu.html"><img src="assets/imagen/Marca.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -381,6 +375,10 @@
                                             </table>
                                         </div>
                                     </div>
+                                    <div class="card-body--">
+                                        <div>
+                                            <li>Mi negocio: php echo $negocios->getNombreNegocio();</li>
+                                        </div>
                                 </div>
                             </div>
 

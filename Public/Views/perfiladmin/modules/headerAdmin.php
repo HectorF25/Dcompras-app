@@ -16,7 +16,9 @@ if(!isset($correoUsuario)){
 <head>
 
     <meta charset="utf-8">
-    <title>iMake</title>
+    <title>D compras | Administrador</title>
+    <link rel="apple-touch-icon" href="../../../../App/assets/img/Recurso 1LogoD.png">
+    <link rel="shortcut icon" href="../../../../App/assets/img/Recurso 1LogoD.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

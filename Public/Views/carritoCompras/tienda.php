@@ -29,7 +29,7 @@ $productos = obtenerProductos();
 
     <link rel="stylesheet" href="./assets/css/sweetalert2.min.css">
 
-    <title>Carrito Compras en JavaScript y LocalStorage</title>
+    <title>Carrito Compras</title>
 </head>
 
 <body>
