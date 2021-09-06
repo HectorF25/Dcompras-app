@@ -61,7 +61,7 @@ $productos = obtenerProductos();
                         </h4>
                     </div>
                     <div class="card-body">
-                        <img src="<?php echo $producto->imgProducto ?>" class="card-img-top res">
+                        <img src="./assets/img/productos/<?php echo $producto->imgProducto ?>.jpg" class="card-img-top res">
                         <h1 class="card-title pricing-card-title precio">$ <span class=""><?php echo number_format($producto->precioProducto, 0) ?></span></h1>
 
                         <ul class="list-unstyled mt-3 mb-4">

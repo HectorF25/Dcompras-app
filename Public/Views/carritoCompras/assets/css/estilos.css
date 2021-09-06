@@ -1,134 +1,180 @@
-
-:root{
-    --yellow:#F7CA3E;
+:root {
+    --yellow: #F7CA3E;
 }
 
-*{
+* {
     font-family: 'Roboto', sans-serif;
-    margin:0; padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    outline: none; border:none;
-    transition:all .2s linear;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
 }
 
-
-h1, h3{
+h1,
+h3 {
     font-family: 'Oswald', sans-serif;
 }
 
-*::selection{
-    background:var(--yellow);
-    color:#fff;
+*::selection {
+    background: var(--yellow);
+    color: #fff;
 }
 
-html{
+html {
     font-size: 62.5%;
     overflow-x: hidden;
 }
 
-body{
+body {
     overflow-x: hidden;
     /* height:200rem; */
 }
 
-html::-webkit-scrollbar{
-    width:1.4rem;
+html::-webkit-scrollbar {
+    width: 1.4rem;
 }
 
-html::-webkit-scrollbar-track{
-    background:#333;
+html::-webkit-scrollbar-track {
+    background: #333;
 }
 
-html::-webkit-scrollbar-thumb{
-    background:var(--yellow);
+html::-webkit-scrollbar-thumb {
+    background: var(--yellow);
 }
 
-section{
+section {
     min-height: 100vh;
-    padding:1rem 10%;
+    padding: 1rem 10%;
     padding-top: 8.5rem;
 }
-.oscuro{ 
-    background-color: #1f1f1f; 
-    color: #bdbdbd; 
+
+.oscuro {
+    background-color: #1f1f1f;
+    color: #bdbdbd;
 }
 
-.btn{
+.btn {
     font-size: 1.7rem;
-    padding:.7rem 4rem;
+    padding: .7rem 4rem;
     border-radius: 5rem;
     margin-top: 1rem;
-    background:none;
-    color:#333;
+    background: none;
+    color: #333;
     cursor: pointer;
-    border:.2rem solid var(--yellow);
+    border: .2rem solid var(--yellow);
 }
 
-.btn:hover{
-    background:var(--yellow);
+.btn:hover {
+    background: var(--yellow);
 }
 
-.heading{
+.heading {
     text-align: center;
     font-size: 4rem;
-    padding:0 .5rem;
-    color:#333;
+    padding: 0 .5rem;
+    color: #333;
 }
 
-.heading span{
-    color:var(--yellow);
+.heading span {
+    color: var(--yellow);
 }
 
-.cart_anchor{
-    float: right; 
+.cart_anchor {
+    float: right;
 }
 
-header{
+header {
     position: fixed;
-    top:0; left:0;
+    top: 0;
+    left: 0;
     z-index: 1000;
-    width:100%;
-    background:#fff;
-    padding:1.5rem 10%;
-    box-shadow: 0 .3rem 2rem rgba(0,0,0,.1);
+    width: 100%;
+    background: #fff;
+    padding: 1.5rem 10%;
+    box-shadow: 0 .3rem 2rem rgba(0, 0, 0, .1);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-header .logo img{
-    height:5rem;
+header .logo img {
+    height: 5rem;
 }
 
-header .navbar ul{
+header .navbar ul {
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
 }
 
-header .navbar ul li{
+header .navbar ul li {
     margin-left: 3rem;
 }
 
-header .navbar ul li a{
+header .navbar ul li a {
     font-size: 1.7rem;
-    color:#666;
+    color: #666;
 }
 
 header .navbar ul li a.active,
-header .navbar ul li a:hover{
-    color:var(--yellow);
+header .navbar ul li a:hover {
+    color: var(--yellow);
 }
 
-header #menu-bar{
+header #menu-bar {
     font-size: 3rem;
-    color:#666;
+    color: #666;
     cursor: pointer;
     display: none;
 }
-.res{
+
+.res {
     width: 150px;
     height: 150px;
+}
+
+.fa-map-marker-alt,
+.fa-dot-circle {
+    color: #5bc0de;
+}
+
+.mapsContainer {
+    background-color: transparent;
+    margin: 0;
+    padding: 10px;
+}
+
+.mapsContainer h1 {
+    letter-spacing: 2.5px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.mapsContainer h1,
+.mapsContainer p {
+    text-align: center;
+}
+
+.mapsContainer p {
+    font-size: 1em;
+}
+
+#googleMap {
+    width: 80%;
+    height: 400px;
+    margin: 10px auto;
+}
+
+#output {
+    text-align: center;
+    font-size: 2em;
+    margin: 20px auto;
+}
+
+#mode {
+    color: black;
 }
