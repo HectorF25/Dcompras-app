@@ -1,0 +1,161 @@
+:root{
+  --colorTextos: #49454567;
+}
+
+/*
+Web hecha con AlexCG Design, si te sirvió la plantilla por favor entra a AlexCG Design
+  esta plantilla es libre para usar, así como otras plantillas más que tenemos en el canal...
+  ->>>> https://www.youtube.com/alexcgdesign <<<<-
+*/
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.vody {
+  padding: 100px 400px 200px 400px;
+  background: #FC5C7D;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #f17e12d4);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #e6e6e6, #f5d5b6bb);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  height:1050px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ah1{
+  text-align: center;
+  margin: 10px 0;
+  font-weight: 800;
+}
+
+form{
+  background: #fff;
+  width: 30%;
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+}
+
+.form{
+  width: 100%;
+  margin: auto;
+}
+
+form .grupo{
+  position: relative;
+  margin: 45px;
+}
+
+input, textarea{
+  background: none;
+  color:#c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid var(--colorTextos);
+  resize: none;
+}
+
+input:focus,textarea:focus{
+  outline: none;
+  color: rgb(94,93,93);
+}
+
+input:focus~label, 
+input:valid~label, 
+textarea:focus~label, textarea:valid~label{
+  position: absolute;
+  top: -14px;
+  font-size: 12px;
+  color: #2196F3;
+}
+
+label{
+  color: var(--colorTextos);
+  font-size: 16px;
+  position: absolute;
+  left: 5px;
+  top:10px;
+  transition: 0.5s ease all;
+  pointer-events: none;
+}
+
+
+input:focus~.barra::before, textarea:focus~.barra::before{
+  width: 100%;
+}
+.barra{
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.barra::before{
+  content: '';
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  position: absolute;
+  background: linear-gradient(to right, #6A82FB, #FC5C7D);
+  transition: 0.3s ease all;
+  left: 0%;
+}
+button{
+  background: #FC5C7D;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #cfcfcf, #ebb292);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #f7da8b, #eea24bee);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: block;
+  width: 100px;
+  height: 40px;
+  border:none;
+  color:#fff; 
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+@media screen and (max-width:1100px){
+  form{
+      width: 50%;
+  }
+}
+
+@media screen and (max-width:600px){
+  form{
+      width: 60%;
+  }
+}
+
+@media screen and (max-width:450px){
+  form{
+      width: 80%;
+  }
+}
+
+@media screen and (max-width:300px){
+  form{
+      width: 90%;
+  }
+}
+
+.error{
+  color: red;
+  font-family: Vegur, 'PT Sans', Verdana, sans-serif;
+  font-size: 14px; 
+}
+

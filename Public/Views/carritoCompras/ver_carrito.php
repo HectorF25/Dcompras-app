@@ -29,7 +29,6 @@ if (count($productos) <= 0) {
                         <th><h3>Nombre</h3></th>
                         <th><h3>Descripción</h3></th>
                         <th><h3>Precio</h3></th>
-                        <th><h3>Cantidad</h3></th>
                         <th><h3>Quitar</h3></th>
                     </tr>
                 </thead>

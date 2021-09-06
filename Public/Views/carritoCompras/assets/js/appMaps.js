@@ -1,3 +1,4 @@
+window.addEventListener('load', calcRoute, false);
 var myLatLng = { lat: 4.610, lng: -74.082 };
 var mapOptions = {
     center: myLatLng,
@@ -11,6 +12,21 @@ var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 
 directionsDisplay.setMap(map);
+
+const options = {
+    fields: ["formatted_address", "geometry", "name"],
+    strictBounds: false,
+    types: ["geocode"],
+    componentRestrictions: {
+        country: "COL",
+    }
+};
+
+var input1 = document.getElementById("from");
+var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
+
+var input2 = document.getElementById("to");
+var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
 
 function calcRoute() {
     var request = {
@@ -34,18 +50,3 @@ function calcRoute() {
     });
 
 }
-
-const options = {
-    fields: ["formatted_address", "geometry", "name"],
-    strictBounds: false,
-    types: ["geocode"],
-    componentRestrictions: {
-        country: "COL",
-    }
-};
-
-var input1 = document.getElementById("from");
-var autocomplete1 = new google.maps.places.Autocomplete(input1, options);
-
-var input2 = document.getElementById("to");
-var autocomplete2 = new google.maps.places.Autocomplete(input2, options);

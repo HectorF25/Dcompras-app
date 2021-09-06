@@ -68,7 +68,7 @@ if (count($productos) <= 0) {
                     </tr>
                 </tfoot>
             </table>
-            <div class="jumbotron">
+            <div class="jumbotron" onload="calcRoute();">
                 <div class="container-fluid">
                     <h1>Tu orden está en camino</h1>
                     <p>En unos momentos llegará su pedido</p>
@@ -76,14 +76,14 @@ if (count($productos) <= 0) {
                         <div class="form-group">
                             <label for="from" class="col-xs-2 control-label"><i class="far fa-dot-circle"></i></label>
                             <div class="col-xs-4">
-                                <input type="text" id="from" placeholder="Origen" class="form-control">
+                                <input type="text" id="from" placeholder="Origen" value="Carrera 2 #1a-4, Bogota, Colombia" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
 
                             <label for="to" class="col-xs-2 control-label"><i class="fas fa-map-marker-alt"></i></label>
                             <div class="col-xs-4">
-                                <input type="text" id="to" placeholder="Destino" class="form-control">
+                                <input type="text" id="to" value="Restrepo, Bogota, Colombia" placeholder="Destino" class="form-control">
                             </div>
 
                         </div>

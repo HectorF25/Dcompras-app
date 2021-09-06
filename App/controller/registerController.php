@@ -17,12 +17,12 @@ try {
     $nuevo_usuario = mysqli_query($conexion, "SELECT * FROM Usuario WHERE correoUsuario='$correoUsuario'");
     if (mysqli_num_rows($nuevo_usuario) > 0) {
         echo  "<script> alert ('!El correo ya se encuentra registrado!');
-        location.href = '${DIR_PUBLIC}Views/login';
+        location.href = '${DIR_PUBLIC}Views/index';
         </script>";
     }else {
         $reg = mysqli_query($conexion, "INSERT INTO usuario VALUES ('','$nombreUsuario','$apellidoUsuario','$contraseñaUsuario','$correoUsuario',NULL,NULL,NULL,NULL,2)");
         echo  "<script> alert ('!Registro Exitoso!');
-        location.href = '${DIR_PUBLIC}Views/login';
+        location.href = '${DIR_PUBLIC}Views/index';
         </script>";
     }
 } catch (Exception $e) {

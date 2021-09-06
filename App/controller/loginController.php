@@ -42,12 +42,12 @@ if(isset($_POST['correo'])){
         }elseif ($_SESSION["estadoUsuario"] === NULL) {
             $_SESSION['correo'] = $correoUsuario;
             echo  "<script> alert ('El usaurio no se encuentra activo, por favor verifique su correo y active su cuenta $correoUsuario');
-                location.href = '${DIR_PUBLIC}Views/login';
+                location.href = '${DIR_PUBLIC}Views/index';
                 </script>";
         }
     }else{
         echo "<script> alert ('Datos Incorrectos');
-            location.href = '${DIR_PUBLIC}Views/login';
+            location.href = '${DIR_PUBLIC}Views/index';
             </script>";
     }
 }
