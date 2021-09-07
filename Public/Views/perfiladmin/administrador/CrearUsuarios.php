@@ -163,7 +163,7 @@
        
         <div class="formulario__grupo">
         <label for="" class="formulario__label">Id. Tipo doc</label>        
-        <select class="formulario__label" id="idTipoDoc" name="idTipoDoc">
+        <select class="formulario__input" id="idTipoDoc" name="idTipoDoc">
                 <option class="formulario__label" value="<?php echo $administradores->getIdTipoDoc(); ?>"><?php echo $administradores->getIdTipoDoc(); ?></option>
                 <?php
                                     
@@ -184,7 +184,7 @@
         <div class="formulario__grupo">
         <label for="" class="formulario__label">Id. perfil usuario</label>    
 
-        <select class="formulario__label" id="idPerfilUsuario" name="idPerfilUsuario">
+        <select class="formulario__input" id="idPerfilUsuario" name="idPerfilUsuario">
                                   
                                 <option class="formulario__label" value="<?php echo $administradores->getIdPerfilUsuario(); ?>"><?php echo $administradores->getIdPerfilUsuario(); ?></option>
                                         <?php
