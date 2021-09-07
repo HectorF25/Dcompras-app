@@ -84,7 +84,7 @@ if(!isset($correoUsuario)){
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./perfil_Cliente.php"><img src="assets/img/Recurso 3LogoCompleto.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="./perfil_Cliente.php"><img src="../../Views/carritoCompras/assets/img/Recurso 3LogoD.png" alt="Logo"></a>
                     <a class="navbar-brand hidden" href="./"><img src="assets/img/Logo_Nuevo.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>

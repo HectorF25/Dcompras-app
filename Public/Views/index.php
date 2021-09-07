@@ -467,9 +467,9 @@ Kraft</span></a>
                                                 </li>
                                             </ul>
                                             <div class="media">
-                                                <a href="#" class="d-inline-block mr-3"><img src="images/listing/testimonial-1.png" alt="testimonial" class="rounded-circle">
+                                                <a href="#" class="d-inline-block mr-3"><img src="<?= APP_DIR; ?>assets/css/images/listing/testimonial-1.png" alt="testimonial" class="rounded-circle">
                                                 </a>
-                                                <div class="media-body lh-14 font-size-sm">Un restaurante con una comida increible! para chuparse los dedos! envio rapido y barato
+                                                <div class="media-body lh-14 font-size-sm">Un restaurante con una comida increible! para chuparse los dedos! 
                                                 </div>
                                             </div>
                                         </div>
@@ -534,7 +534,7 @@ Policarpa</a>
                                                 </li>
                                             </ul>
                                             <div class="media">
-                                                <a href="#" class="d-inline-block mr-3"><img src="images/listing/testimonial-2.png" alt="testimonial" class="rounded-circle">
+                                                <a href="#" class="d-inline-block mr-3"><img src="<?= APP_DIR; ?>assets/css/images/listing/testimonial-2.png" alt="testimonial" class="rounded-circle">
                                                 </a>
                                                 <div class="media-body lh-14 font-size-sm">Aquí venden los mejores postres de la ciudad. Recomendado al 100%
                                                 </div>
@@ -597,7 +597,7 @@ Policarpa</a>
                                                 </li>
                                             </ul>
                                             <div class="media">
-                                                <a href="#" class="d-inline-block mr-3"><img src="images/listing/testimonial-5.png" alt="testimonial" class="rounded-circle">
+                                                <a href="#" class="d-inline-block mr-3"><img src="<?= APP_DIR; ?>assets/css/images/listing/testimonial-5.png" alt="testimonial" class="rounded-circle">
                                                 </a>
                                                 <div class="media-body lh-14 font-size-sm">En esta tienda encuentras de todo, servicio muy rapido.
                                                 </div>
