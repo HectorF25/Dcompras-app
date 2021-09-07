@@ -10,7 +10,7 @@ class crearProducto
     private $idNegocio;
     private $precioProducto;
     private $cantidadProducto;
-    private $estadoProducto;
+    private $estadoProductoNegocio;
 
 
     public function __CONSTRUCT()
@@ -22,14 +22,14 @@ class crearProducto
         }
     }
 
-    public function __crearProducto($idProductoNegocio,$idProducto,$idNegocio, $precioProducto, $cantidadProducto, $estadoProducto)
+    public function __crearProducto($idProductoNegocio,$idProducto,$idNegocio, $precioProducto, $cantidadProducto, $estadoProductoNegocio)
     {
         $this->idProductoNegocio = $idProductoNegocio;
         $this->idProducto = $idProducto;
         $this->idNegocio = $idNegocio;
         $this->idNegocio = $precioProducto;
         $this->cantidadProducto = $cantidadProducto;
-        $this->estadoProducto = $estadoProducto;
+        $this->estadoProductoNegocio = $estadoProductoNegocio;
     }
     
     /**
@@ -130,9 +130,9 @@ class crearProducto
 /**
      * Get the value of estadoProducto
      */
-    public function getEstadoProducto()
+    public function getEstadoProductoNegocio()
     {
-        return $this->estadoProducto;
+        return $this->estadoProductoNegocio;
     }
 
     /**
@@ -140,9 +140,9 @@ class crearProducto
      *
      * @return  self
      */
-    public function setEstadoProducto($estadoProducto)
+    public function setEstadoProductoNegocio($estadoProductoNegocio)
     {
-        $this->estadoProducto = $estadoProducto;
+        $this->estadoProductoNegocio = $estadoProductoNegocio;
 
         return $this;
     }
@@ -165,7 +165,7 @@ class crearProducto
     public function ListarProducto()
     {
         try {
-            $sql = $this->pdo->prepare("SELECT *,nombreProducto, nombreNegocio, precioProducto,cantidadProducto FROM producto_negocio
+            $sql = $this->pdo->prepare("SELECT *,nombreProducto, nombreNegocio, producto_negocio.precioProducto,cantidadProducto FROM producto_negocio
             INNER JOIN producto ON producto_negocio.idProducto = producto.idProducto
             INNER JOIN negocio ON producto_negocio.idNegocio = negocio.idNegocio ORDER BY idProductoNegocio ASC");
             $sql->execute();
@@ -226,8 +226,7 @@ class crearProducto
                         $data->getIdNegocio(),
                         $data->getPrecioProducto(),
                         $data->getCantidadProducto(),
-                        $data->getEstadoProducto(),
-                        $data->getIdProductoNegocio()                
+                        $data->getEstadoProductoNegocio()            
                     )
                 );
         } catch (Exception $e) {
