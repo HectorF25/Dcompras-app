@@ -71,11 +71,7 @@
 
                                 <div class="form__div">
                                     <select class="form__input" name="estadoUsuario" id="estadoUsuario" placeholder=" ">
-                                        <option class="form__input" value="<?php echo $administradores->estadoUsuario; ?>"><?php if ($administradores->estadoUsuario == TRUE) {
-                                                                                                                                echo "ACTIVO";
-                                                                                                                            } else {
-                                                                                                                                echo "INACTIVO";
-                                                                                                                            } ?></option>
+                                        <option class="form__input" value="<?php echo $administradores->getEstadousuarioValue(); ?>"><?php echo $administradores->getEstadousuario();?></option>
                                         <option class="form__input" value="1">ACTIVO</option>
                                         <option class="form__input" value="0">INACTIVO</option>
                                     </select>
@@ -83,22 +79,41 @@
                                 </div>
 
                                 <div class="form__div">
+                                    <input type="text" class="form__input" placeholder=" " name="direccionUsuario" id="direccionUsuario" value="<?php echo $administradores->getDireccionUsuario(); ?>" required>
+                                    <label for="" class="form__label">Direccion usuario</label>
+                                </div>
+
+                                <div class="form__div">
+                                    <input type="file" class="form__input" placeholder=" " name="imgUsuario" id="imgUsuario" value="<?php echo $administradores->getImgUsuario(); ?>">
+                                    <label for="" class="form__label">Imagen usuario</label>
+                                </div>
+
+                                <div class="form__div">
                                     <select class="form__input" id="idTipoDoc" name="idTipoDoc">
-                                        <option class="form__input" value="<?php echo $administradores->getIdTipoDoc(); ?>"><?php echo $administradores->nombreTipoDoc; ?></option>
-                                        <option class="form__input" value="01">Cedula de Ciudadanía</option>
-                                        <option class="form__input" value="02">Tarjeta de identidad</option>
-                                        <option class="form__input" value="03"> Cédula de extranjería</option>
+                                        <option class="form__input" value="<?php echo $administradores->getIdTipoDoc(); ?>"><?php echo $administradores->getIdTipoDoc(); ?></option>
+                                        <?php
+                                    
+                                    foreach ($this -> model ->Listar() as $valores):?> 
+
+                                    <option value="<?php echo $valores -> idTipoDoc ?>"><?php echo $valores->nombreTipoDoc?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
                                     </select>
                                     <label for="" class="form__label">Id. Tipo doc</label>
                                 </div>
 
                                 <div class="form__div">
                                 <select class="form__input" id="idPerfilUsuario" name="idPerfilUsuario">
-                                        <option class="form__input" value="<?php echo $administradores->idPerfilUsuario; ?>"><?php echo $administradores->nombrePerfilUsuario; ?></option>
-                                        <option class="form__input" value="01">Administrador</option>
-                                        <option class="form__input" value="02">Cliente</option>
-                                        <option class="form__input" value="03">Vendedor</option>
-                                        <option class="form__input" value="04">Repartidor</option>
+                                        <option class="form__input" value="<?php echo $administradores->getIdPerfilUsuario(); ?>"><?php echo $administradores->getIdPerfilUsuario(); ?></option>
+                                        <?php
+                                    
+                                    foreach ($this -> model ->Listar() as $valores):?> 
+
+                                    <option value="<?php echo $valores -> idPerfilUsuario ?>"><?php echo $valores->nombrePerfilUsuario?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
                                     </select>
                                     <label for="" class="form__label">Id. perfil usuario</label>
                                 </div>
@@ -112,7 +127,7 @@
         </div><!-- .animated -->
     </div><!-- .content -->
 
-    <div class="content">
+  <!--   <div class="content">
         <div class="animated fadeIn">
             <div class="row">
 
@@ -163,9 +178,15 @@
 
                                 <label for="idPerfilUsuario">Tipo Usuario: </label>
                                 <select name="idPerfilUsuario" id="idPerfilUsuario">
-                                <option value="<?php echo $administradores->getEstadousuarioValue(); ?>"><?php $administradores->getEstadousuario(); ?></option>
-                                    <option value="1">ACTIVO</option>
-                                    <option value="0">INACTIVO</option>
+                                <option value="<?php echo $administradores->getIdPerfilUsuario(); ?>"><?php $administradores->getIdPerfilUsuario(); ?></option>
+                                <?php
+                                    
+                                    foreach ($this -> model ->Listar() as $valores):?> 
+
+                                    <option value="<?php echo $valores -> idPerfilUsuario ?>"><?php echo $valores->nombrePerfilUsuario?></option>
+                                    <?php
+                                    endforeach;
+                                    ?>
                                 </select>
 
                                 <br />
@@ -176,5 +197,5 @@
                     </div>
                 </div>
             </div>
-        </div><!-- .animated -->
-    </div><!-- .content -->
+        </div><!-- .animated
+    </div><!-- .content --> 

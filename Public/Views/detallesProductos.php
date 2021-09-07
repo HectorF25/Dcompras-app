@@ -1,3 +1,6 @@
+<?php
+include '../../Config/appConfig.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -28,13 +31,14 @@
 
     <div id="site-wrapper" class="site-wrapper explore-details explore-details-full-map">
 
-    <?php
+        <?php
         require_once 'modules/headerIndex.php';
         ?>
 
         <div id="wrapper-content" class="wrapper-content pb-0 pt-0">
             <div class="map">
                 <div id="googleMap" data-google-map="true" class="explore-details-full-map" style="width:100%;height:560px;"></div>
+                <div id="pano" data-google-map="true" class="explore-details-full-map" style="width:100%;height:560px;"></div>
                 <div class="container">
                     <div class="map-content position-relative">
                         <div class="map-content-wrapper position-absolute bg-dark text-white">
@@ -1385,7 +1389,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="search-popup" class="mfp-hide">
         <div class="search-popup text-center">
             <h2 class="mb-8">Search</h2>
@@ -1643,261 +1647,25 @@
     <script>
         var map;
 
-        function initMap() {
-            var latlng = new google.maps.LatLng(40.762529, -73.957334);
-
-            var mapProp = {
-                center: latlng,
-                zoom: 12,
-                mapTypeId: 'roadmap',
-                disableDefaultUI: true,
-                styles: [{
-                        "featureType": "administrative.country",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "administrative.province",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "administrative.province",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#c3b6a2"
-                        }]
-                    },
-                    {
-                        "featureType": "landscape.man_made",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "landscape.man_made",
-                        "elementType": "labels.text",
-                        "stylers": [{
-                            "color": "#c3b6a2"
-                        }]
-                    },
-                    {
-                        "featureType": "landscape.man_made",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#c3b6a2"
-                        }]
-                    },
-                    {
-                        "featureType": "landscape.natural",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "landscape.natural.landcover",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "landscape.natural.terrain",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "poi.business",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "poi.park",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "poi.park",
-                        "elementType": "labels.icon",
-                        "stylers": [{
-                            "color": "#808080"
-                        }]
-                    },
-                    {
-                        "featureType": "poi.park",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#808080"
-                        }]
-                    },
-                    {
-                        "featureType": "poi.school",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ffffff"
-                        }]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#f0f0f0"
-                        }]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "geometry.stroke",
-                        "stylers": [{
-                                "color": "#c0c0c0"
-                            },
-                            {
-                                "saturation": -75
-                            },
-                            {
-                                "lightness": -80
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "labels",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ededed"
-                        }]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry.stroke",
-                        "stylers": [{
-                            "color": "#ededed"
-                        }]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "labels",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "labels.text",
-                        "stylers": [{
-                            "color": "#ededed"
-                        }]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#91bbd5"
-                        }]
-                    },
-                    {
-                        "featureType": "road.highway.controlled_access",
-                        "stylers": [{
-                            "color": "#ededed"
-                        }]
-                    },
-                    {
-                        "featureType": "road.local",
-                        "stylers": [{
-                            "visibility": "off"
-                        }]
-                    },
-                    {
-                        "featureType": "road.local",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#ededed"
-                        }]
-                    },
-                    {
-                        "featureType": "transit.line",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#f0f0f0"
-                        }]
-                    },
-                    {
-                        "featureType": "transit.station.airport",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#c3b6a2"
-                        }]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "geometry.fill",
-                        "stylers": [{
-                            "color": "#c7d7d4"
-                        }]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "labels.text.fill",
-                        "stylers": [{
-                            "color": "#91bbd5"
-                        }]
-                    }
-                ]
+        function initialize() {
+            const fenway = {
+                lat: 4.610,
+                lng: -74.082
             };
-            map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-            var positions = [{
-                lat: 40.737573,
-                lng: -73.788459,
-                icon: './images/logo-map/icon-map-shopping-page.png',
-                content: '<div class="store card border-0 rounded-0">\n' +
-                    '\t\t<a href="listing-details-full-image.html\n">' +
-                    '\t\t<img src="./images/other/map-image-05.jpg" alt="store 1" class="card-img-top">\n' +
-                    '\t\t</a>\n' +
-                    '\t<div class="card-body">\n' +
-                    '\t\t<a href="listing-details-full-image.html" class="card-title font-weight-semibold font-size-lg text-capitalize text-dark">Thai’s Taste Restaurant</a>\n' +
-                    '\t\t<div class="card-footer border-0 px-0 bg-transparent">\n' +
-                    '\t\t\t<a href="#" class="link-hover-dark-primary"><span class="d-inline-block mr-2"><i\n' +
-                    '\t\t\t\t\tclass="fal fa-map-marker-alt"></i></span>275 Hobbits Ave St, Queen, NY\n' +
-                    '\t\t</div>\n' +
-                    '\t</div>\n' +
-                    '</div>'
-            }];
-            positions.forEach(function(position) {
-                var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(position.lat, position.lng),
-                    icon: position.icon,
-                    map: map
-                });
-                var infowindow = new google.maps.InfoWindow({
-                    content: position.content
-                });
-                marker.addListener('click', function() {
-                    infowindow.open(map, marker);
-                });
-                google.maps.event.addListener(map, "click", function(event) {
-                    infowindow.close();
-                });
-                marker.setMap(map);
+            const map = new google.maps.Map(document.getElementById("googleMap"), {
+                center: fenway,
+                zoom: 14,
             });
-
-
+            const panorama = new google.maps.StreetViewPanorama(
+                document.getElementById("pano"), {
+                    position: fenway,
+                    pov: {
+                        heading: 34,
+                        pitch: 10,
+                    },
+                }
+            );
+            map.setStreetView(panorama);
         }
     </script>
 
@@ -1912,7 +1680,7 @@
     <script src="./vendors/waypoints/jquery.waypoints.js"></script>
     <script src="./vendors/air-datepicker/js/datepicker.min.js"></script>
     <script src="./vendors/air-datepicker/js/i18n/datepicker.en.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9G8XOmHcbXvq9G7QE2klKp79EPFdCdxc&amp;callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9G8XOmHcbXvq9G7QE2klKp79EPFdCdxc&callback=initialize&libraries=&v=weekly" async></script>
 
     <script src="<?= APP_DIR; ?>assets/js1/index/app.js"></script>
     <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
