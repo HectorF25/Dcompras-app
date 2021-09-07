@@ -21854,6 +21854,13 @@ h5 {
     }
 }
 
+#googleMap,
+#pano {
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+
 .home-main-intro {
     background-image: url(images/other/banner6o.jpg);
     background-size: cover;

@@ -51,7 +51,7 @@
                                 <label for="especificacionProducto">Cantidad</label>
                                 <input type="number" name="cantidadProducto" id="cantidadProducto" value="<?php echo $crearP->getCantidadProducto(); ?>" placeholder="Ingrese la cantidad" required /><br />
                                 <label for="estadoProductoNegocio">Estado Producto</label>
-                                <input type="number" name="estadoProductoNegocio" id="estadoProductoNegocio" value="<?php echo $crearP->getCantidadProducto(); ?>" placeholder="Ingrese el estado" required /><br />
+                                <input type="number" name="estadoProductoNegocio" id="estadoProductoNegocio" value="<?php echo $crearP->getEstadoProductoNegocio(); ?>" placeholder="Ingrese el estado" required /><br />
                                 <input type="submit"href="?c=crearProductos&a=mostrarProductos" name="Volver" value="Volver" class="btn btn-primary"/>
                                 <input type="submit" href="?c=crearProductos&a=Guardar" name="Crear" value="Crear" class="btn btn-primary"/>
                             </form>

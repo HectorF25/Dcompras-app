@@ -51,6 +51,7 @@ class crearProductosController{
         $crearProducto->setIdNegocio($_REQUEST['idNegocio']);
         $crearProducto->setPrecioProducto($_REQUEST['precioProducto']);
         $crearProducto->setCantidadProducto($_REQUEST['cantidadProducto']); 
+        $crearProducto->setEstadoProductoNegocio($_REQUEST['estadoProductoNegocio']); 
         
         
         $crearProducto->getIdProductoNegocio() > 0 
