@@ -50,7 +50,7 @@
                                 </div>
 
                                 <div class="form__div">
-                                    <input type="email" class="form__input" placeholder=" " value="<?php echo $administradores->getCorreoUsuario(); ?>" required>
+                                    <input type="email" class="form__input" placeholder=" " name="emailUsuario" id="emailUsuario" value="<?php echo $administradores->getCorreoUsuario(); ?>" required>
                                     <label for="" class="form__label">Correo(@)</label>
                                 </div>
 

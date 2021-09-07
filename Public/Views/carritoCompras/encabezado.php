@@ -2,16 +2,7 @@
 include '../../../Config/Conexion.php';
 require_once '../../../Config/Conexion.php';
 
-if(!isset($correoUsuario)){
-    echo'<script type="text/javascript">
-    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
-    window.location.href="../index";
-    </script>';
-}else{
-    session_start();
-    $correoUsuario = $_SESSION['correo'];
-    $estado = $_SESSION["estadoUsuario"];
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +53,7 @@ if(!isset($correoUsuario)){
            <li>                        <a href="ver_carrito.php" class="button is-success">
                             <strong><?php
                                                 include_once "../../../App/model/productosModel.php";
-                                                $conteo = count(obtenerIdsDeProductosEnCarrito());
+                                                $conteo = COUNT(obtenerProductosEnCarrito());
                                                 if ($conteo > 0) {
                                                     printf("(%d)", $conteo);
                                                 }
