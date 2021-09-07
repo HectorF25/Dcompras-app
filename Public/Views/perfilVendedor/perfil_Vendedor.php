@@ -70,13 +70,11 @@
                        <a href="./vendedor/index.php?c=crearProductos&a=mostrarProductos">Productos</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <img src="assets/images/crearPedido.png" alt="Correo:" width="25" height="23"></i> Pedidos</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><img src="assets/images/crearPedido.png" alt="Correo:" width="25" height="23"><a href="#"> Crear Pedidos</a></li>
-                            <li><img src="assets/images/actualizarPedido.png" alt="Correo:" width="25" height="23"><a href="#"> Actualizar Pedidos</a></li>
-                        </ul>
+                    <a href="./vendedor/index.php?c=crearProductos&a=mostrarPedidos">
+                         <img src="assets/images/crearPedido.png" alt="Correo:" width="25" height="23"></i> Pedidos</a>
+                       
                     </li>
+                    
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <img src="assets/images/logoDomicilio.png" alt="Correo:" width="25" height="23"> Domicilios</a>
@@ -113,8 +111,8 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="menu.html"><img src="" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="menu.html"><img src="assets/imagen/Marca.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="menu.html"><img src="assets/img/logoD.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="menu.html"><img src="assets/img/logoD.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
@@ -375,10 +373,6 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="card-body--">
-                                        <div>
-                                            <li>Mi negocio: php echo $negocios->getNombreNegocio();</li>
-                                        </div>
                                 </div>
                             </div>
 

@@ -50,9 +50,12 @@
 
                                 <label for="especificacionProducto">Cantidad</label>
                                 <input type="number" name="cantidadProducto" id="cantidadProducto" value="<?php echo $crearP->getCantidadProducto(); ?>" placeholder="Ingrese la cantidad" required /><br />
-                                <input type="submit" href="?c=crearProductos&a=Guardar" name="salir" value="Crear" class="btn btn-primary"/>
+                                <label for="estadoProductoNegocio">Estado Producto</label>
+                                <input type="number" name="estadoProductoNegocio" id="estadoProductoNegocio" value="<?php echo $crearP->getCantidadProducto(); ?>" placeholder="Ingrese el estado" required /><br />
+                                <input type="submit"href="?c=crearProductos&a=mostrarProductos" name="Volver" value="Volver" class="btn btn-primary"/>
+                                <input type="submit" href="?c=crearProductos&a=Guardar" name="Crear" value="Crear" class="btn btn-primary"/>
                             </form>
-                            <input type="submit" href="?c=crearProductos&a=consultarProductos" name="salir" value="Salir" class="btn btn-primary"/></br>
+                            
 
 
                                 </div>

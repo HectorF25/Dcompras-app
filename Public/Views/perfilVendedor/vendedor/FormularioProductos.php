@@ -46,7 +46,8 @@
                                                         <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Rol: activate to sort column ascending" style="width: 140px;">Nombre del Negocio</th>
                                                         <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Ciudad: activate to sort column ascending" style="width: 169.889px;">Precio Producto</th>
                                                         <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Cantidad del Producto</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Acción</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Estado Producto de Negocio</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Acción</th>                                                          
                                                         <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Acción</th>
                                                     </tr>
                                                 </thead>
@@ -57,17 +58,17 @@
                                                             <td><?php echo $c->nombreNegocio; ?></td>
                                                             <td><?php echo $c->precioProducto; ?></td>
                                                             <td><?php echo $c->cantidadProducto; ?></td>
-                                                           
+                                                            <td><?php echo $c->estadoProductoNegocio; ?></td>
                                                             <td>
                                                                 <a id="btn-abrir-popup" href="?c=crearProductos&a=crudCrearP&idProductoNegocio=<?php echo $c->idProductoNegocio; ?>" class="btn-abrir-popup">Modificar</a>
                                                             </td>
                                                             <td>
                                                                 <a onclick="javascript:return confirm('¿Seguro de inactivar este registro?');"
-                                                                    href="?c=crearProductos&a=inactivar&idProductoNegocio=<?php echo $r->idProductoNegocio; ?>">Inactvar</a>
+                                                                    href="?c=crearProductos&a=inactivar&idProductoNegocio=<?php echo $c->idProductoNegocio; ?>">Inactivar</a>
+                                                                    <a onclick="javascript:return confirm('¿Seguro de ctivar este registro?');"
+                                                                    href="?c=crearProductos&a=activar&idProductoNegocio=<?php echo $c->idProductoNegocio; ?>">Activar</a>
                                                             </td>
-                                                            <td>
-
-                                                            </td>
+                                                         
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>

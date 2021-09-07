@@ -13,6 +13,11 @@ class crearProductosController{
         require_once '../../../Views/perfilVendedor/vendedor/FormularioProductos.php';
         require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
     }
+    public function mostrarPedidos(){
+        require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
+        require_once '../../../Views/perfilVendedor/vendedor/PedidosRegistrados.php';
+        require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
+    }
     public function registrarProductos(){
         require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
         require_once '../../../Views/perfilVendedor/vendedor/CrearProductos.php';
@@ -47,6 +52,7 @@ class crearProductosController{
         $crearProducto->setPrecioProducto($_REQUEST['precioProducto']);
         $crearProducto->setCantidadProducto($_REQUEST['cantidadProducto']); 
         
+        
         $crearProducto->getIdProductoNegocio() > 0 
             ? $this->model->Actualizar($crearProducto)
             : $this->model->Registrar($crearProducto);
@@ -56,6 +62,10 @@ class crearProductosController{
 
     public function inactivar(){
         $this->model->InactivarProducto($_REQUEST['idProductoNegocio']);
+        header('Location: index.php?c=crearProductos&a=mostrarProductos');
+    }
+    public function activar(){
+        $this->model->activarProducto($_REQUEST['idProductoNegocio']);
         header('Location: index.php?c=crearProductos&a=mostrarProductos');
     }
 }
