@@ -1,4 +1,32 @@
-<div class="content">
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Modificar</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Tablero</a></li>
+
+                            <li class="active">Datos a Modificar</li>
+                        </ol>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
         <div class="animated fadeIn">
             <div class="row">
 
@@ -50,7 +78,7 @@
                                                                                                                                 echo "INACTIVO";
                                                                                                                             } ?></option>
                                         <option class="form__input" value="1">ACTIVO</option>
-                                        <option class="form__input" value="0">INACTIVO</option> 
+                                        <option class="form__input" value="0">INACTIVO</option>
                                     </select>
                                     <label for="" class="form__label">Estado usuario</label>
                                 </div>

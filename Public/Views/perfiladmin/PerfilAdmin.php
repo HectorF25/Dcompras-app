@@ -168,6 +168,7 @@ if(!isset($correoUsuario)){
                         </a>
 
                         <div class="user-menu dropdown-menu">
+                            
                             <a class="nav-link" href="./administrador/index.php?c=administrador&a=ajustesPerfil"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificaciones <span class="count">13</span></a>

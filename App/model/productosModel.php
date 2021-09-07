@@ -3,9 +3,15 @@
 function obtenerProductosEnCarrito()
 {
     $bd = obtenerConexion();
+<<<<<<< HEAD
     $sentencia = $bd->prepare("SELECT * FROM pedido_producto 
     INNER JOIN producto  as t2 ON t2.idProducto = pedido_producto.idProducto 
     WHERE pedido_producto.idSesion = ?");
+=======
+    iniciarSesionSiNoEstaIniciada();
+
+    $sentencia = $bd->prepare("SELECT * FROM producto AS t1 INNER JOIN producto_negocio AS t2 ON t1.idProducto=t2.idProducto  INNER JOIN pedido_producto  ON t1.idProducto = pedido_producto.idProducto WHERE pedido_producto.idSesion = ?");
+>>>>>>> 1dc436a4e98dd2989d1e2dbf7b1d2c07a2457180
     $idSesion = session_id();
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll();
@@ -51,14 +57,34 @@ function obtenerIdsDeProductosEnCarrito()
     return $sentencia->fetchColumn();
 }
 
+<<<<<<< HEAD
 function agregarProductoAlCarrito($idProducto,$cantidadPedido,$precioPedido)
+=======
+function contarCarrito()
+{
+    $bd = obtenerConexion();
+    iniciarSesionSiNoEstaIniciada();
+
+    $sentencia = $bd->prepare("SELECT COUNT(idProducto) FROM pedido_producto WHERE idSesion = ?");
+    $idSesion = session_id();
+    $sentencia->execute([$idSesion]);
+    return $sentencia->fetchAll(PDO::FETCH_COLUMN);
+}
+
+function agregarProductoAlCarrito($idProducto)
+>>>>>>> 1dc436a4e98dd2989d1e2dbf7b1d2c07a2457180
 {
     // Ligar el id del producto con el usuario a través de la sesión
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
     $idSesion = session_id();
+<<<<<<< HEAD
     $sentencia = $bd->prepare("INSERT INTO pedido_producto(idProducto, cantidadPedido, precioPedido, idSesion) VALUES (?, ?, ?, ?)");
     return $sentencia->execute([$idProducto,$cantidadPedido,$precioPedido,$idSesion]);
+=======
+    $sentencia = $bd->prepare("INSERT INTO pedido_producto(idSesion, idProducto) VALUES (?, ?)");
+    return $sentencia->execute([$idSesion, $idProducto]);
+>>>>>>> 1dc436a4e98dd2989d1e2dbf7b1d2c07a2457180
 }
 
 function contarRegistros()
