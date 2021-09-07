@@ -2,16 +2,15 @@
 include '../../../Config/Conexion.php';
 require_once '../../../Config/Conexion.php';
 
-session_start();
-$correoUsuario = $_SESSION['correo'];
-$estado = $_SESSION["estadoUsuario"];
 if(!isset($correoUsuario)){
     echo'<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
-    window.location.href="../Login";
+    window.location.href="../index";
     </script>';
 }else{
-    
+    session_start();
+    $correoUsuario = $_SESSION['correo'];
+    $estado = $_SESSION["estadoUsuario"];
 }
 ?>
 

@@ -11,6 +11,8 @@ class administrador extends Usuario
     private $fechanacimiento;
     private $documentousuario;
     private $estadousuario;
+    private $direccionUsuario;
+    private $imgUsuario;
     private $idtipodoc;
     private $idPerfilUsuario;
 
@@ -18,12 +20,12 @@ class administrador extends Usuario
     {
         try {
             $this->pdo = Conexion::Conectar();
-        } catch (Exception $e) {
+        } catch (Exception $e) {    
             die($e->getMessage());
         }
     }
 
-    public function __Administador($idusuario, $correousuario, $contraseñausuario, $nombreusuario, $apellidousuario,$fechanacimiento, $documentousuario, $estadousuario, $idtipodoc,$idPerfilUsuario)
+    public function __Administador($idusuario, $correousuario, $contraseñausuario, $nombreusuario, $apellidousuario,$fechanacimiento, $documentousuario, $estadousuario,$direccionUsuario,$imgUsuario,$idtipodoc,$idPerfilUsuario)
     {
         parent::__USUARIO($idusuario, $correousuario, $contraseñausuario);
         $this->nombreusuario = $nombreusuario;
@@ -31,6 +33,8 @@ class administrador extends Usuario
         $this->fechanacimiento = $fechanacimiento;
         $this->documentousuario = $documentousuario;
         $this->estadousuario = $estadousuario;
+        $this->direccionUsuario = $direccionUsuario;
+        $this->imgUsuario = $imgUsuario;
         $this->idtipodoc = $idtipodoc;
         $this->idPerfilUsuario = $idPerfilUsuario;
     }
@@ -168,7 +172,44 @@ class administrador extends Usuario
     {
         return $this->estadousuario;
     }
+/**
+     * Get the value of direccionUsuario
+     */ 
+    public function getDireccionUsuario()
+    {
+        return $this->direccionUsuario;
+    }
 
+    /**
+     * Set the value of direccionUsuario
+     *
+     * @return  self
+     */ 
+    public function setDireccionUsuario($direccionUsuario)
+    {
+        $this->direccionUsuario = $direccionUsuario;
+
+        return $this;
+    }
+    /**
+     * Get the value of imgUsuario
+     */ 
+    public function getImgUsuario()
+    {
+        return $this->imgUsuario;
+    }
+
+    /**
+     * Set the value of imgUsuario
+     *
+     * @return  self
+     */ 
+    public function setImgUsuario($imgUsuario)
+    {
+        $this->imgUsuario = $imgUsuario;
+
+        return $this;
+    }
     /**
      * Get the value of idtipodoc
      */ 
@@ -246,6 +287,8 @@ class administrador extends Usuario
                         fechaNacimiento  = ?,
                         documentoUsuario  = ?,
                         estadoUsuario  = ?,
+                        direccionUsuario  = ?,
+                        imgUsuario  = ?,
                         idTipoDoc  = ?,
                         idPerfilUsuario  = ?
 						
@@ -261,6 +304,8 @@ class administrador extends Usuario
                         $data->getFechanacimiento(),
                         $data->getDocumentousuario(),
                         $data->getEstadousuario(),
+                        $data->getDireccionUsuario(),
+                        $data->getImgUsuario(),
                         $data->getIdTipodoc(),
                         $data->getIdPerfilUsuario(),
                         $data->getIdUsuario()
@@ -298,5 +343,4 @@ class administrador extends Usuario
 			die($e->getMessage());
 		}
 	}
-
 }
