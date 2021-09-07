@@ -1,7 +1,6 @@
 <?php
 include '../../../Config/Conexion.php';
 require_once '../../../Config/Conexion.php';
-<<<<<<< HEAD
 session_start();
     $correoUsuario = $_SESSION['correo'];
     $estado = $_SESSION["estadoUsuario"];
@@ -13,10 +12,6 @@ if(!isset($correoUsuario)){
 }else{
     
 }
-=======
-
-
->>>>>>> 1dc436a4e98dd2989d1e2dbf7b1d2c07a2457180
 ?>
 
 <!DOCTYPE html>

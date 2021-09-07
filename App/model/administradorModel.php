@@ -332,13 +332,8 @@ class administrador extends Usuario
                     $data->getFechanacimiento(),
                     $data->getDocumentousuario(),
                     $data->getEstadousuario(),
-<<<<<<< HEAD
                     $data->getDireccionUsuario(),
                     $data->getImgUsuario(),
-=======
-                    $data->getDireccionusuario(),
-                    $data->getImgusuario(),
->>>>>>> 1dc436a4e98dd2989d1e2dbf7b1d2c07a2457180
                     $data->getIdTipodoc(),
                     $data->getIdPerfilUsuario()
                 )
