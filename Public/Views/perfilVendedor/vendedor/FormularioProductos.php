@@ -65,7 +65,7 @@
                                                             <td>
                                                                 <a onclick="javascript:return confirm('¿Seguro de inactivar este registro?');"
                                                                     href="?c=crearProductos&a=inactivar&idProductoNegocio=<?php echo $c->idProductoNegocio; ?>">Inactivar</a>
-                                                                    <a onclick="javascript:return confirm('¿Seguro de ctivar este registro?');"
+                                                                    <a onclick="javascript:return confirm('¿Seguro de Activar este registro?');"
                                                                     href="?c=crearProductos&a=activar&idProductoNegocio=<?php echo $c->idProductoNegocio; ?>">Activar</a>
                                                             </td>
                                                          
