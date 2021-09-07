@@ -10,6 +10,7 @@ class crearProducto
     private $idNegocio;
     private $precioProducto;
     private $cantidadProducto;
+    private $estadoProducto;
 
 
     public function __CONSTRUCT()
@@ -21,13 +22,14 @@ class crearProducto
         }
     }
 
-    public function __crearProducto($idProductoNegocio,$idProducto,$idNegocio, $precioProducto, $cantidadProducto)
+    public function __crearProducto($idProductoNegocio,$idProducto,$idNegocio, $precioProducto, $cantidadProducto, $estadoProducto)
     {
         $this->idProductoNegocio = $idProductoNegocio;
         $this->idProducto = $idProducto;
         $this->idNegocio = $idNegocio;
         $this->idNegocio = $precioProducto;
         $this->cantidadProducto = $cantidadProducto;
+        $this->estadoProducto = $estadoProducto;
     }
     
     /**
@@ -125,6 +127,40 @@ class crearProducto
 
         return $this;
     }
+/**
+     * Get the value of estadoProducto
+     */
+    public function getEstadoProducto()
+    {
+        return $this->estadoProducto;
+    }
+
+    /**
+     * Set the value of estadoProducto
+     *
+     * @return  self
+     */
+    public function setEstadoProducto($estadoProducto)
+    {
+        $this->estadoProducto = $estadoProducto;
+
+        return $this;
+    }
+
+    public function ListarPedido()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM Pedido
+            INNER JOIN usuario ON pedido.idUsuario = usuario.idUsuario
+            INNER JOIN tipoPago ON pedido.idTipoPago = tipoPago.idTipoPago 
+            INNER JOIN negocio ON pedido.idNegocio = negocio.idNegocio
+            INNER JOIN barrio ON pedido.idBarrio = barrio.idBarrio");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
     public function ListarProducto()
     {
@@ -180,8 +216,8 @@ class crearProducto
     public function Registrar(crearProducto $data)
     {
         try {
-            $sql = "INSERT INTO producto_negocio (idProducto,idNegocio,precioProducto,cantidadProducto) 
-		        VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO producto_negocio (idProducto,idNegocio,precioProducto,cantidadProducto,estadoProductoNegocio) 
+		        VALUES (?, ?, ?, ?, ?)";
 
             $this->pdo->prepare($sql)
                 ->execute(
@@ -190,6 +226,7 @@ class crearProducto
                         $data->getIdNegocio(),
                         $data->getPrecioProducto(),
                         $data->getCantidadProducto(),
+                        $data->getEstadoProducto(),
                         $data->getIdProductoNegocio()                
                     )
                 );
@@ -199,9 +236,10 @@ class crearProducto
     }
     public function InactivarProducto($idProductoNegocio){
         try {
+            
             $sql =$this->pdo->prepare("UPDATE producto_negocio SET 
-						estadoProductoNegocio  = 0,
-				    WHERE idProductoNegocio = ?");
+						estadoProductoNegocio  = 0
+				    WHERE `producto_negocio`.`idProductoNegocio`  = ?");
 
             $sql->execute(array($idProductoNegocio));
 		    } catch (Exception $e) 
@@ -209,4 +247,17 @@ class crearProducto
 			die($e->getMessage());
 		    }
 	}
+    public function activarProducto($idProductoNegocio){
+        try {
+            
+            $sql =$this->pdo->prepare("UPDATE producto_negocio SET 
+						estadoProductoNegocio  = 1
+				    WHERE `producto_negocio`.`idProductoNegocio`  = ?");
+
+            $sql->execute(array($idProductoNegocio));
+		    } catch (Exception $e) 
+		    {
+			die($e->getMessage());
+		    }
+        }
 }

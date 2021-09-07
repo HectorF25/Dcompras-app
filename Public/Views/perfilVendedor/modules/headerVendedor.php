@@ -66,12 +66,7 @@
                     </li>
                     <li class="menu-title">Menú</li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <img src="../assets/images/product.png" alt="Correo:" width="25" height="23"><a href="#">Productos</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Crear Producto</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Modificar Productos</a></li>
-                        </ul>
+                        <a href="../perfil_Vendedor.php">Mi Negocio</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -118,7 +113,7 @@
             <div class="top-left">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="menu.html"><img src="../assets/img/logoD.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="menu.html"><img src="../assets/images/Marca.png" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="menu.html"><img src="../assets/img/logoD.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
