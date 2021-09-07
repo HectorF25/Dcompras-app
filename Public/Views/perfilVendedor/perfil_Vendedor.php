@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>D compras | Vendedor</title>
+    <title>Dcompras | Vendedor</title>
     <link rel="apple-touch-icon" href="../../../App/assets/img/Recurso 1LogoD.png">
     <link rel="shortcut icon" href="../../../App/assets/img/Recurso 1LogoD.png">
 

@@ -16,7 +16,7 @@ if(!isset($correoUsuario)){
 <head>
 
     <meta charset="utf-8">
-    <title>D compras | Administrador</title>
+    <title>Dcompras | Administrador</title>
     <link rel="apple-touch-icon" href="../../../../App/assets/img/Recurso 1LogoD.png">
     <link rel="shortcut icon" href="../../../../App/assets/img/Recurso 1LogoD.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -234,7 +234,7 @@ if(!isset($correoUsuario)){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
+                        <a class="nav-link" href="../perfiladmin/administrador/AjustesPerfil.phps"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificaciones <span class="count">13</span></a>
 
