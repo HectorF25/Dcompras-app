@@ -70,3 +70,5 @@ function mensaje() {
     window.location('../index.php')
     alertify.success('Negocio agregado');
 }
+
+
