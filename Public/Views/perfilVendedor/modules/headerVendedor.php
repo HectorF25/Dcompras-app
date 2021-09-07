@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>D compras | Vendedor</title>
+    <title>Dcompras | Vendedor</title>
     <link rel="apple-touch-icon" href="../../../../App/assets/img/Recurso 1LogoD.png">
     <link rel="shortcut icon" href="../../../../App/assets/img/Recurso 1LogoD.png">
     <script src="https://kit.fontawesome.com/11509ce6e2.js"></script>
@@ -62,23 +62,20 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fas fa-user"></i>Vendedor</a>
+                        <a href="#"><i class="fas fa-user"></i>Vendedor</a>
                     </li>
                     <li class="menu-title">Menú</li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="../perfil_Vendedor.php">Mi Negocio</a>
+                    <li class="menu-item">
+                        <i class="fa fa-building"><a href="../perfil_Vendedor.php">Mi Negocio</a></i>
+                    </li>
+                    <li class="menu-item-has">
+                        <a href="../vendedor/index.php?c=crearProductos&a=mostrarPedidos" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <img src="../assets/images/crearPedido.png" alt="Correo:" width="25" height="23"></i> Pedidos</a>
+
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <img src="assets/images/crearPedido.png" alt="Correo:" width="25" height="23"></i> Pedidos</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><img src="../assets/images/crearPedido.png" alt="Correo:" width="25" height="23"><a href="#"> Crear Pedidos</a></li>
-                            <li><img src="../assets/images/actualizarPedido.png" alt="Correo:" width="25" height="23"><a href="#"> Actualizar Pedidos</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <img src="assets/images/logoDomicilio.png" alt="Correo:" width="25" height="23"> Domicilios</a>
+                            aria-expanded="false"> <img src="../assets/images/logoDomicilio.png" alt="Correo:" width="25" height="23"> Domicilios</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><img src="../assets/images/logoDomicilio.png" alt="Correo:" width="25" height="23"><a href="#"> Crear Domicilios</a></li>
                             <li><img src="../assets/images/search.png" alt="Correo:" width="25" height="23"><a href="#"> Consultar Domicilios</a></li>
@@ -86,10 +83,10 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        <a href="../../../Public/Views/catalogo.php" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <img src="../assets/images/catalogue.png" alt="Correo:" width="25" height="23"> Catalogo</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><img src="../assets/images/logoCatalogoCrear.png" alt="Correo:" width="25" height="23"><a href="#"> Crear Catalogo</a></li>
+                            <li><img src="../assets/images/logoCatalogoCrear.png" alt="Correo:" width="25" height="23"><a href="../../../Public/Views/catalogo.php"> Ver Catalogo</a></li>
                             <li><img src="../assets/images/note.png" alt="Correo:" width="25" height="23"><a href="#"> Actualizar Catalogo</a></li>
                         </ul>
                     </li>
@@ -209,7 +206,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Ajustes</a>
 
-                            <a class="nav-link" href="../../../App/controller/logoutController.php"><i class="fa fa-power -off"></i>Cerrar Sesión</a>
+                            <a class="nav-link" href="../../../../App/controller/logoutController.php"><i class="fa fa-power -off"></i>Cerrar Sesión</a>
                         </div>
                     </div>
 

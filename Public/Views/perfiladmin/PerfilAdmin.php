@@ -57,18 +57,18 @@ if(!isset($correoUsuario)){
                     </li>
                     <li class="menu-title">Elementos de Consulta</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Funciones</a>
-                        <ul class="sub-menu children dropdown-menu">   
-                        <li><i class="fa fa-user"></i><a href="./administrador/index.php?c=administrador&a=index">Clientes Registrados</a></li>
-                        <li><i class="fa fa-id-card-o"></i><a href="./administrador/index.php?c=negocios&a=negocios">Negocios Registrados</a></li>
+                        <a href="#"> <i class="menu-icon fa fa-cogs"></i>Funciones</a>
+                        
+                        <li><i class="fa fa-user"></i><a href="./administrador/index.php?c=administrador&a=modificionusuarios">Usuarios Registrados</a></li>
+                        <li><i class="fa fa-building"></i><a href="./administrador/index.php?c=negocios&a=negocios">Negocios Registrados</a></li>
                        
-                        <li><i class="fa fa-puzzle-piece"></i><a href="./administrador/index.php?c=administrador&a=modificionusuarios">Modificacion Usuarios</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.php">Negocios Inactivos</a></li>
+                        <li><i class="fa fa-pencil-square"></i><a href="./administrador/index.php?c=administrador&a=modificionusuarios">Modificacion Usuarios</a></li>
+                            <li><i class="fa fa-archive"></i><a href="ui-badges.php">Negocios Inactivos</a></li>
                             
                             <li><i class="fa fa-exclamation-triangle"></i><a href="./administrador/FallasSistema.php">Fallas en el sistema</a></li>
                            
                             
-                        </ul>
+                        
                     </li>
                     
             </div><!-- /.navbar-collapse -->
@@ -168,7 +168,7 @@ if(!isset($correoUsuario)){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="../perfiladmin/administrador/AjustesPerfil.phps"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
+                            <a class="nav-link" href="./administrador/index.php?c=administrador&a=ajustesPerfil"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificaciones <span class="count">13</span></a>
 
