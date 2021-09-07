@@ -3,7 +3,9 @@
 function obtenerProductosEnCarrito()
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("SELECT * FROM producto AS t1 INNER JOIN producto_negocio AS t2 ON t1.idProducto=t2.idProducto  INNER JOIN pedido_producto  ON t1.idProducto = pedido_producto.idProducto WHERE pedido_producto.idSesion = ?");
+    $sentencia = $bd->prepare("SELECT * FROM pedido_producto 
+    INNER JOIN producto  as t2 ON t2.idProducto = pedido_producto.idProducto 
+    WHERE pedido_producto.idSesion = ?");
     $idSesion = session_id();
     $sentencia->execute([$idSesion]);
     return $sentencia->fetchAll();
@@ -43,26 +45,28 @@ function productoYaEstaEnCarrito($idProducto)
 function obtenerIdsDeProductosEnCarrito()
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("SELECT idProducto FROM pedido_producto WHERE idSesion = ?");
+    $sentencia = $bd->prepare("SELECT COUNT(*) FROM pedido_producto WHERE idSesion = ?");
     $idSesion = session_id();
     $sentencia->execute([$idSesion]);
-    return $sentencia->fetchAll(PDO::FETCH_COLUMN);
+    return $sentencia->fetchColumn();
 }
 
-function agregarProductoAlCarrito($idProducto)
+function agregarProductoAlCarrito($idProducto,$cantidadPedido,$precioPedido)
 {
     // Ligar el id del producto con el usuario a través de la sesión
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
     $idSesion = session_id();
-    $sentencia = $bd->prepare("INSERT INTO pedido_producto(idProducto, idSesion) VALUES (?, ?)");
-    return $sentencia->execute([$idProducto, $idSesion]);
+    $sentencia = $bd->prepare("INSERT INTO pedido_producto(idProducto, cantidadPedido, precioPedido, idSesion) VALUES (?, ?, ?, ?)");
+    return $sentencia->execute([$idProducto,$cantidadPedido,$precioPedido,$idSesion]);
 }
 
 function contarRegistros()
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("SELECT COUNT(*) total FROM producto");
+    $sentencia = $bd->prepare("SELECT  COUNT(*) total FROM producto_negocio AS t1
+    INNER JOIN Producto AS t2 ON t1.idProducto=t2.idProducto
+    INNER JOIN Negocio AS t3 ON t1.idNegocio=t3.idNegocio");
     $sentencia->execute();
     return $sentencia->fetchColumn();
 }

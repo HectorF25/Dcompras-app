@@ -1,7 +1,7 @@
 <?php include_once "encabezado.php" ?>
 <?php
 include_once "../../../App/model/productosModel.php";
-$productos = obtenerProductos();
+$productos = obtenerProductosCatalogo();
 ?>
 
 
@@ -62,18 +62,20 @@ $productos = obtenerProductos();
                     </div>
                     <div class="card-body">
                         <img src="./assets/img/productos/<?php echo $producto->imgProducto ?>.jpg" class="card-img-top res">
-                        <h1 class="card-title pricing-card-title precio">$ <span class=""><?php echo number_format($producto->precioProducto, 0) ?></span></h1>
+                        <h1 class="card-title pricing-card-title precio">$ <span class=""><?php echo number_format($producto->precioProductoNegocio, 0) ?></span></h1>
 
                         <ul class="list-unstyled mt-3 mb-4">
                             <li></li>
                             <li><h4><?php echo $producto->especificacionProducto ?></h4></li>
                          
                             <li><h4><?php echo $producto->nombreProducto ?></h4></li>
+                            <li><h4><?php echo $producto->idNegocio ?> <?php echo $producto->nombreNegocio ?></h4></li>
                         </ul>
                         <?php ?>
                         <form action="../../../App/controller/agregar_al_carrito.php" method="post">
                             <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
-
+                            <input type="hidden" name="precioProductoNegocio" value="<?php echo $producto->precioProductoNegocio ?>">
+                            <input type="hidden" name="cantidadProducto" value="<?php echo $producto->cantidadProducto ?>">
                             <a href="javascript:void(0);">
                                 <button class="btn btn-block agregar-carrito">
                                 <i class="fa fa-cart-plus"></i>Agregar al carrito

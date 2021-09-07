@@ -50,7 +50,7 @@
                                 </div>
 
                                 <div class="form__div">
-                                    <input type="email" class="form__input" placeholder=" " value="<?php echo $administradores->getCorreoUsuario(); ?>" required>
+                                    <input type="email" class="form__input" name="correoUsuario" id="correoUsuario" placeholder=" " value="<?php echo $administradores->getCorreoUsuario(); ?>" required>
                                     <label for="" class="form__label">Correo(@)</label>
                                 </div>
 
@@ -84,21 +84,16 @@
                                 </div>
 
                                 <div class="form__div">
-                                    <input type="file" class="form__input" placeholder=" " name="imgUsuario" id="imgUsuario" value="<?php echo $administradores->getImgUsuario(); ?>">
+                                    <input type="file" class="form__input" placeholder=" " name="imgUsuario" id="imgUsuario" value="<?php echo $administradores->getImgUsuario(); ?>" accept="image/*">
                                     <label for="" class="form__label">Imagen usuario</label>
                                 </div>
 
                                 <div class="form__div">
                                     <select class="form__input" id="idTipoDoc" name="idTipoDoc">
                                         <option class="form__input" value="<?php echo $administradores->getIdTipoDoc(); ?>"><?php echo $administradores->getIdTipoDoc(); ?></option>
-                                        <?php
-                                    
-                                    foreach ($this -> model ->Listar() as $valores):?> 
-
-                                    <option value="<?php echo $valores -> idTipoDoc ?>"><?php echo $valores->nombreTipoDoc?></option>
-                                    <?php
-                                    endforeach;
-                                    ?>
+                                        <option value="1">Cedula</option>
+                                        <option value="2">Cedula Extranjera</option>
+                                        <option value="3">Tarjeta de identidad</option>
                                     </select>
                                     <label for="" class="form__label">Id. Tipo doc</label>
                                 </div>
@@ -106,14 +101,10 @@
                                 <div class="form__div">
                                 <select class="form__input" id="idPerfilUsuario" name="idPerfilUsuario">
                                         <option class="form__input" value="<?php echo $administradores->getIdPerfilUsuario(); ?>"><?php echo $administradores->getIdPerfilUsuario(); ?></option>
-                                        <?php
-                                    
-                                    foreach ($this -> model ->Listar() as $valores):?> 
-
-                                    <option value="<?php echo $valores -> idPerfilUsuario ?>"><?php echo $valores->nombrePerfilUsuario?></option>
-                                    <?php
-                                    endforeach;
-                                    ?>
+                                        <option value="1">Administrador</option>
+                                        <option value="2">Cliente</option>
+                                        <option value="3">Vendedor</option>
+                                        <option value="4">Repartidor</option>
                                     </select>
                                     <label for="" class="form__label">Id. perfil usuario</label>
                                 </div>

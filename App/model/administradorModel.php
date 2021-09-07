@@ -288,7 +288,6 @@ class administrador extends Usuario
                         documentoUsuario  = ?,
                         estadoUsuario  = ?,
                         direccionUsuario  = ?,
-                        imgUsuario  = ?,
                         idTipoDoc  = ?,
                         idPerfilUsuario  = ?
 						
@@ -305,7 +304,6 @@ class administrador extends Usuario
                         $data->getDocumentousuario(),
                         $data->getEstadousuario(),
                         $data->getDireccionUsuario(),
-                        $data->getImgUsuario(),
                         $data->getIdTipodoc(),
                         $data->getIdPerfilUsuario(),
                         $data->getIdUsuario()
@@ -321,8 +319,8 @@ class administrador extends Usuario
 	{
 		try 
 		{
-		$sql = "INSERT INTO USUARIO (nombreUsuario,apellidoUsuario,contraseñaUsuario,correoUsuario,fechaNacimiento,documentoUsuario,estadoUsuario,idTipoDoc,idPerfilUsuario) 
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO USUARIO (nombreUsuario,apellidoUsuario,contraseñaUsuario,correoUsuario,fechaNacimiento,documentoUsuario,estadoUsuario,direccionUsuario,imgUsuario,idTipoDoc,idPerfilUsuario) 
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -334,6 +332,8 @@ class administrador extends Usuario
                     $data->getFechanacimiento(),
                     $data->getDocumentousuario(),
                     $data->getEstadousuario(),
+                    $data->getDireccionUsuario(),
+                    $data->getImgUsuario(),
                     $data->getIdTipodoc(),
                     $data->getIdPerfilUsuario()
                 )

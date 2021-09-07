@@ -50,7 +50,7 @@ if (count($productos) <= 0) {
                                 <h5 class="subtitle"><?php echo $producto->especificacionProducto ?></h5>
                             </td>
                             <td>
-                                <h5 class="subtitle">$<?php echo number_format($producto->precioProducto, 2) ?></h5>
+                                <h5 class="subtitle">$<?php echo number_format($producto->precioProductoNegocio, 2) ?></h5>
                             </td>
                         <?php } ?>
                         </tr>
