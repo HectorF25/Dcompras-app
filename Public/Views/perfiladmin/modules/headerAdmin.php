@@ -177,6 +177,7 @@ if(!isset($correoUsuario)){
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="../img/admin.jpg" alt="User Avatar">
+                        </a>
                         <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="../administrador/index.php?c=administrador&a=ajustesPerfil"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
 
