@@ -246,7 +246,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Configuraciones</a>
 
-                            <a class="nav-link" href="/login.html"><i class="fa fa-power -off"></i>Cerrar Sesión</a>
+                            <a class="nav-link" href="../../../App/controller/logoutController.php"><i class="fa fa-power -off"></i>Cerrar Sesión</a>
                         </div>
                     </div>
 

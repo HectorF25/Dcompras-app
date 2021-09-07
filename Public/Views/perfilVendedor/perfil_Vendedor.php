@@ -85,10 +85,10 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        <a href="../../../Views/catalogo.php" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <img src="assets/images/catalogue.png" alt="Correo:" width="25" height="23"> Catalogo</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><img src="assets/images/logoCatalogoCrear.png" alt="Correo:" width="25" height="23"><a href="#"> Crear Catalogo</a></li>
+                            <li><img src="assets/images/logoCatalogoCrear.png" alt="Correo:" width="25" height="23"><a href="../../../Public/Views/catalogo.php"> Crear Catalogo</a></li>
                             <li><img src="assets/images/note.png" alt="Correo:" width="25" height="23"><a href="#"> Actualizar Catalogo</a></li>
                         </ul>
                     </li>

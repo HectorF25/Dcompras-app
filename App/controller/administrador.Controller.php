@@ -14,6 +14,11 @@ class administradorController{
         require_once '../../../Views/perfilAdmin/administrador/Clientes.php';
         require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
     }
+    public function ajustesPerfil(){
+        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
+        require_once '../../../Views/perfilAdmin/administrador/AjustesPerfil.php';
+        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+    }
     public function fallasSistema(){
         require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
         require_once '../../../Views/perfilAdmin/administrador/FallasSistema.php';
