@@ -176,7 +176,7 @@ O busca por categoría:
                         </div>
                         <div class="list-inline pb-8 flex-wrap my-n2">
                             <div class="list-inline-item py-2">
-                                <a href="explore-sidebar-grid.html" class="card border-0 icon-box-style-01 link-hover-dark-white">
+                                <a href="./catalogo" class="card border-0 icon-box-style-01 link-hover-dark-white">
                                     <div class="card-body p-0">
                                         <svg class="icon icon-pizza">
 <use xlink:href="#icon-pizza"></use>
@@ -188,7 +188,7 @@ Comida rápida
                                 </a>
                             </div>
                             <div class="list-inline-item py-2">
-                                <a href="explore-sidebar-grid.html" class="card border-0 icon-box-style-01 link-hover-dark-white">
+                                <a href="./catalogo" class="card border-0 icon-box-style-01 link-hover-dark-white">
                                     <div class="card-body p-0">
                                         <svg class="icon icon-bed">
 <use xlink:href="#icon-bed"></use>
@@ -200,7 +200,7 @@ Productos
                                 </a>
                             </div>
                             <div class="list-inline-item py-2">
-                                <a href="explore-sidebar-grid.html" class="card border-0 icon-box-style-01 link-hover-dark-white">
+                                <a href="./catalogo" class="card border-0 icon-box-style-01 link-hover-dark-white">
                                     <div class="card-body p-0">
                                         <svg class="icon icon-brush2">
 <use xlink:href="#icon-brush2"></use>
@@ -212,7 +212,7 @@ Servicios
                                 </a>
                             </div>
                             <div class="list-inline-item py-2">
-                                <a href="explore-sidebar-grid.html" class="card border-0 link-hover-dark-white icon-box-style-01">
+                                <a href="./catalogo" class="card border-0 link-hover-dark-white icon-box-style-01">
                                     <div class="card-body p-0">
                                         <svg class="icon icon-pharmaceutical">
 <use xlink:href="#icon-pharmaceutical"></use>
@@ -224,7 +224,7 @@ Medicinas
                                 </a>
                             </div>
                             <div class="list-inline-item py-2">
-                                <a href="explore-sidebar-grid.html" class="card border-0 link-hover-dark-white icon-box-style-01">
+                                <a href="./catalogo" class="card border-0 link-hover-dark-white icon-box-style-01">
                                     <div class="card-body p-0">
                                         <svg class="icon icon-cog">
 <use xlink:href="#icon-cog"></use>
@@ -237,7 +237,7 @@ Soporte
                             </div>
 
                             <div class="list-inline-item py-2">
-                                <a href="explore-sidebar-grid.html" class="card border-0 link-hover-dark-white icon-box-style-01">
+                                <a href="./catalogo" class="card border-0 link-hover-dark-white icon-box-style-01">
                                     <div class="card-body p-0">
                                         <svg class="icon icon-car">
 <use xlink:href="#icon-car"></use>

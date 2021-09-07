@@ -16133,7 +16133,7 @@ button.bg-gray-06:focus {
 }
 
 .text-dark {
-    color: white !important;
+    color: #000 !important;
 }
 
 .text-white {

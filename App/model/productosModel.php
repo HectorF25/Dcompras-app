@@ -20,8 +20,15 @@ function quitarProductoDelCarrito($idProducto)
 function obtenerProductos()
 {
     $bd = obtenerConexion();
- 
     $sentencia = $bd->query("SELECT * FROM producto AS t1 INNER JOIN producto_negocio AS t2 ON t1.idProducto=t2.idProducto");
+    return $sentencia->fetchAll();
+}
+function obtenerProductosCatalogo()
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->query("SELECT * FROM producto_negocio AS t1
+    INNER JOIN Producto AS t2 ON t1.idProducto=t2.idProducto
+    INNER JOIN Negocio AS t3 ON t1.idNegocio=t3.idNegocio");
     return $sentencia->fetchAll();
 }
 function productoYaEstaEnCarrito($idProducto)
@@ -50,6 +57,14 @@ function agregarProductoAlCarrito($idProducto)
     $idSesion = session_id();
     $sentencia = $bd->prepare("INSERT INTO pedido_producto(idProducto, idSesion) VALUES (?, ?)");
     return $sentencia->execute([$idProducto, $idSesion]);
+}
+
+function contarRegistros()
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->prepare("SELECT COUNT(*) total FROM producto");
+    $sentencia->execute();
+    return $sentencia->fetchColumn();
 }
 
 function iniciarSesionSiNoEstaIniciada()

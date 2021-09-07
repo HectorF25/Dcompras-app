@@ -83,7 +83,7 @@ $productos = obtenerProductos();
                     </div>
                 
 
-                    </div>
+                </div>
         </div>
 
 
