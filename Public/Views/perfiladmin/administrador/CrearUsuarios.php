@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-header">
 
-                            <form action="?c=administrador&a=Guardar" target="" method="POST" value="<?php echo $administradores->getIdUsuario(); ?>" class="formularios" name="formDatosPersonales">
+                            <form action="?c=administrador&a=Guardar" target="" method="POST" value="<?php echo $administradores->getIdUsuario(); ?>" class="formularios" name="formDatosPersonales" enctype="multipart/form-data">
 
                                 <div class="form__div">
                                     <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $administradores->getIdUsuario(); ?>" />

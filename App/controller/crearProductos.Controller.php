@@ -59,6 +59,7 @@ class crearProductosController{
             : $this->model->Registrar($crearProducto);
         
         header('Location: index.php?c=crearProductos&a=mostrarProductos');
+        
     }
 
     public function inactivar(){

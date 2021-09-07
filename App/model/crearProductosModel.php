@@ -178,7 +178,7 @@ class crearProducto
     public function Obtener($idProductoNegocio)
     {
         try {
-            $sql = $this->pdo->prepare("SELECT tableProductoN.idProductoNegocio,tableProductoN.idNegocio,tableProductoN.idProducto ,nombreProducto, nombreNegocio, precioProducto,cantidadProducto FROM producto_negocio as tableProductoN
+            $sql = $this->pdo->prepare("SELECT tableProductoN.idProductoNegocio,tableProductoN.idNegocio,tableProductoN.idProducto ,nombreProducto, nombreNegocio, tableProductoN.precioProducto,cantidadProducto FROM producto_negocio as tableProductoN
             INNER JOIN producto ON tableProductoN.idProducto = producto.idProducto
             INNER JOIN negocio ON tableProductoN.idNegocio = negocio.idNegocio  WHERE tableProductoN.idProductoNegocio = ?");
             $sql->execute(array($idProductoNegocio));
