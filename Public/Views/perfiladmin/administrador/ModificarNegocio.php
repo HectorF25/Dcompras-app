@@ -93,7 +93,7 @@
 
         <!-- Grupo: Nit -->
         <div class="formulario__grupo" id="grupo__nit">
-            <label for="telefono" class="formulario__label">Nit</label>
+            <label for="nitNegocio" class="formulario__label">Nit</label>
             <div class="formulario__grupo-input">
                 <input type="text" class="formulario__input" name="nitNegocio" id="nitNegocio" placeholder="800.197.268-4" value="<?php echo $negocios->nitNegocio ?>">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -220,8 +220,7 @@
 <!-- custom js file link  -->
 <script src="./js/happ.js"></script>
 
-<script src="./js/form.js"></script>
-
+<script src="./js/formModficarNegocio.js"></script>
 
 <!-- initializing aos  -->
 

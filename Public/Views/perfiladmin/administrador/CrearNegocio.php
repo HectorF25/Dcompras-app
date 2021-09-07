@@ -221,7 +221,7 @@
 <!-- custom js file link  -->
 <script src="./js/happ.js"></script>
 
-<script src="./js/form.js"></script>
+<script src="./js/formNegocio.js"></script>
 
 
 <!-- initializing aos  -->

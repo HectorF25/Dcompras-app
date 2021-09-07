@@ -321,8 +321,8 @@ class administrador extends Usuario
 	{
 		try 
 		{
-		$sql = "INSERT INTO USUARIO (nombreUsuario,apellidoUsuario,contraseñaUsuario,correoUsuario,fechaNacimiento,documentoUsuario,estadoUsuario,idTipoDoc,idPerfilUsuario) 
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO USUARIO (nombreUsuario,apellidoUsuario,contraseñaUsuario,correoUsuario,fechaNacimiento,documentoUsuario,estadoUsuario,direccionUsuario,imgUsuario,idTipoDoc,idPerfilUsuario) 
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -334,6 +334,8 @@ class administrador extends Usuario
                     $data->getFechanacimiento(),
                     $data->getDocumentousuario(),
                     $data->getEstadousuario(),
+                    $data->getDireccionusuario(),
+                    $data->getImgusuario(),
                     $data->getIdTipodoc(),
                     $data->getIdPerfilUsuario()
                 )
