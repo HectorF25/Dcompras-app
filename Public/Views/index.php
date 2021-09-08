@@ -66,8 +66,8 @@ include '../../Config/appConfig.php';
                         <div class="form-search form-search-style-02 pb-9" data-animate="fadeInDown">
                             <form>
                                 <div class="row align-items-end no-gutters">
-                                    <div class="col-xl-6 mb-4 mb-xl-0 py-3 px-4 bg-white border-right-0 border-right-xl position-relative rounded form-search-item">
-                                        <label for="key-word" class="font-size-md font-weight-semibold text-dark mb-0 lh-1">¿Qué buscas?</label>
+                                    <div class="col-xl-5 mb-4 mb-xl-0 py-3 px-4 bg-white border-right-0 border-right-xl position-relative rounded form-search-item">
+                                        <label for="key-word" class="font-size-md font-weight-semibold text-dark mb-0 lh-1" style="margin-right: 20px;">¿Qué buscas?</label>
                                         <div class="input-group dropdown show">
                                             <input type="text" autocomplete="off" id="key-word" class="form-control form-control-mini border-0 px-0" placeholder="Ej: comida, servicio, ropa" data-toggle="dropdown" aria-haspopup="true">
                                             <a href="#" class="input-group-append text-decoration-none">
@@ -163,7 +163,7 @@ Sevilla
                                         </div>
                                     </div>
                                     <div class="col-xl-2 button">
-                                        <button type="submit" class="btn btn-primary"><i class="fal fa-search"></i>Buscar
+                                        <button type="submit" class="btn btn-primary" style="height: 88px; width: 130px;"><i class="fal fa-search"></i>Buscar
 </button>
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@ Accesorios
                     <div class="home-main-how-it-work bg-white pt-11">
                         <div class="container">
                             <h2 class="mb-8">
-                                <span class="font-weight-light">Mira</span>
+                                <span class="font-weight-light" style="font-size: 40px;">Mira</span>
                                 <span class="font-weight org">como trabajamos</span>
                             </h2>
                             <div class="row no-gutters pb-11">
@@ -264,7 +264,7 @@ Accesorios
                                             <span class="number h1 font-weight-bold">1</span>
                                         </div>
                                         <div class="media-body lh-14">
-                                            <h5 class="mb-3 lh-1">
+                                            <h5 class="mb-3 lh-1" style="font-weight: 700;">
                                                 Elige qué hacer
                                             </h5>
                                             <p class="font-size-md text-gray mb-0 text-muted">
@@ -280,7 +280,7 @@ Accesorios
                                             <span class="number h1 font-weight-bold">2</span>
                                         </div>
                                         <div class="media-body lh-14">
-                                            <h5 class="mb-3 lh-1">
+                                            <h5 class="mb-3 lh-1" style="font-weight: 700;">
                                                 Encuentra lo que buscas
                                             </h5>
                                             <p class="font-size-md text-gray mb-0 text-muted">
@@ -296,7 +296,7 @@ Accesorios
                                             <span class="number h1 font-weight-bold">3</span>
                                         </div>
                                         <div class="media-body lh-14">
-                                            <h5 class="mb-3 lh-1">
+                                            <h5 class="mb-3 lh-1"  style="font-weight: 700;">
                                                 Disfruta de tus productos
                                             </h5>
                                             <p class="font-size-md text-gray mb-0 text-muted">
@@ -317,7 +317,7 @@ Accesorios
                 <div class="container">
                     <div class="mb-8">
                         <h2 class="mb-0">
-                            <span class="font-weight-light">Barrios </span>
+                            <span class="font-weight-light" style="font-size: 40px;">Barrios </span>
                             <span class="org">destacados</span>
                         </h2>
 
@@ -359,7 +359,7 @@ Ciudad jardín
                         <div class="box" data-animate="zoomIn">
                             <div class="card border-0">
                                 <a class="hover-scale" href="explore-sidebar-grid.html">
-                                    <img src="<?= APP_DIR; ?>assets/css/images/listing/cjardin.jpg" alt="Restrepo" class="image">
+                                    <img src="<?= APP_DIR; ?>assets/css/images/Recurso 2Restrepo-img.png" alt="Restrepo" class="image">
                                 </a>
                                 <div class="card-body px-0 pt-4">
                                     <h5 class="mb-0 card-title">
@@ -401,7 +401,7 @@ San Antonio
                 <div class="container">
                     <div class="mb-7">
                         <h2 class="mb-0">
-                            <span class="font-weight-light">Nuestros </span>
+                            <span class="font-weight-light" style="font-size: 40px;">Nuestros </span>
                             <span class="org">socios</span>
                         </h2>
                     </div>
@@ -791,9 +791,9 @@ Kraft Hotel</span></a>
                                 </div>
             </section>
             <section class="home-main-testimonial pt-12 pb-13" id="section-04">
-                <div class="container">
+                <div class="container" style="padding-top: 25px;">
                     <h2 class="mb-8">
-                        <span class="font-weight-light">Reseñas de</span>
+                        <span class="font-weight-light" style="font-size: 40px;">Reseñas de</span>
                         <span class="org">clientes</span>
                     </h2>
                     <div class="container">
@@ -932,7 +932,7 @@ Fruteria y Heladeria Domic
                 <div class="container">
                     <div class="d-flex align-items-center mb-7 flex-wrap flex-sm-nowrap">
                         <h2 class="mb-3 mb-sm-0">
-                            <span class="font-weight-light">Algunas</span>
+                            <span class="font-weight-light" style="font-size: 40px;">Algunas</span>
                             <span class="org">tiendas y artículos</span>
                         </h2>
                     </div>
@@ -1020,7 +1020,8 @@ Ropa para toda la Familia</a>
                                 <div class="center-wrap">
                                 <form method="POST" action="<?= APP_DIR; ?>controller/loginController">
                                     <div class="section text-center">
-                                        <h4 class="mb-4 pb-3">Iniciar Sesión</h4>
+                                        <!-- <h4 class="mb-4 pb-3">Iniciar Sesión</h4> -->
+                                        <img src="<?= APP_DIR; ?>assets/css/images/Recurso 1Logo-index-img.png" alt="Dcompras" class="mb-4 pb-3" style="width: 250px;">
                                         <div class="form-group">
                                             <input type="email" id="correo" name="correo" class="form-style" placeholder="Tu correo" autocomplete="off" required>
                                             <i class="input-icon uil uil-at"></i>
@@ -1042,7 +1043,8 @@ Ropa para toda la Familia</a>
                                 <div class="center-wrap">
                                 <form method="POST" action="<?= APP_DIR; ?>controller/registerController">
                                     <div class="section text-center">
-                                        <h4 class="mb-4 pb-3">Registrarse</h4>
+                                        <!-- <h4 class="mb-4 pb-3">Registrarse</h4> -->
+                                        <img src="<?= APP_DIR; ?>assets/css/images/Recurso 2Logo-index2-img.png" alt="Dcompras" class="mb-4 pb-3" style="width: 250px;padding-top: 35px;">
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col">

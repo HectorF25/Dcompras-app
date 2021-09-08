@@ -56,7 +56,7 @@
                                                         <tr role="row" class="odd">
                                                             <td><?php echo $c->nombreProducto; ?></td>
                                                             <td><?php echo $c->nombreNegocio; ?></td>
-                                                            <td><?php echo $c->precioProducto; ?></td>
+                                                            <td><?php echo $c->precioProductoNegocio; ?></td>
                                                             <td><?php echo $c->cantidadProducto; ?></td>
                                                             <td><?php echo $c->estadoProductoNegocio; ?></td>
                                                             <td>

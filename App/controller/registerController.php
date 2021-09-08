@@ -20,7 +20,7 @@ try {
         location.href = '${DIR_PUBLIC}Views/index';
         </script>";
     }else {
-        $reg = mysqli_query($conexion, "INSERT INTO usuario VALUES ('','$nombreUsuario','$apellidoUsuario','$contraseñaUsuario','$correoUsuario',NULL,NULL,NULL,NULL,2)");
+        $reg = mysqli_query($conexion, "INSERT INTO usuario VALUES ('','$nombreUsuario','$apellidoUsuario','$contraseñaUsuario','$correoUsuario',NULL,NULL,NULL,NULL,NULL,NULL,2)");
         echo  "<script> alert ('!Registro Exitoso!');
         location.href = '${DIR_PUBLIC}Views/index';
         </script>";

@@ -45,8 +45,8 @@ if(!isset($correoUsuario)){
 
     <link rel="stylesheet" href="./assets/css/sweetalert2.min.css">
     <link rel="stylesheet" href="./assets/css/estilos.css">
-    <link rel="apple-touch-icon" href="../../App/assets/img/Recurso 1LogoD.png">
-    <link rel="shortcut icon" href="../../App/assets/img/Recurso 1LogoD.png">
+    <link rel="apple-touch-icon" href="../../../App/assets/img/Recurso 1LogoD.png">
+    <link rel="shortcut icon" href="../../../App/assets/img/Recurso 1LogoD.png">
     <script src="../cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../vendors/font-awesome/css/fontawesome.css">
@@ -119,31 +119,6 @@ if(!isset($correoUsuario)){
                                 <div class="map-content">
                                     <a href="https://www.google.com/maps/@4.6547394,-74.1012136,13.04z?hl=es" target="blank" class="btn btn-primary btn-icon-left font-size-md px-5 lh-18"><i class="fas fa-map-marker-alt"></i>See
                                         On Map</a>
-                                </div>
-                            </div>
-                            <div class="card search bg-white mb-6 border-0 rounded-0 px-6">
-                                <div class="card-header bg-transparent border-0 pt-4 pb-0 px-0">
-                                    <h5 class="card-title mb-0">Search</h5>
-                                </div>
-                                <div class="card-body px-0 pb-42">
-                                    <div class="form-search form-search-style-03">
-                                        <div class="form-group">
-                                            <div class="input-group d-flex align-items-center">
-                                                <label for="what" class="input-group-prepend text-dark font-weight-semibold">What</label>
-                                                <input type="text" class="form-control bg-transparent" id="what" placeholder="Any keywords...">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group d-flex align-items-center">
-                                                <label for="where" class="input-group-prepend text-dark font-weight-semibold">Where</label>
-                                                <input type="text" class="form-control bg-transparent" id="where" placeholder="City, postcode...">
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-block btn-icon-left font-size-md">
-                                            <i class="fal fa-search"></i>
-                                            Search
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                             <div class="card widget-filter bg-white mb-6 border-0 rounded-0 px-6">

@@ -24,6 +24,8 @@ if(!isset($correoUsuario)){
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/estilos.css">
     <script src="js/popper.min.js"></script>
+    <link rel="apple-touch-icon" href="../../../App/assets/img/Recurso 1LogoD.png">
+    <link rel="shortcut icon" href="../../../App/assets/img/Recurso 1LogoD.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <!-- aos css cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -43,7 +45,7 @@ if(!isset($correoUsuario)){
 
     <link rel="stylesheet" href="./assets/css/sweetalert2.min.css">
 
-    <title>Carrito Compras en JavaScript y LocalStorage</title>
+    <title>𝗗𝗰𝗼𝗺𝗽𝗿𝗮𝘀 | Catalogo</title>
 </head>
 
 <body>
@@ -57,7 +59,7 @@ if(!isset($correoUsuario)){
 
     <nav class="navbar">
         <ul>
-            <li><a class="active" href="#home">Home</a></li>
+            <li><a class="active" href="../index.php">Home</a></li>
             <li><a href="#about">Comida rapida</a></li>
             <li><a href="#menu">Saludable</a></li>
             <li><a href="#popular">Popular</a></li>

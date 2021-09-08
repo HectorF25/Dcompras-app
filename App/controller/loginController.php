@@ -32,7 +32,7 @@ if(isset($_POST['correo'])){
             $_SESSION['correo'] = $correoUsuario;
             $_SESSION['estadoUsuario'] = $estado;
             echo  "<script> alert ('Bienvenido al sistema $correoUsuario');
-                location.href = '${DIR_PUBLIC}Views/carritoCompras/tienda.php';
+                location.href = '${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php';
                 </script>";
         }elseif ($_SESSION["idPerfilUsuario"] == 3) {
             $_SESSION['correo'] = $correoUsuario;

@@ -62,7 +62,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#"><i class="fas fa-user"></i>Vendedor</a>
+                        <a href="../perfil_Vendedor.php"><i class="fas fa-user"></i>Vendedor</a>
                     </li>
                     <li class="menu-title">Menú</li>
                     <li class="menu-item">

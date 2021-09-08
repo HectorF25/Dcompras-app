@@ -74,8 +74,8 @@ $productos = obtenerProductosCatalogo();
                         <?php ?>
                         <form action="../../../App/controller/agregar_al_carrito.php" method="post">
                             <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
-                            <input type="hidden" name="precioProductoNegocio" value="<?php echo $producto->precioProductoNegocio ?>">
                             <input type="hidden" name="cantidadProducto" value="<?php echo $producto->cantidadProducto ?>">
+                            <input type="hidden" name="precioProductoNegocio" value="<?php echo $producto->precioProductoNegocio ?>">
                             <a href="javascript:void(0);">
                                 <button class="btn btn-block agregar-carrito">
                                 <i class="fa fa-cart-plus"></i>Agregar al carrito

@@ -6,7 +6,7 @@
                             <div class="navbar-toggler toggle-icon" data-toggle="collapse" data-target="#navbar-main-menu">
                                 <span></span>
                             </div>
-                            <a class="navbar-brand navbar-brand-mobile" href="index-2.html">
+                            <a class="navbar-brand navbar-brand-mobile" href="./index">
                                 <img src="<?= APP_DIR; ?>assets/css/images/Recurso 1Logo-index-img.png" alt="Dcompras" class="res">
                             </a>
                             <a class="mobile-button-search" href="#search-popup" data-gtf-mfp="true" data-mfp-options='{"type":"inline","mainClass":"mfp-move-from-top mfp-align-top search-popup-bg","closeOnBgClick":false,"showCloseBtn":false}'><i class="far fa-search"></i></a>

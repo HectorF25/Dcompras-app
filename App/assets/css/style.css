@@ -12114,10 +12114,11 @@ button.bg-gray-06:focus {
     padding: 6.25rem !important;
 }
 
-.pt-12,
+
+/* .pt-12,
 .py-12 {
     padding-top: 6.25rem !important;
-}
+} */
 
 .pr-12,
 .px-12 {
@@ -16189,7 +16190,7 @@ button.bg-gray-06:focus {
 }
 
 .text-muted {
-    color: #999 !important;
+    color: #505356!important;
 }
 
 .text-black-50 {
@@ -17067,6 +17068,7 @@ button.bg-gray-06:focus {
 
 .font-size-h5 {
     font-size: 1.25rem !important;
+    font-weight: 600;
 }
 
 .font-size-h6 {
@@ -17215,6 +17217,7 @@ button.bg-gray-06:focus {
 
 .letter-spacing-25 {
     letter-spacing: -0.025em !important;
+    font-weight: 600;
 }
 
 .letter-spacing-10 {
@@ -17388,6 +17391,8 @@ button.bg-gray-06:focus {
 }
 
 .bg-pattern-01 {
+    padding-top: 50px;
+    height: 50px;
     background-image: url(images/other/background-thedir-cover.jpg);
     background-size: cover;
     background-position: center;
@@ -17501,8 +17506,8 @@ svg.icon {
     width: 1em;
     height: 1em;
     stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
+    stroke: white;
+    fill: white;
 }
 
 .bs-tooltip-top,
@@ -19534,7 +19539,7 @@ iframe {
 }
 
 .icon-box-style-02 .number {
-    color: #e7e7e7;
+    color: #484444;
     line-height: 1;
     margin-top: 10px;
 }
@@ -21297,7 +21302,7 @@ iframe {
 }
 
 .form-search.form-search-style-02 .button {
-    padding-left: 30px;
+    margin-left: 30px;
 }
 
 @media (max-width: 1199.98px) {

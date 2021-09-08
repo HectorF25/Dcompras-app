@@ -165,7 +165,7 @@ class crearProducto
     public function ListarProducto()
     {
         try {
-            $sql = $this->pdo->prepare("SELECT *,nombreProducto, nombreNegocio, producto_negocio.precioProducto,cantidadProducto FROM producto_negocio
+            $sql = $this->pdo->prepare("SELECT *,nombreProducto, nombreNegocio, producto_negocio.precioProductoNegocio,cantidadProducto FROM producto_negocio
             INNER JOIN producto ON producto_negocio.idProducto = producto.idProducto
             INNER JOIN negocio ON producto_negocio.idNegocio = negocio.idNegocio ORDER BY idProductoNegocio ASC");
             $sql->execute();
@@ -178,7 +178,7 @@ class crearProducto
     public function Obtener($idProductoNegocio)
     {
         try {
-            $sql = $this->pdo->prepare("SELECT tableProductoN.idProductoNegocio,tableProductoN.idNegocio,tableProductoN.idProducto ,nombreProducto, nombreNegocio, tableProductoN.precioProducto,cantidadProducto FROM producto_negocio as tableProductoN
+            $sql = $this->pdo->prepare("SELECT tableProductoN.idProductoNegocio,tableProductoN.idNegocio,tableProductoN.idProducto ,nombreProducto, nombreNegocio, tableProductoN.precioProductoNegocio,cantidadProducto FROM producto_negocio as tableProductoN
             INNER JOIN producto ON tableProductoN.idProducto = producto.idProducto
             INNER JOIN negocio ON tableProductoN.idNegocio = negocio.idNegocio  WHERE tableProductoN.idProductoNegocio = ?");
             $sql->execute(array($idProductoNegocio));
@@ -194,7 +194,7 @@ class crearProducto
             $sql = "UPDATE producto_negocio SET 
 						idProducto  = ?,
                         idNegocio  = ?,
-                        precioProducto  = ?,
+                        precioProductoNegocio  = ?,
                         cantidadProducto  = ?
 				    WHERE idProductoNegocio = ?";
 
@@ -216,7 +216,7 @@ class crearProducto
     public function Registrar(crearProducto $data)
     {
         try {
-            $sql = "INSERT INTO producto_negocio (idProducto,idNegocio,precioProducto,cantidadProducto,estadoProductoNegocio) 
+            $sql = "INSERT INTO producto_negocio (idProducto,idNegocio,precioProductoNegocio,cantidadProducto,estadoProductoNegocio) 
 		        VALUES (?, ?, ?, ?, ?)";
 
             $this->pdo->prepare($sql)

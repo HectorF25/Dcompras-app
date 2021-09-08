@@ -94,7 +94,7 @@
         <div class="formulario__grupo" id="grupo__precioProducto">
             <label for="precioProducto" class="formulario__label">Precio del Producto</label>
             <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="precioProducto" id="precioProducto" value="<?php echo $crearP->precioProducto; ?>">
+                <input type="text" class="formulario__input" name="precioProducto" id="precioProducto" value="<?php echo $crearP->precioProductoNegocio; ?>">
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
             <p class="formulario__input-error">El precio del producto solo puede contener numeros y un maximo de 11 digitos.</p>
