@@ -66,8 +66,8 @@ include '../../Config/appConfig.php';
                         <div class="form-search form-search-style-02 pb-9" data-animate="fadeInDown">
                             <form>
                                 <div class="row align-items-end no-gutters">
-                                    <div class="col-xl-5 mb-4 mb-xl-0 py-3 px-4 bg-white border-right-0 border-right-xl position-relative rounded form-search-item">
-                                        <label for="key-word" class="font-size-md font-weight-semibold text-dark mb-0 lh-1" style="margin-right: 20px;">¿Qué buscas?</label>
+                                    <div class="col-xl-5 mb-4 mb-xl-0 py-3 px-4 bg-white border-right-0 border-right-xl position-relative rounded form-search-item" style="margin-right: 20px;">
+                                        <label for="key-word" class="font-size-md font-weight-semibold text-dark mb-0 lh-1">¿Qué buscas?</label>
                                         <div class="input-group dropdown show">
                                             <input type="text" autocomplete="off" id="key-word" class="form-control form-control-mini border-0 px-0" placeholder="Ej: comida, servicio, ropa" data-toggle="dropdown" aria-haspopup="true">
                                             <a href="#" class="input-group-append text-decoration-none">
@@ -1066,7 +1066,7 @@ Ropa para toda la Familia</a>
                                             <input type="password" id="contraseñaUsuario" name="contraseñaUsuario" class="form-style" placeholder="Contraseña" autocomplete="off">
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
-                                        <button class="btn-1">Regístrarse</button>
+                                        <button class="btn-1" style="margin-bottom: 20px;">Regístrarse</button>
                                     </div>
                                 </form>
                                 </div>
