@@ -1063,7 +1063,7 @@ Ropa para toda la Familia</a>
                                             <i class="input-icon uil uil-at"></i>
                                         </div>
                                         <div class="form-group mt-2">
-                                            <input type="password" id="contraseñaUsuario" name="contraseñaUsuario" class="form-style" placeholder="Contraseña" autocomplete="off">
+                                            <input type="password" id="contrasenaUsuario" name="contrasenaUsuario" class="form-style" placeholder="Contraseña" autocomplete="off">
                                             <i class="input-icon uil uil-lock-alt"></i>
                                         </div>
                                         <button class="btn-1" style="margin-bottom: 20px;">Regístrarse</button>
