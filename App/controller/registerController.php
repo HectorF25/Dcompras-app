@@ -1,3 +1,17 @@
+<html>
+<head>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+*{
+  font-family: "Poppins";
+}
+</style>
+
+</head>
+<body>
+
 <?php
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
@@ -371,7 +385,7 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
                                   <img src="https://raw.githubusercontent.com/LuisC111/Dcompras-Frontend/main/images/perfil.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; display: block;">                                      
                                       <b><span class="position" style="color: black;">Haz click en el botón para verificarte</span></b>
                                       <b><p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn btn-primary">¡Verificarme!</a></p></b>
-                                       <p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn-custom">Sino funciona, haz click aquí!</a></p>
+                                       <p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn-custom">Si no funciona, haz click aquí!</a></p>
                                    </div>
                               </td>
                             </tr>
@@ -440,15 +454,46 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
 
         $nuevo_usuario = mysqli_query($link, "SELECT * FROM usuario WHERE correoUsuario='$email'");
     if (mysqli_num_rows($nuevo_usuario) > 0) {
-        echo  "<script> alert ('!El correo ya se encuentra registrado!');
-        location.href = '${DIR_PUBLIC}Views/index';
-        </script>";
-
+        $Duplicado = "!El correo $email ya se encuentra registrado!";
+        echo "<script> window.addEventListener('load', init, false);
+        function init () {
+            Swal.fire({
+                title: '¡Ha ocurrido un error!',
+                text: '$Duplicado',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true,
+              }).then((willDelete) => {
+            if (willDelete) {
+                location.href = '${DIR_PUBLIC}Views/index.php';
+            } else {
+                location.href = '${DIR_PUBLIC}Views/index.php';
+            }
+          });
+        }
+        
+          </script>";  
     }else if($stmt->execute()){
         $mail->send();
-        echo  "<script> alert ('!Registro Exitoso, revisa tu correo electronico para verificar tu cuenta!');
-        location.href = '${DIR_PUBLIC}Views/index';
-        </script>";
+        $exito = "Revisa tu correo electronico $email para verificar tu cuenta.";
+        echo "<script> window.addEventListener('load', init, false);
+        function init () {
+            Swal.fire({
+                title: '¡Registro exitoso!',
+                text: '$exito',
+                icon: 'success',
+                buttons: true,
+                dangerMode: true,
+              }).then((willDelete) => {
+            if (willDelete) {
+                location.href = '${DIR_PUBLIC}Views/index.php';
+            } else {
+                location.href = '${DIR_PUBLIC}Views/index.php';
+            }
+          });
+        }
+        
+          </script>";  
     }
         
 
@@ -459,6 +504,16 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
 
 
 }
+
+?>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+		</body>
+
+</html>
 
 
 

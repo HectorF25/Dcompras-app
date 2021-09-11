@@ -46,7 +46,7 @@ if (isset($_POST['correo'])) {
             function init () {
                 Swal.fire({
                     title: '¡Ha ocurrido un error!',
-                    text: '.$Inactivo.',
+                    text: '$Inactivo',
                     icon: 'error',
                     buttons: true,
                     dangerMode: true,
@@ -73,7 +73,7 @@ if (isset($_POST['correo'])) {
             function init () {
                 Swal.fire({
                     title: '¡Incio de sesión exitoso!',
-                    text: '.$BienvenidoAdmin.',
+                    text: '$BienvenidoAdmin',
                     icon: 'success',
                     buttons: true,
                     dangerMode: true,
@@ -99,7 +99,7 @@ if (isset($_POST['correo'])) {
             function init () {
                 Swal.fire({
                     title: '¡Incio de sesión exitoso!',
-                    text: '.$BienvenidoCliente.',
+                    text: '$BienvenidoCliente',
                     icon: 'success',
                     buttons: true,
                     dangerMode: true,
@@ -107,7 +107,8 @@ if (isset($_POST['correo'])) {
                 if (willDelete) {
                     location.href = '${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php';
                 } else {
-                    location.href = '${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php';                }
+                    location.href = '${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php';                
+                }
               });
             }
             
@@ -121,7 +122,7 @@ if (isset($_POST['correo'])) {
             function init () {
                 Swal.fire({
                     title: '¡Incio de sesión exitoso!',
-                    text: '.$BienvenidoVendedor.',
+                    text: '$BienvenidoVendedor',
                     icon: 'success',
                     buttons: true,
                     dangerMode: true,
@@ -142,46 +143,46 @@ if (isset($_POST['correo'])) {
         $_SESSION["idUsuario"];
         $_SESSION["imgUsuario"];
         $BienvenidoRepartidor = "Bienvenido a Dcompras, $nombre";
-        echo '<script> window.addEventListener("load", init, false);
+        echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
-                title: "¡Incio de sesión exitoso!",
-                text: "'.$BienvenidoRepartidor.'",
-                icon: "success",
+                title: '¡Incio de sesión exitoso!',
+                text: '$BienvenidoRepartidor',
+                icon: 'success',
                 buttons: true,
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = "http://localhost/Dcompras-app/Public/Views/perfilRepartidor/perfilRepartidor.php";
-            } else {
-                location.href = "http://localhost/Dcompras-app/Public/Views/perfilRepartidor/perfilRepartidor.php";
-            }
+                location.href = '${DIR_PUBLIC}Views/perfilRepartidor/perfilRepartidor.php';
+             } else {
+                location.href = '${DIR_PUBLIC}Views/perfilRepartidorperfilRepartidor.php';
+                }
           });
         }
         
-          </script>';  
+          </script>";  
 
     
     } else {
         $datosIncorrectos = "El correo o la contraseña son incorrectos!";
-        echo '<script> window.addEventListener("load", init, false);
+        echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
-                title: "¡Ha ocurrido un error!",
-                text: "'.$datosIncorrectos.'",
-                icon: "error",
+                title: '¡Ha ocurrido un error!',
+                text: '$datosIncorrectos',
+                icon: 'error',
                 buttons: true,
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = "http://localhost/Dcompras-app/Public/Views/index";
+                location.href = '${DIR_PUBLIC}Views/index.php';
             } else {
-                location.href="http://localhost/Dcompras-app/Public/Views/index";
+                location.href = '${DIR_PUBLIC}Views/index.php';
             }
           });
         }
         
-          </script>';  
+          </script>";  
     }
 }
     /* include '../../Config/appConfig.php';

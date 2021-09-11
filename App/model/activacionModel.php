@@ -15,6 +15,8 @@
 
 <?php
 
+include '../../Config/appConfig.php';
+
 $server = 'localhost';
 $username = 'root'; 
 $password = ''; 
@@ -29,6 +31,8 @@ try{
 }
 
 $link = mysqli_connect("localhost", "root", "", "imake") or die($link);
+$DIR_PUBLIC = APP_PUBLIC_DIR;
+
 
 if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])){
     // Verificar datos
@@ -41,69 +45,68 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
     if($match > 0){
         mysqli_query($link, "UPDATE usuario SET estadoUsuario='1' WHERE correoUsuario='".$email."' AND hashUsuario='".$hash."' AND estadoUsuario IS NULL") or die(mysql_error());
         $mensajeExito = "Tu cuenta ha sido activada, ya puedes iniciar sesión."; 
-        echo '<script> window.addEventListener("load", init, false);
+        echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
-                title: "¡Registro exitoso!",
-                text: "'.$mensajeExito.'",
-                icon: "success",
+                title: '¡Registro exitoso!',
+                text: '$mensajeExito',
+                icon: 'success',
                 buttons: true,
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = "http://localhost/Dcompras-app/Public/Views/index";
+                location.href = '${DIR_PUBLIC}Views/index.php';
             } else {
-                location.href="http://localhost/Dcompras-app/Public/Views/index";
+                location.href = '${DIR_PUBLIC}Views/index.php';
             }
           });
         }
         
-          </script>'; 
+          </script>"; 
 
         }else{
         $mensajeError = "La URL es invalida o ya has activado tu cuenta.";
-        echo '<script> window.addEventListener("load", init, false);
+        echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
-                title: "Ha ocurrido un error!",
-                text: "'.$mensajeError.'",
-                icon: "error",
+                title: '¡Ha ocurrido un error!',
+                text: '$mensajeError',
+                icon: 'warning',
                 buttons: true,
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-              location.href="http://localhost/Dcompras-app/Public/Views/index";
+                location.href = '${DIR_PUBLIC}Views/index.php';
             } else {
-                location.href="http://localhost/Dcompras-app/Public/Views/index";
+                location.href = '${DIR_PUBLIC}Views/index.php';
             }
           });
         }
         
-          </script>'; 
+          </script>"; 
 
     }
 }else{
     // Intento nó válido (ya sea porque se ingresa sin tener el hash o porque la cuenta ya ha sido registrada)
     $mensajeError2 = "Intento inválido, por favor revisa el mensaje que enviamos correo electrónico.";
-    echo '<script> window.addEventListener("load", init, false);
+    echo "<script> window.addEventListener('load', init, false);
     function init () {
         Swal.fire({
-            title: "Ha ocurrido un error!",
-            text: "'.$mensajeError2.'",
-            icon: "error",
+            title: '¡Ha ocurrido un error!',
+            text: '$mensajeError2',
+            icon: 'error',
             buttons: true,
             dangerMode: true,
           }).then((willDelete) => {
         if (willDelete) {
-          location.href="http://localhost/Dcompras-app/Public/Views/index";
+            location.href = '${DIR_PUBLIC}Views/index.php';
         } else {
-            location.href="http://localhost/Dcompras-app/Public/Views/index";
+            location.href = '${DIR_PUBLIC}Views/index.php';
         }
       });
     }
     
-      </script>'; 
-
+      </script>"; 
 }
 ?>
 
