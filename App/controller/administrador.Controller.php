@@ -58,14 +58,11 @@ class administradorController
         $aleatorio = mt_rand(100, 999);
         $ruta = "images/usuarios/".$aleatorio.".png";
          
-         
         $nombre=$_FILES['imgUsuario']['name'];
-         
         $guardado=$_FILES['imgUsuario']['tmp_name'];
+                  
          
-         
-         
-        if(!file_exists($directorio )){
+        if(!file_exists($directorio)){
             mkdir($directorio ,0777,true);
             if(file_exists($directorio )){
          
@@ -106,7 +103,6 @@ class administradorController
         $administrador->getIdusuario() > 0
             ? $this->model->Actualizar($administrador)
             : $this->model->Registrar($administrador);
-        echo $administrador;  
         header('Location: index.php?c=administrador&a=modificionusuarios');
     }
 

@@ -199,19 +199,6 @@
                                   
                                 </div>
 
-
-
-
-
-      
-
-
-
-
-
-
-        
-        <!-- Grupo: Terminos y Condiciones -->
         <br>     
 
 

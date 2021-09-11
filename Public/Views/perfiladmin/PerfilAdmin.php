@@ -3,6 +3,8 @@ include '../../../Config/Conexion.php';
 require_once '../../../Config/Conexion.php';
 
 session_start();
+$idUsuario = $_SESSION["idUsuario"];
+$imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
 if(!isset($correoUsuario)){
     echo'<script type="text/javascript">
@@ -164,7 +166,7 @@ if(!isset($correoUsuario)){
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="img/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="administrador/images/usuarios/<?php echo $imgUsuario ?>.png" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
