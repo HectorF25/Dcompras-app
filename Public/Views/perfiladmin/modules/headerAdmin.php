@@ -184,7 +184,7 @@ if(!isset($correoUsuario)){
                         <a class="nav-link" href="../administrador/index.php?c=administrador&a=ajustesPerfil"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificaciones <span class="count">13</span></a>
-
+                            <a class="nav-link" id="btn-abrir-popup" href="?c=administrador&a=ajustesPerfil&idUsuario=<?php echo $idUsuario; ?>" class="btn-abrir-popup">Modificar</a>
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Configuraciones</a>
 
                             <a class="nav-link" href="../../../../App/controller/logoutController.php"><i class="fa fa-power -off"></i>Cerrar Sesión</a>

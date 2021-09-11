@@ -19,9 +19,18 @@ class administradorController
     }
     public function ajustesPerfil()
     {
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/AjustesPerfil.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+         $administradores = new administrador();
+
+        if (isset($_REQUEST['idUsuario'])) {
+            $administradores = $this->model->Obtener($_REQUEST['idUsuario']);
+            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
+            require_once '../../../Views/perfilAdmin/administrador/AjustesPerfil.php';
+            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+        } else {
+            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
+            require_once '../../../Views/perfilAdmin/administrador/CrearUsuarios.php';
+            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+        }
     }
     public function fallasSistema()
     {

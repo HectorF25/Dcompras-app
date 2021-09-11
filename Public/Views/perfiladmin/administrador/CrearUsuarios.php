@@ -40,7 +40,7 @@
                     <div class="col-sm-4">
                         <div class="page-header float-left">
                             <div class="page-title">
-                                <h1>Producto</h1>
+                                <h1>Crear Usuarios</h1>
                             </div>
                         </div>
                     </div>
