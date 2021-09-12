@@ -4,6 +4,9 @@ require_once '../../../Config/Conexion.php';
 
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
+$nombreUsuario = $_SESSION["nombreUsuario"];
+$apellidoUsuario = $_SESSION["apellidoUsuario"];
+$nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
 $imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
 if(!isset($correoUsuario)){
@@ -12,7 +15,7 @@ if(!isset($correoUsuario)){
     window.location.href="../Login";
     </script>';
 }else{
-    
+   
 }
 /*
 $sesion = true;
@@ -33,7 +36,7 @@ while($filas=mysqli_fetch_array($consulta)){
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dcompras | Admin Dashboard</title>
+    <title>Dcompras | Panel de administrador</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -67,12 +70,12 @@ while($filas=mysqli_fetch_array($consulta)){
                         <h3 class="page-title">
                             <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-home"></i>
-                </span> Dashboard
+                </span> Panel de administrador
                         </h3>
                         <nav aria-label="breadcrumb">
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                                    <span></span>Resumen <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                                 </li>
                             </ul>
                         </nav>
@@ -120,7 +123,7 @@ while($filas=mysqli_fetch_array($consulta)){
                                         <h4 class="card-title float-left">Visit And Sales Statistics</h4>
                                         <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
                                     </div>
-                                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
+                                    <canvas id="visit-sale-chart" class="mt-4 chartjs-render-monitor"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +156,7 @@ while($filas=mysqli_fetch_array($consulta)){
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <img src="<?php echo $imgUsuario ?>" class="mr-2" alt="image"> David Grey
+                                                        <img src="assets/img/Recurso 1LogoD-svg-img.svg" class="mr-2" alt="image"> David Grey
                                                     </td>
                                                     <td> Fund is not recieved </td>
                                                     <td>
@@ -383,7 +386,7 @@ while($filas=mysqli_fetch_array($consulta)){
                     </div>
                 </div>
                 <?php
-        require_once 'modules/footerIndex.php';
+        //require_once 'modules/footerIndex.php';
         ?>
                 <!-- partial -->
             </div>

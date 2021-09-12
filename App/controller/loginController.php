@@ -28,7 +28,8 @@ if (isset($_POST['correo'])) {
     $contraseñaUsuario = htmlentities(mysqli_real_escape_string($conexion, $_POST['contraseña']));
 
 
-    $log = mysqli_query($conexion, "SELECT * FROM Usuario WHERE correoUsuario='$correoUsuario' AND contraseñaUsuario='$contraseñaUsuario' ");
+    $log = mysqli_query($conexion, "SELECT * FROM Usuario INNER JOIN perfilusuario pf on usuario.idPerfilUsuario = pf.idPerfilUsuario
+    WHERE correoUsuario='$correoUsuario' AND contraseñaUsuario='$contraseñaUsuario'");
     if (mysqli_num_rows($log) > 0) {
         $row = mysqli_fetch_array($log);
 
@@ -37,6 +38,8 @@ if (isset($_POST['correo'])) {
         $_SESSION["estadoUsuario"] = $row['estadoUsuario'];
         $_SESSION["idUsuario"] = $row['idUsuario'];
         $_SESSION["imgUsuario"] = $row['imgUsuario'];
+        $_SESSION["apellidoUsuario"] = $row['apellidoUsuario'];
+        $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
         $nombre = $_SESSION["nombreUsuario"];
 
         if ($_SESSION["estadoUsuario"] == NULL) {
@@ -66,7 +69,8 @@ if (isset($_POST['correo'])) {
             $_SESSION['correo'] = $correoUsuario;
             $_SESSION["idUsuario"];
             $_SESSION["imgUsuario"];
-
+            $_SESSION["apellidoUsuario"];
+            $_SESSION["nombrePerfilUsuario"];
             $BienvenidoAdmin = "Bienvenido al sistema, $nombre";             
 
             echo "<script> window.addEventListener('load', init, false);

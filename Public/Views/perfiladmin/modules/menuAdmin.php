@@ -1,7 +1,8 @@
+
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/Recurso 1LogoDcompras-svg-img.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/Recurso 1LogoD-svg-img.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="index.html"><img src="assets/img/Recurso 1LogoDcompras-svg-img.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/img/Recurso 1LogoD-svg-img.svg" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -21,11 +22,11 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="./images/fotos_perfil/<?php echo $imgUsuario ?>.jpg">
+                                <img src="administrador<?php echo $imgUsuario ?>">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black">David Greymaax</p>
+                                <p class="mb-1 text-black"><?php echo  $nombreUsuario." ".$apellidoUsuario ?></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -51,7 +52,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                                    <img src="assets/img/faces/face4.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
@@ -61,7 +62,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic">
+                                    <img src="assets/img/faces/face2.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
@@ -71,7 +72,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="assets/images/faces/face3.jpg" alt="image" class="profile-pic">
+                                    <img src="assets/img/faces/face3.jpg" alt="image" class="profile-pic">
                                 </div>
                                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
@@ -153,13 +154,13 @@
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="./images/fotos_perfil/<?php echo $imgUsuario ?>.jpg" alt="profile">
+                                <img src="administrador<?php echo $imgUsuario ?>" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2">David Grey. H</span>
-                                <span class="text-secondary text-small">Project Manager</span>
+                                <span class="font-weight-bold mb-2"><?php echo $nombreUsuario." ".$apellidoUsuario ?></span>
+                                <span class="text-secondary text-small"><?php echo $nombrePerfilUsuario ?></span>
                             </div>
                             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                         </a>
