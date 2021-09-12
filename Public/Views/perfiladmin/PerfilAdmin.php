@@ -4,6 +4,7 @@ require_once '../../../Config/Conexion.php';
 
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
+$apellidoUsuario = $_SESSION["apellidoUsuario"];
 $imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
 if(!isset($correoUsuario)){
@@ -171,7 +172,7 @@ if(!isset($correoUsuario)){
 
                         <div class="user-menu dropdown-menu">
                             
-                            <a class="nav-link" href="./administrador/index.php?c=administrador&a=ajustesPerfil"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>
+                            <a class="nav-link" href="./administrador/index.php?c=administrador&a=ajustesPerfil"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($apellidoUsuario); ?></a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificaciones <span class="count">13</span></a>
 
