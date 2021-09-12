@@ -153,7 +153,7 @@ while($filas=mysqli_fetch_array($consulta)){
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <img src="<?php echo $imgUsuario ?>" class="mr-2" alt="image"> David Grey
+                                                        <img src="./assets/img/faces/face1.jpg" class="mr-2" alt="image"> David Grey
                                                     </td>
                                                     <td> Fund is not recieved </td>
                                                     <td>

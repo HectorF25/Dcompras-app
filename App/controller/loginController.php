@@ -37,6 +37,7 @@ if (isset($_POST['correo'])) {
         $_SESSION["estadoUsuario"] = $row['estadoUsuario'];
         $_SESSION["idUsuario"] = $row['idUsuario'];
         $_SESSION["imgUsuario"] = $row['imgUsuario'];
+        $_SESSION["apellidoUsuario"] = $row['apellidoUsuario'];
         $nombre = $_SESSION["nombreUsuario"];
 
         if ($_SESSION["estadoUsuario"] == NULL) {
@@ -66,6 +67,7 @@ if (isset($_POST['correo'])) {
             $_SESSION['correo'] = $correoUsuario;
             $_SESSION["idUsuario"];
             $_SESSION["imgUsuario"];
+            $_SESSION["apellidoUsuario"];
 
             $BienvenidoAdmin = "Bienvenido al sistema, $nombre";             
 
