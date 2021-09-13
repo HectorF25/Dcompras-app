@@ -1,12 +1,5 @@
 $(document).ready(function() {
-    tablaUsuarios = $("#tablaUsuarios").DataTable({
-        "columnDefs": [{
-            "targets": -1,
-            "data": null,
-            "defaultContent": "<a id='btn-abrir-popup' href='?c=administrador&a=crudUsuarios&idUsuario=<?php echo $r->idUsuario; ?>' class='btn-abrir-popup'>Modificar</a>"
-
-        }],
-
+    tablaUsu = $("#tablaUsu").DataTable({
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros",
             "zeroRecords": "No se encontraron resultados",

@@ -16,21 +16,21 @@ idPerfilUsuario --
 //cantidadProducto
 //estadoProductoNegocio
 
-const formulario = document.getElementById('formulario');
-const inputs = document.querySelectorAll('#formulario input');
+const formulario = document.getElementById('pro-form');
+const inputs = document.querySelectorAll('#pro-form input');
 
 const expresiones = {
     nombreNegocio: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, numeros, guion y guion_bajo
-    
+
     nitNegocio: /^[a-zA-ZÀ-ÿ\s0-9\_\-\#]{4,40}$/,
     idUsuario: /^\d{1,14}$/, // 7 a 14 numeros.
     idPeticionNegocio: /^\d{1,14}$/, // 7 a 14 numeros.
-    direccionNegocio:/^[a-zA-ZÀ-ÿ\s0-9\_\-\#]{4,40}$/
+    direccionNegocio: /^[a-zA-ZÀ-ÿ\s0-9\_\-\#]{4,40}$/
 }
 
 const campos = {
     nombreNegocio: false,
-    nitNegocio: false,   
+    nitNegocio: false,
     direccionNegocio: false,
     idUsuario: false,
     idPeticionNegocio: false
@@ -41,18 +41,18 @@ const validarFormulario = (e) => {
         case "nombreNegocio":
             validarCampo(expresiones.nombreNegocio, e.target, 'nombreNegocio');
             break;
-        
+
         case "nitNegocio":
             validarCampo(expresiones.nitNegocio, e.target, 'nitNegocio');
             break;
-      
+
         case "direccionNegocio":
             validarCampo(expresiones.direccionNegocio, e.target, 'direccionNegocio');
             break;
 
         case "idUsuario":
-             validarCampo(expresiones.idUsuario, e.target, 'idUsuario');
-             break;
+            validarCampo(expresiones.idUsuario, e.target, 'idUsuario');
+            break;
 
         case "idPeticionNegocio":
             validarCampo(expresiones.idPeticionNegocio, e.target, 'idPeticionNegocio');
@@ -88,5 +88,3 @@ function mensaje() {
     window.location('../index.php')
     alertify.success('Negocio agregado');
 }
-
-

@@ -77,7 +77,7 @@ include '../../Config/appConfig.php';
                                                 <li class="dropdown-item item">
                                                     <a href="#" class="link-hover-dark-white">
                                                         <svg class="icon icon-pizza">
-<use xlink:href="#icon-pizza"></use>
+<use xlink:href="#icon-pizza"></use>/images/fotos_perfil/perfil.jpg
 </svg>
                                                         <span class="font-size-md">Comida y Restaurantes</span>
                                                     </a>

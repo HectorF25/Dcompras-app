@@ -6,7 +6,7 @@ $correoUsuario = $_SESSION['correo'];
 if(!isset($correoUsuario)){
     echo'<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
-    window.location.href="../../Login.php";
+    window.location.href="../../index.php";
     </script>';
 }else{
 
@@ -60,7 +60,7 @@ if(!isset($correoUsuario)){
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="../PerfilAdmin.php"><i class="menu-icon fa fa-laptop"></i>Administador</a>
+                        <a href="../PerfilAdmin"><i class="menu-icon fa fa-laptop"></i>Administador</a>
                     </li>
                     <li class="menu-title">Elementos de Consulta</li>
                     <!-- /.menu-title -->
@@ -94,7 +94,7 @@ if(!isset($correoUsuario)){
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="PerfilAdministrador.php"><img src="../assets/img/logoD.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="PerfilAdmin.php"><img src="../assets/img/logoD.png" alt="Logo"></a>
                     <a class="navbar-brand hidden" href="./"><img src="../assets/img/Logo_Nuevo.png" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
@@ -178,7 +178,7 @@ if(!isset($correoUsuario)){
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                        
-                            <img class="user-avatar rounded-circle" src="images/usuarios/<?php echo $imgUsuario ?>.png" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="./<?php echo $imgUsuario ?>" alt="User Avatar">
                         </a>
                         <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="../administrador/index.php?c=administrador&a=ajustesPerfil"><i class="fa fa- user"></i>Mi Perfil! <?php echo  ' ' .strtoupper($_SESSION[ 'correo']); ?></a>

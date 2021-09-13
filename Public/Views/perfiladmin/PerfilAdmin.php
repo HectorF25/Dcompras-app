@@ -56,7 +56,7 @@ if(!isset($correoUsuario)){
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="PerfilAdmin.php"><i class="menu-icon fa fa-laptop"></i>Administador</a>
+                        <a href="PerfilAdmin"><i class="menu-icon fa fa-laptop"></i>Administador</a>
                     </li>
                     <li class="menu-title">Elementos de Consulta</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
@@ -167,7 +167,7 @@ if(!isset($correoUsuario)){
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="administrador/images/usuarios/<?php echo $imgUsuario ?>.png" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="administrador<?php echo $imgUsuario ?>" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">

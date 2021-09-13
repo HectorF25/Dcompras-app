@@ -3,16 +3,16 @@
 //cantidadProducto
 //estadoProductoNegocio
 
-const formulario = document.getElementById('formulario');
-const inputs = document.querySelectorAll('#formulario input');
+const formulario = document.getElementById('pro-form');
+const inputs = document.querySelectorAll('#pro-form input');
 
 const expresiones = {
     nombreUsuario: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, numeros, guion y guion_bajo
-    apellidoUsuario: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,  // Letras y espacios, pueden llevar acentos.
-    correoUsuario:  /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // Letras, numeros, guion y guion_bajo
+    apellidoUsuario: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    correoUsuario: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // Letras, numeros, guion y guion_bajo
     contraseñaUsuario: /^.{4,12}$/, // Letras y espacios, pueden llevar acentos.
-    documentoUsuario:/^\d{7,14}$/, // 4 a 12 digitos.
-    direccionUsuario:/^[a-zA-ZÀ-ÿ\s0-9\_\-\#]{4,40}$/
+    documentoUsuario: /^\d{8,10}$/, // 4 a 12 digitos.
+    direccionUsuario: /^[a-zA-ZÀ-ÿ\s0-9\_\-\#]{4,40}$/
 }
 
 const campos = {
@@ -75,5 +75,3 @@ function mensaje() {
     window.location('../index.php')
     alertify.success('Negocio agregado');
 }
-
-

@@ -20,12 +20,12 @@ class administrador extends Usuario
     {
         try {
             $this->pdo = Conexion::Conectar();
-        } catch (Exception $e) {    
+        } catch (Exception $e) {
             die($e->getMessage());
         }
     }
 
-    public function __Administador($idusuario, $correousuario, $contraseñausuario, $nombreusuario, $apellidousuario,$fechanacimiento, $documentousuario, $estadousuario,$direccionUsuario,$imgUsuario,$idtipodoc,$idPerfilUsuario)
+    public function __Administador($idusuario, $correousuario, $contraseñausuario, $nombreusuario, $apellidousuario, $fechanacimiento, $documentousuario, $estadousuario, $direccionUsuario, $imgUsuario, $idtipodoc, $idPerfilUsuario)
     {
         parent::__USUARIO($idusuario, $correousuario, $contraseñausuario);
         $this->nombreusuario = $nombreusuario;
@@ -41,7 +41,7 @@ class administrador extends Usuario
 
     /**
      * Get the value of nombreusuario
-     */ 
+     */
     public function getNombreusuario()
     {
         return $this->nombreusuario;
@@ -51,7 +51,7 @@ class administrador extends Usuario
      * Set the value of nombreusuario
      *
      * @return  self
-     */ 
+     */
     public function setNombreusuario($nombreusuario)
     {
         $this->nombreusuario = $nombreusuario;
@@ -61,7 +61,7 @@ class administrador extends Usuario
 
     /**
      * Get the value of apellidousuario
-     */ 
+     */
     public function getApellidousuario()
     {
         return $this->apellidousuario;
@@ -71,7 +71,7 @@ class administrador extends Usuario
      * Set the value of apellidousuario
      *
      * @return  self
-     */ 
+     */
     public function setApellidousuario($apellidousuario)
     {
         $this->apellidousuario = $apellidousuario;
@@ -81,7 +81,7 @@ class administrador extends Usuario
 
     /**
      * Get the value of fechanacimiento
-     */ 
+     */
     public function getFechanacimiento()
     {
         return $this->fechanacimiento;
@@ -91,7 +91,7 @@ class administrador extends Usuario
      * Set the value of fechanacimiento
      *
      * @return  self
-     */ 
+     */
     public function setFechanacimiento($fechanacimiento)
     {
         $this->fechanacimiento = $fechanacimiento;
@@ -101,7 +101,7 @@ class administrador extends Usuario
 
     /**
      * Get the value of documentousuario
-     */ 
+     */
     public function getDocumentousuario()
     {
         return $this->documentousuario;
@@ -111,7 +111,7 @@ class administrador extends Usuario
      * Set the value of documentousuario
      *
      * @return  self
-     */ 
+     */
     public function setDocumentousuario($documentousuario)
     {
         $this->documentousuario = $documentousuario;
@@ -121,7 +121,7 @@ class administrador extends Usuario
 
     /**
      * Get the value of estadousuario
-     */ 
+     */
     public function getEstadousuario()
     {
         if ($this->estadousuario == TRUE) {
@@ -135,7 +135,7 @@ class administrador extends Usuario
      * Set the value of estadousuario
      *
      * @return  self
-     */ 
+     */
     public function setEstadousuario($estadousuario)
     {
         $this->estadousuario = $estadousuario;
@@ -144,7 +144,7 @@ class administrador extends Usuario
 
     /**
      * Get the value of estadousuario
-     */ 
+     */
     public function getEstadousuarioValue()
     {
         if ($this->estadousuario == 0) {
@@ -158,7 +158,7 @@ class administrador extends Usuario
      * Set the value of estadousuario
      *
      * @return  self
-     */ 
+     */
     public function setEstadousuarioValue($estadousuario)
     {
         $this->estadousuario = $estadousuario;
@@ -167,14 +167,14 @@ class administrador extends Usuario
 
     /**
      * Get the value of estadousuario
-     */ 
+     */
     public function getEstadousuarioValor()
     {
         return $this->estadousuario;
     }
-/**
+    /**
      * Get the value of direccionUsuario
-     */ 
+     */
     public function getDireccionUsuario()
     {
         return $this->direccionUsuario;
@@ -184,7 +184,7 @@ class administrador extends Usuario
      * Set the value of direccionUsuario
      *
      * @return  self
-     */ 
+     */
     public function setDireccionUsuario($direccionUsuario)
     {
         $this->direccionUsuario = $direccionUsuario;
@@ -193,7 +193,7 @@ class administrador extends Usuario
     }
     /**
      * Get the value of imgUsuario
-     */ 
+     */
     public function getImgUsuario()
     {
         return $this->imgUsuario;
@@ -203,7 +203,7 @@ class administrador extends Usuario
      * Set the value of imgUsuario
      *
      * @return  self
-     */ 
+     */
     public function setImgUsuario($imgUsuario)
     {
         $this->imgUsuario = $imgUsuario;
@@ -212,7 +212,7 @@ class administrador extends Usuario
     }
     /**
      * Get the value of idtipodoc
-     */ 
+     */
     public function getIdtipodoc()
     {
         return $this->idtipodoc;
@@ -222,16 +222,16 @@ class administrador extends Usuario
      * Set the value of idtipodoc
      *
      * @return  self
-     */ 
+     */
     public function setIdtipodoc($idtipodoc)
     {
         $this->idtipodoc = $idtipodoc;
 
         return $this;
     }
-/**
+    /**
      * Get the value of idPerfilUsuario
-     */ 
+     */
     public function getIdPerfilUsuario()
     {
         return $this->idPerfilUsuario;
@@ -241,7 +241,7 @@ class administrador extends Usuario
      * Set the value of idtipodoc
      *
      * @return  self
-     */ 
+     */
     public function setIdPerfilUsuario($idPerfilUsuario)
     {
         $this->idPerfilUsuario = $idPerfilUsuario;
@@ -255,7 +255,7 @@ class administrador extends Usuario
             INNER JOIN tipodocumento ON USUARIO.idTipoDoc = tipodocumento.idTipoDoc
             INNER JOIN PerfilUsuario ON USUARIO.idPerfilUsuario = PerfilUsuario.idPerfilUsuario");
             $sql->execute();
-			return $sql->fetchAll(PDO::FETCH_OBJ);
+            return $sql->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $e) {
             die($e->getMessage());
         }
@@ -276,27 +276,53 @@ class administrador extends Usuario
     }
 
     public function Actualizar($data)
-	{
-		try 
-		{
-			$sql = "UPDATE USUARIO SET 
+    {
+        try {
+            $sql = "UPDATE USUARIO SET 
 						nombreUsuario  = ?,
                         apellidoUsuario  = ?,
                         contraseñaUsuario  = ?,
                         correoUsuario  = ?,
                         fechaNacimiento  = ?,
                         documentoUsuario  = ?,
-                        estadoUsuario  = ?,
                         direccionUsuario  = ?,
+                        imgUsuario  = ?,
                         idTipoDoc  = ?,
                         idPerfilUsuario  = ?
 						
 				    WHERE idUsuario = ?";
 
-			$this->pdo->prepare($sql)
-			     ->execute(
-				    array(  
-                        $data->getNombreusuario(), 
+            $this->pdo->prepare($sql)
+                ->execute(
+                    array(
+                        $data->getNombreusuario(),
+                        $data->getApellidousuario(),
+                        $data->getContraseñausuario(),
+                        $data->getCorreousuario(),
+                        $data->getFechanacimiento(),
+                        $data->getDocumentousuario(),
+                        $data->getDireccionUsuario(),
+                        $data->getImgUsuario(),
+                        $data->getIdTipodoc(),
+                        $data->getIdPerfilUsuario(),
+                        $data->getIdUsuario()
+                    )
+                );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    public function Registrar(administrador $data)
+    {
+        try {
+            $sql = "INSERT INTO USUARIO (nombreUsuario,apellidoUsuario,contraseñaUsuario,correoUsuario,fechaNacimiento,documentoUsuario,estadoUsuario,direccionUsuario,imgUsuario,idTipoDoc,idPerfilUsuario) 
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            $this->pdo->prepare($sql)
+                ->execute(
+                    array(
+                        $data->getNombreusuario(),
                         $data->getApellidousuario(),
                         $data->getContraseñausuario(),
                         $data->getCorreousuario(),
@@ -304,43 +330,100 @@ class administrador extends Usuario
                         $data->getDocumentousuario(),
                         $data->getEstadousuario(),
                         $data->getDireccionUsuario(),
+                        $data->getImgUsuario(),
                         $data->getIdTipodoc(),
-                        $data->getIdPerfilUsuario(),
+                        $data->getIdPerfilUsuario()
+                    )
+                );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function ActualizarPerfil($data)
+    {
+        try {
+            $sql = "UPDATE USUARIO SET 
+						nombreUsuario  = ?,
+                        apellidoUsuario  = ?,
+                        correoUsuario  = ?,
+                        contraseñaUsuario  = ?,
+                        fechaNacimiento  = ?,
+                        documentoUsuario  = ?,
+                        idTipoDoc  = ?,
+                        direccionUsuario  = ?,
+                        imgUsuario  = ?
+						
+				    WHERE idUsuario = ?";
+
+            $this->pdo->prepare($sql)
+                ->execute(
+                    array(
+                        $data->getNombreusuario(),
+                        $data->getApellidousuario(),
+                        $data->getCorreousuario(),
+                        $data->getContraseñausuario(),
+                        $data->getFechanacimiento(),
+                        $data->getDocumentousuario(),
+                        $data->getIdTipodoc(),
+                        $data->getDireccionUsuario(),
+                        $data->getImgUsuario(),
                         $data->getIdUsuario()
-					)
-				);
-		} catch (Exception $e) 
-		{
-			die($e->getMessage());
-		}
-	}
-
-    public function Registrar(administrador $data)
-	{
-		try 
-		{
-		$sql = "INSERT INTO USUARIO (nombreUsuario,apellidoUsuario,contraseñaUsuario,correoUsuario,fechaNacimiento,documentoUsuario,estadoUsuario,direccionUsuario,imgUsuario,idTipoDoc,idPerfilUsuario) 
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-		$this->pdo->prepare($sql)
-		     ->execute(
-				array(
-                    $data->getNombreusuario(), 
-                    $data->getApellidousuario(),
-                    $data->getContraseñausuario(),
-                    $data->getCorreousuario(),
-                    $data->getFechanacimiento(),
-                    $data->getDocumentousuario(),
-                    $data->getEstadousuario(),
-                    $data->getDireccionUsuario(),
-                    $data->getImgUsuario(),
-                    $data->getIdTipodoc(),
-                    $data->getIdPerfilUsuario()
-                )
-			);
-		} catch (Exception $e) 
-		{
-			die($e->getMessage());
-		}
-	}
+                    )
+                );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function ListarTipoDoc()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM tipodocumento");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function ListarPerfil()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM perfilusuario");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    function contarRegistros()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT COUNT(*) total FROM usuario");
+            $sql->execute();
+			return $sql->fetchColumn();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    function contarUsuariosInactivos()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT COUNT(*) total FROM usuario
+            WHERE estadoUsuario = 0");
+            $sql->execute();
+			return $sql->fetchColumn();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    function contarUsuariosSinVerificar()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT COUNT(*) total FROM usuario
+            WHERE estadoUsuario = NULL");
+            $sql->execute();
+			return $sql->fetchColumn();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }

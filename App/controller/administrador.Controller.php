@@ -1,124 +1,304 @@
-<?php
-require_once '../../../../Config/appConfig.php';
-require_once APP_MODULES_ROUTE . 'administradorModel.php';
+<html>
 
-class administradorController
-{
-    private $model;
+<head>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-    public function __CONSTRUCT()
+        * {
+            font-family: "Poppins";
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <?php
+    require_once '../../../../Config/appConfig.php';
+    require_once APP_MODULES_ROUTE . 'administradorModel.php';
+
+
+    class administradorController
     {
-        $this->model = new administrador();
-    }
+        private $model;
 
-    public function Index()
-    {
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/Clientes.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
-    }
-    public function ajustesPerfil()
-    {
-         $administradores = new administrador();
+        public function __CONSTRUCT()
+        {
+            $this->model = new administrador();
+        }
 
-        if (isset($_REQUEST['idUsuario'])) {
-            $administradores = $this->model->Obtener($_REQUEST['idUsuario']);
+        public function Index()
+        {
             require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/AjustesPerfil.php';
-            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
-        } else {
-            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/CrearUsuarios.php';
+            require_once '../../../Views/perfilAdmin/administrador/Clientes.php';
             require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
         }
-    }
-    public function fallasSistema()
-    {
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/FallasSistema.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
-    }
-    public function ModificionUsuarios()
-    {
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/ModificacionUsuarios.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
-    }
-    public function crudUsuarios()
-    {
-        $administradores = new administrador();
+        public function ajustesPerfil()
+        {
+            $administradores = new administrador();
 
-        if (isset($_REQUEST['idUsuario'])) {
-            $administradores = $this->model->Obtener($_REQUEST['idUsuario']);
+            if (isset($_REQUEST['idUsuario'])) {
+                $administradores = $this->model->Obtener($_REQUEST['idUsuario']);
+                require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
+                require_once '../../../Views/perfilAdmin/administrador/AjustesPerfil.php';
+                require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+            } else {
+                require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
+                require_once '../../../Views/perfilAdmin/administrador/CrearUsuarios.php';
+                require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+            }
+        }
+        public function fallasSistema()
+        {
             require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/FormularioModificacionUsuarios.php';
-            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
-        } else {
-            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/CrearUsuarios.php';
+            require_once '../../../Views/perfilAdmin/administrador/FallasSistema.php';
             require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
         }
-    }
-    public function Guardar()
-    {
-        $administrador = new administrador();
+        public function ModificionUsuarios()
+        {
+            require_once '../../../Views/perfilAdmin/modules/headerPerfil.php';
+            require_once '../../../Views/perfilAdmin/administrador/ModificacionUsuarios.php';
+            require_once '../../../Views/perfilAdmin/modules/footerPerfil.php';
+        }
+        public function crudUsuarios()
+        {
+            $administradores = new administrador();
 
-        $directorio ="images/usuarios/";
-        $aleatorio = mt_rand(100, 999);
-        $ruta = "images/usuarios/".$aleatorio.".png";
-         
-        $nombre=$_FILES['imgUsuario']['name'];
-        $guardado=$_FILES['imgUsuario']['tmp_name'];
-                  
-         
-        if(!file_exists($directorio)){
-            mkdir($directorio ,0777,true);
-            if(file_exists($directorio )){
-         
-                if(move_uploaded_file($guardado, 'archivos/'.$nombre)){
+            if (isset($_REQUEST['idUsuario'])) {
+                $administradores = $this->model->Obtener($_REQUEST['idUsuario']);
+                require_once '../../../Views/perfilAdmin/modules/headerPerfil.php';
+                require_once '../../../Views/perfilAdmin/administrador/FormularioModificacionUsuarios.php';
+                require_once '../../../Views/perfilAdmin/modules/footerPerfil.php';
+            } else {
+                require_once '../../../Views/perfilAdmin/modules/headerPerfil.php';
+                require_once '../../../Views/perfilAdmin/administrador/CrearUsuarios.php';
+                require_once '../../../Views/perfilAdmin/modules/footerPerfil.php';
+            }
+        }
+        public function Guardar()
+        {
+            $administrador = new administrador();
+            
+            $rutaservidor='/images/fotos_perfil/';
+            $rutatemporal=$_FILES['imgUsuario']['tmp_name'];
+            $nombrefoto=$_FILES['imgUsuario']['name'];
+            $rutadestino=$rutaservidor.$nombrefoto;
+            move_uploaded_file($rutatemporal, $rutadestino);
+
+            if (!file_exists($rutaservidor)) {
+                mkdir($rutaservidor, 0777, true);
+                if (file_exists($rutaservidor)) {
+
+                    if (move_uploaded_file($rutatemporal, $rutadestino)) {
+                        echo "Archivo guardado con exito";
+                    } else {
+                        echo "Archivo no se pudo guardar";
+                    }
+                }
+            } else {
+                if (move_uploaded_file($rutatemporal, $rutadestino)) {
                     echo "Archivo guardado con exito";
-                }else{
+                } elseif (move_uploaded_file($rutatemporal, $rutadestino)) {
+                    echo "Archivo guardado con exito";
+                } else {
                     echo "Archivo no se pudo guardar";
                 }
+
+                var_dump($rutadestino);
+                error_reporting(E_ALL);
             }
-        }else{
-                if(move_uploaded_file($guardado, $directorio.$aleatorio.".png")){
-                echo "Archivo guardado con exito";
-         
-            }elseif(move_uploaded_file($guardado, $directorio.$aleatorio.".pdf")){
-                echo "Archivo guardado con exito";
-            }else{
-                echo "Archivo no se pudo guardar";
-            }
-         
-            var_dump($ruta);
-         
+            $administrador->setIdusuario($_REQUEST['idUsuario']);
+            $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
+            $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
+            $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
+            $administrador->setCorreousuario($_REQUEST['correoUsuario']);
+            $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
+            $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
+            $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
+            $administrador->setImgUsuario($rutadestino);
+            $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
+            $administrador->setIdPerfilUsuario($_REQUEST['idTipoDoc']);
+
+            $administrador->getIdusuario() > 0
+                ? $this->model->Actualizar($administrador)
+                : $this->model->Registrar($administrador);
         }
-         
-    
-        $administrador->setIdusuario($_REQUEST['idUsuario']);
-        $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
-        $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
-        $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
-        $administrador->setCorreousuario($_REQUEST['correoUsuario']);
-        $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
-        $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
-        $administrador->setEstadousuario($_REQUEST['estadoUsuario']);
-        $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
-        $administrador->setImgUsuario($aleatorio);
-        $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
-        $administrador->setIdPerfilUsuario($_REQUEST['idTipoDoc']);
 
-        $administrador->getIdusuario() > 0
-            ? $this->model->Actualizar($administrador)
-            : $this->model->Registrar($administrador);
-        header('Location: index.php?c=administrador&a=modificionusuarios');
-    }
+        public function AddNegocios()
+        {
+            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
+            require_once '../../../Views/perfilAdmin/administrador/FormularioNegocioAdd.php';
+            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+        }
 
-    public function AddNegocios()
-    {
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/FormularioNegocioAdd.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+        public function editarPerfilUsuario()
+        {
+            $administradores = new administrador();
+
+            if (isset($_REQUEST['idUsuario'])) {
+                $administradores = $this->model->Obtener($_REQUEST['idUsuario']);
+                require_once '../../../Views/perfilAdmin/modules/headerPerfil.php';
+                require_once '../../../Views/perfilAdmin/administrador/editarPerfil.php';
+                require_once '../../../Views/perfilAdmin/modules/footerPerfil.php';
+            } else {
+                require_once '../../../Views/perfilAdmin/modules/headerPerfil.php';
+                require_once '../../../Views/perfilAdmin/administrador/resumenPerfil.php';
+                require_once '../../../Views/perfilAdmin/modules/footerPerfil.php';
+            }
+        }
+        public function GuardarPerfil()
+        {
+            $administrador = new administrador();
+
+            $directorio = "/images/fotos_perfil/";
+            $nombre = $_FILES['imgUsuario']['name'];
+            $guardado = $_FILES['imgUsuario']['tmp_name'];
+            $ruta = "/images/fotos_perfil/" . $nombre;
+
+            if (!file_exists($directorio)) {
+                mkdir($directorio, 0777, true);
+                if (file_exists($directorio)) {
+
+                    if (move_uploaded_file($guardado, $ruta)) {
+                        $administrador->setIdusuario($_REQUEST['idUsuario']);
+                        $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
+                        $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
+                        $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
+                        $administrador->setCorreousuario($_REQUEST['correoUsuario']);
+                        $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
+                        $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
+                        $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
+                        $administrador->setImgUsuario($ruta);
+                        $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
+
+                        $administrador->getIdusuario() > 0
+                            ? $this->model->ActualizarPerfil($administrador)
+                            : $this->model->Registrar($administrador);
+                        $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                        echo "<script> window.addEventListener('load', init, false);
+                        function init () {
+                            Swal.fire({
+                                title: '¡Datos modificados correctamente!',
+                                text: '$msgUsuario',
+                                icon: 'success',
+                                buttons: true,
+                                dangerMode: true,
+                            }).then((willDelete) => {
+                            if (willDelete) {
+                                location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                            } else {
+                                location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                                }
+                        });
+                        }
+                        
+                        </script>";
+                    } else {
+                        echo '<script> alert("Error al actualizar su Foto.");</script>';
+                        echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
+                    }
+                }
+            } else {
+                if (move_uploaded_file($guardado, $ruta)) {
+                    $administrador->setIdusuario($_REQUEST['idUsuario']);
+                    $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
+                    $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
+                    $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
+                    $administrador->setCorreousuario($_REQUEST['correoUsuario']);
+                    $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
+                    $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
+                    $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
+                    $administrador->setImgUsuario($ruta);
+                    $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
+
+                    $administrador->getIdusuario() > 0
+                        ? $this->model->ActualizarPerfil($administrador)
+                        : $this->model->Registrar($administrador);
+                    $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                    echo "<script> window.addEventListener('load', init, false);
+                    function init () {
+                        Swal.fire({
+                            title: '¡Datos modificados correctamente!',
+                            text: '$msgUsuario',
+                            icon: 'success',
+                            buttons: true,
+                            dangerMode: true,
+                        }).then((willDelete) => {
+                        if (willDelete) {
+                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                        } else {
+                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                            }
+                    });
+                    }
+                    
+                    </script>";
+                } elseif (move_uploaded_file($guardado, $ruta)) {
+                    $administrador->setIdusuario($_REQUEST['idUsuario']);
+                    $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
+                    $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
+                    $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
+                    $administrador->setCorreousuario($_REQUEST['correoUsuario']);
+                    $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
+                    $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
+                    $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
+                    $administrador->setImgUsuario($ruta);
+                    $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
+
+                    $administrador->getIdusuario() > 0
+                        ? $this->model->ActualizarPerfil($administrador)
+                        : $this->model->Registrar($administrador);
+                    $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                    echo "<script> window.addEventListener('load', init, false);
+                    function init () {
+                        Swal.fire({
+                            title: '¡Datos modificados correctamente!',
+                            text: '$msgUsuario',
+                            icon: 'success',
+                            buttons: true,
+                            dangerMode: true,
+                        }).then((willDelete) => {
+                        if (willDelete) {
+                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                        } else {
+                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                            }
+                    });
+                    }
+                    
+                    </script>";
+                } else {
+                    echo '<script> alert("Solo se permiten imagenes de Tipo PNG, JPG y JPEG.");</script>';
+                    echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario"; </script>';
+                }
+                $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                echo "<script> window.addEventListener('load', init, false);
+                    function init () {
+                        Swal.fire({
+                            title: '¡Datos modificados correctamente!',
+                            text: '$msgUsuario',
+                            icon: 'success',
+                            buttons: true,
+                            dangerMode: true,
+                        }).then((willDelete) => {
+                        if (willDelete) {
+                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                        } else {
+                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                            }
+                    });
+                    }
+                    
+                    </script>";
+            }
+        }
     }
-}
+    ?>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+</body>
+
+</html>
