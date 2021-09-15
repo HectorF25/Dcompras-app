@@ -57,9 +57,9 @@
         }
         public function ModificionUsuarios()
         {
-            require_once '../../../Views/perfilAdmin/modules/headerPerfil.php';
+            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
             require_once '../../../Views/perfilAdmin/administrador/ModificacionUsuarios.php';
-            require_once '../../../Views/perfilAdmin/modules/footerPerfil.php';
+            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
         }
         public function crudUsuarios()
         {

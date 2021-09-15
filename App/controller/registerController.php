@@ -42,10 +42,6 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
     $email = $_POST['correoUsuario'];
     $_password_us = $_POST['contrasenaUsuario'];
 
-
-
-
-
     $mail = new PHPMailer(true);
     try {
         //$mail->SMTPDebug = 2;  // Sacar esta línea para no mostrar salida debug

@@ -426,4 +426,16 @@ class administrador extends Usuario
             die($e->getMessage());
         }
     }
+    function imgUsuario($idusuario)
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT imgUsuario FROM usuario
+            WHERE idUsuario = ? ");
+            $sql->execute($idusuario);
+            $result = $sql->fetch(PDO::FETCH_OBJ);
+			return $result->imgUsuario;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
