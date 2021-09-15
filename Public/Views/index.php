@@ -1044,7 +1044,7 @@ Ropa para toda la Familia</a>
                                 <form method="POST" action="<?= APP_DIR; ?>controller/registerController">
                                     <div class="section text-center">
                                         <!-- <h4 class="mb-4 pb-3">Registrarse</h4> -->
-                                        <img src="<?= APP_DIR; ?>assets/css/images/Recurso 2Logo-index2-img.png" alt="Dcompras" class="mb-4 pb-3" style="width: 250px;padding-top: 35px;">
+                                        <img src="<?= APP_DIR; ?>assets/css/images/Recurso 1Logo-index-img.png" alt="Dcompras" class="mb-4 pb-3" style="width: 250px;padding-top: 35px;">
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col">
@@ -1306,8 +1306,10 @@ Automotive
         <script src="./vendors/slick/slick.js"></script>
         <script src="./vendors/waypoints/jquery.waypoints.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="<?= APP_DIR; ?>assets/js1/index/main.js"></script>
         <script src="<?= APP_DIR; ?>assets/js1/index/app.js"></script>
+        <script src="<?= APP_DIR; ?>assets/js/xssDisable.js"></script>
 
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>

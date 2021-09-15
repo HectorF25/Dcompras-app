@@ -69,13 +69,13 @@
                                         <table id="tablaUsu" class="table table-striped">
                                             <thead>
                                                 <tr role="row">
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 180.889px;">Usuario</th>
-                                                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 180.889px;">Nombre</th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 50px;">Usuario</th>
+                                                    <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 120px;">Nombre</th>
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Rol: activate to sort column ascending" style="width: 140px;">Correo</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Ciudad: activate to sort column ascending" style="width: 169.889px;">Contraseña</th>
+                                                    <!-- <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Ciudad: activate to sort column ascending" style="width: 169.889px;">Contraseña</th> -->
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 100px;">Estado</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Accion</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Inactivar</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 60px;">Accion</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 60px;">Inactivar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -84,7 +84,7 @@
                                                         <td><img src="./<?php echo $r->imgUsuario; ?>" alt="image" /></td>
                                                         <td><?php echo $r->nombreUsuario; ?>&nbsp;<?php echo $r->apellidoUsuario; ?></td>
                                                         <td><?php echo $r->correoUsuario; ?></td>
-                                                        <td><?php echo password_hash($r->contraseñaUsuario, PASSWORD_DEFAULT); ?></td>
+                                                        <!-- <td><?php /* echo password_hash($r->contraseñaUsuario, PASSWORD_DEFAULT); */ ?></td> -->
                                                         <td><?php if ($r->estadoUsuario == TRUE) {
                                                                 echo "ACTIVO";
                                                             } else {
