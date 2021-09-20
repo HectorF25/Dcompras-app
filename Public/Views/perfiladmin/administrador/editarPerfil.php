@@ -29,7 +29,7 @@
                                 <div class="progress-message" id="progress-message" style="color: #F17C12;">Vamos a empezar.</div>
                         </li>
                         <li class="list-group-item p-4">
-                            <strong class="text-muted d-block mb-2">Description</strong>
+                            <strong class="text-muted d-block mb-2">Descripción</strong>
                             <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</span>
                             </br>
                             </br>
@@ -46,7 +46,7 @@
                         <li class="list-group-item p-3">
                             <div class="row">
                                 <div class="col">
-                                    <form action="?c=administrador&a=GuardarPerfil" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data">
+                                    <form action="?c=administrador&a=GuardarPerfil" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data" />
                                         <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $administradores->idUsuario; ?>" />
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
@@ -101,9 +101,9 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label>Subir foto de perfil</label>
-                                                <input type="file" name="imgUsuario" id="imgUsuario" value="<?php echo $administradores->imgUsuario; ?>" class="file-upload-default">
+                                                <input type="file" name="imgUsuario" id="imgUsuario" class="file-upload-default">
                                                 <div class="input-group ">
-                                                    <input type="text" class="form-control file-upload-info"  disabled placeholder="Subir foto">
+                                                    <input type="text" class="form-control file-upload-info"  disabled value="<?php echo $administradores->imgUsuario; ?>">
                                                     <span class="input-group-append">
                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Subir</button>
                                                     </span>

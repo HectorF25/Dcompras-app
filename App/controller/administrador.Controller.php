@@ -152,15 +152,19 @@
             $administrador = new administrador();
 
             $directorio = "/images/fotos_perfil/";
-            $nombre = $_FILES['imgUsuario']['name'];
+            $imgUsuario = $_FILES['imgUsuario']['name'];
+            $tipo = $_FILES['imgUsuario']['type'];
+            $tamano = $_FILES['imgUsuario']['size'];
             $guardado = $_FILES['imgUsuario']['tmp_name'];
-            $ruta = "/images/fotos_perfil/" . $nombre;
+            $ruta = "/images/fotos_perfil/" . $imgUsuario;
 
-            if (!file_exists($directorio)) {
-                mkdir($directorio, 0777, true);
-                if (file_exists($directorio)) {
+
+            if (!is_dir($directorio)) {
+                mkdir($directorio . $imgUsuario);
 
                     if (move_uploaded_file($guardado, $ruta)) {
+
+                        chmod($ruta, 0777);
                         $administrador->setIdusuario($_REQUEST['idUsuario']);
                         $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                         $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
@@ -198,9 +202,9 @@
                         echo '<script> alert("Error al actualizar su Foto.");</script>';
                         echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
                     }
-                }
             } else {
                 if (move_uploaded_file($guardado, $ruta)) {
+                    chmod($ruta, 0777);
                     $administrador->setIdusuario($_REQUEST['idUsuario']);
                     $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                     $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
@@ -235,6 +239,7 @@
                     
                     </script>";
                 } elseif (move_uploaded_file($guardado, $ruta)) {
+                    chmod($ruta, 0777);
                     $administrador->setIdusuario($_REQUEST['idUsuario']);
                     $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                     $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
