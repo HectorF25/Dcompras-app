@@ -88,27 +88,10 @@
             $ruta = "/images/fotos_perfil/" . $imgUsuario;
 
 
-                if (file_exists($directorio)) {
+            if (file_exists($directorio)) {
 
-                    if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
-                        chmod('images/fotos_perfil/'.$imgUsuario, 0777);
-                        echo "Archivo guardado con exito";
-                    } else {
-                        echo "Archivo no se pudo guardar";
-                    }
-                }else {
-                if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
-                        chmod('images/fotos_perfil/'.$imgUsuario, 0777);
-                    echo "Archivo guardado con exito";
-                } elseif (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
-                    echo "Archivo guardado con exito";
-                } else {
-                    echo "Archivo no se pudo guardar";
-                }
-
-                var_dump($rutadestino);
-                error_reporting(E_ALL);
-            }
+            if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
+            chmod('images/fotos_perfil/'.$imgUsuario, 0777);
             $administrador->setIdusuario($_REQUEST['idUsuario']);
             $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
             $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
@@ -124,7 +107,34 @@
             $administrador->getIdusuario() > 0
                 ? $this->model->Actualizar($administrador)
                 : $this->model->Registrar($administrador);
+                $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                echo "<script> window.addEventListener('load', init, false);
+                function init () {
+                    Swal.fire({
+                        title: '¡Datos modificados correctamente!',
+                        text: '$msgUsuario',
+                        icon: 'success',
+                        buttons: true,
+                        dangerMode: true,
+                    }).then((willDelete) => {
+                    if (willDelete) {
+                        location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                    } else {
+                        location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                        }
+                });
+                }
+                
+                </script>";
+        }else {
+            echo '<script> alert("Error al actualizar su Foto.");</script>';
+            echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
         }
+    }else {
+        echo '<script> alert("No existe el directorio.");</script>';
+        echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
+    }
+}
 
         public function AddNegocios()
         {
@@ -165,6 +175,7 @@
 
                     if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
                         chmod('images/fotos_perfil/'.$imgUsuario, 0777);
+                        
                         $administrador->setIdusuario($_REQUEST['idUsuario']);
                         $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                         $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);

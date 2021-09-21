@@ -131,7 +131,7 @@ while($filas=mysqli_fetch_array($consulta)){
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black"><?php echo $administradores->nombreUsuario . " " . $administradores->apellidoUsuario ?></p>
+                                <p class="mb-1 text-black"><?php echo $nombreUsuario . " " . $apellidoUsuario ?></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -264,8 +264,8 @@ while($filas=mysqli_fetch_array($consulta)){
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2"><?php echo $administradores->nombreUsuario . " " . $administradores->apellidoUsuario ?></span>
-                                <span class="text-secondary text-small"><?php echo $administradores->nombrePerfilUsuario ?></span>
+                                <span class="font-weight-bold mb-2"><?php echo $nombreUsuario . " " . $apellidoUsuario ?></span>
+                                <span class="text-secondary text-small"><?php echo $nombrePerfilUsuario ?></span>
                             </div>
                             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                         </a>

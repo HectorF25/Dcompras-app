@@ -118,7 +118,7 @@
                                                 <label for="feInputCity">Tipo de documento</label>
                                                 <select id="feInputState" class="form-control" id="idTipoDoc" name="idTipoDoc" placeholder=" " required>
 
-                                                    <option class="" value="<?php echo $administradores->idTipoDoc; ?>"><?php echo $administradores->nombreTipoDoc; ?></option>
+                                                    <option class="formulario__label" value="<?php echo $administradores->idTipoDoc; ?>"><?php echo $administradores->nombreTipoDoc; ?></option>
                                                     <?php
                                                     foreach ($this->model->ListarTipoDoc() as $valores) : ?>
                                                         <option value="<?php echo $valores->idTipoDoc ?>"><?php echo $valores->nombreTipoDoc ?></option>
@@ -139,11 +139,12 @@
 
                                                         <option class="formulario__label" value="<?php echo $administradores->idPerfilUsuario; ?>"><?php echo $administradores->nombrePerfilUsuario; ?></option>
                                                         <?php
-                                                        foreach ($this->model->Listar() as $valores) : ?>
+                                                        foreach ($this->model->ListarPerfil() as $valores) : ?>
                                                             <option value="<?php echo $valores->idPerfilUsuario ?>"><?php echo $valores->nombrePerfilUsuario ?></option>
                                                         <?php
                                                         endforeach;
                                                         ?>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -166,7 +167,7 @@
                                                 </div>                            
                 </div>
                                         </div>
-                                        <button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Actualizar Datos</button>
+                                        <br><button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Actualizar Datos</button>
                                     </form>
                                 </div>
                             </div>
