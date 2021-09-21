@@ -2341,7 +2341,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.nombre {
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
@@ -2629,6 +2630,7 @@ h3,
 h4,
 h5,
 h6,
+.nombre,
 .h1,
 .h2,
 .h3,
@@ -2656,6 +2658,7 @@ h3,
 }
 
 h4,
+.nombre,
 .h4 {
     font-size: 1.5rem;
 }
@@ -13645,7 +13648,8 @@ h3,
 h4,
 h5,
 p,
-span {
+span,
+.nombre {
     text-shadow: none;
 }
 
@@ -13879,6 +13883,7 @@ h3,
 h4,
 h5,
 h6,
+.nombre,
 .h1,
 .h2,
 .h3,
@@ -13908,6 +13913,7 @@ h3,
 }
 
 h4,
+.nombre,
 .h4 {
     font-size: 1.13rem;
 }
@@ -14463,6 +14469,11 @@ code {
 .template-demo>h1 {
     border-top: 1px solid #ebedf2;
     padding: 0.5rem 0 0;
+}
+
+.nombre{
+    border-top: 1px solid #ebedf2;
+    padding: 0.5rem 0 0;  
 }
 
 .template-demo .ul-slider.noUi-horizontal {
