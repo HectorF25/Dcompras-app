@@ -1,3 +1,33 @@
+<?php
+
+$idUsuario = $_SESSION["idUsuario"];
+$nombreUsuario = $_SESSION["nombreUsuario"];
+$apellidoUsuario = $_SESSION["apellidoUsuario"];
+$nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
+$imgUsuario = $_SESSION["imgUsuario"];
+$correoUsuario = $_SESSION['correo'];
+if (!isset($correoUsuario)) {
+    echo '<script type="text/javascript">
+    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
+    window.location.href="../../index";
+    </script>';
+} else {
+    $conexion = mysqli_connect('localhost', 'root', '');
+    mysqli_select_db($conexion, 'imake');	 
+    $consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
+    while($filas=mysqli_fetch_array($consulta)){
+         $img=$filas['imgUsuario'];                           
+}
+}
+/*
+$sesion = true;
+
+if($sesion){
+$codigo = 6;
+
+
+*/
+?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header row no-gutters py-4">
@@ -14,7 +44,7 @@
                     <div class="card-header border-bottom text-center">
                         <center>
                             <div class="mb-3 mx-auto">
-                                <img class="rounded-circle" src=".<?php echo $administradores->imgUsuario ?>" alt="User Avatar" width="110">
+                                <img class="rounded-circle" src=".<?php echo $img ?>" alt="User Avatar" width="110">
                             </div>
                             <h4 class="mb-0"><?php echo $administradores->nombreUsuario . " " . $administradores->apellidoUsuario ?></h4>
                             <span class="text-muted d-block mb-2"><?php echo strtolower($administradores->correoUsuario); ?></span>

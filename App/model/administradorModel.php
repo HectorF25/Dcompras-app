@@ -251,9 +251,7 @@ class administrador extends Usuario
     public function Listar()
     {
         try {
-            $sql = $this->pdo->prepare("SELECT * FROM usuario 
-            INNER JOIN tipodocumento ON USUARIO.idTipoDoc = tipodocumento.idTipoDoc
-            INNER JOIN PerfilUsuario ON USUARIO.idPerfilUsuario = PerfilUsuario.idPerfilUsuario");
+            $sql = $this->pdo->prepare("SELECT * FROM usuario");
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $e) {
