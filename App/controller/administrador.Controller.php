@@ -215,8 +215,8 @@
                     }
                 }
              else {
-                if (move_uploaded_file($guardado, '/images/fotos_perfil/'.$imgUsuario)) {
-                    chmod('/images/fotos_perfil/'.$imgUsuario, 0777);
+                if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
+                    chmod('images/fotos_perfil/'.$imgUsuario, 0777);
                     $administrador->setIdusuario($_REQUEST['idUsuario']);
                     $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                     $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
@@ -250,8 +250,8 @@
                     }
                     
                     </script>";
-                } elseif (move_uploaded_file($guardado, '/images/fotos_perfil/'.$imgUsuario)) {
-                    chmod('/images/fotos_perfil/'.$imgUsuario, 0777);
+                } elseif (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
+                    chmod('images/fotos_perfil/'.$imgUsuario, 0777);
                     $administrador->setIdusuario($_REQUEST['idUsuario']);
                     $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                     $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
