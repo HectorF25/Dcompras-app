@@ -2,20 +2,20 @@
     <div class="content-wrapper">
         <div class="page-header row no-gutters py-4">
             <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <span class="text-uppercase page-subtitle">Personalización</span></span>
-                <h3 class="page-title">Perfil de usuario</h3>
+                <span class="text-uppercase page-subtitle">Registro</span></span>
+                <h3 class="page-title">De usuarios</h3>
             </div>
         </div>
         <div class="page-header">
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                     <i class="mdi mdi-home"></i>
-                </span> Home
+                </span> Panel de administrador
             </h3>
             <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                        <span></span>Resumen <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                     </li>
                 </ul>
             </nav>
@@ -25,7 +25,7 @@
                 <div class="card bg-gradient-danger card-img-holder text-white">
                     <div class="card-body">
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Usuarios Registrados <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                        <h4 class="font-weight-normal mb-3 card-text">Usuarios Registrados <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                         </h4>
                         <h2 class="mb-5"><?php echo $this->model->contarRegistros(); ?></h2>
                         <h6 class="card-text">Increased by 60%</h6>
@@ -65,9 +65,14 @@
                         <li class="list-group-item p-3">
                             <div class="row">
                                 <div class="col">
+
                                     <div class="table-responsive">
-                                        <table id="tablaUsu" class="table table-striped">
+                                    <a class="btn btn-gradient-primary mr-2 float-left" href="?c=administrador&a=crudUsuarios">Nuevo Usuario</a>
+                                    <br><br>
+                                       <table id="tablaUsu" class="table table-striped">
+
                                             <thead>
+
                                                 <tr role="row">
                                                     <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 50px;">Usuario</th>
                                                     <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 120px;">Nombre</th>
@@ -77,6 +82,7 @@
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 60px;">Accion</th>
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 60px;">Inactivar</th>
                                                 </tr>
+                                                
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($this->model->Listar() as $r) : ?>
@@ -99,21 +105,14 @@
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
+                                                       
                                         </table>
+
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="well well-sm text-right">
-                                        <br>
-                                        <br>
-                                        <a class="btn btn-primary" href="?c=administrador&a=crudUsuarios">Nuevo Usuario</a>
-                                        <br>
-                                        <br>
-                                        <br>
-                                    </div>
-                                </div>
+                               
                             </div>
-                        </li>
+                        </a>
                     </ul>
                 </div>
             </div>

@@ -14,7 +14,7 @@ if(!isset($_REQUEST['c']))
 else
 {
     $controlador = strtolower($_REQUEST['c']);
-    $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Index';
+    $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Indexe';
     
     require_once APP_CONTROLLER_ROUTE.$controlador.'.Controller.php';
     $controlador = ucwords($controlador) . 'Controller';

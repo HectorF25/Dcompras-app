@@ -156,9 +156,15 @@
                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Subir</button>
                                                     </span>
                                                 </div> -->
-                                                <label for="" class="formulario__label">Imagen usuario</label>
-                    <input type="file" class="formulario__input" placeholder=" " name="imgUsuario" id="imgUsuario" value="<?php echo $administradores->imgUsuario; ?>">
-                                            </div>
+                                                <label>Subir foto de perfil</label>
+                                                <input type="file" name="imgUsuario" id="imgUsuario" class="file-upload-default">
+                    <div class="input-group ">
+                                                    <input type="text" class="form-control file-upload-info"  disabled value="<?php echo $administradores->imgUsuario; ?>">
+                                                    <span class="input-group-append">
+                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Subir</button>
+                                                    </span>
+                                                </div>                            
+                </div>
                                         </div>
                                         <button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Actualizar Datos</button>
                                     </form>

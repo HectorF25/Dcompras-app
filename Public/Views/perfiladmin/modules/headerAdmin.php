@@ -12,6 +12,12 @@ if (!isset($correoUsuario)) {
     window.location.href="../../index";
     </script>';
 } else {
+    $conexion = mysqli_connect('localhost', 'root', '');
+    mysqli_select_db($conexion, 'imake');	 
+    $consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
+    while($filas=mysqli_fetch_array($consulta)){
+         $img=$filas['imgUsuario'];                           
+}
 }
 /*
 $sesion = true;
@@ -19,10 +25,7 @@ $sesion = true;
 if($sesion){
 $codigo = 6;
 
-$consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $codigo");                  
-while($filas=mysqli_fetch_array($consulta)){
-         $imgUsuario=$filas['imgUsuario'];                           
-}
+
 */
 ?>
 <!DOCTYPE html>
@@ -121,7 +124,7 @@ while($filas=mysqli_fetch_array($consulta)){
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src=".<?php echo $imgUsuario ?>">
+                                <img src=".<?php echo $img ?>">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -133,7 +136,7 @@ while($filas=mysqli_fetch_array($consulta)){
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Editar perfil </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../../../../App/controller/logoutController.php">
-                                <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
+                                <i class="mdi mdi-logout mr-2 text-primary"></i> Cerrar sesión </a>
                         </div>
                     </li>
                     <li class="nav-item d-none d-lg-block full-screen-link">
@@ -230,7 +233,7 @@ while($filas=mysqli_fetch_array($consulta)){
                         </div>
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="../../../../App/controller/logoutController.php">
                             <i class="mdi mdi-power"></i>
                         </a>
                     </li>
@@ -253,7 +256,7 @@ while($filas=mysqli_fetch_array($consulta)){
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src=".<?php echo $imgUsuario ?>" alt="profile">
+                                <img src=".<?php echo $img ?>" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>

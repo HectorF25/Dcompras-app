@@ -85,6 +85,6 @@ inputs.forEach((input) => {
 });
 
 function mensaje() {
-    window.location('../index.php')
+    window.location('../PerfilAdmin')
     alertify.success('Negocio agregado');
 }

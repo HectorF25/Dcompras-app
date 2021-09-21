@@ -14301,6 +14301,7 @@ code {
 
 .font-weight-normal {
     font-family: "ubuntu-regular", sans-serif;
+    color: white;
 }
 
 .image-grouped {
@@ -17058,7 +17059,7 @@ code {
 
 .dropdown .dropdown-menu .dropdown-item:hover {
     background-color: #f8f9fa;
-    color: #ffffff;
+    color: #000000;
 }
 
 
