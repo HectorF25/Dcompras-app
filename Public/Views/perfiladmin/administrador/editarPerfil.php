@@ -1,3 +1,33 @@
+<?php
+
+$idUsuario = $_SESSION["idUsuario"];
+$nombreUsuario = $_SESSION["nombreUsuario"];
+$apellidoUsuario = $_SESSION["apellidoUsuario"];
+$nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
+$imgUsuario = $_SESSION["imgUsuario"];
+$correoUsuario = $_SESSION['correo'];
+if (!isset($correoUsuario)) {
+    echo '<script type="text/javascript">
+    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
+    window.location.href="../../index";
+    </script>';
+} else {
+    $conexion = mysqli_connect('localhost', 'root', '');
+    mysqli_select_db($conexion, 'imake');	 
+    $consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
+    while($filas=mysqli_fetch_array($consulta)){
+         $img=$filas['imgUsuario'];                           
+}
+}
+/*
+$sesion = true;
+
+if($sesion){
+$codigo = 6;
+
+
+*/
+?>
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
@@ -20,7 +50,7 @@
                     <div class="card-header border-bottom text-center">
                         <center>
                             <div class="mb-3 mx-auto">
-                                <img class="rounded-circle" src=".<?php echo $administradores->imgUsuario ?>" alt="User Avatar" width="110">
+                                <img class="rounded-circle" src=".<?php echo $img ?>" alt="User Avatar" width="110">
                             </div>
                             <h4 class="mb-0"><?php echo $administradores->nombreUsuario . " " . $administradores->apellidoUsuario ?></h4>
                             <span class="text-muted d-block mb-2"><?php echo strtolower($administradores->correoUsuario); ?></span>
@@ -49,7 +79,7 @@
                         <li class="list-group-item p-3">
                             <div class="row">
                                 <div class="col">
-                                    <form action="?c=administrador&a=GuardarPerfil" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data">
+                                    <form action="?c=administrador&a=GuardarPerfil" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data" />
                                         <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $administradores->idUsuario; ?>" />
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
@@ -104,9 +134,9 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label>Subir foto de perfil</label>
-                                                <input type="file" name="imgUsuario" id="imgUsuario" value="<?php echo $administradores->imgUsuario; ?>" class="file-upload-default">
+                                                <input type="file" name="imgUsuario" id="imgUsuario" class="file-upload-default">
                                                 <div class="input-group ">
-                                                    <input type="text" class="form-control file-upload-info"  disabled placeholder="Subir foto">
+                                                    <input type="text" class="form-control file-upload-info"  disabled value="<?php echo $administradores->imgUsuario; ?>">
                                                     <span class="input-group-append">
                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Subir</button>
                                                     </span>

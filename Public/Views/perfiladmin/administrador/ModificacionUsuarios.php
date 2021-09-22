@@ -56,9 +56,14 @@
                         <li class="list-group-item p-3">
                             <div class="row">
                                 <div class="col">
+
                                     <div class="table-responsive">
-                                        <table id="tablaUsu" class="table table-striped">
+                                    <a class="btn btn-gradient-primary mr-2 float-left" href="?c=administrador&a=crudUsuarios">Nuevo Usuario</a>
+                                    <br><br>
+                                       <table id="tablaUsu" class="table table-striped">
+
                                             <thead>
+
                                                 <tr role="row">
                                                     <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 50px;">Usuario</th>
                                                     <th class="sorting_asc" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 120px;">Nombre</th>
@@ -68,6 +73,7 @@
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 60px;">Accion</th>
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 60px;">Inactivar</th>
                                                 </tr>
+                                                
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($this->model->Listar() as $r) : ?>
@@ -90,21 +96,14 @@
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
+                                                       
                                         </table>
+
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="well well-sm text-right">
-                                        <br>
-                                        <br>
-                                        <a class="btn btn-primary" href="?c=administrador&a=crudUsuarios">Nuevo Usuario</a>
-                                        <br>
-                                        <br>
-                                        <br>
-                                    </div>
-                                </div>
+                               
                             </div>
-                        </li>
+                        </a>
                     </ul>
                 </div>
             </div>

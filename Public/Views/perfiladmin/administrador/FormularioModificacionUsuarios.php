@@ -14,7 +14,7 @@
                     <div class="card-header border-bottom text-center">
                         <center>
                             <div class="mb-3 mx-auto">
-                                <img class="rounded-circle" src="./<?php echo $administradores->imgUsuario; ?>" alt="User Avatar" width="110">
+                                <img class="rounded-circle" src=".<?php echo $administradores->imgUsuario; ?>" alt="User Avatar" width="110">
                             </div>
                             <h4 class="mb-0"><?php echo $administradores->nombreUsuario . " " . $administradores->apellidoUsuario ?></h4>
                             <span class="text-muted d-block mb-2"><?php echo strtolower($administradores->correoUsuario); ?></span>
@@ -118,7 +118,7 @@
                                                 <label for="feInputCity">Tipo de documento</label>
                                                 <select id="feInputState" class="form-control" id="idTipoDoc" name="idTipoDoc" placeholder=" " required>
 
-                                                    <option class="" value="<?php echo $administradores->idTipoDoc; ?>"><?php echo $administradores->nombreTipoDoc; ?></option>
+                                                    <option class="formulario__label" value="<?php echo $administradores->idTipoDoc; ?>"><?php echo $administradores->nombreTipoDoc; ?></option>
                                                     <?php
                                                     foreach ($this->model->ListarTipoDoc() as $valores) : ?>
                                                         <option value="<?php echo $valores->idTipoDoc ?>"><?php echo $valores->nombreTipoDoc ?></option>
@@ -139,11 +139,12 @@
 
                                                         <option class="formulario__label" value="<?php echo $administradores->idPerfilUsuario; ?>"><?php echo $administradores->nombrePerfilUsuario; ?></option>
                                                         <?php
-                                                        foreach ($this->model->Listar() as $valores) : ?>
+                                                        foreach ($this->model->ListarPerfil() as $valores) : ?>
                                                             <option value="<?php echo $valores->idPerfilUsuario ?>"><?php echo $valores->nombrePerfilUsuario ?></option>
                                                         <?php
                                                         endforeach;
                                                         ?>
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -156,11 +157,17 @@
                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Subir</button>
                                                     </span>
                                                 </div> -->
-                                                <label for="" class="formulario__label">Imagen usuario</label>
-                    <input type="file" class="formulario__input" placeholder=" " name="imgUsuario" id="imgUsuario" value="<?php echo $administradores->imgUsuario; ?>">
-                                            </div>
+                                                <label>Subir foto de perfil</label>
+                                                <input type="file" name="imgUsuario" id="imgUsuario" class="file-upload-default">
+                    <div class="input-group ">
+                                                    <input type="text" class="form-control file-upload-info"  disabled value="<?php echo $administradores->imgUsuario; ?>">
+                                                    <span class="input-group-append">
+                                                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Subir</button>
+                                                    </span>
+                                                </div>                            
+                </div>
                                         </div>
-                                        <button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Actualizar Datos</button>
+                                        <br><button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Actualizar Datos</button>
                                     </form>
                                 </div>
                             </div>

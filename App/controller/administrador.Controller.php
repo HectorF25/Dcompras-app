@@ -80,34 +80,18 @@
         {
             $administrador = new administrador();
             
-            $rutaservidor='/images/fotos_perfil/';
-            $rutatemporal=$_FILES['imgUsuario']['tmp_name'];
-            $nombrefoto=$_FILES['imgUsuario']['name'];
-            $rutadestino=$rutaservidor.$nombrefoto;
-            move_uploaded_file($rutatemporal, $rutadestino);
+            $directorio = "images/fotos_perfil/";
+            $imgUsuario = $_FILES['imgUsuario']['name'];
+            $tipo = $_FILES['imgUsuario']['type'];
+            $tamano = $_FILES['imgUsuario']['size'];
+            $guardado = $_FILES['imgUsuario']['tmp_name'];
+            $ruta = "/images/fotos_perfil/" . $imgUsuario;
 
-            if (!file_exists($rutaservidor)) {
-                mkdir($rutaservidor, 0777, true);
-                if (file_exists($rutaservidor)) {
 
-                    if (move_uploaded_file($rutatemporal, $rutadestino)) {
-                        echo "Archivo guardado con exito";
-                    } else {
-                        echo "Archivo no se pudo guardar";
-                    }
-                }
-            } else {
-                if (move_uploaded_file($rutatemporal, $rutadestino)) {
-                    echo "Archivo guardado con exito";
-                } elseif (move_uploaded_file($rutatemporal, $rutadestino)) {
-                    echo "Archivo guardado con exito";
-                } else {
-                    echo "Archivo no se pudo guardar";
-                }
+            if (file_exists($directorio)) {
 
-                var_dump($rutadestino);
-                error_reporting(E_ALL);
-            }
+            if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
+            chmod('images/fotos_perfil/'.$imgUsuario, 0777);
             $administrador->setIdusuario($_REQUEST['idUsuario']);
             $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
             $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
@@ -116,14 +100,41 @@
             $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
             $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
             $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
-            $administrador->setImgUsuario($rutadestino);
+            $administrador->setImgUsuario($ruta);
             $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
             $administrador->setIdPerfilUsuario($_REQUEST['idTipoDoc']);
 
             $administrador->getIdusuario() > 0
                 ? $this->model->Actualizar($administrador)
                 : $this->model->Registrar($administrador);
+                $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                echo "<script> window.addEventListener('load', init, false);
+                function init () {
+                    Swal.fire({
+                        title: '¡Datos modificados correctamente!',
+                        text: '$msgUsuario',
+                        icon: 'success',
+                        buttons: true,
+                        dangerMode: true,
+                    }).then((willDelete) => {
+                    if (willDelete) {
+                        location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                    } else {
+                        location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                        }
+                });
+                }
+                
+                </script>";
+        }else {
+            echo '<script> alert("Error al actualizar su Foto.");</script>';
+            echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
         }
+    }else {
+        echo '<script> alert("No existe el directorio.");</script>';
+        echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
+    }
+}
 
         public function AddNegocios()
         {
@@ -152,15 +163,19 @@
             $administrador = new administrador();
 
             $directorio = "/images/fotos_perfil/";
-            $nombre = $_FILES['imgUsuario']['name'];
+            $imgUsuario = $_FILES['imgUsuario']['name'];
+            $tipo = $_FILES['imgUsuario']['type'];
+            $tamano = $_FILES['imgUsuario']['size'];
             $guardado = $_FILES['imgUsuario']['tmp_name'];
-            $ruta = "/images/fotos_perfil/" . $nombre;
+            $ruta = "/images/fotos_perfil/" . $imgUsuario;
 
-            if (!file_exists($directorio)) {
-                mkdir($directorio, 0777, true);
+
+            
                 if (file_exists($directorio)) {
 
-                    if (move_uploaded_file($guardado, $ruta)) {
+                    if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
+                        chmod('images/fotos_perfil/'.$imgUsuario, 0777);
+                        
                         $administrador->setIdusuario($_REQUEST['idUsuario']);
                         $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                         $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
@@ -199,8 +214,9 @@
                         echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
                     }
                 }
-            } else {
-                if (move_uploaded_file($guardado, $ruta)) {
+             else {
+                if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
+                    chmod('images/fotos_perfil/'.$imgUsuario, 0777);
                     $administrador->setIdusuario($_REQUEST['idUsuario']);
                     $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                     $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
@@ -234,7 +250,8 @@
                     }
                     
                     </script>";
-                } elseif (move_uploaded_file($guardado, $ruta)) {
+                } elseif (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
+                    chmod('images/fotos_perfil/'.$imgUsuario, 0777);
                     $administrador->setIdusuario($_REQUEST['idUsuario']);
                     $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
                     $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);

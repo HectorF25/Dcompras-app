@@ -24,8 +24,8 @@ try {
 	$phpmailer->Host = 'smtp.mailtrap.io';
 	$phpmailer->SMTPAuth = true;
 	$phpmailer->Port = 2525;
-	$phpmailer->Username = '5f30a79e1517cf';
-	$phpmailer->Password = '2e1796babcca35';
+	$phpmailer->Username = 'dcomprasteam@gmail.com';
+	$phpmailer->Password = 'dcompras123';
 	$phpmailer->Subject = "SOPORTE - DCOMPRAS";
 //Set sender email
 	$phpmailer->setFrom($emailForm, $name);
