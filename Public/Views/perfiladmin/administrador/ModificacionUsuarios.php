@@ -1,56 +1,47 @@
 <div class="main-panel">
     <div class="content-wrapper">
-        <div class="page-header row no-gutters py-4">
-            <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <span class="text-uppercase page-subtitle">Registro</span></span>
-                <h3 class="page-title">De usuarios</h3>
-            </div>
-        </div>
         <div class="page-header">
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                    <i class="mdi mdi-home"></i>
-                </span> Panel de administrador
+                    <i class="mdi mdi-contacts menu-icon"></i>
+                </span> Usuarios
             </h3>
             <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item active" aria-current="page">
-                        <span></span>Resumen <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                        <span></span>Informacion usuarios<i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
                     </li>
                 </ul>
             </nav>
         </div>
         <div class="row">
-            <div class="col-md-4 stretch-card grid-margin">
+            <div class="col-md-4 stretch-card grid-margin" style="height: 150px;">
                 <div class="card bg-gradient-danger card-img-holder text-white">
                     <div class="card-body">
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3 card-text">Usuarios Registrados <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                        <h4 class="font-weight-normal mb-3" style="color: white;">Usuarios Registrados <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                         </h4>
                         <h2 class="mb-5"><?php echo $this->model->contarRegistros(); ?></h2>
-                        <h6 class="card-text">Increased by 60%</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 stretch-card grid-margin">
+            <div class="col-md-4 stretch-card grid-margin" style="height: 150px;">
                 <div class="card bg-gradient-info card-img-holder text-white">
                     <div class="card-body">
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Usuarios Inactivos <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                        <h4 class="font-weight-normal mb-3" style="color: white;">Usuarios Inactivos <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                         </h4>
                         <h2 class="mb-5"><?php echo $this->model->contarUsuariosInactivos(); ?></h2>
-                        <h6 class="card-text">Decreased by 10%</h6>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 stretch-card grid-margin">
+            <div class="col-md-4 stretch-card grid-margin" style="height: 150px;">
                 <div class="card bg-gradient-success card-img-holder text-white">
                     <div class="card-body">
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                        <h4 class="font-weight-normal mb-3">Usuarios sin verificar <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                        <h4 class="font-weight-normal mb-3" style="color: white;">Usuarios sin verificar <i class="mdi mdi-diamond mdi-24px float-right"></i>
                         </h4>
                         <h2 class="mb-5"><?php echo $this->model->contarUsuariosSinVerificar(); ?></h2>
-                        <h6 class="card-text">Increased by 5%</h6>
                     </div>
                 </div>
             </div>

@@ -30,17 +30,23 @@ $codigo = 6;
 ?>
 <div class="main-panel">
     <div class="content-wrapper">
-        <div class="page-header row no-gutters py-4">
-            <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <span class="text-uppercase page-subtitle">Personalización</span></span>
-                <h3 class="page-title">Perfil de usuario</h3>
-            </div>
-        </div>
-        <!-- End Page Header -->
-        <!-- Default Light Table -->
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                    <i class="mdi mdi-contacts menu-icon"></i>
+                </span> Personalización
+            </h3>
+            <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <span></span>Perfil de usuario<i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                    </li>
+                </ul>
+            </nav>
+    </div>
         <div class="row">
             <div class="col-lg-4">
-                <div class="card card-small mb-4 pt-3">
+                <div class="card card-small mb-4" style="height: 610;">
                     <div class="card-header border-bottom text-center">
                         <center>
                             <div class="mb-3 mx-auto">
@@ -60,9 +66,6 @@ $codigo = 6;
                         </li>
                         <li class="list-group-item p-4">
                             <strong class="text-muted d-block mb-2">Descripción</strong>
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</span>
-                            </br>
-                            </br>
                         </li>
                     </ul>
                 </div>

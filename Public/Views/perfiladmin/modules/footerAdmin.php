@@ -69,9 +69,23 @@
       <!-- Custom js for this page -->
       <script src="../assets/js/file-upload.js"></script>
       <!-- End custom js for this page -->
+      <script src="../assets/libs/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/libs/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../assets/libs/datatables/dataTables.responsive.min.js"></script>
+    <script src="../assets/libs/datatables/responsive.bootstrap4.min.js"></script>
+
+    <script src="../assets/libs/datatables/dataTables.buttons.min.js"></script>
+    <script src="../assets/libs/datatables/buttons.bootstrap4.min.js"></script>
+    <script src="../assets/libs/datatables/buttons.html5.min.js"></script>
+    <script src="../assets/libs/datatables/buttons.flash.min.js"></script>
+    <script src="../assets/libs/datatables/buttons.print.min.js"></script>
+
+    <script src="../assets/libs/datatables/dataTables.keyTable.min.js"></script>
+    <script src="../assets/libs/datatables/dataTables.select.min.js"></script>
       <script type="text/javascript" src="../assets/datatables/datatables.min.js"></script>
   <script type="text/javascript" src="../assets/scripts/usersDataTable.js"></script>
   <script type="text/javascript" src="../assets/scripts/negociosDataTable.js"></script>
+  <script type="text/javascript" src="../assets/scripts/datatables.init.js"></script>
   <script src="./js/formCreate.js"></script>
   </body>
 
