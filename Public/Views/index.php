@@ -54,9 +54,6 @@ include '../../Config/appConfig.php';
 
                         <div class="heading mb-9">
 
-                            <h1 class="mb-7">
-                                <span class="d-block" data-animate="slideInLeft"><span class="org2">D</span><span class="ngr2">'compras</span></span>
-                            </h1>
                             <h3 class="mb-7">
                                 <span class="font-weight-light d-block" data-animate="fadeInRight"><strong><span class="ngr"><span class="typed"></span></span>
                                 </span>

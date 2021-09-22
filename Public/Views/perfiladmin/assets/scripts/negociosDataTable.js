@@ -1,12 +1,5 @@
 $(document).ready(function() {
     tablaNegocios = $("#tablaNegocios").DataTable({
-        "columnDefs": [{
-            "targets": -1,
-            "data": null,
-            "defaultContent": "<a id='btn-abrir-popup' href='?c=administrador&a=crudUsuarios&idUsuario=<?php echo $r->idUsuario; ?>' class='btn-abrir-popup'>Modificar</a>"
-
-        }],
-
         "language": {
             "lengthMenu": "Mostrar _MENU_ registros",
             "zeroRecords": "No se encontraron resultados",

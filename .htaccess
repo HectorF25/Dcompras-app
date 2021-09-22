@@ -5,4 +5,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ $1.php? [QSA,L]
 
-
+ErrorDocument 404 http://localhost/Dcompras-app/Public/Views/error-404
+ErrorDocument 500 http://localhost/Dcompras-app/Public/Views/error-500

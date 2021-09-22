@@ -94,6 +94,10 @@ while($filas=mysqli_fetch_array($consulta)){
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../assets/images/Recurso 1LogoD-svg-img.svg" />
+    <link href="../assets/libs/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -229,16 +233,6 @@ while($filas=mysqli_fetch_array($consulta)){
                             <h6 class="p-3 mb-0 text-center">See all notifications</h6>
                         </div>
                     </li>
-                    <li class="nav-item nav-logout d-none d-lg-block">
-                        <a class="nav-link" href="#">
-                            <i class="mdi mdi-power"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item nav-settings d-none d-lg-block">
-                        <a class="nav-link" href="#">
-                            <i class="mdi mdi-format-line-spacing"></i>
-                        </a>
-                    </li>
                 </ul>
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
@@ -266,7 +260,7 @@ while($filas=mysqli_fetch_array($consulta)){
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../PerfilAdmin">
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title">Inicio</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
@@ -291,7 +285,7 @@ while($filas=mysqli_fetch_array($consulta)){
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/forms/basic_elements.html">
-                            <span class="menu-title">Resumen</span>
+                            <span class="menu-title">Reportes</span>
                             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                         </a>
                     </li>
@@ -300,37 +294,6 @@ while($filas=mysqli_fetch_array($consulta)){
                             <span class="menu-title">Estadisticas</span>
                             <i class="mdi mdi-chart-bar menu-icon"></i>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/tables/basic-table.html">
-                            <span class="menu-title">Tables</span>
-                            <i class="mdi mdi-table-large menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                            <span class="menu-title">Otras Paginas</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-medical-bag menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="general-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="nav-item sidebar-actions">
-                        <span class="nav-link">
-                            <div class="border-bottom">
-                                <h6 class="font-weight-normal mb-3">Reportes</h6>
-                            </div>
-                            <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Añadir Reportes</button>
-                            
-                        </span>
                     </li>
                 </ul>
             </nav>

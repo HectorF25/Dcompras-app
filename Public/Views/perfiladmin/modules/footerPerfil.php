@@ -72,6 +72,7 @@
       <script type="text/javascript" src="../assets/datatables/datatables.min.js"></script>
   <script type="text/javascript" src="../assets/scripts/usersDataTable.js"></script>
   <script type="text/javascript" src="../assets/scripts/negociosDataTable.js"></script>
+  <script type="text/javascript" src="../assets/scripts/datatables.init.js"></script>
   <script src="./js/formCreate.js"></script>
   </body>
 
