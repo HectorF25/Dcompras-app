@@ -14,9 +14,9 @@
                     <div class="card-header border-bottom text-center">
                         <center>
                             <div class="mb-3 mx-auto">
-                                <img class="rounded-circle" src=".<?php echo $imgUsuario; ?>" alt="User Avatar" width="110">
+                                <img class="rounded-circle" src=".<?php echo $administradores->imgUsuario; ?>" alt="User Avatar" width="110">
                             </div>
-                            <h4 class="mb-0"><?php echo $nombreUsuario . " " . $apellidoUsuario ?></h4>
+                            <h4 class="mb-0"><?php echo $administradores->nombreUsuario . " " . $administradores->apellidoUsuario ?></h4>
                             <span class="text-muted d-block mb-2"><?php echo strtolower($administradores->correoUsuario); ?></span>
                             <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primaryy mr-2"><?php echo $administradores->nombrePerfilUsuario; ?></button>
                         </center>

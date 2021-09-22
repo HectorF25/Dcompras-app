@@ -80,7 +80,7 @@
         {
             $administrador = new administrador();
             
-            $directorio = "/images/fotos_perfil/";
+            $directorio = "images/fotos_perfil/";
             $imgUsuario = $_FILES['imgUsuario']['name'];
             $tipo = $_FILES['imgUsuario']['type'];
             $tamano = $_FILES['imgUsuario']['size'];
