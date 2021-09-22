@@ -35,6 +35,7 @@ if(!isset($correoUsuario)){
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
@@ -108,9 +109,15 @@ if(!isset($correoUsuario)){
                         </div>
                     </li>
                     <li class="nav-item d-none d-lg-block full-screen-link">
-                        <a class="nav-link">
-                            <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
-                        </a>
+                    <a href="ver_carrito.php" class="button is-success">
+                            <strong><?php
+                                                include_once "../../../App/model/productosModel.php";
+                                                $conteo = COUNT(obtenerProductosEnCarrito());
+                                                if ($conteo > 0) {
+                                                    printf("(%d)", $conteo);
+                                                }
+                                                ?>&nbsp;<i class="fas fa-shopping-cart fa-lg cart_anchor"></i></strong>
+                    </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -407,9 +414,9 @@ if(!isset($correoUsuario)){
                                                         <input type="hidden" name="precioProductoNegocio" value="<?php echo $producto->precioProductoNegocio ?>">
                                                         <input type="hidden" name="cantidadProducto" value="<?php echo $producto->cantidadProducto ?>">
                                                         <a href="javascript:void(0);">
-                                                            <button class="btn btn-gradient-primary" agregar-carrito">
+                                                        <center><button class="btn btn-gradient-primary" agregar-carrito">
                                                                 <i class="fa fa-cart-plus"></i>Agregar al carrito
-                                                            </button></a>
+                                                            </button></a></center>
                                                     </form>
                                                 </div>
                                             </div>
