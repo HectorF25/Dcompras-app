@@ -1,15 +1,17 @@
 <?php
+
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
+$idPerfilUsuario = $_SESSION["idPerfilUsuario"];
 $nombreUsuario = $_SESSION["nombreUsuario"];
 $apellidoUsuario = $_SESSION["apellidoUsuario"];
 $nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
 $imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
-if (!isset($correoUsuario)) {
+if (!isset($correoUsuario) || $idPerfilUsuario != 1 ) {
     echo '<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
-    window.location.href="../../";
+    window.location.href="../../index";
     </script>';
 } else {
     $conexion = mysqli_connect('localhost', 'root', '');
@@ -25,10 +27,7 @@ $sesion = true;
 if($sesion){
 $codigo = 6;
 
-$consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $codigo");                  
-while($filas=mysqli_fetch_array($consulta)){
-         $imgUsuario=$filas['imgUsuario'];                           
-}
+
 */
 ?>
 <!DOCTYPE html>
