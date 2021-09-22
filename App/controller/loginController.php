@@ -95,9 +95,10 @@ if (isset($_POST['correo'])) {
 
         } elseif ($_SESSION["idPerfilUsuario"] == 2) {
             $_SESSION['correo'] = $correoUsuario;
-            //$_SESSION['estadoUsuario'] = $estado;
             $_SESSION["idUsuario"];
             $_SESSION["imgUsuario"];
+            $_SESSION["apellidoUsuario"];
+            $_SESSION["nombrePerfilUsuario"];
             $BienvenidoCliente = "Bienvenido a Dcompras, $nombre";
             echo "<script> window.addEventListener('load', init, false);
             function init () {
@@ -121,6 +122,8 @@ if (isset($_POST['correo'])) {
             $_SESSION['correo'] = $correoUsuario;
             $_SESSION["idUsuario"];
             $_SESSION["imgUsuario"];
+            $_SESSION["apellidoUsuario"];
+            $_SESSION["nombrePerfilUsuario"];
             $BienvenidoVendedor = "Bienvenido a Dcompras, $nombre";
             echo "<script> window.addEventListener('load', init, false);
             function init () {

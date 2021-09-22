@@ -31,7 +31,7 @@
         public function Index()
         {
             require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/Clientes.php';
+            require_once '../../../Views/perfilAdmin/administrador/ModificacionUsuarios.php';
             require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
         }
         public function ajustesPerfil()

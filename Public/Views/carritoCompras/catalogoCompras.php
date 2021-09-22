@@ -5,15 +5,16 @@ $productos = obtenerProductosCatalogo();
 $registros = contarRegistros();
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
-    $nombreUsuario = $_SESSION['nombreUsuario'];
-    $apellidoUsuario = $_SESSION['apellidoUsuario'];
-    $correoUsuario = $_SESSION['correo'];
-    $nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
-    $imgUsuario = $_SESSION["imgUsuario"];
-    $estado = $_SESSION["estadoUsuario"];
-if(!isset($correoUsuario)){
+$idPerfilUsuario = $_SESSION["idPerfilUsuario"];
+$nombreUsuario = $_SESSION['nombreUsuario'];
+$apellidoUsuario = $_SESSION['apellidoUsuario'];
+$correoUsuario = $_SESSION['correo'];
+$nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
+$imgUsuario = $_SESSION["imgUsuario"];
+$estado = $_SESSION["estadoUsuario"];
+if(!isset($correoUsuario) || $idPerfilUsuario != 2){
     echo'<script type="text/javascript">
-    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
+    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
     window.location.href="../index";
     </script>';
 } else {
