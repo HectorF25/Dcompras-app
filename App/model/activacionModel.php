@@ -39,11 +39,11 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
     $email = mysqli_escape_string($link, $_GET['email']); // Asignar el correo electrónico a una variable
     $hash = mysqli_escape_string($link, $_GET['hash']); // Asignar el hash a una variable
                  
-    $search = mysqli_query($link, "SELECT correoUsuario, hashUsuario, estadoUsuario FROM usuario WHERE correoUsuario='".$email."' AND hashUsuario='".$hash."' AND estadoUsuario IS NULL") or die(mysqli_error($link)); 
+    $search = mysqli_query($link, "SELECT correoUsuario, hashUsuario, estadoUsuario, idTipoDoc FROM usuario WHERE correoUsuario='".$email."' AND hashUsuario='".$hash."' AND estadoUsuario IS NULL") or die(mysqli_error($link)); 
     $match  = mysqli_num_rows($search);
                  
     if($match > 0){
-        mysqli_query($link, "UPDATE usuario SET estadoUsuario='1' WHERE correoUsuario='".$email."' AND hashUsuario='".$hash."' AND estadoUsuario IS NULL") or die(mysqli_error($link));
+        mysqli_query($link, "UPDATE usuario SET estadoUsuario='1', idTipoDoc='1' WHERE correoUsuario='".$email."' AND hashUsuario='".$hash."' AND estadoUsuario IS NULL") or die(mysqli_error($link));
         $mensajeExito = "Tu cuenta ha sido activada, ya puedes iniciar sesión."; 
         echo "<script> window.addEventListener('load', init, false);
         function init () {

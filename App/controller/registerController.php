@@ -57,7 +57,7 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
         $mail->Host = 'smtp.gmail.com';  // Host de conexión SMTP
         $mail->SMTPAuth = true;
         $mail->Username = 'dcomprasteam@gmail.com';                 // Usuario SMTP
-        $mail->Password = 'dcompras123';                           // Password SMTP
+        $mail->Password = '123dcompras';                           // Password SMTP
         $mail->SMTPSecure = 'tls';                            // Activar seguridad TLS
         $mail->Port = 587;                                    // Puerto SMTP
     
