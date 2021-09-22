@@ -10,7 +10,7 @@ $imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
 if (!isset($correoUsuario) || $idPerfilUsuario != 1 ) {
     echo '<script type="text/javascript">
-    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
+    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
     window.location.href="../../index";
     </script>';
 } else {
