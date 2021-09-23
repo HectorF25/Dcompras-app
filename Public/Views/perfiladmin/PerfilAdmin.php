@@ -105,10 +105,13 @@ while($filas=mysqli_fetch_array($consulta)){
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" href="./administrador/index.php?c=administrador&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
-                                <i class="mdi mdi-cached mr-2 text-success"></i> Editar perfil </a>
+                                <i class="mdi mdi-account mr-2 text-primary"></i> Editar perfil </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="./administrador/Backup">
+                                <i class="mdi mdi-content-save mr-2 text-success"></i> Backup BD </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../../../App/controller/logoutController.php">
-                                <i class="mdi mdi-logout mr-2 text-primary"></i> Cerrar sesión </a>
+                                <i class="mdi mdi-logout mr-2 text-danger"></i> Cerrar sesión </a>
                         </div>
                     </li>
                     <li class="nav-item d-none d-lg-block full-screen-link">
