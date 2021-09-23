@@ -436,4 +436,14 @@ class administrador extends Usuario
             die($e->getMessage());
         }
     }
+    function contarVentas()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT SUM(valorTotalPedido) FROM pedido");
+            $sql->execute();
+			return $sql->fetchColumn();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }

@@ -57,7 +57,7 @@ $pdf->AddPage();
 //$pdf = new FPDF('L','mm','legal'); //Tamaño en forma Horizontal
 //$pdf = new FPDF('P','mm','letter'); //Tamaño Normal
 //$pdf->AddPage();
-//$title = 'Reporte de Productos';
+//$title = 'Reporte de Usuarios';
 //$pdf->SetTitle($title);
 //$pdf->SetFont('Arial', '', 10);
 $pdf->SetFont('Arial', 'B', 11);
@@ -65,28 +65,28 @@ $pdf->Cell(70, 8, '', 0);
 $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
-$productos = mysqli_query($conexion,"SELECT * FROM usuario 
+$usuarios = mysqli_query($conexion,"SELECT * FROM usuario 
 INNER JOIN tipodocumento ON USUARIO.idTipoDoc = tipodocumento.idTipoDoc 
 INNER JOIN PerfilUsuario ON USUARIO.idPerfilUsuario = PerfilUsuario.idPerfilUsuario");
 $item = 0;
 
-while($productos2 = mysqli_fetch_array($productos)){
+while($usuarios2 = mysqli_fetch_array($usuarios)){
 	$item = $item+1;
     $pdf->Cell(20, 8, $item, 0);
-	$pdf->Cell(40, 8, $productos2['nombreUsuario'], 0);
-	$pdf->Cell(40, 8, $productos2['apellidoUsuario'], 0);
-	$pdf->Cell(50, 8, $productos2['correoUsuario'], 0);
-    $pdf->Cell(30, 8, $productos2['fechaNacimiento'], 0);
-    $pdf->Cell(40, 8, $productos2['nombreTipoDoc'], 0);
-   	$pdf->Cell(40, 8, $productos2['documentoUsuario'], 0);
-    $pdf->Cell(30, 8, $productos2['nombrePerfilUsuario'], 0);
-   	$pdf->Cell(30, 8, $productos2['direccionUsuario'], 0);
+	$pdf->Cell(40, 8, $usuarios2['nombreUsuario'], 0);
+	$pdf->Cell(40, 8, $usuarios2['apellidoUsuario'], 0);
+	$pdf->Cell(50, 8, $usuarios2['correoUsuario'], 0);
+    $pdf->Cell(30, 8, $usuarios2['fechaNacimiento'], 0);
+    $pdf->Cell(40, 8, $usuarios2['nombreTipoDoc'], 0);
+   	$pdf->Cell(40, 8, $usuarios2['documentoUsuario'], 0);
+    $pdf->Cell(30, 8, $usuarios2['nombrePerfilUsuario'], 0);
+   	$pdf->Cell(30, 8, $usuarios2['direccionUsuario'], 0);
 
 	$pdf->Ln(5);
 }
 $pdf->Ln(8);
 //$pdf->Cell(0, 10, 'Pagina: '.$pdf->PageNo(),0,0,'C');
-//$pdf->Output('reporteProductos.pdf','D'); Descargar el archivo
+//$pdf->Output('DCOMPRAS_reportes.pdf','D'); Descargar el archivo
 $pdf->Output(); //Ver en linea el documento
 ?>
 

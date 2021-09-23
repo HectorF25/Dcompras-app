@@ -1,6 +1,6 @@
 <?php
 include '../../../../App/backup/Connet.php';
-include('../modules/headerPerfil.php');
+include('../modules/headerBackup.php');
 ?>
 
 <div class="main-panel">

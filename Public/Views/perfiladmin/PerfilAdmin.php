@@ -1,6 +1,8 @@
 <?php
 include '../../../Config/Conexion.php';
+include './modules/functionAdmin.php';
 require_once '../../../Config/Conexion.php';
+
 error_reporting(0);
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
@@ -12,8 +14,6 @@ if (!isset($correoUsuario) || $idPerfilUsuario != 1 ) {
     window.location.href="../../index";
     </script>';
     } else{
-    $conex = mysqli_connect('localhost', 'root', '');
-mysqli_select_db($conex, 'imake');
 
 $log = mysqli_query($conex, "SELECT * FROM Usuario INNER JOIN perfilusuario pf on usuario.idPerfilUsuario = pf.idPerfilUsuario
     WHERE idUsuario='$idUsuario'");
@@ -26,10 +26,7 @@ $log = mysqli_query($conex, "SELECT * FROM Usuario INNER JOIN perfilusuario pf o
         $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
 
 
-    $consulta=mysqli_query($conex,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
-    while($filas=mysqli_fetch_array($consulta)){
-         $img=$filas['imgUsuario'];                           
-}
+
     }
 /*
 $sesion = true;
@@ -296,7 +293,7 @@ while($filas=mysqli_fetch_array($consulta)){
                                     <img src="./assets/img/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                                     <h4 class="font-weight-normal mb-3">Ventas Semanales <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                                     </h4>
-                                    <h2 class="mb-5">$ 15,0000</h2>
+                                    <h2 class="mb-5">$ <?php echo number_format($ventas,0,",","."); ?></h2>
                                     <h6 class="card-text">Increased by 60%</h6>
                                 </div>
                             </div>
