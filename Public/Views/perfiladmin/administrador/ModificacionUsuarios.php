@@ -60,7 +60,10 @@
 
                                     <div class="table-responsive">
                                     <a class="btn btn-gradient-primary mr-2 float-left" href="?c=administrador&a=crudUsuarios">Nuevo Usuario</a>
-                                    <br><br>
+                                    <a class="btn btn-gradient-primary mr-2 float-right" href="ReportePDF_Usuarios.php">Generar reporte</a>
+
+                                    <br><br><br><br>
+
                                        <table id="tablaUsu" class="table table-striped">
 
                                             <thead>
