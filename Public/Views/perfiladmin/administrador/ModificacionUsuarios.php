@@ -59,8 +59,8 @@
                                 <div class="col">
 
                                     <div class="table-responsive">
-                                    <a class="btn btn-gradient-primary mr-2 float-left" href="?c=administrador&a=crudUsuarios">Nuevo Usuario</a>
-                                    <a class="btn btn-gradient-primary mr-2 float-right" href="ReportePDF_Usuarios.php">Generar reporte</a>
+                                    <a class="btn btn-gradient-primary mr-2 float-left" href="?c=administrador&a=crudUsuarios"><i class="mdi mdi-account-plus menu-icon"> Nuevo Usuario</i></a>
+                                    <a class="btn btn-gradient-danger mr-2 float-right" href="ReportePDF_Usuarios.php"><i class="mdi mdi-chart-areaspline menu-icon"> Generar reporte</i></a>
 
                                     <br><br><br><br>
 
