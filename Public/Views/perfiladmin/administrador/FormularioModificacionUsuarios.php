@@ -29,10 +29,7 @@
                                 <div class="progress-message" id="progress-message" style="color: #F17C12;">Vamos a empezar.</div>
                         </li>
                         <li class="list-group-item p-4">
-                            <strong class="text-muted d-block mb-2">Description</strong>
-                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</span>
-                            </br>
-                            </br>
+                            <strong class="text-muted d-block mb-2">Descripción</strong><br><br><br><br><br><br><br>
                         </li>
                     </ul>
                 </div>

@@ -1,26 +1,35 @@
 <?php
 
+error_reporting(0);
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
-$idPerfilUsuario = $_SESSION["idPerfilUsuario"];
-$nombreUsuario = $_SESSION["nombreUsuario"];
-$apellidoUsuario = $_SESSION["apellidoUsuario"];
-$nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
-$imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
+$idPerfilUsuario = $_SESSION["idPerfilUsuario"];
 if (!isset($correoUsuario) || $idPerfilUsuario != 1 ) {
     echo '<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
     window.location.href="../../index";
-    </script>';
-} else {
-    $conexion = mysqli_connect('localhost', 'root', '');
-    mysqli_select_db($conexion, 'imake');	 
-    $consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
+    </script>'; 
+     } else{
+    $conex = mysqli_connect('localhost', 'root', '');
+mysqli_select_db($conex, 'imake');
+
+$log = mysqli_query($conex, "SELECT * FROM Usuario INNER JOIN perfilusuario pf on usuario.idPerfilUsuario = pf.idPerfilUsuario
+    WHERE idUsuario='$idUsuario'");
+    if (mysqli_num_rows($log) > 0) {
+        $row = mysqli_fetch_array($log);
+
+        $_SESSION["nombreUsuario"] = $row['nombreUsuario'];
+        $_SESSION["idUsuario"] = $row['idUsuario'];
+        $_SESSION["apellidoUsuario"] = $row['apellidoUsuario'];
+        $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
+
+
+    $consulta=mysqli_query($conex,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
     while($filas=mysqli_fetch_array($consulta)){
          $img=$filas['imgUsuario'];                           
 }
-}
+    }
 /*
 $sesion = true;
 
@@ -61,7 +70,7 @@ $codigo = 6;
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- aos css cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
     <!-- google fonts cdn link  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
@@ -130,7 +139,7 @@ $codigo = 6;
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black"><?php echo $nombreUsuario . " " . $apellidoUsuario ?></p>
+                                <p class="mb-1 text-black"><?php echo $_SESSION["nombreUsuario"] . " " . $_SESSION["apellidoUsuario"] ?></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -253,8 +262,8 @@ $codigo = 6;
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2"><?php echo $nombreUsuario . " " . $apellidoUsuario ?></span>
-                                <span class="text-secondary text-small"><?php echo $nombrePerfilUsuario ?></span>
+                                <span class="font-weight-bold mb-2"><?php echo $_SESSION["nombreUsuario"] . " " . $_SESSION["apellidoUsuario"] ?></span>
+                                <span class="text-secondary text-small"><?php echo $_SESSION["nombrePerfilUsuario"]  ?></span>
                             </div>
                             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                         </a>
@@ -298,4 +307,11 @@ $codigo = 6;
                     </li>
                 </ul>
             </nav>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
             <!-- HEADER - Close -->
+            <?php
+                }
+            ?>

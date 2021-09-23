@@ -1,28 +1,36 @@
 <?php
 include '../../../Config/Conexion.php';
 require_once '../../../Config/Conexion.php';
-
+error_reporting(0);
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
-$idPerfilUsuario = $_SESSION["idPerfilUsuario"];
-$nombreUsuario = $_SESSION["nombreUsuario"];
-$apellidoUsuario = $_SESSION["apellidoUsuario"];
-$nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
-$imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
+$idPerfilUsuario = $_SESSION["idPerfilUsuario"];
 if (!isset($correoUsuario) || $idPerfilUsuario != 1 ) {
     echo '<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
-    window.history.back();
+    window.location.href="../../index";
     </script>';
-} else {
-    $conexion = mysqli_connect('localhost', 'root', '');
-    mysqli_select_db($conexion, 'imake');	 
-    $consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
+    } else{
+    $conex = mysqli_connect('localhost', 'root', '');
+mysqli_select_db($conex, 'imake');
+
+$log = mysqli_query($conex, "SELECT * FROM Usuario INNER JOIN perfilusuario pf on usuario.idPerfilUsuario = pf.idPerfilUsuario
+    WHERE idUsuario='$idUsuario'");
+    if (mysqli_num_rows($log) > 0) {
+        $row = mysqli_fetch_array($log);
+
+        $_SESSION["nombreUsuario"] = $row['nombreUsuario'];
+        $_SESSION["idUsuario"] = $row['idUsuario'];
+        $_SESSION["apellidoUsuario"] = $row['apellidoUsuario'];
+        $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
+
+
+    $consulta=mysqli_query($conex,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
     while($filas=mysqli_fetch_array($consulta)){
          $img=$filas['imgUsuario'];                           
 }
-}
+    }
 /*
 $sesion = true;
 
@@ -46,6 +54,8 @@ while($filas=mysqli_fetch_array($consulta)){
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css">
+
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -90,7 +100,7 @@ while($filas=mysqli_fetch_array($consulta)){
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black"><?php echo  $nombreUsuario . " " . $apellidoUsuario ?></p>
+                                <p class="mb-1 text-black"><?php echo  $_SESSION["nombreUsuario"] . " " . $_SESSION["apellidoUsuario"] ?></p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -213,8 +223,8 @@ while($filas=mysqli_fetch_array($consulta)){
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2"><?php echo $nombreUsuario . " " . $apellidoUsuario ?></span>
-                                <span class="text-secondary text-small"><?php echo $nombrePerfilUsuario ?></span>
+                                <span class="font-weight-bold mb-2"><?php echo $_SESSION["nombreUsuario"] . " " . $_SESSION["apellidoUsuario"] ?></span>
+                                <span class="text-secondary text-small"><?php echo $_SESSION["nombrePerfilUsuario"] ?></span>
                             </div>
                             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                         </a>
@@ -360,6 +370,11 @@ while($filas=mysqli_fetch_array($consulta)){
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+        
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -378,6 +393,7 @@ while($filas=mysqli_fetch_array($consulta)){
 
 </html>
 <?php
+}
 /*
      }
      else{

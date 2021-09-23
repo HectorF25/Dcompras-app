@@ -80,6 +80,7 @@
         {
             $administrador = new administrador();
             
+            $default = "/images/fotos_perfil/perfil.jpg";
             $directorio = "images/fotos_perfil/";
             $imgUsuario = $_FILES['imgUsuario']['name'];
             $tipo = $_FILES['imgUsuario']['type'];
@@ -87,6 +88,30 @@
             $guardado = $_FILES['imgUsuario']['tmp_name'];
             $ruta = "/images/fotos_perfil/" . $imgUsuario;
 
+            if (isset($imgUsuario) && $imgUsuario != "") {
+
+                if (!((strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
+    
+                    $msgError = "Solo se permiten archivos .jpg, .png. y de 2MB como máximo..";
+                    echo "<script> window.addEventListener('load', init, false);
+                    function init () {
+                        Swal.fire({
+                            title: '¡Ha ocurrido un error!',
+                            text: '$msgError',
+                            icon: 'warning',
+                            buttons: true,
+                            dangerMode: true,
+                        }).then((willDelete) => {
+                        if (willDelete) {
+                            location.href = '../perfilAdmin';
+                        } else {
+                            location.href = '../perfilAdmin';
+                            }
+                    });
+                    }
+                    
+                    </script>";
+                }else{
 
             if (file_exists($directorio)) {
 
@@ -102,25 +127,25 @@
             $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
             $administrador->setImgUsuario($ruta);
             $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
-            $administrador->setIdPerfilUsuario($_REQUEST['idTipoDoc']);
+            $administrador->setIdPerfilUsuario($_REQUEST['idPerfilUsuario']);
 
             $administrador->getIdusuario() > 0
                 ? $this->model->Actualizar($administrador)
                 : $this->model->Registrar($administrador);
-                $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                $msgUsuario = "Usuario modificado con exito.";
                 echo "<script> window.addEventListener('load', init, false);
                 function init () {
                     Swal.fire({
-                        title: '¡Datos modificados correctamente!',
+                        title: '¡Genial!',
                         text: '$msgUsuario',
                         icon: 'success',
                         buttons: true,
                         dangerMode: true,
                     }).then((willDelete) => {
                     if (willDelete) {
-                        location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                        location.href = 'index.php?c=administrador&a=modificionusuarios';
                     } else {
-                        location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                        location.href = 'index.php?c=administrador&a=modificionusuarios';
                         }
                 });
                 }
@@ -130,10 +155,44 @@
             echo '<script> alert("Error al actualizar su Foto.");</script>';
             echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
         }
-    }else {
-        echo '<script> alert("No existe el directorio.");</script>';
-        echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
-    }
+    }   
+}
+            }else{
+                $administrador->setIdusuario($_REQUEST['idUsuario']);
+                $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
+                $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
+                $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
+                $administrador->setCorreousuario($_REQUEST['correoUsuario']);
+                $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
+                $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
+                $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
+                $administrador->setImgUsuario($default);
+                $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
+                $administrador->setIdPerfilUsuario($_REQUEST['idPerfilUsuario']);
+
+                $administrador->getIdusuario() > 0
+                    ? $this->model->Actualizar($administrador)
+                    : $this->model->Registrar($administrador);
+                    $msgUsuario = "Usuario modificado con exito.";
+                    echo "<script> window.addEventListener('load', init, false);
+                    function init () {
+                     Swal.fire({
+                            title: '¡genial!',
+                            text: '$msgUsuario',
+                            icon: 'success',
+                            buttons: true,
+                            dangerMode: true,
+                        }).then((willDelete) => {
+                        if (willDelete) {
+                            location.href = 'index.php?c=administrador&a=modificionusuarios';
+                     } else {
+                            location.href = 'index.php?c=administrador&a=modificionusuarios';
+                            }
+                    });
+                    }
+        
+        </script>";
+        }
 }
 
         public function AddNegocios()
@@ -161,16 +220,40 @@
         public function GuardarPerfil()
         {
             $administrador = new administrador();
-
+            
+            $default = "/images/fotos_perfil/perfil.jpg";
             $directorio = "/images/fotos_perfil/";
             $imgUsuario = $_FILES['imgUsuario']['name'];
             $tipo = $_FILES['imgUsuario']['type'];
             $tamano = $_FILES['imgUsuario']['size'];
             $guardado = $_FILES['imgUsuario']['tmp_name'];
             $ruta = "/images/fotos_perfil/" . $imgUsuario;
-
-
             
+            if (isset($imgUsuario) && $imgUsuario != "") {
+
+            if (!((strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
+
+                $msgError = "Solo se permiten archivos .jpg, .png. y de 2MB como máximo..";
+                echo "<script> window.addEventListener('load', init, false);
+                function init () {
+                    Swal.fire({
+                        title: '¡Ha ocurrido un error!',
+                        text: '$msgError',
+                        icon: 'warning',
+                        buttons: true,
+                        dangerMode: true,
+                    }).then((willDelete) => {
+                    if (willDelete) {
+                        location.href = '../perfilAdmin';
+                    } else {
+                        location.href = '../perfilAdmin';
+                        }
+                });
+                }
+                
+                </script>";
+            }else{
+
                 if (file_exists($directorio)) {
 
                     if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
@@ -186,24 +269,24 @@
                         $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
                         $administrador->setImgUsuario($ruta);
                         $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
-
                         $administrador->getIdusuario() > 0
                             ? $this->model->ActualizarPerfil($administrador)
                             : $this->model->Registrar($administrador);
-                        $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
+                        $msgUsuario = "Tu perfil ha sido actualizado correctamente.";
+
                         echo "<script> window.addEventListener('load', init, false);
                         function init () {
                             Swal.fire({
-                                title: '¡Datos modificados correctamente!',
+                                title: '¡Genial!',
                                 text: '$msgUsuario',
                                 icon: 'success',
                                 buttons: true,
                                 dangerMode: true,
                             }).then((willDelete) => {
                             if (willDelete) {
-                                location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                                location.href = '../perfilAdmin';
                             } else {
-                                location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
+                                location.href = '../perfilAdmin';
                                 }
                         });
                         }
@@ -214,100 +297,41 @@
                         echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario" </script>';
                     }
                 }
-             else {
-                if (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
-                    chmod('images/fotos_perfil/'.$imgUsuario, 0777);
-                    $administrador->setIdusuario($_REQUEST['idUsuario']);
-                    $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
-                    $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
-                    $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
-                    $administrador->setCorreousuario($_REQUEST['correoUsuario']);
-                    $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
-                    $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
-                    $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
-                    $administrador->setImgUsuario($ruta);
-                    $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
+            }
+            }else{
+                $administrador->setIdusuario($_REQUEST['idUsuario']);
+                        $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
+                        $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
+                        $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
+                        $administrador->setCorreousuario($_REQUEST['correoUsuario']);
+                        $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
+                        $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
+                        $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
+                        $administrador->setImgUsuario($default);
+                        $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
+                        $administrador->getIdusuario() > 0
+                            ? $this->model->ActualizarPerfil($administrador)
+                            : $this->model->Registrar($administrador);
+                        $msgUsuario = "Tu perfil ha sido actualizado correctamente.";
 
-                    $administrador->getIdusuario() > 0
-                        ? $this->model->ActualizarPerfil($administrador)
-                        : $this->model->Registrar($administrador);
-                    $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
-                    echo "<script> window.addEventListener('load', init, false);
-                    function init () {
-                        Swal.fire({
-                            title: '¡Datos modificados correctamente!',
-                            text: '$msgUsuario',
-                            icon: 'success',
-                            buttons: true,
-                            dangerMode: true,
-                        }).then((willDelete) => {
-                        if (willDelete) {
-                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
-                        } else {
-                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
-                            }
-                    });
-                    }
-                    
-                    </script>";
-                } elseif (move_uploaded_file($guardado, 'images/fotos_perfil/'.$imgUsuario)) {
-                    chmod('images/fotos_perfil/'.$imgUsuario, 0777);
-                    $administrador->setIdusuario($_REQUEST['idUsuario']);
-                    $administrador->setNombreusuario($_REQUEST['nombreUsuario']);
-                    $administrador->setApellidousuario($_REQUEST['apellidoUsuario']);
-                    $administrador->setContraseñausuario($_REQUEST['contraseñaUsuario']);
-                    $administrador->setCorreousuario($_REQUEST['correoUsuario']);
-                    $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
-                    $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
-                    $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
-                    $administrador->setImgUsuario($ruta);
-                    $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
-
-                    $administrador->getIdusuario() > 0
-                        ? $this->model->ActualizarPerfil($administrador)
-                        : $this->model->Registrar($administrador);
-                    $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
-                    echo "<script> window.addEventListener('load', init, false);
-                    function init () {
-                        Swal.fire({
-                            title: '¡Datos modificados correctamente!',
-                            text: '$msgUsuario',
-                            icon: 'success',
-                            buttons: true,
-                            dangerMode: true,
-                        }).then((willDelete) => {
-                        if (willDelete) {
-                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
-                        } else {
-                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
-                            }
-                    });
-                    }
-                    
-                    </script>";
-                } else {
-                    echo '<script> alert("Solo se permiten imagenes de Tipo PNG, JPG y JPEG.");</script>';
-                    echo '<script> window.location="index.php?c=administrador&a=editarPerfilUsuario"; </script>';
-                }
-                $msgUsuario = "Sus datos se han modificado correctamente, " . $_REQUEST['nombreUsuario'] . "\n" . "Su sesion va finalizar";
-                echo "<script> window.addEventListener('load', init, false);
-                    function init () {
-                        Swal.fire({
-                            title: '¡Datos modificados correctamente!',
-                            text: '$msgUsuario',
-                            icon: 'success',
-                            buttons: true,
-                            dangerMode: true,
-                        }).then((willDelete) => {
-                        if (willDelete) {
-                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
-                        } else {
-                            location.href = 'index.php?c=administrador&a=editarPerfilUsuario';
-                            }
-                    });
-                    }
-                    
-                    </script>";
+                        echo "<script> window.addEventListener('load', init, false);
+                        function init () {
+                            Swal.fire({
+                                title: '¡Genial!',
+                                text: '$msgUsuario',
+                                icon: 'success',
+                                buttons: true,
+                                dangerMode: true,
+                            }).then((willDelete) => {
+                            if (willDelete) {
+                                location.href = '../perfilAdmin';
+                            } else {
+                                location.href = '../perfilAdmin';
+                                }
+                        });
+                        }
+                        
+                        </script>";
             }
         }
     }

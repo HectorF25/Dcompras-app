@@ -406,7 +406,7 @@ class administrador extends Usuario
     {
         try {
             $sql = $this->pdo->prepare("SELECT COUNT(*) total FROM usuario
-            WHERE estadoUsuario = 0");
+            WHERE estadoUsuario IS NULL");
             $sql->execute();
 			return $sql->fetchColumn();
         } catch (Exception $e) {
