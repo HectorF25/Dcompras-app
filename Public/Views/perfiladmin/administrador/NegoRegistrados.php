@@ -57,6 +57,10 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="table-responsive">
+                                    <a class="btn btn-gradient-primary mr-2 float-left" href="?c=negocios&a=crudNegocio"><i class="mdi mdi-store menu-icon"> Nuevo Negocio</i></a>
+                                    <a class="btn btn-gradient-danger mr-2 float-right" href="ReportePDF_Negocios.php"><i class="mdi mdi-chart-areaspline menu-icon"> Generar reporte</i></a>
+                                    <br><br><br><br>
+
                                         <table id="tablaUsu" class="table table-striped">
                                             <thead>
                                                 <tr role="row">
