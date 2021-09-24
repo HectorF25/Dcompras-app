@@ -26,8 +26,8 @@
                 <div class="card-body">
                     <form action="?c=negocios&a=Guardar" target="" method="POST" value="<?php echo $negocios->idNegocio; ?>" class="form-sample" id="formulario">
                         <input type="hidden" id="idNegocio" name="idNegocio" value="<?php echo $negocios->idNegocio; ?>" />
-                        <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $negocios->idUsuario; ?>" />
-                        <input type="hidden" id="idPeticionNegocio" name="idPeticionNegocio" value="<?php echo $negocios->idPeticionNegocio; ?>" />
+                        <input type="hidden" id="idUsuario" name="idUsuario" value="2" />
+                        <input type="hidden" id="idPeticionNegocio" name="idPeticionNegocio" value="2" />
 
 
                         <div class="row">

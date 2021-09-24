@@ -1,126 +1,96 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D compras | Home Page</title>
-
-    <!-- aos css cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- google fonts cdn link  -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-<!-- JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-<!-- CSS -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="./vendors/form.css">
 
 
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                    <i class="mdi mdi-store menu-icon"></i>
+                </span> Cración de Negocios
+            </h3>
+            <nav aria-label="breadcrumb">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <span></span>Negocios<i
+                            class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
-
-</head>
-<body>
-
-<!-- header section starts  -->
-
-<div class="breadcrumbs">
-            <div class="breadcrumbs-inner">
-                <div class="row m-0">
-                    <div class="col-sm-4">
-                        <div class="page-header float-left">
-                            <div class="page-title">
-                                <h1>Negocio</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-8">
-
-                        <div class="page-header float-right">
-                            <div class="page-title">
-                                <ol class="breadcrumb text-right">
-                                    <li><a href="#">Tablero</a></li>
-
-                                    <li class="active">Datos del negocio</li>
-                                </ol>
-
-                            </div>
-
-
-                        </div>
-                    </div>
+        <!-- header section ends -->
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header border-bottom">
+                    <h6 class="m-0">Datos del negocio</h6>
                 </div>
-            </div>
-
-<!-- header section ends -->
-
-
-<main>
-    <form action="?c=negocios&a=Guardar" target="" method="POST" value="<?php echo $negocios->getIdNegocio(); ?>" class="formulario" id="formulario">
-    <h2>Crear Negocio</h2><br />
-    <input type="hidden" id="idNegocio" name="idNegocio" value="<?php echo $negocios->getIdNegocio(); ?>" />
+                <div class="card-body">
+                <form action="?c=negocios&a=Guardar" target="" method="POST" value="<?php echo $negocios->getIdNegocio(); ?>" class="form-sample" id="formulario">
+                <input type="hidden" id="idNegocio" name="idNegocio" value="<?php echo $negocios->getIdNegocio(); ?>" />
+                <input type="hidden" id="idUsuario" name="idUsuario" value="2" />
+                <input type="hidden" id="idNegocio" name="idPeticionNegocio" value="2" />
 
 
-     <!-- Grupo: Usuario -->
-        <div class="formulario__grupo" id="grupo__nombreNegocio">
-            <label for="nombreNegocio" class="formulario__label">Nombre del negocio</label>
-            <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="nombreNegocio" id="nombreNegocio" placeholder="Supermercado el progreso" value="<?php echo $negocios->getNombreNegocio() ?>">
-                <i class="formulario__validacion-estado fas fa-times-circle"></i>
-            </div>
-            <p class="formulario__input-error">El nombre del negocio tiene que ser de 4 a 24 dígitos y solo puede contener numeros, letras y guion bajo.</p>
-        </div>
 
-        <!-- Grupo: Nombre -->
-        <div class="formulario__grupo" id="grupo__direccionNegocio">
-            <label for="nombre" class="formulario__label">Dirección del negocio</label>
-            <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="direccionNegocio" id="direccionNegocio" placeholder="Cra 7a #10-30 sur" value="<?php echo $negocios->getDireccionNegocio() ?>">
-                <i class="formulario__validacion-estado fas fa-times-circle"></i>
-            </div>
-            <p class="formulario__input-error">La dirección puede incluir letras, numero y simbolos.</p>
-        </div>
+                        <div class="row">
 
-        <!-- Grupo: Nit -->
-        <div class="formulario__grupo" id="grupo__nit">
-            <label for="telefono" class="formulario__label">Nit</label>
-            <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="nitNegocio" id="nitNegocio" placeholder="800.197.268-4" value="<?php echo $negocios->getNitNegocio() ?>">
-                <i class="formulario__validacion-estado fas fa-times-circle"></i>
-            </div>
-            <p class="formulario__input-error">El nit solo puede contener numeros, puntos y guiones.</p>
-        </div>
+                            <div class="col-md-6 formulario__grupo" id="grupo__nombreNegocio">
+                                <div class="form-group row">
+                                    <label for="nombreNegocio" class="col-sm-3 col-form-label formulario__label">Nombre del negocio</label>
+                                    <div class="col-sm-9 formulario__grupo-input">
+                                        <input type="text" class="form-control formulario__input" name="nombreNegocio" id="nombreNegocio" placeholder="Supermercado Policarpa" value="<?php echo $negocios->getNombreNegocio() ?>" />
+                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                    </div>
+                                    <p class="formulario__input-error">El nombre del negocio tiene que ser de 4 a 24
+                                        dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                                </div>
+                            </div>
 
-        <!-- Grupo: Razón social -->
-        <div class="formulario__grupo" >
-        <label for="estadoNegocio" class="formulario__label">Estado Negocio: </label>
-        <div class="formulario__grupo-input">
+                        <div class="col-md-6 formulario__grupo" id="grupo__direccionNegocio">
+                        <div class="form-group row">
+                        <label for="nombre" class="col-sm-3 col-form-label formulario__label">Dirección del negocio</label>
+                        <div class="col-sm-9  formulario__grupo-input">
+                            <input type="text" class="form-control formulario__input" name="direccionNegocio" id="direccionNegocio" placeholder="Carrea 12 #4-05 sur" value="<?php echo $negocios->getDireccionNegocio() ?>">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">La dirección puede incluir letras, numero y simbolos.</p>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="row">
 
-                    <select class="formulario__input" name="estadoNegocio" id="estadoNegocio">
-                    <option value="<?php echo $negocios->getEstadoNegocioValue(); ?>"><?php echo $negocios->getEstadoNegocio(); ?></option>
+                        <div class="col-md-6 formulario__grupo" id="grupo__nitNegocio">
+                                <div class="form-group row">
+                                    <label for="nitNegocio" class="col-sm-3 col-form-label formulario__label">Nit del negocio</label>
+                                    <div class="col-sm-9 formulario__grupo-input">
+                                        <input type="text" class="form-control formulario__input" name="nitNegocio" id="nitNegocio" placeholder="800.197.268-4" value="<?php echo $negocios->getNitNegocio() ?>" />
+                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                    </div>
+                                    <p class="formulario__input-error">El nit solo puede contener numeros, puntos y guiones.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6" id="grupo__estadoNegocio">
+                                <div class="form-group row">
+                                    <label for="estadoNegocio" class="col-sm-3 col-form-label formulario__label" class="col-sm-3 col-form-label">Estado</label>
+                                    <div class="col-sm-9 formulario__grupo-input ">
+                                    <select class="formulario__input form-control" name="estadoNegocio" id="estadoNegocio">
+                                    <option value="<?php echo $negocios->getEstadoNegocioValue(); ?>"><?php echo $negocios->getEstadoNegocio(); ?></option>
                          <option value="TRUE">ACTIVO</option>
                          <option value="FALSE">INACTIVO</option>
-                         </select>
-                         </div>
-                         </div>
+                                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="row">
 
-                 <div class="formulario__grupo" >
-
-        <label for="idTipoNegocio" class="formulario__label">Tipo Negocio</label>
-        <div class="formulario__grupo-input">
-
-                                <select class="formulario__input" id="idTipoNegocio" name="idTipoNegocio" required>
+                            <div class="col-md-6" id="grupo__TipoNegocio">
+                                <div class="form-group row">
+                                    <label for="TipoNegocio" class="col-sm-3 col-form-label formulario__label" class="col-sm-3 col-form-label">Tipo de negocio</label>
+                                    <div class="col-sm-9 formulario__grupo-input ">
+                                    <select class="formulario__input form-control" id="idTipoNegocio" name="idTipoNegocio" required>
                                     <option value="<?php echo $negocios -> getIdTipoNegocio() ?>"><?php echo $negocios->getIdTipoNegocio() ?></option>
                                     <?php
                                     
@@ -130,16 +100,16 @@
                                     <?php
                                     endforeach;
                                     ?>
-                                </select>
+                                </select>                                    
+                                     </div>
                                 </div>
-                                </div>
-                
-                                <div class="formulario__grupo" >
+                            </div>
 
-                                <label for="idBarrio" class="formulario__label">Nombre Barrio</label>
-                                <div class="formulario__grupo-input">
-
-                                <select   class="formulario__input" id="idBarrio" name="idBarrio" required>
+                            <div class="col-md-6" id="grupo__nombreBarrio">
+                                <div class="form-group row">
+                                    <label for="nombreBarrio" class="col-sm-3 col-form-label formulario__label" >Barrio</label>
+                                    <div class="col-sm-9 formulario__grupo-input ">
+                                    <select class="formulario__input form-control" id="idBarrio" name="idBarrio" required>
                                     <option value="<?php echo $negocios -> getIdBarrio() ?>"><?php echo $negocios->getIdBarrio() ?></option>
                                     <?php
                                     
@@ -149,109 +119,20 @@
                                     <?php
                                     endforeach;
                                     ?>
-                                </select>
+                                </select>                                   
+                                     </div>
                                 </div>
-                                </div>
+                            </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Crear negocio</button>
 
+                        </div>
 
-
-        <!-- Grupo: Teléfono -->
-        <div class="formulario__grupo" id="grupo__idUsuario">
-            <label for="telefono" class="formulario__label">Código de usuario</label>
-            <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="idUsuario" id="idUsuario" placeholder="1" value="<?php echo $negocios->getIdUsuario() ?>">
-                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <p class="formulario__input-error">El código de usuario solo puede contener numeros y el maximo son 14 dígitos.</p>
         </div>
-
-
-        <div class="formulario__grupo" id="grupo__idPeticionNegocio">
-            <label for="telefono" class="formulario__label">Código de petición</label>
-            <div class="formulario__grupo-input">
-                <input type="text" class="formulario__input" name="idPeticionNegocio" id="idPeticionNegocio" placeholder="1" value="<?php echo $negocios->getIdPeticionNegocio() ?>">
-                <i class="formulario__validacion-estado fas fa-times-circle"></i>
-            </div>
-            <p class="formulario__input-error">El código de petición solo puede contener numeros y el maximo son 14 dígitos.</p>
-        </div>
-
-        <!-- Grupo: tipoNegocio -->
-
-
-
-
-
-        
-        <!-- Grupo: Terminos y Condiciones -->
-        <br>     
-
-
-        <div class="formulario__mensaje" id="formulario__mensaje">
-            <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
-        </div>
-
-        
-
-        <div class="formulario__grupo formulario__grupo-btn-enviar">
-            <button type="submit"  class="formulario__btn" onclick="mensaje();">Enviar</button>
-            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
-        </div>
-        
-    </form>
-    
-</main>
-
-<!-- home section starts  -->
-
-
-
-
-
-
-
-
-
-
-<!-- aos js cdn link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-<!-- jquery cdn link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- custom js file link  -->
-<script src="./js/happ.js"></script>
-
-<script src="./js/formNegocio.js"></script>
-
-
-<!-- initializing aos  -->
-
-<script>
-
-    AOS.init({
-        delay:400,
-        duration:1000
-    })
-
-</script>
-<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+</div>

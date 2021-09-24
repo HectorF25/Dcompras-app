@@ -259,7 +259,7 @@ class negocio
         try {
             $sql = $this->pdo->prepare("SELECT * FROM Negocio
             INNER JOIN tiponegocio ON negocio.idTipoNegocio = tiponegocio.idTipoNegocio
-            INNER JOIN barrio ON negocio.idBarrio = barrio.idBarrio 
+            INNER JOIN barrio ON negocio.idBarrio = barrio.idBarrio
             INNER JOIN usuario ON negocio.idUsuario = usuario.idUsuario");
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_OBJ);
@@ -274,8 +274,7 @@ class negocio
             $sql = $this->pdo->prepare("SELECT * FROM Negocio
             INNER JOIN tiponegocio ON negocio.idTipoNegocio = tiponegocio.idTipoNegocio
             INNER JOIN barrio ON negocio.idBarrio = barrio.idBarrio 
-            INNER JOIN usuario ON negocio.idUsuario = usuario.idUsuario
-            INNER JOIN peticionnegocio ON negocio.idPeticionNegocio = peticionnegocio.idPeticionNegocio WHERE idNegocio = ?");
+            INNER JOIN usuario ON negocio.idUsuario = usuario.idUsuario WHERE idNegocio = ?");
             $sql->execute(array($idnegocio));
             return $sql->fetch(PDO::FETCH_OBJ);
         } catch (Exception $e) {
@@ -365,6 +364,16 @@ class negocio
         try {
             $sql = $this->pdo->prepare("SELECT COUNT(*) total FROM negocio
             WHERE estadoNegocio IS NULL OR estadoNegocio != 1");
+            $sql->execute();
+			return $sql->fetchColumn();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function llenarNegocio()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM tiponegocio ");
             $sql->execute();
 			return $sql->fetchColumn();
         } catch (Exception $e) {
