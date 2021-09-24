@@ -60,6 +60,8 @@ class negociosController{
         $negocio->setIdBarrio($_REQUEST['idBarrio']);
         $negocio->setIdUsuario($_REQUEST['idUsuario']); 
         $negocio->setIdPeticionNegocio($_REQUEST['idPeticionNegocio']);  
+
+        
         
         $negocio->getIdNegocio() > 0 
             ? $this->model->Actualizar($negocio)

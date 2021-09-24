@@ -1,6 +1,9 @@
 
 const formulario = document.getElementById('form-sample');
 const inputs = document.querySelectorAll('#formulario input');
+let boton = document.querySelector(".crear");
+
+boton.disabled = true;
 
 const expresiones = {
     nombreNegocio: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras, numeros, guion y guion_bajo
@@ -48,6 +51,11 @@ const validarFormulario = (e) => {
             break;
 
     }
+    if(campos.nombreNegocio && campos.nitNegocio && campos.direccionNegocio ){
+        boton.disabled = false;
+    }else{
+        boton.disabled = true; 
+    }
 }
 
 const validarCampo = (expresion, input, campo) => {
@@ -73,7 +81,4 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario);
 });
 
-function mensaje() {
-    window.location('../PerfilAdmin')
-    alertify.success('Negocio agregado');
-}
+
