@@ -1,3 +1,18 @@
+<html>
+
+<head>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+        * {
+            font-family: "Poppins";
+        }
+    </style>
+
+</head>
+
+<body>
 <?php
 require_once '../../../../Config/appConfig.php';
 require_once APP_MODULES_ROUTE.'negocioModel.php';
@@ -49,7 +64,34 @@ class negociosController{
         $negocio->getIdNegocio() > 0 
             ? $this->model->Actualizar($negocio)
             : $this->model->Registrar($negocio);
-        
-        header('Location: index.php?c=negocios&a=negocios');
+
+            $msgUsuario = "El negocio ha sido guardado con exito.";
+            echo "<script> window.addEventListener('load', init, false);
+            function init () {
+                Swal.fire({
+                    title: '¡Genial!',
+                    text: '$msgUsuario',
+                    icon: 'success',
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                if (willDelete) {
+                    location.href = 'index.php?c=negocios&a=negocios';
+                } else {
+                    location.href = 'index.php?c=negocios&a=negocios';
+                    }
+            });
+            }
+            
+            </script>";
     }
 }
+?>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+</body>
+
+</html>

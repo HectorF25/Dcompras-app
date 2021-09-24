@@ -21,7 +21,7 @@
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                         <h4 class="font-weight-normal mb-3" style="color: white;">Negocios Registrados <i class="mdi mdi-chart-line mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5">2</h2>
+                        <h2 class="mb-5"><?php echo $this->model->contarRegistros(); ?></h2>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                         <h4 class="font-weight-normal mb-3" style="color: white;">Negocios Inactivos <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5">0</h2>
+                        <h2 class="mb-5"><?php echo $this->model->contarNegociosInactivos(); ?></h2>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                         <h4 class="font-weight-normal mb-3" style="color: white;">Negocios sin verificar <i class="mdi mdi-diamond mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5">1</h2>
+                        <h2 class="mb-5">01</h2>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,6 @@
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Tipo Negocio</th>
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Barrio</th>
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Nombre Propietario</th>
-                                                    <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Codigo Peticio Negocio</th>
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Modificar</th>
                                                     <th class="sorting" tabindex="0" aria-controls="bootstrap-data-table" rowspan="1" colspan="1" aria-label="Estado: activate to sort column ascending" style="width: 80px;">Inactivar</th>
                                                 </tr>
@@ -86,7 +85,6 @@
                                                         <td><?php echo $c->nombreTipoNegocio; ?></td>
                                                         <td><?php echo $c->nombreBarrio; ?></td>
                                                         <td><?php echo $c->nombreUsuario; ?>&nbsp;<?php echo $c->apellidoUsuario; ?></td>
-                                                        <td><?php echo $c->idPeticionNegocio; ?></td>
                                                         <td>
                                                             <a id="btn-abrir-popup" href="?c=negocios&a=crudNegocio&idNegocio=<?php echo $c->idNegocio; ?>"  class="btn-abrir-popup">Modificar</a>
                                                         </td>

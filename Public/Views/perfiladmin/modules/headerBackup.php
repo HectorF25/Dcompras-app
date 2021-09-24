@@ -264,11 +264,11 @@ $codigo = 6;
                             aria-controls="ui-basic">
                             <span class="menu-title">Negocios</span>
                             <i class="menu-arrow"></i>
-                            <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                            <i class="mdi mdi-store menu-icon"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Negocios
+                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios&a=negocios">Negocios
                                         Registrados</a></li>
                                 <li class="nav-item"> <a class="nav-link"
                                         href="pages/ui-features/typography.html">Peticiones de Negocios</a></li>

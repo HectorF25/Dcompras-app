@@ -350,4 +350,25 @@ class negocio
             die($e->getMessage());
         }
     }
+    function contarRegistros()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT COUNT(*) total FROM negocio");
+            $sql->execute();
+			return $sql->fetchColumn();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    function contarNegociosInactivos()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT COUNT(*) total FROM negocio
+            WHERE estadoNegocio IS NULL OR estadoNegocio != 1");
+            $sql->execute();
+			return $sql->fetchColumn();
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
