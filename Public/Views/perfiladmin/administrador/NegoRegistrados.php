@@ -41,7 +41,7 @@
                         <img src="../assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                         <h4 class="font-weight-normal mb-3" style="color: white;">Negocios sin verificar <i class="mdi mdi-diamond mdi-24px float-right"></i>
                         </h4>
-                        <h2 class="mb-5">01</h2>
+                        <h2 class="mb-5">0</h2>
                     </div>
                 </div>
             </div>
@@ -101,16 +101,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="well well-sm text-right">
-                                        <br>
-                                        <br>
-                                        <a class="btn btn-primary" href="?c=negocios&a=crudNegocio">Nuevo Negocio</a>
-                                        <br>
-                                        <br>
-                                        <br>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </li>
                     </ul>
