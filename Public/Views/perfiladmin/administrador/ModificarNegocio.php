@@ -136,3 +136,4 @@
         </div>
     </div>
 </div>
+<script src="./js/formCreateNegocio.js"></script>
