@@ -270,6 +270,7 @@ if(!isset($correoUsuario)){
                     </div>   
 
 
+                    
 <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", () => {
             const boton = document.querySelector(".navbar-burger");

@@ -1,15 +1,21 @@
 <?php
+include '../../../Config/appConfig.php';
+include_once "../../../App/model/productosModel.php";
+$productos = obtenerProductosCatalogo();
+$registros = contarRegistros();
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
-$nombreUsuario = $_SESSION["nombreUsuario"];
-$apellidoUsuario = $_SESSION["apellidoUsuario"];
+$idPerfilUsuario = $_SESSION["idPerfilUsuario"];
+$nombreUsuario = $_SESSION['nombreUsuario'];
+$apellidoUsuario = $_SESSION['apellidoUsuario'];
+$correoUsuario = $_SESSION['correo'];
 $nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
 $imgUsuario = $_SESSION["imgUsuario"];
-$correoUsuario = $_SESSION['correo'];
-if (!isset($correoUsuario)) {
-    echo '<script type="text/javascript">
-    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente");
-    window.location.href="../../index";
+$estado = $_SESSION["estadoUsuario"];
+if(!isset($correoUsuario) || $idPerfilUsuario != 2){
+    echo'<script type="text/javascript">
+    alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
+    window.location.href="../index";
     </script>';
 } else {
     $conexion = mysqli_connect('localhost', 'root', '');
@@ -19,90 +25,51 @@ if (!isset($correoUsuario)) {
          $img=$filas['imgUsuario'];                           
 }
 }
-/*
-$sesion = true;
-
-if($sesion){
-$codigo = 6;
-
-
-*/
 ?>
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dcompras</title>
+    <link rel="stylesheet" href="./assets/css/carrito.css">
+    <link rel="stylesheet" href="./assets/css/product.css">
+    <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/estilos.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dcompras | Admin Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-            <!-- google fonts cdn link  -->
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-            <!-- JavaScript -->
-            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-            <!-- CSS -->
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-            <!-- font awesome cdn link  -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-            <!-- custom css file link  -->
-            <link rel="stylesheet" href="./vendors/form.css">
-
-
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-            <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- aos css cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- google fonts cdn link  -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-    <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="./vendors/form.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Dcompras | Usuario</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../assets/css/shards-dashboards.1.1.0.min.css">
-    <link rel="stylesheet" href="../assets/css/extras.1.1.0.min.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="../assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../assets/images/Recurso 1LogoD-svg-img.svg" />
+    <link rel="shortcut icon" href="ass3ets/img/favicon.ico" />
 </head>
 
 <body>
-  
+    <div class="container-scroller">
 
-<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+
+
+
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="index.html"><img src="assets/img/Recurso 1LogoDcompras-svg-img.svg" alt="logo" /></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/img/Recurso 1LogoD-svg-img.svg" alt="logo" /></a>
@@ -140,17 +107,23 @@ $codigo = 6;
                                 <i class="mdi mdi-logout mr-2 text-primary"></i> Cerrar sesión </a>
                         </div>
                     </li>
-                    <li class="nav-item d-none d-lg-block full-screen-link">
-                    <a href="ver_carrito.php" class="button is-success">
+
+                    <li class="nav-item nav-settings d-none d-lg-block nolink">
+                    <a class="nav-link count-indicator dropdown-toggle" href="ver_carrito.php">
+                    <i class="mdi mdi-cart-outline" style="text-decoration: none;"></i>
+
                             <strong><?php
                                                 include_once "../../../App/model/productosModel.php";
                                                 $conteo = COUNT(obtenerProductosEnCarrito());
                                                 if ($conteo > 0) {
-                                                    printf("(%d)", $conteo);
+                                                    //printf("(%d)", $conteo);
+                                                    echo "<sup class='sup'>$conteo</sup>";
                                                 }
-                                                ?>&nbsp;<i class="fas fa-shopping-cart fa-lg cart_anchor"></i></strong>
+                                                ?>
+                                                </strong>
                     </a>
                     </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <i class="mdi mdi-email-outline"></i>
@@ -324,3 +297,25 @@ $codigo = 6;
                             </ul>
                         </nav>
                     </div>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+<script src="./assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+
+<!-- Plugin js for this page -->
+<script src="./assets/vendors/chart.js/Chart.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="./assets/js/off-canvas.js"></script>
+<script src="./assets/js/hoverable-collapse.js"></script>
+<script src="../assets/js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="./assets/js/dashboard.js"></script>
+<script src="./assets/js/todolist.js"></script>

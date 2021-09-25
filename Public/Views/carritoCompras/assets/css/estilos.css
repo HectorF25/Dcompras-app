@@ -4461,7 +4461,10 @@ pre code {
     color: #fff;
     background-color: #343a40;
 }
-
+.nolink{
+    text-decoration: none;
+}
+a:link {text-decoration: none }
 .table-dark th,
 .table-dark td,
 .table-dark thead th {
@@ -4470,6 +4473,19 @@ pre code {
 
 .table-dark.table-bordered {
     border: 0;
+}
+.sup{
+    top: -15px;
+    right: 3px;
+    width: 10px;
+    height: 10px;
+    font-size: 12px;
+    color:rgb(0, 0, 0);
+    width: 140px;
+    height: 140px;
+    -moz-border-radius: 90px; 
+    -webkit-border-radius: 90px; 
+    border-radius: 90px;
 }
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {

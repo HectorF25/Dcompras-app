@@ -109,17 +109,23 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                                 <i class="mdi mdi-logout mr-2 text-primary"></i> Cerrar sesión </a>
                         </div>
                     </li>
-                    <li class="nav-item d-none d-lg-block full-screen-link">
-                    <a href="ver_carrito.php" class="button is-success">
+
+                    <li class="nav-item nav-settings d-none d-lg-block nolink">
+                    <a class="nav-link count-indicator dropdown-toggle" href="ver_carrito.php">
+                    <i class="mdi mdi-cart-outline" style="text-decoration: none;"></i>
+
                             <strong><?php
                                                 include_once "../../../App/model/productosModel.php";
                                                 $conteo = COUNT(obtenerProductosEnCarrito());
                                                 if ($conteo > 0) {
-                                                    printf("(%d)", $conteo);
+                                                    //printf("(%d)", $conteo);
+                                                    echo "<sup class='sup'>$conteo</sup>";
                                                 }
-                                                ?>&nbsp;<i class="fas fa-shopping-cart fa-lg cart_anchor"></i></strong>
+                                                ?>
+                                                </strong>
                     </a>
                     </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <i class="mdi mdi-email-outline"></i>
