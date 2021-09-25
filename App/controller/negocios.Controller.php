@@ -56,6 +56,8 @@ class negociosController{
         $negocio->setDireccionNegocio($_REQUEST['direccionNegocio']);
         $negocio->setNitNegocio($_REQUEST['nitNegocio']);
         $negocio->setEstadoNegocio($_REQUEST['estadoNegocio']);
+        $negocio->setFechaFundacion($_REQUEST['fechaFundacion']);
+        $negocio->setTelefonoNegocio($_REQUEST['telefonoNegocio']);
         $negocio->setIdTipoNegocio($_REQUEST['idTipoNegocio']);
         $negocio->setIdBarrio($_REQUEST['idBarrio']);
         $negocio->setIdUsuario($_REQUEST['idUsuario']); 
@@ -89,6 +91,8 @@ class negociosController{
     }
 }
 ?>
+
+
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

@@ -10,6 +10,8 @@ class negocio
     private $direccionNegocio;
     private $nitNegocio;
     private $estadoNegocio;
+    private $fechaFundacion;
+    private $telefonoNegocio;
     private $idTipoNegocio;
     private $idBarrio;
     private $idUsuario;
@@ -25,13 +27,15 @@ class negocio
         }
     }
 
-    public function __Negocio($idNegocio, $nombreNegocio, $direccionNegocio, $nitNegocio, $estadoNegocio, $idTipoNegocio, $idBarrio, $idUsuario, $idPeticionNegocio)
+    public function __Negocio($idNegocio, $nombreNegocio, $direccionNegocio, $nitNegocio, $estadoNegocio, $fechaFundacion, $telefonoFundacion, $idTipoNegocio, $idBarrio, $idUsuario, $idPeticionNegocio)
     {
         $this->idNegocio = $idNegocio;
         $this->nombreNegocio = $nombreNegocio;
         $this->direccionNegocio = $direccionNegocio;
         $this->nitNegocio = $nitNegocio;
         $this->estadoNegocio = $estadoNegocio;
+        $this->fechaFundacion = $fechaFundacion;
+        $this->telefonoNegocio = $telefonoNegocio;
         $this->idTipoNegocio = $idTipoNegocio;
         $this->idBarrio = $idBarrio;
         $this->idUsuario = $idUsuario;
@@ -130,16 +134,6 @@ class negocio
         }
     }
 
-    /**
-     * Set the value of estadoNegocio
-     *
-     * @return  self
-     */
-    public function setEstadoNegocioValue($estadoNegocio)
-    {
-        $this->estadoNegocio = $estadoNegocio;
-        return $this;
-    }
 
     /**
      * Get the value of estadoNegocio
@@ -162,6 +156,7 @@ class negocio
         
     }
 
+    
     /**
      * Set the value of estadoNegocio
      *
@@ -173,6 +168,58 @@ class negocio
 
         return $this;
     }
+
+     /**
+     * Set the value of estadoNegocio
+     *
+     * @return  self
+     */
+    public function setEstadoNegocioValue($estadoNegocio)
+    {
+        $this->estadoNegocio = $estadoNegocio;
+        return $this;
+    }
+
+        /**
+     * Get the value of FechaFundacion
+     */
+    public function getFechaFundacion()
+    {
+        return $this->fechaFundacion;
+    }
+
+    /**
+     * Set the value of fechaFundacion
+     *
+     * @return  self
+     */
+    public function setFechaFundacion($fechaFundacion)
+    {
+        $this->fechaFundacion = $fechaFundacion;
+
+        return $this;
+    }
+
+            /**
+     * Get the value of telefonoNegocio
+     */
+    public function getTelefonoNegocio()
+    {
+        return $this->telefonoNegocio;
+    }
+
+    /**
+     * Set the value of telefonoNegocio
+     *
+     * @return  self
+     */
+    public function setTelefonoNegocio($telefonoNegocio)
+    {
+        $this->telefonoNegocio = $telefonoNegocio;
+
+        return $this;
+    }
+
 
     /**
      * Get the value of idTipoNegocio
@@ -271,10 +318,12 @@ class negocio
     public function Obtener($idnegocio)
     {
         try {
-            $sql = $this->pdo->prepare("SELECT * FROM Negocio
-            INNER JOIN tiponegocio ON negocio.idTipoNegocio = tiponegocio.idTipoNegocio
-            INNER JOIN barrio ON negocio.idBarrio = barrio.idBarrio 
-            INNER JOIN usuario ON negocio.idUsuario = usuario.idUsuario WHERE idNegocio = ?");
+            $sql = $this->pdo->prepare("SELECT N.idNegocio, N.nombreNegocio, N.direccionNegocio, N.nitNegocio, N.estadoNegocio, N.fechaFundacion, N.telefonoNegocio, N.idTipoNegocio, N.idBarrio, N.idUsuario, N.idPeticionNegocio, T.nombreTipoNegocio, B.nombreBarrio, U.nombreUsuario, U.apellidoUsuario 
+            FROM Negocio N 
+            INNER JOIN tiponegocio T ON N.idTipoNegocio = T.idTipoNegocio 
+            INNER JOIN barrio B ON N.idBarrio = B.idBarrio 
+            INNER JOIN usuario U ON N.idUsuario = U.idUsuario 
+            WHERE idNegocio = ?");
             $sql->execute(array($idnegocio));
             return $sql->fetch(PDO::FETCH_OBJ);
         } catch (Exception $e) {
@@ -290,6 +339,8 @@ class negocio
                         direccionNegocio  = ?,
                         nitNegocio  = ?,
                         estadoNegocio  = ?,
+                        fechaFundacion = ?,
+                        telefonoNegocio = ?,
                         idTipoNegocio  = ?,
                         idBarrio  = ?,
                         idUsuario  = ?,
@@ -304,6 +355,8 @@ class negocio
                         $data->getDireccionNegocio(),
                         $data->getNitNegocio(),
                         $data->getEstadoNegocioValor(),
+                        $data->getFechaFundacion(),
+                        $data->getTelefonoNegocio(),
                         $data->getIdTipoNegocio(),
                         $data->getIdBarrio(),
                         $data->getIdUsuario(),
@@ -319,8 +372,8 @@ class negocio
     public function Registrar(negocio $data)
     {
         try {
-            $sql = "INSERT INTO Negocio (nombreNegocio,direccionNegocio,nitNegocio,estadoNegocio,idTipoNegocio,idBarrio,idUsuario,idPeticionNegocio) 
-		        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO Negocio (nombreNegocio,direccionNegocio,nitNegocio,estadoNegocio,fechaFundacion,telefonoNegocio,idTipoNegocio,idBarrio,idUsuario,idPeticionNegocio) 
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $this->pdo->prepare($sql)
                 ->execute(
@@ -329,6 +382,8 @@ class negocio
                         $data->getDireccionNegocio(),
                         $data->getNitNegocio(),
                         $data->getEstadoNegocio(),
+                        $data->getFechaFundacion(),
+                        $data->getTelefonoNegocio(),
                         $data->getIdTipoNegocio(),
                         $data->getIdBarrio(),
                         $data->getIdUsuario(),
@@ -343,6 +398,26 @@ class negocio
     {
         try {
             $sql = $this->pdo->prepare("SELECT * FROM Barrio ");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function llenarTipo()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM tiponegocio ");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function llenarUser()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM usuario ");
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_OBJ);
         } catch (exception $e) {

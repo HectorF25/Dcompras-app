@@ -26,8 +26,7 @@
                 <div class="card-body">
                     <form action="?c=negocios&a=Guardar" target="" method="POST" value="<?php echo $negocios->idNegocio; ?>" class="form-sample" id="formulario">
                         <input type="hidden" id="idNegocio" name="idNegocio" value="<?php echo $negocios->idNegocio; ?>" />
-                        <input type="hidden" id="idUsuario" name="idUsuario" value="2" />
-                        <input type="hidden" id="idPeticionNegocio" name="idPeticionNegocio" value="2" />
+                        <input type="hidden" id="idPeticionNegocio" name="idPeticionNegocio" value="1" />
 
 
                         <div class="row">
@@ -84,16 +83,44 @@
 
                         <div class="row">
 
+                        <div class="col-md-6 formulario__grupo" id="grupo__fechaFundacion">
+                                <div class="form-group row">
+                                    <label for="fechaFundacion" class="col-sm-3 col-form-label formulario__label">Fecha de fundación</label>
+                                    <div class="col-sm-9 formulario__grupo-input">
+                                        <input type="date" class="form-control formulario__input" name="fechaFundacion"
+                                            id="fechaFundacion" value="<?php echo $negocios->fechaFundacion ?>" />
+                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 formulario__grupo" id="grupo__telefonoNegocio">
+                                <div class="form-group row">
+                                    <label for="telefonoNegocio" class="col-sm-3 col-form-label formulario__label">Teléfono del negocio</label>
+                                    <div class="col-sm-9 formulario__grupo-input">
+                                        <input type="number" class="form-control formulario__input" name="telefonoNegocio"
+                                            id="telefonoNegocio" placeholder="1234567"
+                                            value="<?php echo $negocios->telefonoNegocio ?>" />
+                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                    </div>
+                                    <p class="formulario__input-error">El telefono solo puede contener numeros</p>
+                                </div>
+                            </div>
+                            </div>
+                       
+
+                        <div class="row">
+
                             <div class="col-md-6" id="grupo__TipoNegocio">
                                 <div class="form-group row">
                                     <label for="TipoNegocio" class="col-sm-3 col-form-label formulario__label" class="col-sm-3 col-form-label">Tipo de negocio</label>
                                     <div class="col-sm-9 formulario__grupo-input ">
                                     <select class="formulario__input form-control" id="idTipoNegocio" name="idTipoNegocio" required>
-                                    <option value="<?php echo $negocios -> idTipoNegocio ?>"><?php echo $negocios->nombreTipoNegocio ?></option>
+                                    <option value="<?php echo $negocios -> idTipoNegocio ?>"><?php echo $negocios->nombreTipoNegocio; ?></option>
                                     
                                     <?php
                                     
-                                    foreach ($this -> model ->ListarNegocio() as $valores):?> 
+                                    foreach ($this -> model ->llenarTipo() as $valores):?> 
 
                                         <option value="<?php echo $valores -> idTipoNegocio ?>"><?php echo $valores->nombreTipoNegocio?></option>
                                         <?php
@@ -125,7 +152,32 @@
                                 </div>
                             </div>
                             </div>
-                            <button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Actualizar Datos</button>
+
+                            <div class="row">
+
+                            <div class="col-md-6" id="grupo__idUsuario">
+                                <div class="form-group row">
+                                    <label for="idUsuario" class="col-sm-3 col-form-label formulario__label" class="col-sm-3 col-form-label">Propietario</label>
+                                    <div class="col-sm-9 formulario__grupo-input ">
+                                    <select class="formulario__input form-control" id="idUsuario" name="idUsuario" required>
+                                 <option value="<?php echo $negocios -> idUsuario ?>"><?php echo $negocios->nombreUsuario." ".$negocios->apellidoUsuario; ?></option>
+        
+                                    <?php
+        
+                                    foreach ($this -> model ->llenarUser() as $valores):?> 
+
+                                        <option value="<?php echo $valores -> idUsuario ?>"><?php echo $valores->nombreUsuario." ".$valores->apellidoUsuario?></option>
+                                        <?php
+                                        endforeach;
+            
+                                    ?>
+                                </select>                                    
+                                     </div>
+                                </div>
+                            </div>
+
+                            </div>
+                            <button type="submit" class="btn btn-gradient-primary mr-2 crear" style="float: right;">Actualizar Datos</button>
 
                         </div>
 
@@ -136,4 +188,4 @@
         </div>
     </div>
 </div>
-<script src="./js/formCreateNegocio.js"></script>
+<script src="./js/formModficarNegocio.js"></script>

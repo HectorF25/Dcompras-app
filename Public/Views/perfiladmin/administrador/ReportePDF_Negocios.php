@@ -34,10 +34,10 @@ function Header()
 	$this->Cell(30, 8, 'Direccion' ,1,0,'C');
 	$this->Cell(30, 8, 'NIT' ,1,0,'C');
     $this->Cell(30, 8, 'F. de fundacion' ,1,0,'C');
-	$this->Cell(30, 8, 'Tipo de negocio' ,1,0,'C');
+	$this->Cell(40, 8, 'Tipo de negocio' ,1,0,'C');
     $this->Cell(30, 8, 'Barrio' ,1,0,'C');
 	$this->Cell(30, 8, 'Telefono' ,1,0,'C');
-    $this->Cell(30, 8, 'Propietario' ,1,0,'C');
+    $this->Cell(40, 8, 'Propietario' ,1,0,'C');
     $this->Cell(60, 8, 'Razon social' ,1,0,'C');
 
 
@@ -67,11 +67,11 @@ $pdf->Cell(70, 8, '', 0);
 $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
-$usuarios = mysqli_query($conexion,"SELECT * FROM Negocio 
-INNER JOIN tiponegocio ON negocio.idTipoNegocio = tiponegocio.idTipoNegocio 
-INNER JOIN barrio ON negocio.idBarrio = barrio.idBarrio 
-INNER JOIN usuario ON negocio.idUsuario = usuario.idUsuario 
-INNER JOIN peticionnegocio ON negocio.idPeticionNegocio = peticionnegocio.idPeticionNegocio");
+$usuarios = mysqli_query($conexion,"SELECT N.nombreNegocio, N.direccionNegocio, N.nitNegocio, N.fechaFundacion, N.telefonoNegocio, U.nombreUsuario, U.apellidoUsuario, P.razonsocialNegocio, T.nombreTipoNegocio, B.nombreBarrio FROM Negocio N
+INNER JOIN tiponegocio T ON N.idTipoNegocio = T.idTipoNegocio
+INNER JOIN barrio B ON N.idBarrio = B.idBarrio
+INNER JOIN usuario U ON N.idUsuario = U.idUsuario
+ INNER JOIN peticionnegocio P ON N.idPeticionNegocio = P.idPeticionNegocio");
 $item = 0;
 
 while($usuarios2 = mysqli_fetch_array($usuarios)){
@@ -81,11 +81,11 @@ while($usuarios2 = mysqli_fetch_array($usuarios)){
 	$pdf->Cell(30, 8, $usuarios2['direccionNegocio'], 0);
 	$pdf->Cell(30, 8, $usuarios2['nitNegocio'], 0);
     $pdf->Cell(30, 8, $usuarios2['fechaFundacion'], 0);
-    $pdf->Cell(30, 8, $usuarios2['nombreTipoNegocio'], 0);
+    $pdf->Cell(40, 8, $usuarios2['nombreTipoNegocio'], 0);
     $pdf->Cell(30, 8, $usuarios2['nombreBarrio'], 0);
    	$pdf->Cell(30, 8, $usuarios2['telefonoNegocio'], 0);
-    $pdf->Cell(30, 8, $usuarios2['nombrePropietario'], 0);
-    $pdf->Cell(50, 8, $usuarios2['razonsocialNegocio'], 0);
+    $pdf->Cell(40, 8, $usuarios2['nombreUsuario']." ".$usuarios2['apellidoUsuario'], 0);
+    $pdf->Cell(60, 8, $usuarios2['razonsocialNegocio'], 0);
 
 
 	$pdf->Ln(5);
