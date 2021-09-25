@@ -81,6 +81,8 @@ $codigo = 6;
                                 <div class="col">
                                     <form action="?c=administrador&a=GuardarPerfil" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data" />
                                         <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $administradores->idUsuario; ?>" />
+                                        <input type="hidden" id="imgUsuario" name="imgUsuario" value="<?php echo $administradores->imgUsuario; ?>" />
+
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="feFirstName">Nombre</label>

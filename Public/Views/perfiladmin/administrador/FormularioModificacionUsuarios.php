@@ -45,6 +45,8 @@
                                 <div class="col">
                                     <form action="?c=administrador&a=Guardar" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data">
                                         <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $administradores->idUsuario; ?>" />
+                                        <input type="hidden" id="imgUsuario" name="imgUsuario" value="<?php echo $administradores->imgUsuario; ?>" />
+
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <div class="formulario__grupo" id="grupo__nombreUsuario">

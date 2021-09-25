@@ -166,7 +166,7 @@
                 $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
                 $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
                 $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
-                $administrador->setImgUsuario($default);
+                $administrador->setImgUsuario($_REQUEST['imgUsuario']);
                 $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
                 $administrador->setIdPerfilUsuario($_REQUEST['idPerfilUsuario']);
 
@@ -307,7 +307,7 @@
                         $administrador->setFechanacimiento($_REQUEST['fechaNacimiento']);
                         $administrador->setDocumentousuario($_REQUEST['documentoUsuario']);
                         $administrador->setDireccionUsuario($_REQUEST['direccionUsuario']);
-                        $administrador->setImgUsuario($default);
+                        $administrador->setImgUsuario($_REQUEST['imgUsuario']);
                         $administrador->setIdTipoDoc($_REQUEST['idTipoDoc']);
                         $administrador->getIdusuario() > 0
                             ? $this->model->ActualizarPerfil($administrador)
