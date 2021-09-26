@@ -1,4 +1,4 @@
-<?php include_once "encabezado.php" ?>
+<?php include_once "./modules/headerTienda.php" ?>
 <?php
 include_once "../../../App/model/productosModel.php";
 $productos = obtenerProductosCatalogo();
@@ -37,68 +37,68 @@ $productos = obtenerProductosCatalogo();
    
 
 
-    <main>
+<div class="container">
 
-
-        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
-
-            <h1 class="display-4 mt-4">¡Estas D'compras!</h1><br>
-            <h2>Selecciona uno de nuestros productos y obten %50 OFF</p>
-        </div>
-
-        <div class="container" id="lista-productos">
-
-
-        <?php foreach ($productos as $producto) { ?>
-
-            <div class="card-deck mb-3 text-center">
-
-            <div class="card mb-4 shadow-sm">
-
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-bold">
-                        <?php echo $producto->nombreProducto ?>
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <img src="./assets/img/productos/<?php echo $producto->imgProducto ?>.jpg" class="card-img-top res">
-                        <h1 class="card-title pricing-card-title precio">$ <span class=""><?php echo number_format($producto->precioProductoNegocio, 0) ?></span></h1>
-
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li></li>
-                            <li><h4><?php echo $producto->especificacionProducto ?></h4></li>
-                         
-                            <li><h4><?php echo $producto->nombreProducto ?></h4></li>
-                            <li><h4><?php echo $producto->idNegocio ?> <?php echo $producto->nombreNegocio ?></h4></li>
-                        </ul>
-                        <?php ?>
-                        <form action="../../../App/controller/agregar_al_carrito.php" method="post">
-                            <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
-                            <input type="hidden" name="cantidadProducto" value="<?php echo $producto->cantidadProducto ?>">
-                            <input type="hidden" name="precioProductoNegocio" value="<?php echo $producto->precioProductoNegocio ?>">
-                            <a href="javascript:void(0);">
-                                <button class="btn btn-block agregar-carrito">
-                                <i class="fa fa-cart-plus"></i>Agregar al carrito
-                            </button></a>
-                        </form>
-                    <?php ?>
-                    </div>
-                
-
+    <div class="d-flex justify-content-center align-items-center mt-5"> <button class="btn btn-gradient-danger">NUESTRAS CATEGORÍAS</button> </div><br>
+    <div class="row mt-2 g-4">
+        <div class="col-md-3">
+            <div class="card p-1">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="flex-column lh-1 imagename"> <span>Mobile</span> <span>Phones</span> </div>
+                    <div> <img src="https://i.imgur.com/b9zkoz0.jpg" height="100" width="100" /> </div>
                 </div>
+            </div>
         </div>
-
-
-
-
-
-
-   
-
-        <?php } ?>
-
-<?php include_once "pie.php" ?>
-    </main>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="flex-column lh-1 imagename"> <span>Head</span> <span>Phones</span> </div>
+                    <div> <img src="https://i.imgur.com/SHWASPG.png" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="flex-column lh-1 imagename"> <span>Smart</span> <span>Watches</span> </div>
+                    <div> <img src=" https://i.imgur.com/Ya0OXCv.png" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="flex-column lh-1 imagename"> <span>Air</span> <span>Purifiers</span> </div>
+                    <div> <img src="https://i.imgur.com/2gvGwbh.png" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+<br> <br> <br> <br>        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="flex-column lh-1 imagename"> <span>Washing</span> <span>Machines</span> </div>
+                    <div> <img src="https://i.imgur.com/e9CyhXR.png" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="flex-column lh-1 imagename"> <span>Smart</span> <span>Televisions</span> </div>
+                    <div> <img src=" https://i.imgur.com/Zq8VigZ.png" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div class="flex-column lh-1 imagename"> <span>Laptops</span> </div>
+                    <div> <img src="https://i.imgur.com/6pK5oZl.jpg" height="100" width="100" /> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
