@@ -100,7 +100,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="../cliente/index.php?c=cliente&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
+                            <a class="dropdown-item" href="./cliente/index.php?c=cliente&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Editar perfil </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../../../../App/controller/logoutController.php">
@@ -114,7 +114,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
 
                             <strong><?php
                                                 include_once "../../../App/model/productosModel.php";
-                                                $conteo = COUNT(obtenerProductosEnCarrito());
+                                                $conteo = cantidadDeProductos();
                                                 if ($conteo > 0) {
                                                     //printf("(%d)", $conteo);
                                                     echo "<sup class='sup'>$conteo</sup>";

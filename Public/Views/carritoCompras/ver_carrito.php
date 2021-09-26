@@ -46,7 +46,7 @@ if (count($productos) <= 0) {
                     <div class="col">
                         <h4><b>Tu carrito de compras</b></h4>
                     </div>
-                    <div class="col align-self-center text-right text-muted"><?php echo obtenerIdsDeProductosEnCarrito()?> Producto(s)</div>
+                    <div class="col align-self-center text-right text-muted"><?php echo cantidadDeProductos()?> Producto(s)</div>
                 </div>
             </div>
 
@@ -54,12 +54,14 @@ if (count($productos) <= 0) {
             <?php
                     $total = 0;                   
                     $uniques = [];
-                    $numprod = obtenerIdsDeProductosEnCarrito();
+                    $numprod = cantidadDeProductos();
 
                     foreach ($productos as $producto) {
+                        $total = $producto->precioProducto*$numprod;
+                        $id = $producto->idProducto;
+    
                         if(!in_array($producto->idProducto, $uniques)){
                         $uniques[] = $producto->idProducto;
-                        $total = $producto->precioProducto*$numprod;
 
             ?>
                 <div class="row main align-items-center" style="margin-left: 2px; margin-right: 20px; ">
@@ -68,7 +70,29 @@ if (count($productos) <= 0) {
                         <div class="row text-muted"><?php echo $producto->nombreProducto ?></div>
                         <div class="row"><?php echo $producto->especificacionProducto ?></div>
                     </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border"><?php echo obtenerIdsDeProductosEnCarrito() ?></a><a href="#">+</a> </div>
+                    <div class="col"> 
+                    <form action="../../../App/controller/quitarUnProducto.php" method="post" style="display: inline;">
+                    <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
+                    <input type="hidden" name="redireccionar_carrito">
+
+                    <button style="background-color: transparent; border-color: transparent; color: gray; display: inline;" >
+                                    <i class="fas fa-minus fa-x1"></i>
+                                    </button>
+                                    </form>
+                        <a href="#" class="border">
+                            <?php echo obtenerIdsDeProductosEnCarritoUnico($id) ?>
+                        </a>   
+                       
+
+                        <form action="../../../App/controller/agregarUnProducto.php" method="post" style="display: inline;">
+                        <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
+                    <input type="hidden" name="redireccionar_carrito">
+                        <button style="background-color: transparent; border-color: transparent; color: gray; display; inline;">
+                                    <i class="fas fa-plus fa-x1"></i>
+                                    </button>
+
+                        </form>
+                    </div>
                     <div class="col">$<?php echo number_format($producto->precioProducto, 2) ?> c/u</div>
                     <form action="../../../App/controller/eliminar_del_carrito.php" method="post">
                                     <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
@@ -92,7 +116,7 @@ if (count($productos) <= 0) {
             </div>
             <hr>
             <div class="row">
-                <div class="col"><b><?php echo obtenerIdsDeProductosEnCarrito()?> Producto(s)</b></div>
+                <div class="col"><b><?php echo cantidadDeProductos()?> Producto(s)</b></div>
                 <div class="col text-right"><b> $ <?php echo number_format($total, 2) ?></b></div>
             </div>
             <form>

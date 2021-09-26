@@ -51,14 +51,26 @@ function obtenerIdsDeProductosEnCarrito()
     return $sentencia->fetchColumn();
 }
 
-function obtenerIdsDeProductosEnCarritoUnico()
+function obtenerIdsDeProductosEnCarritoUnico($id)
 {
     $bd = obtenerConexion();
-    $sentencia = $bd->prepare("SELECT COUNT(*) FROM pedido_producto WHERE idSesion = ? AND idProducto = ?");
+    $sentencia = $bd->prepare("SELECT cantidadPedido FROM pedido_producto WHERE idSesion = ? AND idProducto = ?");
     $idSesion = session_id();
-    $sentencia->execute([$idSesion, $idProducto]);
+    $sentencia->execute([$idSesion, $id]);
     return $sentencia->fetchColumn();
 }
+
+
+function cantidadDeProductos()
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->prepare("SELECT SUM(cantidadPedido) FROM pedido_producto WHERE idSesion = ?");
+    $idSesion = session_id();
+    $sentencia->execute([$idSesion]);
+    return $sentencia->fetchColumn();
+    
+}
+
 
 function agregarProductoAlCarrito($idProducto,$cantidadPedido,$precioPedido)
 {
@@ -66,8 +78,33 @@ function agregarProductoAlCarrito($idProducto,$cantidadPedido,$precioPedido)
     $bd = obtenerConexion();
     iniciarSesionSiNoEstaIniciada();
     $idSesion = session_id();
+    if(obtenerIdsDeProductosEnCarritoUnico($idProducto)>=1){
+        $sentencia = $bd->prepare("UPDATE pedido_producto SET cantidadPedido = cantidadPedido + 1 WHERE idSesion = ? AND idProducto = ?");
+        return $sentencia->execute([$idSesion,$idProducto]);
+        }
     $sentencia = $bd->prepare("INSERT INTO pedido_producto(idProducto, cantidadPedido, precioPedido, idSesion) VALUES (?, ?, ?, ?)");
     return $sentencia->execute([$idProducto,$cantidadPedido,$precioPedido,$idSesion]);
+}
+
+function quitarUnProducto($idProducto){
+    $bd = obtenerConexion();
+    iniciarSesionSiNoEstaIniciada();
+    $idSesion = session_id();
+    if(obtenerIdsDeProductosEnCarritoUnico($idProducto)<2){
+        quitarProductoDelCarrito($idProducto);
+    }
+    $sentencia = $bd->prepare("UPDATE pedido_producto SET cantidadPedido = cantidadPedido - 1 WHERE idSesion = ? AND idProducto = ?");
+    return $sentencia->execute([$idSesion,$idProducto]);
+        
+}
+
+function agregarUnProducto($idProducto){
+    $bd = obtenerConexion();
+    iniciarSesionSiNoEstaIniciada();
+    $idSesion = session_id();
+    $sentencia = $bd->prepare("UPDATE pedido_producto SET cantidadPedido = cantidadPedido + 1 WHERE idSesion = ? AND idProducto = ?");
+    return $sentencia->execute([$idSesion,$idProducto]);
+        
 }
 
 function contarRegistros()

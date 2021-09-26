@@ -172,7 +172,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
 
                             <strong><?php
                                                 include_once "../../../App/model/productosModel.php";
-                                                $conteo = COUNT(obtenerProductosEnCarrito());
+                                                $conteo = cantidadDeProductos();
                                                 if ($conteo > 0) {
                                                     //printf("(%d)", $conteo);
                                                     echo "<sup>$conteo</sup>";
@@ -353,7 +353,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
         <section class="mt-3">
             <div class="container filter">
                 <div class="cap">
-                    <h4>FILTROS</h4>
+                    <h4>PRODUCTOS</h4>
                 </div>
                 <div class="sort">
                   <div class="text-dark font-weight-semibold font-size-md mb-4 mb-lg-0"><?php echo $registros ?> Resultados encontrados.</div>
@@ -366,7 +366,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
           <div class="row">
         <?php foreach ($productos as $producto) { ?>
         
-                    <div class="col-lg-4 mb-3">
+                    <div class="col-lg-3 mb-3" style="width: 29.499999995%; flex: 0 0 29.499%;max-width: 29.499%;">
 
                                         <div class="store card border-0 rounded-0" style="width: 300px; max-width: 300px;">
                                             <div class="position-relative store-image">

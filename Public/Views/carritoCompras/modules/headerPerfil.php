@@ -149,7 +149,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
 
                             <strong><?php
                                                 include_once "../../../../App/model/productosModel.php";
-                                                $conteo = COUNT(obtenerProductosEnCarrito());
+                                                $conteo = cantidadDeProductos();
                                                 if ($conteo > 0) {
                                                     //printf("(%d)", $conteo);
                                                     echo "<sup class='sup'>$conteo</sup>";
