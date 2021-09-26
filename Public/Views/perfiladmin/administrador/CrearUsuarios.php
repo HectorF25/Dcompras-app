@@ -138,10 +138,16 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="feInputAddress">Dirección</label>
-                                                <input type="text" class="form-control" name="direccionUsuario" id="direccionUsuario" placeholder="calle 28c sur 15-56 este" required>
+                                                <div class="formulario__grupo" id="grupo__direccionUsuario">
+                                                    <label for="feInputCity">Dirección</label>
+                                                    <div class="formulario__grupo-input">
+                                                        <input type="text" class="form-control" name="direccionUsuario" id="direccionUsuario" placeholder="calle 28c sur 15-56 este"  required>
+                                                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        <p class="formulario__input-error">La direccion no es Correcta.</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </div>  
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <div class="formulario__grupo">
