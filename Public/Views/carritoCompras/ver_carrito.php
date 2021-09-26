@@ -56,7 +56,6 @@ if (count($productos) <= 0) {
                     $uniques = [];
                     $numprod = obtenerIdsDeProductosEnCarrito();
 
-
                     foreach ($productos as $producto) {
                         if(!in_array($producto->idProducto, $uniques)){
                         $uniques[] = $producto->idProducto;

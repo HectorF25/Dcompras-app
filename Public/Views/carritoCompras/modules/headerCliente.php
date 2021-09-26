@@ -92,7 +92,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../perfiladmin/administrador<?php echo $img ?>">
+                                <img src="../perfiladmin/administrador/<?php echo $img ?>">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -100,10 +100,10 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="./administrador/index.php?c=administrador&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
+                            <a class="dropdown-item" href="../cliente/index.php?c=cliente&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Editar perfil </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../../../App/controller/logoutController.php">
+                            <a class="dropdown-item" href="../../../../App/controller/logoutController.php">
                                 <i class="mdi mdi-logout mr-2 text-primary"></i> Cerrar sesión </a>
                         </div>
                     </li>
@@ -236,7 +236,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="../perfiladmin/administrador<?php echo $img ?>" alt="profile">
+                                <img src="../perfiladmin/administrador/<?php echo $img ?>" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>
@@ -247,22 +247,16 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="catalogoCompras">
+                        <a class="nav-link" href="./catalogoCompras.php">
                             <span class="menu-title">Comprar</span>
-                            <i class="mdi mdi-home menu-icon"></i>
+                            <i class="mdi mdi-shopping menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <span class="menu-title">Tiendas</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                        <a class="nav-link" href="./ver_carrito.php">
+                            <span class="menu-title">Mi carrito</span>
+                            <i class="mdi mdi-cart menu-icon"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Tiendas cercanas</a></li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./administrador/index.php?c=administrador&a=modificionusuarios">

@@ -51,6 +51,15 @@ function obtenerIdsDeProductosEnCarrito()
     return $sentencia->fetchColumn();
 }
 
+function obtenerIdsDeProductosEnCarritoUnico()
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->prepare("SELECT COUNT(*) FROM pedido_producto WHERE idSesion = ? AND idProducto = ?");
+    $idSesion = session_id();
+    $sentencia->execute([$idSesion, $idProducto]);
+    return $sentencia->fetchColumn();
+}
+
 function agregarProductoAlCarrito($idProducto,$cantidadPedido,$precioPedido)
 {
     // Ligar el id del producto con el usuario a través de la sesión

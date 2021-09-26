@@ -12,6 +12,8 @@ class cliente extends Usuario
     private $documentousuario;
     private $estadousuario;
     private $idtipodoc;
+    private $direccionusuario;
+    private $imgUsuario;
     private $idPerfilUsuario;
 
     public function __CONSTRUCT()
@@ -23,7 +25,7 @@ class cliente extends Usuario
         }
     }
 
-    public function __Cliente($idusuario, $correousuario, $contraseñausuario, $nombreusuario, $apellidousuario,$fechanacimiento, $documentousuario, $estadousuario, $idtipodoc,$idPerfilUsuario)
+    public function __Cliente($idusuario, $correousuario, $contraseñausuario, $nombreusuario, $apellidousuario,$fechanacimiento, $documentousuario, $estadousuario, $idtipodoc,$direccionusuario, $imgUsuario,$idPerfilUsuario)
     {
         parent::__USUARIO($idusuario, $correousuario, $contraseñausuario);
         $this->nombreusuario = $nombreusuario;
@@ -32,6 +34,8 @@ class cliente extends Usuario
         $this->documentousuario = $documentousuario;
         $this->estadoUsuario = $estadousuario;
         $this->idtipodoc = $idtipodoc;
+        $this->direccionusuario = $direccionusuario;
+        $this->imgUsuario = $imgUsuario;
         $this->idPerfilUsuario = $idPerfilUsuario;
     }
 
@@ -143,6 +147,46 @@ class cliente extends Usuario
         return $this->idtipodoc;
     }
 
+        /**
+     * Set the value of direccionUsuario
+     *
+     * @return  self
+     */ 
+    public function setDireccionUsuario($direccionusuario)
+    {
+        $this->direccionusuario = $direccionusuario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of direccionUsuario
+     */ 
+    public function getDireccionUsuario()
+    {
+        return $this->direccionusuario;
+    }
+
+        /**
+     * Get the value of imgUsuario
+     */
+    public function getImgUsuario()
+    {
+        return $this->imgUsuario;
+    }
+
+    /**
+     * Set the value of imgUsuario
+     *
+     * @return  self
+     */
+    public function setImgUsuario($imgUsuario)
+    {
+        $this->imgUsuario = $imgUsuario;
+
+        return $this;
+    }
+
     /**
      * Set the value of idtipodoc
      *
@@ -172,6 +216,42 @@ class cliente extends Usuario
         $this->idPerfilUsuario = $idPerfilUsuario;
 
         return $this;
+    }
+    
+    public function ActualizarPerfil($data)
+    {
+        try {
+            $sql = "UPDATE USUARIO SET 
+						nombreUsuario  = ?,
+                        apellidoUsuario  = ?,
+                        correoUsuario  = ?,
+                        contraseñaUsuario  = ?,
+                        fechaNacimiento  = ?,
+                        documentoUsuario  = ?,
+                        idTipoDoc  = ?,
+                        direccionUsuario  = ?,
+                        imgUsuario  = ?
+						
+				    WHERE idUsuario = ?";
+
+            $this->pdo->prepare($sql)
+                ->execute(
+                    array(
+                        $data->getNombreusuario(),
+                        $data->getApellidousuario(),
+                        $data->getCorreousuario(),
+                        $data->getContraseñausuario(),
+                        $data->getFechanacimiento(),
+                        $data->getDocumentousuario(),
+                        $data->getIdTipodoc(),
+                        $data->getDireccionUsuario(),
+                        $data->getImgUsuario(),
+                        $data->getIdUsuario()
+                    )
+                );
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
     }
     public function Listar()
     {
@@ -238,7 +318,7 @@ class cliente extends Usuario
 		}
 	}
 
-    public function Registrar(administrador $data)
+    public function Registrar(cliente $data)
 	{
 		try 
 		{
@@ -264,5 +344,15 @@ class cliente extends Usuario
 			die($e->getMessage());
 		}
 	}
+    public function ListarTipoDoc()
+    {
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM tipodocumento");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 
 }

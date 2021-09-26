@@ -1,8 +1,4 @@
 <?php
-include '../../../Config/appConfig.php';
-include_once "../../../App/model/productosModel.php";
-$productos = obtenerProductosCatalogo();
-$registros = contarRegistros();
 session_start();
 $idUsuario = $_SESSION["idUsuario"];
 $idPerfilUsuario = $_SESSION["idPerfilUsuario"];
@@ -15,7 +11,7 @@ $estado = $_SESSION["estadoUsuario"];
 if(!isset($correoUsuario) || $idPerfilUsuario != 2){
     echo'<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
-    window.location.href="../index";
+    window.location.href="../../../index";
     </script>';
 } else {
     $conexion = mysqli_connect('localhost', 'root', '');
@@ -33,7 +29,6 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dcompras | Clientes</title>
-    <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
             <!-- google fonts cdn link  -->
@@ -80,48 +75,30 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- plugins:css -->
-    <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../assets/css/shards-dashboards.1.1.0.min.css">
-    <link rel="stylesheet" href="./assets/css/extras.1.1.0.min.css">
+    <link rel="stylesheet" href="../assets/css/extras.1.1.0.min.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <!-- End layout styles -->
-
+    <link rel="shortcut icon" href="../assets/images/Recurso 1LogoD-svg-img.svg" />
+    <link href="../assets/libs/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/libs/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dcompras | Usuario</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="assets/css/estilos.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" />
-</head>
-
-<body>
     <div class="container-scroller">
 
 
@@ -129,8 +106,8 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
 
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="assets/img/Recurso 1LogoDcompras-svg-img.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/img/Recurso 1LogoD-svg-img.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="index.html"><img src="../assets/img/Recurso 1LogoDcompras-svg-img.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../assets/img/Recurso 1LogoD-svg-img.svg" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -150,7 +127,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="../perfiladmin/administrador/<?php echo $img ?>">
+                                <img src="../../perfiladmin/administrador/<?php echo $img ?>">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -158,10 +135,10 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                            <a class="dropdown-item" href="./cliente/index.php?c=cliente&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
+                            <a class="dropdown-item" href="../cliente/index.php?c=cliente&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Editar perfil </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../../../App/controller/logoutController.php">
+                            <a class="dropdown-item" href="../../../../App/controller/logoutController.php">
                                 <i class="mdi mdi-logout mr-2 text-primary"></i> Cerrar sesión </a>
                         </div>
                     </li>
@@ -171,11 +148,11 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     <i class="mdi mdi-cart-outline" style="text-decoration: none;"></i>
 
                             <strong><?php
-                                                include_once "../../../App/model/productosModel.php";
+                                                include_once "../../../../App/model/productosModel.php";
                                                 $conteo = COUNT(obtenerProductosEnCarrito());
                                                 if ($conteo > 0) {
                                                     //printf("(%d)", $conteo);
-                                                    echo "<sup>$conteo</sup>";
+                                                    echo "<sup class='sup'>$conteo</sup>";
                                                 }
                                                 ?>
                                                 </strong>
@@ -294,7 +271,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="../perfiladmin/administrador/<?php echo $img ?>" alt="profile">
+                                <img src="../../perfiladmin/administrador/<?php echo $img ?>" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>
@@ -305,13 +282,13 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="catalogoCompras">
+                        <a class="nav-link" href="../catalogoCompras.php">
                             <span class="menu-title">Comprar</span>
                             <i class="mdi mdi-shopping menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ver_carrito.php" >
+                        <a class="nav-link" href="../ver_carrito.php">
                             <span class="menu-title">Mi carrito</span>
                             <i class="mdi mdi-cart menu-icon"></i>
                         </a>
@@ -332,95 +309,26 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                 </ul>
             </nav>
 
-            <div class="main-panel">
-                <div class="content-wrapper">
+           
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
-                    <div class="page-header">
-                        <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                                <i class="mdi mdi-home"></i>
-                            </span> ¿Que vas a pedir hoy?
-                        </h3>
-                        <nav aria-label="breadcrumb">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <span></span>Resumen <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-        <section class="mt-3">
-            <div class="container filter">
-                <div class="cap">
-                    <h4>FILTROS</h4>
-                </div>
-                <div class="sort">
-                  <div class="text-dark font-weight-semibold font-size-md mb-4 mb-lg-0"><?php echo $registros ?> Resultados encontrados.</div>
-                </div>
-            </div>
-        </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
+<script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
 
-          <div class="row">
-        <?php foreach ($productos as $producto) { ?>
-        
-                    <div class="col-lg-4 mb-3">
-
-                                        <div class="store card border-0 rounded-0" style="width: 300px; max-width: 300px;">
-                                            <div class="position-relative store-image">
-                                                <a href="./detallesProductos">
-                                                    <center><img src="<?= APP_DIR_FILES; ?>assets/img/productos/<?php echo $producto->imgProducto ?>.jpg" alt="store 1" class="card-img-top rounded-0 prod" style="height: 150px; width: 140px; max-height: 150px; max-width: 140px;"></center>
-                                                </a>
-                                                <div class="image-content position-absolute d-flex align-items-center">
-                                                    <div class="content-right ml-auto d-flex">
-                                                        <a href="<?= APP_DIR_FILES; ?>assets/img/productos/<?php echo $producto->imgProducto ?>.jpg" class="item viewing" data-toggle="tooltip" data-placement="top" title="Quick view" data-gtf-mfp="true">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-body pb-4">
-                                                <center><a href="listing-details-full-image.html" class="card-title h5 text-dark d-inline-block mb-2" style="text-align: center;"><span class="letter-spacing-25" "><?php echo $producto->nombreProducto." "?></span><span class="badge badge-success mr-1 d-inline-block">4.8</span></a></center>
-                                                <ul class="list-inline store-meta mb-4 font-size-sm d-flex align-items-center flex-wrap">
-                                                <center> <li class="list-inline-item separate"></li>
-                                                    <li class="list-inline-item"><center><span class="mr-1" style="text-align: center;">Desde</span><span class="text-danger font-weight-bold" style="text-align: center;">$<?php echo number_format($producto->precioProducto, 0) ?></span></center></li> 
-                                                    <li class="list-inline-item separate"></li>
-                                                    <li class="list-inline-item"><span class="text-green" style="text-align: center; color: green;">Abierto ahora!</span></li></center>
-                                                </ul>
-
-                                                <div class="media">
-                                                    <a href="#" class="d-inline-block mr-3"><img src="<?= APP_DIR_FILES; ?>assets/css/images/listing/testimonial-1.png" alt="testimonial" class="rounded-circle">
-                                                    </a>
-                                                    <div class="media-body lh-14 font-size-sm">
-                                                        <?php echo $producto->especificacionProducto ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer rounded-0 border-top-0 pb-3 pt-0 bg-transparent">
-                                                <div class="border-top pt-3">
-                                                    <form action="../../../App/controller/agregar_al_carrito.php" method="post">
-                                                        <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
-                                                        <input type="hidden" name="precioProductoNegocio" value="<?php echo $producto->precioProductoNegocio ?>">
-                                                        <input type="hidden" name="cantidadProducto" value="<?php echo $producto->cantidadProducto ?>">
-                                                        <a href="javascript:void(0);">
-                                                        <center><button class="btn btn-gradient-primary" agregar-carrito">
-                                                                <i class="fa fa-cart-plus"></i>Agregar al carrito
-                                                            </button></a></center>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-              <?php } ?>
-              </div>
-        </section>
-
-  
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="assets/js/product.js"></script>
-</body>
-</html>
+<!-- Plugin js for this page -->
+<script src="../assets/vendors/chart.js/Chart.min.js"></script>
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="../assets/js/off-canvas.js"></script>
+<script src="../assets/js/hoverable-collapse.js"></script>
+<script src="../assets/js/misc.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page -->
+<script src="../assets/js/dashboard.js"></script>
+<script src="../assets/js/todolist.js"></script>
