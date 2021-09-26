@@ -103,7 +103,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                             <a class="dropdown-item" href="./cliente/index.php?c=cliente&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Editar perfil </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../../../../App/controller/logoutController.php">
+                            <a class="dropdown-item" href="../../../App/controller/logoutController.php">
                                 <i class="mdi mdi-logout mr-2 text-primary"></i> Cerrar sesión </a>
                         </div>
                     </li>
