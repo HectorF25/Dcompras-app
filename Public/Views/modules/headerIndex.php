@@ -68,7 +68,8 @@ Dashboard</a></li>
 Requisitos</a></li>
                                                                 <li class="nav-item"><a class="nav-link" href="page-about.html">
 Beneficios</a></li>
-
+                                                                <li class="nav-item"><a class="nav-link" href="formularioNegocios">
+                                                                Registar Aquí!</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
