@@ -101,10 +101,10 @@ class Chat{
 			$user_name = '';
 			if($chat["sender_userid"] == $from_user_id) {
 				$conversation .= '<li class="sent">';
-				$conversation .= '<img width="32px" height="28px" src="../perfiladmin/administrador/'.$fromUserAvatar.'" alt="" />';
+				$conversation .= '<img width="32px" height="22x" src="../perfiladmin/administrador/'.$fromUserAvatar.'" alt="" />';
 			} else {
 				$conversation .= '<li class="replies">';
-				$conversation .= '<img width="32px" height="28px" src="../perfiladmin/administrador/'.$toUserAvatar.'" alt="" />';
+				$conversation .= '<img width="32px" height="22px" src="../perfiladmin/administrador/'.$toUserAvatar.'" alt="" />';
 			}			
 			$conversation .= '<p>'.$chat["message"].'</p>';			
 			$conversation .= '</li>';
@@ -156,6 +156,24 @@ class Chat{
 		}
 		return $output;
 	}	
+	public function getUnreadMessages($userid){
+		$sqlQuery = "
+		SELECT *, TIME(timestamp) AS hora FROM ".$this->chatTable." 
+		INNER JOIN usuario ON chat.sender_userid = usuario.idUsuario
+		WHERE sender_userid <> '$userid' AND status = '0' AND reciever_userid = '$userid'";
+	return  $this->getData($sqlQuery);
+	}
+	public function getUnreadMessagesCountAll($userid){
+		$sqlQuery = "
+		SELECT COUNT(*) FROM ".$this->chatTable." 
+		WHERE sender_userid <> '$userid' AND status = '0'";
+		$numRows = $this->getNumRows($sqlQuery);
+		$output = '';
+		if($numRows > 0){
+			$output = $numRows;
+		}
+		return $output;
+	}
 	public function updateTypingStatus($is_type, $loginDetailsId) {		
 		$sqlUpdate = "
 			UPDATE ".$this->chatLoginDetailsTable." 

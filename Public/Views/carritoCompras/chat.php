@@ -19,8 +19,6 @@ include "./modules/headerCliente.php";
 				<div id="sidepanel">
 					<div id="profile">
 					<?php
-					include ('../../../App/model/chatModel.php');
-					$chat = new Chat();
 					$loggedUser = $chat->getUserDetails($_SESSION['idUsuario']);
 					echo '<div class="wrap">';
 					$currentSession = '';
