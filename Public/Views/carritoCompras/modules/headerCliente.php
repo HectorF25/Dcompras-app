@@ -266,8 +266,8 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/forms/basic_elements.html">
-                            <span class="menu-title">Resumen de compras</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                            <span class="menu-title">Chatear con soporte</span>
+                            <i class="mdi mdi-worker menu-icon"></i>
                         </a>
                     </li>
 

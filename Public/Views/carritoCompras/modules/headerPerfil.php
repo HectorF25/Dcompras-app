@@ -144,7 +144,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     </li>
 
                     <li class="nav-item nav-settings d-none d-lg-block nolink">
-                    <a class="nav-link count-indicator dropdown-toggle" href="ver_carrito.php">
+                    <a class="nav-link count-indicator dropdown-toggle" href="../ver_carrito.php">
                     <i class="mdi mdi-cart-outline" style="text-decoration: none;"></i>
 
                             <strong><?php
@@ -300,9 +300,9 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
-                            <span class="menu-title">Resumen de compras</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                        <a class="nav-link" href="../chat.php">
+                            <span class="menu-title">Chatear con soporte</span>
+                            <i class="mdi mdi-worker menu-icon"></i>
                         </a>
                     </li>
 
@@ -318,7 +318,6 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
-<script src="../assets/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 
 <!-- Plugin js for this page -->

@@ -243,8 +243,8 @@ if(!isset($correoUsuario)){
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <span class="menu-title">Resumen de compras</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                            <span class="menu-title">Chatear con soporte</span>
+                            <i class="mdi mdi-worker menu-icon"></i>
                         </a>
                     </li>
 
