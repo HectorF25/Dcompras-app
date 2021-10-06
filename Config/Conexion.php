@@ -1,9 +1,9 @@
 <?php
 
-$server = 'localhost';
-$username = 'root'; 
-$password = ''; 
-$database = 'imake'; 
+$server = 'localhost'; //Host name
+$username = 'root'; //Bd username 
+$password = ''; //Bd password
+$database = 'imake'; //Bd name
 
 
 try{
