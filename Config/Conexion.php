@@ -10,7 +10,7 @@ try{
 	$conn = new PDO("mysql:host=$server;dbname=$database;",$username, $password);
 } catch (PDOException $e) {
 	
-	die('Connection failed: '.$e->getMessage());
+	die('Error de conexión: '.$e->getMessage());
 }
 
 $link = mysqli_connect("localhost", "root", "", "imake") or die($link);
@@ -29,22 +29,4 @@ class Conexion
 		return $this->pdo;
 	}
 }
-/* function ejecutarConsulta($sql)
-{
-	global $pdo;
-	$query = $pdo->query($sql);
-	return $query;
-}
-function ejecutarConsultaLista($sql)
-{
-	global $pdo;
-	$query = $pdo->query($sql);
-	$value = mysqli_fetch_object($query);
-	return $value;
-}
-function limpiarCadena($str)
-{
-	global $pdo;
-	$str = mysqli_real_escape_string($pdo, trim($str));
-	return htmlspecialchars($str);
-} */
+
