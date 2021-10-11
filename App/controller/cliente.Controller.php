@@ -154,7 +154,7 @@
                                 dangerMode: true,
                             }).then((willDelete) => {
                             if (willDelete) {
-                                location.href = '../catologoCompras.php';
+                                location.href = '../catalogoCompras.php';
                             } else {
                                 location.href = '../catalogoCompras.php';
                                 }

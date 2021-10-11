@@ -1,5 +1,11 @@
 <?php
+include ('../../../../App/model/chatModel.php');
+
 session_start();
+$chat = new Chat();
+
+$loggedUser = $chat->getUserDetails($_SESSION['idUsuario']);
+
 $idUsuario = $_SESSION["idUsuario"];
 $idPerfilUsuario = $_SESSION["idPerfilUsuario"];
 $nombreUsuario = $_SESSION['nombreUsuario'];
@@ -8,6 +14,7 @@ $correoUsuario = $_SESSION['correo'];
 $nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
 $imgUsuario = $_SESSION["imgUsuario"];
 $estado = $_SESSION["estadoUsuario"];
+
 if(!isset($correoUsuario) || $idPerfilUsuario != 2){
     echo'<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
@@ -144,7 +151,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     </li>
 
                     <li class="nav-item nav-settings d-none d-lg-block nolink">
-                    <a class="nav-link count-indicator dropdown-toggle" href="ver_carrito.php">
+                    <a class="nav-link count-indicator dropdown-toggle" href="../ver_carrito.php">
                     <i class="mdi mdi-cart-outline" style="text-decoration: none;"></i>
 
                             <strong><?php
@@ -165,39 +172,29 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                             <span class="count-symbol bg-warning"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-                            <h6 class="p-3 mb-0">Messages</h6>
+                            <h6 class="p-3 mb-0">Mensajes</h6>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <img src="assets/img/faces/face4.jpg" alt="image" class="profile-pic">
-                                </div>
-                                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
-                                    <p class="text-gray mb-0"> 1 Minutes ago </p>
-                                </div>
-                            </a>
+
+                            <?php
+                        
+                            $mensajesNuevos = $chat->getUnreadMessages($_SESSION['idUsuario']);
+                            foreach($mensajesNuevos as $mensaje){
+                            echo '<a class="dropdown-item preview-item" href="chat.php">';
+                            echo '<div class="preview-thumbnail">';
+                            echo '<img src="../../perfiladmin/administrador/'.$mensaje['imgUsuario'].'" alt="" class="profile-pic" />';
+                            echo '</div>';
+                            echo '<div class="preview-item-content d-flex align-items-start flex-column justify-content-center">';
+                            echo  '<h6 class="preview-subject ellipsis mb-1 font-weight-normal" style="color: #000;">'.$mensaje["message"].'</h6>';
+                            echo  '<p class="text-gray mb-0">'.$mensaje["nombreUsuario"].' - '.$mensaje["hora"].' </p>';
+                            echo  '</div>';
+                            echo  '</a>';
+                            echo  '<div class="dropdown-divider">';
+                            echo  '</div>';
+                            }
+                            ?>
+                           
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <img src="assets/img/faces/face2.jpg" alt="image" class="profile-pic">
-                                </div>
-                                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                                    <p class="text-gray mb-0"> 15 Minutes ago </p>
-                                </div>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <img src="assets/img/faces/face3.jpg" alt="image" class="profile-pic">
-                                </div>
-                                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                                    <p class="text-gray mb-0"> 18 Minutes ago </p>
-                                </div>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+                            <h6 class="p-3 mb-0 text-center"><?php echo $chat->getUnreadMessagesCountAll($_SESSION['idUsuario']); ?> nuevos mensajes</h6>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -300,9 +297,9 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
-                            <span class="menu-title">Resumen de compras</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                        <a class="nav-link" href="../chat.php">
+                            <span class="menu-title">Chatear con soporte</span>
+                            <i class="mdi mdi-worker menu-icon"></i>
                         </a>
                     </li>
 
@@ -318,7 +315,6 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
-<script src="../assets/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
 
 <!-- Plugin js for this page -->

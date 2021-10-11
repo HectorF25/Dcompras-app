@@ -255,7 +255,7 @@ while($filas=mysqli_fetch_array($consulta)){
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
+                        <a class="nav-link" href="./administrador/descargaPDF.php">
                             <span class="menu-title">Reportes</span>
                             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                         </a>

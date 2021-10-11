@@ -32,7 +32,8 @@ if (isset($_POST['correo'])) {
     WHERE correoUsuario='$correoUsuario' AND contraseñaUsuario='$contraseñaUsuario'");
     if (mysqli_num_rows($log) > 0) {
         $row = mysqli_fetch_array($log);
-
+        include ('../model/chatModel.php');
+        
         $_SESSION["nombreUsuario"] = $row['nombreUsuario'];
         $_SESSION["idPerfilUsuario"] = $row['idPerfilUsuario'];
         $_SESSION["estadoUsuario"] = $row['estadoUsuario'];
@@ -40,6 +41,11 @@ if (isset($_POST['correo'])) {
         $_SESSION["imgUsuario"] = $row['imgUsuario'];
         $_SESSION["apellidoUsuario"] = $row['apellidoUsuario'];
         $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
+        $chat = new Chat();
+        $chat->updateUserOnline($row['idUsuario'], 1);
+        $lastInsertId = $chat->insertUserLoginDetails($row['idUsuario']);
+        $_SESSION['login_details_id'] = $lastInsertId;
+
         $nombre = $_SESSION["nombreUsuario"];
 
         if ($_SESSION["estadoUsuario"] == NULL) {
