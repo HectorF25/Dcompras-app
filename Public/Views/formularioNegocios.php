@@ -16,20 +16,29 @@ $registros = contarRegistros();
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>𝗗𝗰𝗼𝗺𝗽𝗿𝗮𝘀 | Catalogo</title>
-    <link rel="apple-touch-icon" href="../../App/assets/img/Recurso 1LogoD.png">
-    <link rel="shortcut icon" href="../../App/assets/img/Recurso 1LogoD.png">
+    <title>𝗗𝗰𝗼𝗺𝗽𝗿𝗮𝘀 | Peticion</title>
     <script src="../cdn-cgi/apps/head/2oc_RD5SS6wgN5SiQnSEnWVNHg8.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./vendors/font-awesome/css/fontawesome.css">
     <link rel="stylesheet" href="./vendors/magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="./vendors/slick/slick.css">
     <link rel="stylesheet" href="./vendors/animate.css">
-    <link rel="stylesheet" href="./vendors/air-datepicker/css/datepicker.min.css">
-    <link rel="stylesheet" href="./vendors/jquery-ui/jquery-ui.min.css">
+    <link rel="apple-touch-icon" href="../../App/assets/img/Recurso 1LogoD.png">
+    <link rel="shortcut icon" href="../../App/assets/img/Recurso 1LogoD.png">
     <link rel="stylesheet" href="<?= APP_DIR; ?>assets/css/styleIndex.css">
     <link rel="stylesheet" href="<?= APP_DIR; ?>assets/css/style.css">
     <link rel="stylesheet" href="<?= APP_DIR; ?>assets/css/stylesFormNeg.css">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link href="assets/sticky-footer-navbar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -43,67 +52,103 @@ $registros = contarRegistros();
         </section>
         <div id="wrapper-content" class="wrapper-content bg-gray-04 pb-0">
             <!-- multistep form -->
-            <form id="msform">
-                <!-- progressbar -->
-                <ul id="progressbar">
-                    <li class="active">Account Setup</li>
-                    <li>Social Profiles</li>
-                    <li>Personal Details</li>
-                </ul>
-                <!-- fieldsets -->
-                <fieldset>
-                    <h2 class="fs-title">Create your account</h2>
-                    <h3 class="fs-subtitle">This is step 1</h3>
-                    <input type="text" name="email" placeholder="Email" />
-                    <input type="password" name="pass" placeholder="Password" />
-                    <input type="password" name="cpass" placeholder="Confirm Password" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-                <fieldset>
-                    <h2 class="fs-title">Social Profiles</h2>
-                    <h3 class="fs-subtitle">Your presence on the social network</h3>
-                    <input type="text" name="twitter" placeholder="Twitter" />
-                    <input type="text" name="facebook" placeholder="Facebook" />
-                    <input type="text" name="gplus" placeholder="Google Plus" />
-                    <input type="button" name="previous" class="previous action-button" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                </fieldset>
-                <fieldset>
-                    <h2 class="fs-title">Personal Details</h2>
-                    <h3 class="fs-subtitle">We will never sell it</h3>
-                    <input type="text" name="fname" placeholder="First Name" />
-                    <input type="text" name="lname" placeholder="Last Name" />
-                    <input type="text" name="phone" placeholder="Phone" />
-                    <textarea name="address" placeholder="Address"></textarea>
-                    <input type="button" name="previous" class="previous action-button" value="Previous" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
-                </fieldset>
-            </form>
-        </div>
+            <div class="row">
+                <form  method="POST" id="msform" action="<?= APP_DIR; ?>controller/peticionNegocioController">
+                    <div class="card col-md">
+                        <h5 class="card-header ">Datos de tu negocio</h5>
+                        <div class="card-body ">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nombreNegocio">Nombre de Negocio</label>
+                                    <input type="text" class="form-control" name="nombreNegocio"id="nombreNegocio" placeholder="Nombre Negocio" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="nombrePropietario">Nombre Propietario</label>
+                                    <input type="text" class="form-control" name="nombrePropietario" id="nombrePropietario" placeholder="Nombre Propietario" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nitNegocio">Nit Negocio</label>
+                                    <input type="number" class="form-control" name="nitNegocio" id="nitNegocio"placeholder="Nit Negocio" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="razonsocialNegocio">Razon Social</label>
+                                    <input type="text" class="form-control" name="razonsocialNegocio" id="razonsocialNegocio"placeholder="Razón social negocio" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="telefonoNegocio">Telefono Negocio</label>
+                                    <input type="tel" class="form-control" id="telefonoNegocio" name="telefonoNegocio" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="fechaFundacion">Fecha Fundacion</label>
+                                    <input type="date" class="form-control" name="fechaFundacion"id="fechaFundacion" placeholder="Fecha fundación Negocio" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nombreTipoNegocio">Tipo de Negocio</label>
+                                    <input type="text" class="form-control" name="nombreTipoNegocio" id="nombreTipoNegocio"placeholder="Nombre tipo negocio" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card col-md">
+                        <h5 class="card-header ">Datos del usuario propietario</h5>
+                        <div class="card-body ">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nombreUsuario">Nombre</label>
+                                    <input type="text" class="form-control" name="nombreUsuario" id="nombreUsuario" placeholder="Nombre" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="apellidoUsuario">Apellido</label>
+                                    <input type="text" class="form-control" name="apellidoUsuario" id="apellidoUsuario" placeholder="Apellido" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="correoUsuario">Correo</label>
+                                    <input type="email" class="form-control" name="correoUsuario" id="correoUsuario" placeholder="Correo" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="contraseñaUsuario">Contraseña</label>
+                                    <input type="password" class="form-control" name="contraseñaUsuario" id="contraseñaUsuario" placeholder="Contraseña Usuario" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
 
         <?php
         require_once 'modules/footerIndex.php';
         ?>
 
-    </div>
+        </div>
+            <div id="login-popup" class="mfp-hide">
+                <div class="section">
+                    <h6 class="mb-0 pb-3 ah6">
+                        <span class="wrd">Iniciar sesión </span>
+                        <span class="wrd">Registrarse</span>
+                    </h6>
+                    <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                    <label for="reg-log"></label>
 
+                    <div class="card-3d-wrap mx-auto">
 
-    <div id="login-popup" class="mfp-hide">
-        <div class="section">
-            <h6 class="mb-0 pb-3 ah6">
-                <span class="wrd">Iniciar sesión </span>
-                <span class="wrd">Registrarse</span>
-            </h6>
-            <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
-            <label for="reg-log"></label>
-            <label for="reg-log"></label>
+                        <div class="card-3d-wrapper">
 
-            <div class="card-3d-wrap mx-auto">
-
-                <div class="card-3d-wrapper">
-
-                    <div class="card-front">
-                        <div class="center-wrap">
+                            <div class="card-front">
+                                <div class="center-wrap">
                             <form method="POST" action="<?= APP_DIR; ?>controller/loginController">
                                 <div class="section text-center">
                                     <h4 class="mb-4 pb-3">Iniciar Sesión</h4>
@@ -384,7 +429,9 @@ $registros = contarRegistros();
     <script src="./vendors/waypoints/jquery.waypoints.js"></script>
     <script src="./vendors/air-datepicker/js/datepicker.min.js"></script>
     <script src="./vendors/air-datepicker/js/i18n/datepicker.en.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?= APP_DIR; ?>assets/js/scriptFormNeg.js"></script>
     <script src="<?= APP_DIR; ?>assets/js1/index/app.js"></script>
     <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
@@ -453,4 +500,3 @@ $registros = contarRegistros();
 
 </html>
 
-</html>

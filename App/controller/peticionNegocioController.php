@@ -27,8 +27,8 @@ $DIR_PUBLIC = APP_PUBLIC_DIR;
 
 $message = '';
 
-if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
-    $sql = "INSERT INTO usuario (nombreUsuario, apellidoUsuario, contraseñaUsuario, correoUsuario, hashUsuario, idPerfilUsuario) VALUES (:nombreUsuario, :apellidoUsuario, :contrasenaUsuario, :correoUsuario, :hashUsuario, '2')";
+if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !empty($_POST['nitNegocio']) && !empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
+    $sql = "INSERT INTO usuario (nombreUsuario, apellidoUsuario, contraseñaUsuario, correoUsuario, hashUsuario, idPerfilUsuario) VALUES (:nombreUsuario, :apellidoUsuario, :contrasenaUsuario, :correoUsuario, :hashUsuario, '3')";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':correoUsuario',$_POST['correoUsuario']);
     $nombre = ($_POST['nombreUsuario']);
@@ -39,6 +39,15 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
     $stmt->bindParam(':nombreUsuario',$_POST['nombreUsuario']);
     $email = $_POST['correoUsuario'];
     $_password_us = $_POST['contrasenaUsuario'];
+    $sql1 = "INSERT INTO peticionNegocio (nombreNegocio, nombrePropietario, nitNegocio , razonsocialNegocio, telefonoNegocio, fechaFundacion, nombreTipoNegocio) VALUES (:nombreNegocio, :nombrePropietario, :nitNegocio , :razonsocialNegocio, :telefonoNegocio, :fechaFundacion, :nombreTipoNegocio)";
+    $stmt1 = $conn->prepare($sql1);
+    $stmt1->bindParam(':nombreNegocio',$_POST['nombreNegocio']);
+    $stmt1->bindParam(':nombrePropietario', $_POST['nombrePropietario']);
+    $stmt1->bindParam(':nitNegocio', $_POST['nitNegocio']);
+    $stmt1->bindParam(':razonsocialNegocio', $_POST['razonsocialNegocio']);
+    $stmt1->bindParam(':telefonoNegocio', $_POST['telefonoNegocio']);
+    $stmt1->bindParam(':fechaFundacion', $_POST['fechaFundacion']);
+    $stmt1->bindParam(':nombreTipoNegocio', $_POST['nombreTipoNegocio']);
 
     $mail = new PHPMailer(true);
     try {
@@ -54,8 +63,8 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';  // Host de conexión SMTP
         $mail->SMTPAuth = true;
-        $mail->Username = 'dcomprasteam@gmail.com';                 // Usuario SMTP
-        $mail->Password = '123dcompras';                           // Password SMTP
+        $mail->Username = 'decompras498@gmail.com';                 // Usuario SMTP
+        $mail->Password = 'decompras498';                           // Password SMTP
         $mail->SMTPSecure = 'tls';                            // Activar seguridad TLS
         $mail->Port = 587;                                    // Puerto SMTP
     
@@ -63,14 +72,12 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
         #$mail->SMTPSecure = false;				// Descomentar si se requiere desactivar cifrado (se suele usar en conjunto con la siguiente línea)
         #$mail->SMTPAutoTLS = false;			// Descomentar si se requiere desactivar completamente TLS (sin cifrado)
      
-        $mail->setFrom('noreply@dcompras.com');		// Mail del remitente
-        $mail->addAddress($email);     // Mail del destinatario
+        $mail->setFrom($email);		// Mail del remitente
+        $mail->addAddress('dcomprasteam@gmail.com');     // Mail del destinatario
      
         $mail->isHTML(true);
-        $mail->Subject = 'Verifica tu cuenta!';  // Asunto del mensaje
+        $mail->Subject = 'Nueva peticion de negocio! '+$negocio;  // Asunto del mensaje
         $mail->Body    = '
-
-
         <!DOCTYPE html>
         <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
         <head>
@@ -385,8 +392,7 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
                               <td style="text-align: center;">
                                   <div class="text-author">
                                   <img src="https://raw.githubusercontent.com/LuisC111/Dcompras-Frontend/main/images/perfil.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; display: block;">                                      
-                                      <b><span class="position" style="color: black;">Haz click en el botón para verificarte</span></b>
-                                      <b><p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn btn-primary">¡Verificarme!</a></p></b>
+                                      <b><span class="position" style="color: black;">Tu solicitud se ha enviado con exito, en los proximos dias te llegara una respuesta</span></b>
                                        <p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn-custom">Si no funciona, haz click aquí!</a></p>
                                    </div>
                               </td>
@@ -456,7 +462,7 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
 
         $nuevo_usuario = mysqli_query($link, "SELECT * FROM usuario WHERE correoUsuario='$email'");
     if (mysqli_num_rows($nuevo_usuario) > 0) {
-        $Duplicado = "!El correo $email ya se encuentra registrado!";
+        $Duplicado = "!El correo $email ya envio una solicitud!";
         echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
@@ -477,11 +483,11 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
           </script>";  
     }else if($stmt->execute()){
         $mail->send();
-        $exito = "Revisa tu correo electronico $email para verificar tu cuenta.";
+        $exito = "Revisa tu correo electronico $email para revisar la respuesta a tu solicituid.";
         echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
-                title: '¡Registro exitoso!',
+                title: '¡Solicitud enviada con exito!',
                 text: '$exito',
                 icon: 'success',
                 buttons: true,
@@ -500,7 +506,7 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
         
 
     } catch (Exception $e) {
-        echo 'Hubo un error al enviar el correo de verificación: ', $mail->ErrorInfo;
+        echo 'Hubo un error al enviar tu solicitud de negocio: ', $mail->ErrorInfo;
     }
 
 
