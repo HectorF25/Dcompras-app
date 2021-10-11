@@ -63,8 +63,8 @@ if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !e
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';  // Host de conexión SMTP
         $mail->SMTPAuth = true;
-        $mail->Username = 'decompras498@gmail.com';                 // Usuario SMTP
-        $mail->Password = 'decompras498';                           // Password SMTP
+        $mail->Username = 'dcomprasteam@gmail.com';                 // Usuario SMTP
+        $mail->Password = '123dcompras';                           // Password SMTP
         $mail->SMTPSecure = 'tls';                            // Activar seguridad TLS
         $mail->Port = 587;                                    // Puerto SMTP
     
