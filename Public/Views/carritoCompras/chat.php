@@ -1,7 +1,7 @@
 <?php 
 include "./modules/headerCliente.php";
 ?>
-<title>Sistema de chat en vivo con Ajax, PHP y MySQL</title>
+<title>Sistema de chat</title>
 <link href="assets/css/chatUser.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -12,12 +12,20 @@ include "./modules/headerCliente.php";
     margin: 30px auto;	
 }
 </style>
-<div class="container">		
-	<?php if(isset($_SESSION['idUsuario']) && $_SESSION['idUsuario']) { ?> 	
+<div class="container">	
+	
+
+	<?php if(isset($_SESSION['idUsuario']) && $_SESSION['idUsuario']) { 
+		
+		
+                            
+		?> 	
+	
 		<div class="chat">	
 			<div id="frame">		
 				<div id="sidepanel">
 					<div id="profile">
+					
 					<?php
 					$loggedUser = $chat->getUserDetails($_SESSION['idUsuario']);
 					echo '<div class="wrap">';
