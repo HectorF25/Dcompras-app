@@ -1,6 +1,6 @@
 <?php
 
-include ('../../../../App/model/chatModel.php');
+include ('../../../../App/model/chatModelAdmin.php');
 
 error_reporting(0);
 session_start();
