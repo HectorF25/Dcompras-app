@@ -38,7 +38,7 @@ if (count($productos) <= 0) {
 <?php } else { ?>
     <?php 
         foreach ($productos as $producto) {
-            $producto = [
+            $product = [
                 'id' => $producto->idProducto,
                 'title' => $producto->nombreProducto,
                 'description' => $producto->especificacionProducto,
@@ -48,15 +48,15 @@ if (count($productos) <= 0) {
                 ];
             $preference = new MercadoPago\Preference();
             $item = new MercadoPago\Item();
-            $item->title = $producto['title'];
-            $item->quantity = $producto['available_quantity'];
-            $item->unit_price = $producto['price'];
+            $item->title = $product['title'];
+            $item->quantity = $product['available_quantity'];
+            $item->unit_price = $product['price'];
             $item->currency_id = "COP";
             $preference->items = array($item);
             $preference->back_urls = array(
                     "success" => "http://localhost/Dcompras-app/Public/Views/carritoCompras/orderDetail.php",
-                    "failure" => "http://www.tu-sitio/failure",
-                    "pending" => "http://www.tu-sitio/pending"
+                    "failure" => "",
+                    "pending" => ""
                 );
             $preference->save();
         }
