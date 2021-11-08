@@ -1,23 +1,37 @@
-<?php include_once "encabezado.php" ?>
+
 <?php
+include "./modules/headerCliente.php";
+
 include_once "../../../App/model/productosModel.php";
 $productos = obtenerProductosEnCarrito();
 
+
+require '../../../vendor/autoload.php';
+require_once '../../../Config/payment-methods.php';
+
+MercadoPago\SDK::setAccessToken($access_token);
+
+
 if (count($productos) <= 0) {
 ?>
-    <section class="hero is-info">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Todavía no hay productos
-                </h1>
-                <h2 class="subtitle">
-                    Visita la tienda para agregar productos a tu carrito
-                </h2>
-                <a href="tienda.php" class="button is-warning">Ver tienda</a>
+
+    <div class="container-fluid mt-100">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Carrito</h5>
+                </div>
+                <div class="card-body cart">
+                    <div class="col-sm-12 empty-cart-cls text-center"> <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+                        <h3><strong>Tu carrito esta vacio!</strong></h3>
+                        <h4>Agrega algo para hacerme feliz :)</h4> <a href="catalogoCompras" class="btn btn-gradient-success cart-btn-transform m-3" data-abc="true">Continuar comprando</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 <?php } else { ?>
     <div class="columns">
         <div class="column"><br>
@@ -68,6 +82,7 @@ if (count($productos) <= 0) {
                     </tr>
                 </tfoot>
             </table>
+
             <div class="jumbotron" onload="calcRoute();">
                 <div class="container-fluid">
                     <h1>Tu orden está en camino</h1>
