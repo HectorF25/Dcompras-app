@@ -584,7 +584,7 @@
     
   }
   #frame .content .messages ul li.sent p {
-    background: #128C7E;
+    background: #F17C12;
     color: #f5f5f5;
     float: right;
   }
@@ -593,7 +593,7 @@
     margin: 6px 0 0 8px;
   }
   #frame .content .messages ul li.replies p {
-    background: #DCF8C6;
+    background: #ece473;
     float: left;
   }
   #frame .content .messages ul li img {
