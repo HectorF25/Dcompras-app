@@ -4461,10 +4461,15 @@ pre code {
     color: #fff;
     background-color: #343a40;
 }
-.nolink{
+
+.nolink {
     text-decoration: none;
 }
-a:link {text-decoration: none }
+
+a:link {
+    text-decoration: none
+}
+
 .table-dark th,
 .table-dark td,
 .table-dark thead th {
@@ -4474,17 +4479,18 @@ a:link {text-decoration: none }
 .table-dark.table-bordered {
     border: 0;
 }
-.sup{
+
+.sup {
     top: -15px;
     right: 3px;
     width: 10px;
     height: 10px;
     font-size: 12px;
-    color:rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     width: 140px;
     height: 140px;
-    -moz-border-radius: 90px; 
-    -webkit-border-radius: 90px; 
+    -moz-border-radius: 90px;
+    -webkit-border-radius: 90px;
     border-radius: 90px;
 }
 
@@ -5509,6 +5515,7 @@ fieldset:disabled a.btn {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(91, 102, 116, 0.5);
     box-shadow: 0 0 0 0.2rem rgba(91, 102, 116, 0.5);
 }
+
 .btn-outline-primaryy {
     color: #F17C12;
     border-color: #F17C12;
@@ -14487,9 +14494,9 @@ code {
     padding: 0.5rem 0 0;
 }
 
-.nombre{
+.nombre {
     border-top: 1px solid #ebedf2;
-    padding: 0.5rem 0 0;  
+    padding: 0.5rem 0 0;
 }
 
 .template-demo .ul-slider.noUi-horizontal {

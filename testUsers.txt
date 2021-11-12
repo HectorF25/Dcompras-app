@@ -1,0 +1,24 @@
+{
+    "id": 1006734122,
+    "nickname": "TETE6383141",
+    "password": "qatest5078",
+    "site_status": "active",
+    "email": "test_user_58088574@testuser.com"
+}Comprador
+{
+    "id": 1006742233,
+    "nickname": "TETE1834548",
+    "password": "qatest3708",
+    "site_status": "active",
+    "email": "test_user_47586485@testuser.com"
+}Vendedor
+{
+    "id": 1006801414,
+    "nickname": "TEST0OXDY8CT",
+    "password": "qatest4352",
+    "site_status": "active",
+    "email": "test_user_31074651@testuser.com"
+}
+Mastercard	5254 1336 7440 3564	123	11/25
+Visa	4013 5406 8274 6260	123	11/25
+American Express	3743 781877 55283	1234	11/25
