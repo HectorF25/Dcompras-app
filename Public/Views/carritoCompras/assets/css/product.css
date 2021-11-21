@@ -1,40 +1,43 @@
-
-@font-face{
+@font-face {
     font-family: futura-bold;
     src: url(../fonts/Futura\ Bold\ font.ttf);
 }
-@font-face{
+
+@font-face {
     font-family: futura-extra-bold;
     src: url(../fonts/Futura\ Condensed\ Extra\ Bold.otf);
 }
-@font-face{
+
+@font-face {
     font-family: helvetica-bold;
     src: url(../fonts/Helvetica\ Bold.ttf);
 }
-@font-face{
+
+@font-face {
     font-family: helvetica-medium;
     src: url(../fonts/Helvetica-Medium_22487.ttf);
 }
-@font-face{
+
+@font-face {
     font-family: helveticaNeue-medium;
     src: url(../fonts/HelveticaNeue-MediumCond.otf);
 }
 
-.head1{
+.head1 {
     width: 100%;
     background: #111;
     padding: 15px;
-    font-family:helvetica-medium; 
+    font-family: helvetica-medium;
 }
 
-.head1 .container{
+.head1 .container {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.head1 .container ul{
+.head1 .container ul {
     list-style: none;
     text-decoration: none;
     color: #ddd;
@@ -46,23 +49,23 @@
     cursor: pointer;
 }
 
-.head1 .plus{
+.head1 .plus {
     display: grid;
     grid-template-columns: repeat(auto-fill, 1fr);
     grid-column-gap: 4em;
 }
 
-.head2 .logo img{
-    width:100%; 
+.head2 .logo img {
+    width: 100%;
 }
 
-.head1 .account{
+.head1 .account {
     display: grid;
     grid-template-columns: repeat(auto-fill, 1fr);
     grid-column-gap: 4em;
 }
 
-.head2{
+.head2 {
     width: 100%;
     background: #e9ecef;
     font-family: futura-bold;
@@ -70,7 +73,7 @@
     cursor: pointer;
 }
 
-.head2 .nike{
+.head2 .nike {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
@@ -78,72 +81,82 @@
     padding: 1em;
 }
 
-.head2 .stellarnav ul{
+.head2 .stellarnav ul {
     padding: 0 !important;
     margin: 0 !important;
 }
 
-.menu{
+.menu {
     display: grid;
     list-style: none;
     grid-auto-flow: column;
     grid-column-gap: 2.5em;
     font-size: 1.2em;
-    align-items: center; 
+    align-items: center;
 }
-.menu{
+
+.menu {
     z-index: 999999;
 }
-.offers{
+
+.offers {
     text-align: center;
     font-family: futura-bold;
-    border: 0.5px solid #999; 
+    border: 0.5px solid #999;
 }
-.offers h4{
+
+.offers h4 {
     margin: 0 !important;
     padding: 0.6em;
 }
 
-.filter{
+.filter {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
     align-items: center;
 }
-.filter .cap{
+
+.filter .cap {
     align-items: center;
     display: grid;
     font-family: futura-bold;
 }
+
 .product-selection {
     display: grid;
     grid-template-columns: 1fr 2fr;
-
 }
-.select{
+
+.select {
     height: auto;
 }
-.select .size p{ 
+
+.select .size p {
     background: #f1f1f1;
     display: inline-grid;
     grid-template-columns: repeat(auto-fit, minmax(4em, 4em)) !important;
-    padding:0.5em;
+    padding: 0.5em;
     text-align: center;
     border-radius: 50px;
     margin: 0.5em;
 }
-.select .size p:hover{
+
+.select .size p:hover {
     border: 0.5px solid #555;
 }
-.select a{
+
+.select a {
     color: #444;
     font-family: helvetica-medium;
 }
-.select a:hover{
+
+.select a:hover {
     text-decoration: none;
     color: #000;
 }
-.product-view{
+
+.product-view {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2em;
@@ -151,87 +164,88 @@
     justify-content: space-between;
     height: fit-content;
 }
-.product-view a{
+
+.product-view a {
     text-decoration: none;
     color: #333;
 }
-.product-view a:hover{
+
+.product-view a:hover {
     text-decoration: none;
     color: #333;
 }
-.product-view div{
+
+.product-view div {
     height: 100%;
 }
-.product-view img{
-    width: 100%;
 
+.product-view img {
+    width: 100%;
 }
-.product-view img:hover{
+
+.product-view img:hover {
     opacity: 0.7;
     transition: all 0.5s ease-in;
 }
 
 .accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
 }
 
-.active, .accordion:hover {
-  background-color: #ccc; 
+.active,
+.accordion:hover {
+    background-color: #ccc;
 }
 
 .panel {
-  padding: 0 18px;
-  display: none;
-  background-color: white;
-  overflow: hidden;
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
 }
+
 .accordion:after {
-  content: '\002B';
-  color: #777;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
 }
-
-
-
 
 @media only screen and (max-width: 767px) {
-    .head1{
+    .head1 {
         display: none;
     }
-    .icon{
+    .icon {
         display: none !important;
     }
-
-    .head2 .nike{
+    .head2 .nike {
         padding: .2em !important;
     }
-
-    .stellarnav.mobile > ul > li{
+    .stellarnav.mobile>ul>li {
         font-size: .8em !important;
     }
-    .product-selection{
+    .product-selection {
         grid-template-columns: none;
         grid-template-rows: 1fr 5em;
     }
-    .select{
+    .select {
         height: auto;
         position: absolute;
-        background:#fff;
+        background: #fff;
         width: 92%;
         z-index: 9999;
     }
-    .product-view{
+    .product-view {
         grid-template-columns: repeat(auto-fit, minmax(9em, 1fr));
         padding: 0;
         position: relative;
@@ -244,8 +258,9 @@
         display: none !important;
     }
 }
+
 @media only screen and (min-width:1024px) and (max-width:1366px) {
-    .menu{
+    .menu {
         grid-column-gap: 1em;
     }
 }

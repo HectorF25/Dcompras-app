@@ -48,6 +48,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
     <link rel="stylesheet" href="./assets/css/estilos.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/lib/app.css">
 </head>
 <body>
 

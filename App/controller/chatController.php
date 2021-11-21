@@ -1,6 +1,7 @@
 <?php
 session_start();
 include ('../model/chatModel.php');
+
 $chat = new Chat();
 if($_POST['action'] == 'update_user_list') {
 	$chatUsers = $chat->chatUsers($_SESSION['idUsuario']);

@@ -2,7 +2,7 @@
 include '../../../Config/Conexion.php';
 include './modules/functionAdmin.php';
 require_once '../../../Config/Conexion.php';
-include ('../../../App/model/chatModel.php');
+include ('../../../App/model/chatModelAdmin.php');
 
 error_reporting(0);
 session_start();

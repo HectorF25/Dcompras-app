@@ -2,15 +2,15 @@
 <?php
 include "./modules/headerCliente.php";
 
-$productName = "Producto Demostración";
-$currency = "USD";
-$productPrice = 25;
-$productId = 123456;
-$orderNumber = 546;
-include('config.php');
-
 include_once "../../../App/model/productosModel.php";
 $productos = obtenerProductosEnCarrito();
+
+
+require '../../../vendor/autoload.php';
+require_once '../../../Config/payment-methods.php';
+
+MercadoPago\SDK::setAccessToken($access_token);
+
 
 if (count($productos) <= 0) {
 ?>
@@ -36,8 +36,31 @@ if (count($productos) <= 0) {
 
 
 <?php } else { ?>
-
-
+    <?php 
+        foreach ($productos as $producto) {
+            $product = [
+                'id' => $producto->idProducto,
+                'title' => $producto->nombreProducto,
+                'description' => $producto->especificacionProducto,
+                'category' => $producto->idSubCategoria,
+                'available_quantity' => 1,
+                'price' => $producto->precioProducto,
+                ];
+            $preference = new MercadoPago\Preference();
+            $item = new MercadoPago\Item();
+            $item->title = $product['title'];
+            $item->quantity = $product['available_quantity'];
+            $item->unit_price = $product['price'];
+            $item->currency_id = "COP";
+            $preference->items = array($item);
+            $preference->back_urls = array(
+                    "success" => "http://localhost/Dcompras-app/Public/Views/carritoCompras/orderDetail.php",
+                    "failure" => "",
+                    "pending" => ""
+                );
+            $preference->save();
+        }
+    ?>
     <div class="card">
     <div class="row">
         <div class="col-md-8 cart">
@@ -129,7 +152,7 @@ if (count($productos) <= 0) {
             <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                 <div class="col"><b>PRECIO TOTAL</b></div>
                 <div class="col text-right"> <b>$ <?php echo number_format($total, 2) ?></b></div>
-            </div> <button class="btn btn-gradient-dark">PAGAR</button>
+            </div> <a class="btn btn-gradient-dark" href="<?php echo $preference->init_point; ?>">PAGAR</a>
         </div>
     </div>
 </div>
