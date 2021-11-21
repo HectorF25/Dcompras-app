@@ -142,7 +142,7 @@
     position: absolute;
     opacity: 0;
     visibility: hidden;
-    width: 150px;
+    width: 250px;
     margin: 70px 0 0 0;
     border-radius: 6px;
     z-index: 99;
@@ -162,7 +162,7 @@
   #frame #sidepanel #profile .wrap #status-options.active {
     opacity: 1;
     visibility: visible;
-    margin: 75px 0 0 0;
+    margin: 20px 0 0 0;
   }
   @media screen and (max-width: 735px) {
     #frame #sidepanel #profile .wrap #status-options.active {
@@ -189,7 +189,7 @@
     border-radius: 6px;
   }
   #frame #sidepanel #profile .wrap #status-options ul li {
-    padding: 15px 0 30px 18px;
+    padding: 15px 0 30px 8px;
     display: block;
     cursor: pointer;
   }
