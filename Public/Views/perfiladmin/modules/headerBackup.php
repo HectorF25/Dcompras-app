@@ -257,14 +257,9 @@ $codigo = 6;
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-<<<<<<< HEAD
                                 <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios&a=negocios">Negocios
                                         Registrados</a></li>
                                         <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios1&a=petiNegocios">Peticiones de Negocios</a></li>
-=======
-                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios&a=negocios">Negocios Registrados</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios1&a=petiNegocios">Peticiones de Negocios</a></li>
->>>>>>> 154b400eaf742d53e1f6957a6712d35dbe27ce55
                                 <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios2&a=tipoNegocios">Tipo de Negocio</a></li>
                             </ul>
                         </div>
@@ -276,41 +271,17 @@ $codigo = 6;
                         </a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="nav-link" href="index.php?c=documento&a=documento">
-=======
                         <a class="nav-link" href="../../administrador/index.php?c=documento&a=documento">
->>>>>>> 154b400eaf742d53e1f6957a6712d35dbe27ce55
                             <span class="menu-title">Tipos de documento</span>
                             <i class="mdi mdi-account-card-details menu-icon"></i>
                         </a>
                     </li>
-<<<<<<< HEAD
                     
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?c=pago&a=pago">
                             <span class="menu-title">Medios de pago</span>
                             <i class="mdi mdi-credit-card-multiple menu-icon"></i>
-=======
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../administrador/index.php?c=pago&a=pago">
-                            <span class="menu-title">Medios de pago</span>
-                            <i class="mdi mdi-credit-card-multiple menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../../administrador/index.php?c=categorias&a=categorias">
-                            <span class="menu-title">Categorías</span>
-                            <i class="mdi mdi-food-apple menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="descargaPDF.php">
-                            <span class="menu-title">Reportes</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
->>>>>>> 154b400eaf742d53e1f6957a6712d35dbe27ce55
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?c=categorias&a=categorias">
                             <span class="menu-title">Categorías</span>
