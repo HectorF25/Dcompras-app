@@ -1,5 +1,7 @@
 <?php
 include ('../../../../App/model/chatModelAdmin.php');
+include './../modules/functionAdmin.php';
+require_once '../../../../Config/Conexion.php';
 
 error_reporting(0);
 session_start();
@@ -311,6 +313,7 @@ $codigo = 6;
                             </ul>
                         </div>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?c=administrador&a=modificionusuarios">
                             <span class="menu-title">Usuarios</span>
@@ -318,19 +321,31 @@ $codigo = 6;
                         </a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="index.php?c=documento&a=documento">
+=======
+                        <a class="nav-link" href="../../administrador/index.php?c=documento&a=documento">
+>>>>>>> 154b400eaf742d53e1f6957a6712d35dbe27ce55
                             <span class="menu-title">Tipos de documento</span>
                             <i class="mdi mdi-account-card-details menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="index.php?c=pago&a=pago">
+=======
+                        <a class="nav-link" href="../../administrador/index.php?c=pago&a=pago">
+>>>>>>> 154b400eaf742d53e1f6957a6712d35dbe27ce55
                             <span class="menu-title">Medios de pago</span>
                             <i class="mdi mdi-credit-card-multiple menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="index.php?c=categorias&a=categorias">
+=======
+                        <a class="nav-link" href="../../administrador/index.php?c=categorias&a=categorias">
+>>>>>>> 154b400eaf742d53e1f6957a6712d35dbe27ce55
                             <span class="menu-title">Categorías</span>
                             <i class="mdi mdi-food-apple menu-icon"></i>
                         </a>
