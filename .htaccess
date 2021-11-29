@@ -1,9 +1,14 @@
+
+# HTID:18821324: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:18821324:
+
 Options All -Indexes
 RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ $1.php? [QSA,L]
+RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ $1.php?url=$2 [QSA,L]
 
 ErrorDocument 404 http://localhost/Dcompras-app/Public/Views/error-404
 ErrorDocument 500 http://localhost/Dcompras-app/Public/Views/error-500

@@ -32,7 +32,7 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':correoUsuario',$_POST['correoUsuario']);
     $nombre = ($_POST['nombreUsuario']);
-    $hash = md5( rand(0,1000) );
+    $hash = md5(rand(0,1000));
     $stmt->bindParam(':hashUsuario', $hash);
     $stmt->bindParam(':apellidoUsuario', $_POST['apellidoUsuario']);
     $stmt->bindParam(':contrasenaUsuario', $_POST['contrasenaUsuario']);
