@@ -272,7 +272,6 @@ $codigo = 6;
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?c=documento&a=documento">
-                        <a class="nav-link" href="../../administrador/index.php?c=documento&a=documento">
                             <span class="menu-title">Tipos de documento</span>
                             <i class="mdi mdi-account-card-details menu-icon"></i>
                         </a>
@@ -282,6 +281,8 @@ $codigo = 6;
                         <a class="nav-link" href="index.php?c=pago&a=pago">
                             <span class="menu-title">Medios de pago</span>
                             <i class="mdi mdi-credit-card-multiple menu-icon"></i>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?c=categorias&a=categorias">
                             <span class="menu-title">Categorías</span>
