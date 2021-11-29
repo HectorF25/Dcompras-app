@@ -1,5 +1,6 @@
 <?php
 class Chat{
+	
     private $host  = 'localhost';
     private $user  = 'root';
     private $password   = "";
@@ -8,6 +9,7 @@ class Chat{
 	private $chatUsersTable = 'usuario';
 	private $chatLoginDetailsTable = 'chat_login_details';
 	private $dbConnect = false;
+
     public function __construct(){
         if(!$this->dbConnect){ 
             $conn = new mysqli($this->host, $this->user, $this->password, $this->database);

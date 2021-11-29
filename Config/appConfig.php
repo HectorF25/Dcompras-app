@@ -9,7 +9,7 @@ define('APP_MODULES_ROUTE', '../../../../App/model/');
 define('APP_CONTROLLER_ROUTE', '../../../../App/controller/');
 define('APP_DIR_FILES', '../../../App/');
 
-const APP_ROOT="http://localhost/imake/";
+const APP_ROOT="http://localhost/Dcompras-app/";
 const COMPANY="";
 const MONEDA="$";
 date_default_timezone_set("America/Bogota");
