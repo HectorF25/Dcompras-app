@@ -1,5 +1,7 @@
 <?php
 include ('../../../../App/model/chatModelAdmin.php');
+include './../modules/functionAdmin.php';
+require_once '../../../../Config/Conexion.php';
 
 error_reporting(0);
 session_start();
@@ -61,11 +63,16 @@ $codigo = 6;
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
     <!-- CSS -->
+    <link rel="stylesheet" href="../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../assets/vendors/css/vendor.bundle.base.css">
+
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
     <!-- custom css file link  -->
+    <link rel="stylesheet" href="../assets/css/estilos.css">
+
     <link rel="stylesheet" href="./vendors/form.css">
 
 
@@ -291,22 +298,22 @@ $codigo = 6;
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
                     </li>
+                
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                            aria-controls="ui-basic">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <span class="menu-title">Negocios</span>
                             <i class="menu-arrow"></i>
                             <i class="mdi mdi-store menu-icon"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios&a=negocios">Negocios
-                                        Registrados</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Peticiones de Negocios</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios&a=negocios">Negocios Registrados</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios1&a=petiNegocios">Peticiones de Negocios</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios2&a=tipoNegocios">Tipo de Negocio</a></li>
                             </ul>
                         </div>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?c=administrador&a=modificionusuarios">
                             <span class="menu-title">Usuarios</span>
@@ -314,15 +321,27 @@ $codigo = 6;
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="descargaPDF.php">
-                            <span class="menu-title">Reportes</span>
-                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                        <a class="nav-link" href="index.php?c=documento&a=documento">
+                            <span class="menu-title">Tipos de documento</span>
+                            <i class="mdi mdi-account-card-details menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
-                            <span class="menu-title">Estadisticas</span>
-                            <i class="mdi mdi-chart-bar menu-icon"></i>
+                        <a class="nav-link" href="index.php?c=pago&a=pago">
+                            <span class="menu-title">Medios de pago</span>
+                            <i class="mdi mdi-credit-card-multiple menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?c=categorias&a=categorias">
+                            <span class="menu-title">Categorías</span>
+                            <i class="mdi mdi-food-apple menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="descargaPDF.php">
+                            <span class="menu-title">Reportes</span>
+                            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -334,6 +353,20 @@ $codigo = 6;
                 </ul>
             </nav>
 
+            
+    <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../assets/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../assets/js/off-canvas.js"></script>
+    <script src="../assets/js/hoverable-collapse.js"></script>
+    <script src="../assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/todolist.js"></script>
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
