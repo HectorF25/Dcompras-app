@@ -285,6 +285,10 @@ class negocio
     {
         try {
             $sql = "DELETE FROM peticionnegocio WHERE idPeticionNegocio = ?";
+            $this->pdo->prepare($sql)
+                ->execute(
+                    array($idnegocio)
+                );
         } catch (Exception $e) {
             die($e->getMessage());
         }
