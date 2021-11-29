@@ -15,35 +15,30 @@
 <body>
 <?php
 require_once '../../../../Config/appConfig.php';
-require_once APP_MODULES_ROUTE.'negocioModel.php';
+require_once APP_MODULES_ROUTE.'negocio1Model.php';
 
-class negociosController{
+class negocios1Controller{
     private $model;
 
     public function __CONSTRUCT(){
         $this->model = new negocio();
     }
-    public function negocios(){
+    public function petiNegocios(){
         require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/NegoRegistrados.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
-    }
-    public function SolicitudNegocios(){
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/SolicitudNegocio.php';
+        require_once '../../../Views/perfilAdmin/administrador/petiNegocios.php';
         require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
     }
     public function crudNegocio(){
         $negocios = new negocio();
         
-        if(isset($_REQUEST['idNegocio'])){
-            $negocios = $this->model->Obtener($_REQUEST['idNegocio']);
+        if(isset($_REQUEST['idPeticionNegocio'])){
+            $negocios = $this->model->Obtener($_REQUEST['idPeticionNegocio']);
             require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/ModificarNegocio.php';
+            require_once '../../../Views/perfilAdmin/administrador/ModificacionPeticiones.php';
             require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
         }else{
             require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/CrearNegocio.php';
+            require_once '../../../Views/perfilAdmin/administrador/CrearPeticion.php';
             require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
         }
         
@@ -51,25 +46,22 @@ class negociosController{
     public function Guardar(){
         $negocio = new negocio();
 
-        $negocio->setIdNegocio($_REQUEST['idNegocio']);
+        $negocio->setIdPeticionNegocio($_REQUEST['idPeticionNegocio']);
         $negocio->setNombreNegocio($_REQUEST['nombreNegocio']);
-        $negocio->setDireccionNegocio($_REQUEST['direccionNegocio']);
+        $negocio->setNombrePropietario($_REQUEST['nombrePropietario']);
         $negocio->setNitNegocio($_REQUEST['nitNegocio']);
-        $negocio->setEstadoNegocio($_REQUEST['estadoNegocio']);
-        $negocio->setFechaFundacion($_REQUEST['fechaFundacion']);
+        $negocio->setRazonsocialNegocio($_REQUEST['razonsocialNegocio']);
         $negocio->setTelefonoNegocio($_REQUEST['telefonoNegocio']);
-        $negocio->setIdTipoNegocio($_REQUEST['idTipoNegocio']);
-        $negocio->setIdBarrio($_REQUEST['idBarrio']);
-        $negocio->setIdUsuario($_REQUEST['idUsuario']); 
-        $negocio->setIdPeticionNegocio($_REQUEST['idPeticionNegocio']);  
+        $negocio->setFechaFundacion($_REQUEST['fechaFundacion']);
+        $negocio->setNombreTipoNegocio($_REQUEST['nombreTipoNegocio']);
 
         
         
-        $negocio->getIdNegocio() > 0 
+        $negocio->getIdPeticionNegocio() > 0 
             ? $this->model->Actualizar($negocio)
             : $this->model->Registrar($negocio);
 
-            $msgUsuario = "El negocio ha sido guardado con exito.";
+            $msgUsuario = "La petición ha sido guardado con exito.";
             echo "<script> window.addEventListener('load', init, false);
             function init () {
                 Swal.fire({
@@ -80,14 +72,36 @@ class negociosController{
                     dangerMode: true,
                 }).then((willDelete) => {
                 if (willDelete) {
-                    location.href = 'index.php?c=negocios&a=negocios';
+                    location.href = 'index.php?c=negocios1&a=petiNegocios';
                 } else {
-                    location.href = 'index.php?c=negocios&a=negocios';
+                    location.href = 'index.php?c=negocios1&a=petiNegocios';
                     }
             });
             }
             
             </script>";
+    }
+    public function Eliminar(){
+        $this->model->Eliminar($_REQUEST['idPeticionNegocio']);
+        $msgUsuario = "La petición ha sido eliminado con exito.";
+        echo "<script> window.addEventListener('load', init, false);
+        function init () {
+            Swal.fire({
+                title: '¡Genial!',
+                text: '$msgUsuario',
+                icon: 'success',
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+            if (willDelete) {
+                location.href = 'index.php?c=negocios1&a=petiNegocios';
+            } else {
+                location.href = 'index.php?c=negocios1&a=petiNegocios';
+                }
+        });
+        }
+        
+        </script>";
     }
 }
 ?>

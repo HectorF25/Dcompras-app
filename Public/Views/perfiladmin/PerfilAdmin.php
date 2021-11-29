@@ -239,8 +239,8 @@ while($filas=mysqli_fetch_array($consulta)){
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios&a=negocios">Negocios Registrados</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios&a=petiNegocios">Peticiones de Negocios</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios&a=tipoNegocios">Tipo de Negocio</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios1&a=petiNegocios">Peticiones de Negocios</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios2&a=tipoNegocios">Tipo de Negocio</a></li>
                             </ul>
                         </div>
                     </li>
