@@ -1,4 +1,7 @@
 <?php
+
+require_once '../../../../Config/appConfig.php';
+
 class Chat{
 	
     private $host  = DB_HOST;
@@ -23,7 +26,7 @@ class Chat{
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error en la consulta: '. mysqli_error($this->dbConnect));
+			die('Error en la consulta: '. mysqli_error($conn));
 		}
 		$data= array();
 		/*while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {*/
@@ -35,7 +38,7 @@ class Chat{
 	private function getNumRows($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error en la consulta: '. mysqli_error($this->dbConnect));
+			die('Error en la consulta: '. mysqli_error($conn));
 		}
 		$numRows = mysqli_num_rows($result);
 		return $numRows;
@@ -78,7 +81,7 @@ class Chat{
 			VALUES ('".$reciever_userid."', '".$user_id."', '".$chat_message."', '1')";
 		$result = mysqli_query($this->dbConnect, $sqlInsert);
 		if(!$result){
-			return ('Error en la consulta: '. mysqli_error($this->dbConnect));
+			return ('Error en la consulta: '. mysqli_error($conn));
 		} else {
 			$conversation = $this->getUserChat($user_id, $reciever_userid);
 			$data = array(

@@ -9,37 +9,42 @@ class crearProductosController{
         $this->model = new crearProducto();
     }
     public function mostrarProductos(){
-        require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
-        require_once '../../../Views/perfilVendedor/vendedor/FormularioProductos.php';
-        require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/vendedor/FormularioProductos.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
+    }
+    public function catalogoVendedor(){
+        require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/vendedor/catalogo.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
     }
     public function mostrarPedidos(){
-        require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
-        require_once '../../../Views/perfilVendedor/vendedor/PedidosRegistrados.php';
-        require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/vendedor/PedidosRegistrados.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
     }
     public function registrarProductos(){
-        require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
-        require_once '../../../Views/perfilVendedor/vendedor/CrearProductos.php';
-        require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/vendedor/CrearProductos.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
     }
     public function modificarProductos(){
-        require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
-        require_once '../../../Views/perfilVendedor/vendedor/modificarProducto.php';
-        require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
+        require_once  APP_VIEWS.'perfilVendedor/vendedor/modificarProducto.php';
+        require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
     }
     public function crudCrearP(){
         $crearP = new crearProducto();
         
         if(isset($_REQUEST['idProductoNegocio'])){
             $crearP = $this->model->Obtener($_REQUEST['idProductoNegocio']);
-            require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
-            require_once '../../../Views/perfilVendedor/vendedor/modificarProducto.php';
-            require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
+            require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
+            require_once  APP_VIEWS.'perfilVendedor/vendedor/modificarProducto.php';
+            require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
         }else{
-            require_once '../../../Views/perfilVendedor/modules/headerVendedor.php';
-            require_once '../../../Views/perfilVendedor/vendedor/CrearProductos.php';
-            require_once '../../../Views/perfilVendedor/modules/footerVendedor.php';
+            require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
+            require_once  APP_VIEWS.'perfilVendedor/vendedor/CrearProductos.php';
+            require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
         }
         
     }

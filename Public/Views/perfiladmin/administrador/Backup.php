@@ -1,6 +1,5 @@
 <?php
-include '../../../../App/backup/Connet.php';
-include('../modules/headerBackup.php');
+require_once '../../../../App/backup/Connet.php';
 ?>
 
 <div class="main-panel">
@@ -76,15 +75,7 @@ include('../modules/headerBackup.php');
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-
-
-
-
-
-
-
-
-            </body>
-
-            </html>

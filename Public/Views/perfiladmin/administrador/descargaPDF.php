@@ -1,10 +1,8 @@
-
-
 <?php
-
+include '../../../../Config/appConfig.php';
 require('../../../../App/include/fpdf/fpdf.php');
-$conexion = mysqli_connect('localhost', 'root', '');
-mysqli_select_db($conexion, 'imake');
+$conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
+mysqli_select_db($conexion, DB_NAME);
 
 class PDF extends FPDF
 {
@@ -66,8 +64,8 @@ $pdf->Ln(8);
 $pdf->SetFont('Arial', '', 8);
 //CONSULTA
 $usuarios = mysqli_query($conexion,"SELECT * FROM usuario 
-INNER JOIN tipodocumento ON USUARIO.idTipoDoc = tipodocumento.idTipoDoc 
-INNER JOIN PerfilUsuario ON USUARIO.idPerfilUsuario = PerfilUsuario.idPerfilUsuario");
+INNER JOIN tipodocumento ON usuario.idTipoDoc = tipodocumento.idTipoDoc 
+INNER JOIN perfilusuario ON usuario.idPerfilUsuario = perfilusuario.idPerfilUsuario");
 $item = 0;
 
 while($usuarios2 = mysqli_fetch_array($usuarios)){

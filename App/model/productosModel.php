@@ -1,5 +1,7 @@
 <?php
 
+require_once '../../../../Config/appConfig.php';
+
 function obtenerProductosEnCarrito()
 {
     $bd = obtenerConexion();
@@ -29,8 +31,8 @@ function obtenerProductosCatalogo()
 {
     $bd = obtenerConexion();
     $sentencia = $bd->query("SELECT * FROM producto_negocio AS t1
-    INNER JOIN Producto AS t2 ON t1.idProducto=t2.idProducto
-    INNER JOIN Negocio AS t3 ON t1.idNegocio=t3.idNegocio");
+    INNER JOIN producto AS t2 ON t1.idProducto=t2.idProducto
+    INNER JOIN negocio AS t3 ON t1.idNegocio=t3.idNegocio");
     return $sentencia->fetchAll();
 }
 function productoYaEstaEnCarrito($idProducto)
@@ -111,10 +113,17 @@ function contarRegistros()
 {
     $bd = obtenerConexion();
     $sentencia = $bd->prepare("SELECT  COUNT(*) total FROM producto_negocio AS t1
-    INNER JOIN Producto AS t2 ON t1.idProducto=t2.idProducto
-    INNER JOIN Negocio AS t3 ON t1.idNegocio=t3.idNegocio");
+    INNER JOIN producto AS t2 ON t1.idProducto=t2.idProducto
+    INNER JOIN negocio AS t3 ON t1.idNegocio=t3.idNegocio");
     $sentencia->execute();
     return $sentencia->fetchColumn();
+}
+
+function registrarPedidos($nombreProductos,$especificacionProducto,$valorTotalPedido,$estadoPedido,$idUsuario,$idTipoPago,$idNegocio,$idBarrio,$idDomicilio)
+{
+    $bd = obtenerConexion();
+    $sentencia = $bd->prepare("INSERT INTO pedido(nombreProductos,especificacionProducto,valorTotalPedido,estadoPedido,idUsuario,idTipoPago,idNegocio,idBarrio,idDomicilio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    return $sentencia->execute([$nombreProductos,$especificacionProducto,$valorTotalPedido,$estadoPedido,$idUsuario,$idTipoPago,$idNegocio,$idBarrio,$idDomicilio]);
 }
 
 function iniciarSesionSiNoEstaIniciada()
@@ -127,10 +136,10 @@ function iniciarSesionSiNoEstaIniciada()
 
 function obtenerConexion()
 {
-    $password = ("");
-    $user = ("root");
-    $dbName = ("imake");
-    $database = new PDO('mysql:host=localhost;dbname=' . $dbName, $user, $password);
+    $password = DB_PASS;
+    $user = DB_USER;
+    $dbName = DB_NAME;
+    $database = new PDO('mysql:host='.DB_HOST.';dbname=' . $dbName, $user, $password);
     $database->query("set names utf8;");
     $database->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
     $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

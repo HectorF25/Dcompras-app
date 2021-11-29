@@ -1,41 +1,27 @@
 <?php
 error_reporting(E_PARSE);
 
-//Nombre de usuario de mysql
-define("USER", "root");
-
-//Servidor de mysql
-define("SERVER", "localhost");
-
-//Nombre de la base de datos
-define("BD", "imake");
-
-//Contraseña de myqsl
-define("PASS", "");
-
 //Carpeta donde se almacenaran las copias de seguridad
 define("BACKUP_PATH", "copias/");
 
 date_default_timezone_set('America/Bogota');
-
-
 class SGBD{
     //Funcion para hacer consultas a la base de datos
     public static function sql($query){
-        if(!$con=mysqli_connect(SERVER,USER,PASS)){
+        if(!$con=mysqli_connect(DB_HOST, DB_USER, DB_PASS)){
             echo "Error en el servidor";
         }else{
-            if (!mysqli_select_db(BD)) {
+            if (!mysqli_select_db($con,DB_NAME)) {
                 echo "Error al conectar con la base de datos,(Nombre de la BD)";
             }else{
-                mysqli_set_charset('utf8',$con);
-                mysqli_query("SET AUTOCOMMIT=0;",$con);
-                mysqli_query("BEGIN;",$con);
-                if (!$consul = mysqli_query($query,$con)) {
+                mysqli_set_charset($con,'utf8');
+                mysqli_query($con,"SET AUTOCOMMIT=0;");
+                mysqli_query($con,"BEGIN;");
+                if (!$consul = mysqli_query($con,$query)) {
                     echo 'Error en la consulta SQL ejecutada';
-                    mysqli_query("ROLLBACK;",$con);
+                    mysqli_query($con,"ROLLBACK;");
                 }else{
-                    mysqli_query("COMMIT;",$con);
+                    mysqli_query($con,"COMMIT;");
                 }
                 return $consul;
             }

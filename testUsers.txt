@@ -19,6 +19,6 @@
     "site_status": "active",
     "email": "test_user_31074651@testuser.com"
 }
-Mastercard	5254 1336 7440 3564	123	11/25
+Mastercard	5254 1336 7440 3564	CVV 123	EXIPRE DATE 11/25
 Visa	4013 5406 8274 6260	123	11/25
 American Express	3743 781877 55283	1234	11/25

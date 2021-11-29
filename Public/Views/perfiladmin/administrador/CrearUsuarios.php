@@ -20,7 +20,7 @@
                             <input type="text" readonly class="form-control-plaintext mb-0 nombre apellido h4" style="text-align: center;" value="Nombre de usuario">
 
                             <input type="text" readonly class="form-control-plaintext text-muted d-block mb-2 correo" style="text-align: center; font-size: 17px;" value="Correo@de.usuario">
-                           <!--
+                            <!--
                             <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primaryy mr-2">
                             <input type="text" readonly class="rol" style="text-align: center; border-color:transparent; text-shadow: none; background-color: transparent;" value="Rol de usuario">
                             </button>
@@ -43,11 +43,11 @@
                     </ul>
                 </div>
             </div>
-        <!-- header section ends -->
+            <!-- header section ends -->
 
 
 
-        <div class="col-lg-8">
+            <div class="col-lg-8">
                 <div class="card card-small mb-4">
                     <div class="card-header border-bottom">
                         <h6 class="m-0">Crear usuario</h6>
@@ -56,13 +56,13 @@
                         <li class="list-group-item p-3">
                             <div class="row">
                                 <div class="col">
-                <form action="?c=administrador&a=Guardar" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data">
+                                    <form action="?c=administrador&a=Guardar" method="POST" class="pro-form" id="pro-form" value="<?php echo $administradores->idUsuario; ?>" enctype="multipart/form-data">
 
-                <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $administradores->getIdUsuario(); ?>" />
-                <!-- Grupo: Usuario -->
-                <div class="form-row">
-                <div class="form-group col-md-6">
-                                            <div class="formulario__grupo" id="grupo__nombreUsuario">
+                                        <input type="hidden" id="idUsuario" name="idUsuario" value="<?php echo $administradores->getIdUsuario(); ?>" />
+                                        <!-- Grupo: Usuario -->
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="formulario__grupo" id="grupo__nombreUsuario">
                                                     <label for="nombreUsuario">Nombre</label>
                                                     <div class="formulario__grupo-input">
                                                         <input type="text" class="form-control nombreUsuario" name="nombreUsuario" id="nombreUsuario" placeholder="Juan Camilo" required>
@@ -129,11 +129,11 @@
                                             <div class="form-group col-md-6">
                                                 <label for="feInputCity">Tipo de documento</label>
                                                 <select id="feInputState" class="form-control" id="idTipoDoc" name="idTipoDoc" placeholder=" " required>
-                                                <option class="formulario__label" value="<?php echo $administradores->getIdTipoDoc(); ?>"><?php echo $administradores->getIdTipoDoc(); ?></option>
-                        <?php
-                        foreach ($this->model->ListarTipoDoc() as $valores) : ?>
-                            <option value="<?php echo $valores->idTipoDoc ?>"><?php echo $valores->nombreTipoDoc ?></option>
-                        <?php endforeach; ?>
+                                                    <option class="formulario__label" value="<?php echo $administradores->getIdTipoDoc(); ?>"><?php echo $administradores->getIdTipoDoc(); ?></option>
+                                                    <?php
+                                                    foreach ($this->model->ListarTipoDoc() as $valores) : ?>
+                                                        <option value="<?php echo $valores->idTipoDoc ?>"><?php echo $valores->nombreTipoDoc ?></option>
+                                                    <?php endforeach; ?>
 
                                                 </select>
                                             </div>
@@ -141,28 +141,28 @@
                                                 <div class="formulario__grupo" id="grupo__direccionUsuario">
                                                     <label for="feInputCity">Dirección</label>
                                                     <div class="formulario__grupo-input">
-                                                        <input type="text" class="form-control" name="direccionUsuario" id="direccionUsuario" placeholder="calle 28c sur 15-56 este"  required>
+                                                        <input type="text" class="form-control" name="direccionUsuario" id="direccionUsuario" placeholder="calle 28c sur 15-56 este" required>
                                                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                                                         <p class="formulario__input-error">La direccion no es Correcta.</p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>  
+                                        </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <div class="formulario__grupo">
                                                     <label for="idPerfilUsuario">Perfil usuario</label>
                                                     <select class="form-control" id="idPerfilUsuario" name="idPerfilUsuario" placeholder=" " required>
 
-                                                    <option class="formulario__label" value="<?php echo $administradores->getIdPerfilUsuario(); ?>"><?php echo $administradores->getIdPerfilUsuario(); ?></option>
-                        <?php
+                                                        <option class="formulario__label" value="<?php echo $administradores->getIdPerfilUsuario(); ?>"><?php echo $administradores->getIdPerfilUsuario(); ?></option>
+                                                        <?php
 
-                        foreach ($this->model->ListarPerfil() as $valores) : ?>
+                                                        foreach ($this->model->ListarPerfil() as $valores) : ?>
 
-                            <option class="nombrePerfilUsuario" value="<?php echo $valores->idPerfilUsuario ?>"><?php echo $valores->nombrePerfilUsuario ?></option>
-                        <?php
-                        endforeach;
-                        ?>
+                                                            <option class="nombrePerfilUsuario" value="<?php echo $valores->idPerfilUsuario ?>"><?php echo $valores->nombrePerfilUsuario ?></option>
+                                                        <?php
+                                                        endforeach;
+                                                        ?>
 
                                                     </select>
                                                 </div>
@@ -178,13 +178,13 @@
                                                 </div> -->
                                                 <label>Subir foto de perfil</label>
                                                 <input type="file" name="imgUsuario" id="imgUsuario" class="file-upload-default">
-                    <div class="input-group ">
-                                                    <input type="text" class="form-control file-upload-info"  disabled >
+                                                <div class="input-group ">
+                                                    <input type="text" class="form-control file-upload-info" disabled>
                                                     <span class="input-group-append">
                                                         <button class="file-upload-browse btn btn-gradient-primary" type="button">Subir</button>
                                                     </span>
-                                                </div>                            
-                </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <br><button type="submit" class="btn btn-gradient-primary mr-2" style="float: right;">Crear Usuario</button>
                                     </form>
@@ -194,11 +194,11 @@
                     </ul>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
 
 
-        <!-- home section starts  -->
+    <!-- home section starts  -->
 
 
 
@@ -209,59 +209,55 @@
 
 
 
-        <!-- aos js cdn link  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- aos js cdn link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-        <!-- jquery cdn link  -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- jquery cdn link  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-        <!-- custom js file link  -->
-        <script src="./js/formCreate.js"></script>
-
-
-        <!-- initializing aos  -->
-
-        <script>
-
-    const name = document.querySelector('.nombreUsuario')
-    const lastname = document.querySelector('.apellidoUsuario')
-    const email = document.querySelector('.correoUsuario')
-    const role = document.querySelector('.nombrePerfilUsuario')
+    <!-- custom js file link  -->
+    <script src="./js/formCreate.js"></script>
 
 
+    <!-- initializing aos  -->
 
-    function impDatos(){
-        nombre = document.querySelector('.nombre')
-        apellido = document.querySelector('.apellido')
-        correo = document.querySelector('.correo')
-        rol = document.querySelector('.rol')
-        apellido.value = name.value + " " +lastname.value;
-        correo.value = email.value;
-        rol.value = role.value;
-    }
-
-    name.addEventListener('input', (event) => {
-        impDatos();
-    })
-
-    lastname.addEventListener('input', (event) => {
-        impDatos();
-    })
-
-    email.addEventListener('input', (event) => {
-        impDatos();
-    })
-
-    role.addEventListener('change', (event) => {
-        impDatos();
-    })
+    <script>
+        const name = document.querySelector('.nombreUsuario')
+        const lastname = document.querySelector('.apellidoUsuario')
+        const email = document.querySelector('.correoUsuario')
+        const role = document.querySelector('.nombrePerfilUsuario')
 
 
 
-</script>
-        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        function impDatos() {
+            nombre = document.querySelector('.nombre')
+            apellido = document.querySelector('.apellido')
+            correo = document.querySelector('.correo')
+            rol = document.querySelector('.rol')
+            apellido.value = name.value + " " + lastname.value;
+            correo.value = email.value;
+            rol.value = role.value;
+        }
+
+        name.addEventListener('input', (event) => {
+            impDatos();
+        })
+
+        lastname.addEventListener('input', (event) => {
+            impDatos();
+        })
+
+        email.addEventListener('input', (event) => {
+            impDatos();
+        })
+
+        role.addEventListener('change', (event) => {
+            impDatos();
+        })
+    </script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 
 
-</body>
+    </body>
 
-</html>
+    </html>

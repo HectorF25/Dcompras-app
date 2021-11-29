@@ -1,10 +1,4 @@
 
-          <footer class="footer">
-            <div class="container-fluid clearfix">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright &copy; 2021 DcomprasCol</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Designed by <a href="https://colorlib.com">DcomprasColGroup</a></span>
-            </div>
-          </footer>
         </div>
       </div>
       <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.js"></script>

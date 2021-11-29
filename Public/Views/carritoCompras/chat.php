@@ -1,6 +1,4 @@
-<?php 
-include "./modules/headerCliente.php";
-?>
+
 <title>Sistema de chat</title>
 <link href="assets/css/chatUser.css" rel="stylesheet" id="bootstrap-css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

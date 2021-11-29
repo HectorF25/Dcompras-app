@@ -5,7 +5,6 @@ include "./modules/headerCliente.php";
 include_once "../../../App/model/productosModel.php";
 $productos = obtenerProductosEnCarrito();
 
-
 require '../../../vendor/autoload.php';
 require_once '../../../Config/payment-methods.php';
 
@@ -44,7 +43,15 @@ if (isset($_GET['collection_id'])) {
                             <h5 class="subtitle"><?php echo $approved_pay == "approved" ?  'Pago Aprobado' :  'Pago pendiente'; ?></h5>
                         </td>
                         <td>
-                        <a href="terminar_compra.php" class="btn btn-gradient-success cart-btn-transform m-3" data-abc="true">Terminar compra</a>
+                            <?php
+                                foreach ($productos as $producto) {
+                            ?>
+                            <form action="../../../App/controller/eliminar_del_carrito.php" method="post">
+                                <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
+                                <input type="hidden" name="terminar_compra">
+                                <button class="btn btn-gradient-success cart-btn-transform m-3" data-abc="true">Terminar Compra</button>
+                            </form>
+                            <?php } ?>
                         </td>
                     </tr>
                 </tbody>

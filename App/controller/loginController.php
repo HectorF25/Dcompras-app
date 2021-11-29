@@ -1,57 +1,39 @@
-<html>
-<head>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-*{
-  font-family: "Poppins";
-}
-</style>
-
-</head>
-<body>
-
 <?php
 session_start();
-include '../../Config/appConfig.php';
-require_once(APP_CONFIG_ROUTE . 'Conexion.php');
-
-$conexion = mysqli_connect('localhost', 'root', '');
-mysqli_select_db($conexion, 'imake');
-
-$DIR_PUBLIC = APP_PUBLIC_DIR;
+require_once '../../Config/appConfig.php';
+$conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
+mysqli_select_db($conexion, DB_NAME);
+mysqli_set_charset($conexion, "utf8");
 
 if (isset($_POST['correo'])) {
+  $correoUsuario = htmlentities(mysqli_real_escape_string($conexion, $_POST['correo']));
+  $contraseñaUsuario = htmlentities(mysqli_real_escape_string($conexion, $_POST['contraseña']));
 
-    $correoUsuario = htmlentities(mysqli_real_escape_string($conexion, $_POST['correo']));
-    $contraseñaUsuario = htmlentities(mysqli_real_escape_string($conexion, $_POST['contraseña']));
 
-
-    $log = mysqli_query($conexion, "SELECT * FROM Usuario INNER JOIN perfilusuario pf on usuario.idPerfilUsuario = pf.idPerfilUsuario
+  $log = mysqli_query($conexion, "SELECT * FROM usuario INNER JOIN perfilusuario pf on usuario.idPerfilUsuario = pf.idPerfilUsuario
     WHERE correoUsuario='$correoUsuario' AND contraseñaUsuario='$contraseñaUsuario'");
-    if (mysqli_num_rows($log) > 0) {
-        $row = mysqli_fetch_array($log);
-        include ('../model/chatModel.php');
-        
-        $_SESSION["nombreUsuario"] = $row['nombreUsuario'];
-        $_SESSION["idPerfilUsuario"] = $row['idPerfilUsuario'];
-        $_SESSION["estadoUsuario"] = $row['estadoUsuario'];
-        $_SESSION["idUsuario"] = $row['idUsuario'];
-        $_SESSION["imgUsuario"] = $row['imgUsuario'];
-        $_SESSION["apellidoUsuario"] = $row['apellidoUsuario'];
-        $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
-        $chat = new Chat();
-        $chat->updateUserOnline($row['idUsuario'], 1);
-        $lastInsertId = $chat->insertUserLoginDetails($row['idUsuario']);
-        $_SESSION['login_details_id'] = $lastInsertId;
 
-        $nombre = $_SESSION["nombreUsuario"];
+  if (mysqli_num_rows($log) > 0) {
+    $row = mysqli_fetch_array($log);
+    include('../model/chatModel.php');
 
-        if ($_SESSION["estadoUsuario"] == NULL) {
-            $_SESSION['correo'] = $correoUsuario;
-            $Inactivo = "El usuario no se encuentra activo, por favor verifique su correo y active su cuenta $correoUsuario";
-            echo "<script> window.addEventListener('load', init, false);
+    $_SESSION["nombreUsuario"] = $row['nombreUsuario'];
+    $_SESSION["idPerfilUsuario"] = $row['idPerfilUsuario'];
+    $_SESSION["estadoUsuario"] = $row['estadoUsuario'];
+    $_SESSION["idUsuario"] = $row['idUsuario'];
+    $_SESSION["imgUsuario"] = $row['imgUsuario'];
+    $_SESSION["apellidoUsuario"] = $row['apellidoUsuario'];
+    $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
+    $chat = new Chat();
+    $chat->updateUserOnline($row['idUsuario'], 1);
+    $lastInsertId = $chat->insertUserLoginDetails($row['idUsuario']);
+    $_SESSION['login_details_id'] = $lastInsertId;
+
+    $nombre = $_SESSION["nombreUsuario"];
+    if ($_SESSION["estadoUsuario"] == null) {
+      $_SESSION['correo'] = $correoUsuario;
+      $Inactivo = "El usuario no se encuentra activo, por favor verifique su correo y active su cuenta $correoUsuario";
+      echo "<script> window.addEventListener('load', init, false);
             function init () {
                 Swal.fire({
                     title: '¡Ha ocurrido un error!',
@@ -61,25 +43,24 @@ if (isset($_POST['correo'])) {
                     dangerMode: true,
                   }).then((willDelete) => {
                 if (willDelete) {
-                    location.href = '${DIR_PUBLIC}Views/index';
+                    location.href = '".APP_VIEWS_ROTE."index';
                 } else {
-                    location.href = '${DIR_PUBLIC}Views/index';
+                    location.href = '".APP_VIEWS_ROTE."index';
                 }
               });
             }
             
-              </script>";        
+              </script>";
+    } elseif ($_SESSION["idPerfilUsuario"] == 1) {
+      //$_SESSION['estadoUsuario'] = $estado;
+      $_SESSION['correo'] = $correoUsuario;
+      $_SESSION["idUsuario"];
+      $_SESSION["imgUsuario"];
+      $_SESSION["apellidoUsuario"];
+      $_SESSION["nombrePerfilUsuario"];
+      $BienvenidoAdmin = "Bienvenido al sistema, $nombre";
 
-             } elseif ($_SESSION["idPerfilUsuario"] == 1) {
-            //$_SESSION['estadoUsuario'] = $estado;
-            $_SESSION['correo'] = $correoUsuario;
-            $_SESSION["idUsuario"];
-            $_SESSION["imgUsuario"];
-            $_SESSION["apellidoUsuario"];
-            $_SESSION["nombrePerfilUsuario"];
-            $BienvenidoAdmin = "Bienvenido al sistema, $nombre";             
-
-            echo "<script> window.addEventListener('load', init, false);
+      echo "<script> window.addEventListener('load', init, false);
             function init () {
                 Swal.fire({
                     title: '¡Incio de sesión exitoso!',
@@ -89,24 +70,22 @@ if (isset($_POST['correo'])) {
                     dangerMode: true,
                   }).then((willDelete) => {
                 if (willDelete) {
-                    location.href = '${DIR_PUBLIC}Views/perfiladmin/PerfilAdmin';               
+                    location.href = '".APP_VIEWS_ROTE."perfiladmin/PerfilAdmin';               
                  } else {
-                    location.href = '${DIR_PUBLIC}Views/perfiladmin/PerfilAdmin';               
+                    location.href = '".APP_VIEWS_ROTE."perfiladmin/PerfilAdmin';               
                 }
               });
             }
             
-              </script>";        
-              
-
-        } elseif ($_SESSION["idPerfilUsuario"] == 2) {
-            $_SESSION['correo'] = $correoUsuario;
-            $_SESSION["idUsuario"];
-            $_SESSION["imgUsuario"];
-            $_SESSION["apellidoUsuario"];
-            $_SESSION["nombrePerfilUsuario"];
-            $BienvenidoCliente = "Bienvenido a Dcompras, $nombre";
-            echo "<script> window.addEventListener('load', init, false);
+              </script>";
+    } elseif ($_SESSION["idPerfilUsuario"] == 2) {
+      $_SESSION['correo'] = $correoUsuario;
+      $_SESSION["idUsuario"];
+      $_SESSION["imgUsuario"];
+      $_SESSION["apellidoUsuario"];
+      $_SESSION["nombrePerfilUsuario"];
+      $BienvenidoCliente = "Bienvenido a Dcompras, $nombre";
+      echo "<script> window.addEventListener('load', init, false);
             function init () {
                 Swal.fire({
                     title: '¡Incio de sesión exitoso!',
@@ -116,22 +95,22 @@ if (isset($_POST['correo'])) {
                     dangerMode: true,
                   }).then((willDelete) => {
                 if (willDelete) {
-                    location.href = '${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php';
+                    location.href = '".APP_VIEWS_ROTE."carritoCompras/catalogoCompras.php';
                 } else {
-                    location.href = '${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php';                
+                    location.href = '".APP_VIEWS_ROTE."carritoCompras/catalogoCompras.php';                
                 }
               });
             }
             
-              </script>";  
-        } elseif ($_SESSION["idPerfilUsuario"] == 3) {
-            $_SESSION['correo'] = $correoUsuario;
-            $_SESSION["idUsuario"];
-            $_SESSION["imgUsuario"];
-            $_SESSION["apellidoUsuario"];
-            $_SESSION["nombrePerfilUsuario"];
-            $BienvenidoVendedor = "Bienvenido a Dcompras, $nombre";
-            echo "<script> window.addEventListener('load', init, false);
+              </script>";
+    } elseif ($_SESSION["idPerfilUsuario"] == 3) {
+      $_SESSION['correo'] = $correoUsuario;
+      $_SESSION["idUsuario"];
+      $_SESSION["imgUsuario"];
+      $_SESSION["apellidoUsuario"];
+      $_SESSION["nombrePerfilUsuario"];
+      $BienvenidoVendedor = "Bienvenido a Dcompras, $nombre";
+      echo "<script> window.addEventListener('load', init, false);
             function init () {
                 Swal.fire({
                     title: '¡Incio de sesión exitoso!',
@@ -141,22 +120,20 @@ if (isset($_POST['correo'])) {
                     dangerMode: true,
                   }).then((willDelete) => {
                 if (willDelete) {
-                    location.href = '${DIR_PUBLIC}Views/perfilVendedor/perfil_Vendedor.php';                
+                    location.href = '".APP_VIEWS_ROTE."perfilVendedor/perfil_Vendedor.php';                
                 } else {
-                        location.href = '${DIR_PUBLIC}Views/perfilVendedor/perfil_Vendedor.php';              
+                        location.href = '".APP_VIEWS_ROTE."perfilVendedor/perfil_Vendedor.php';              
                     }
               });
             }
             
-              </script>";  
-
-        }
+              </script>";
     } elseif ($_SESSION["idPerfilUsuario"] == 4) {
-        $_SESSION['correo'] = $correoUsuario;
-        $_SESSION["idUsuario"];
-        $_SESSION["imgUsuario"];
-        $BienvenidoRepartidor = "Bienvenido a Dcompras, $nombre";
-        echo "<script> window.addEventListener('load', init, false);
+      $_SESSION['correo'] = $correoUsuario;
+      $_SESSION["idUsuario"];
+      $_SESSION["imgUsuario"];
+      $BienvenidoRepartidor = "Bienvenido a Dcompras, $nombre";
+      echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
                 title: '¡Incio de sesión exitoso!',
@@ -166,19 +143,17 @@ if (isset($_POST['correo'])) {
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/perfilRepartidor/perfilRepartidor.php';
+                location.href = '".APP_VIEWS_ROTE."perfilRepartidor/perfilRepartidor.php';
              } else {
-                location.href = '${DIR_PUBLIC}Views/perfilRepartidorperfilRepartidor.php';
+                location.href = '".APP_VIEWS_ROTE."perfilRepartidor/perfilRepartidor.php';
                 }
           });
         }
         
-          </script>";  
-
-    
+          </script>";
     } else {
-        $datosIncorrectos = "El correo o la contraseña son incorrectos!";
-        echo "<script> window.addEventListener('load', init, false);
+      $datosIncorrectos = "El correo o la contraseña son incorrectos!";
+      echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
                 title: '¡Ha ocurrido un error!',
@@ -188,57 +163,39 @@ if (isset($_POST['correo'])) {
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS_ROTE."index.php';
             } else {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS_ROTE."index.php';
             }
           });
         }
         
-          </script>";  
+          </script>";
     }
+  }
 }
-    /* include '../../Config/appConfig.php';
-    require_once (APP_CONFIG_ROUTE.'Conexion.php'); */
+?>
+<html>
+
+<head>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+    * {
+      font-family: "Poppins";
+    }
+  </style>
+
+</head>
+
+<body>
 
 
-    
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    /*$conn = new Conexion();
-    $Conexion = $conn -> Conectar();
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
-    $DIR_PUBLIC = APP_PUBLIC_DIR;
-
-    $correoUsuario = $_POST['correo'];
-    $contraseñaUsuario = $_POST['contraseña'];
-
-    $query = "SELECT * FROM usuario
-    WHERE correoUsuario='$correoUsuario' and contraseñaUsuario='$contraseñaUsuario'";
-    $datos = $Conexion->prepare($query);
-    $datos -> execute();
-    $datos -> fetchAll(PDO::FETCH_OBJ);
-
-    if($datos -> rowCount()>=1){
-        echo $datos['idPerfilUsuario']; 
-        /* if ($_SESSION["idPerfilUsuario"] == 1) {
-            /*$respuesta = $datos -> fetchAll(PDO::FETCH_ASSOC);
-            $_SESSION['correo'] = $correoUsuario;
-            echo  "<script> alert ('Bienvenido al sistema $correoUsuario');
-                location.href = '${DIR_PUBLIC}Views/perfiladmin/PerfilAdmin';
-                </script>";
-        }else{
-            echo  "<script> alert ('Datos Incorrectos');
-                location.href = '${DIR_PUBLIC}Views/login';
-                </script>";
-        }
-    }*/
-
-    ?>
-    
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
-
-		</body>
+</body>
 
 </html>

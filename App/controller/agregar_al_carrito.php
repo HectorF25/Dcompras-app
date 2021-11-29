@@ -1,4 +1,3 @@
-
 <?php
 include_once "../model/productosModel.php";
 include '../../Config/appConfig.php';
@@ -12,4 +11,4 @@ obtenerIdsDeProductosEnCarritoUnico($_POST["idProducto"]);
 agregarProductoAlCarrito($_POST["idProducto"],1,$_POST["precioProductoNegocio"]);
 header("Location: ${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php");
 
-
+?>

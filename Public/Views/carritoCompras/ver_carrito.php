@@ -110,7 +110,7 @@ if (count($productos) <= 0) {
                         <form action="../../../App/controller/agregarUnProducto.php" method="post" style="display: inline;">
                         <input type="hidden" name="idProducto" value="<?php echo $producto->idProducto ?>">
                     <input type="hidden" name="redireccionar_carrito">
-                        <button style="background-color: transparent; border-color: transparent; color: gray; display; inline;">
+                        <button style="background-color: transparent; border-color: transparent; color: gray; display: inline;">
                                     <i class="fas fa-plus fa-x1"></i>
                                     </button>
 
