@@ -1,19 +1,6 @@
-<html>
-<head>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-*{
-  font-family: "Poppins";
-}
-</style>
-
-</head>
-<body>
-
 <?php
 session_start();
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -23,25 +10,23 @@ require '../include/PHPMailer/src/SMTP.php';
 include '../../Config/appConfig.php';
 require_once(APP_CONFIG_ROUTE . 'Conexion.php');
 
-$DIR_PUBLIC = APP_PUBLIC_DIR;
-
 $message = '';
 
-if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !empty($_POST['nitNegocio']) && !empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
+if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !empty($_POST['nitNegocio']) && !empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])) {
     $sql = "INSERT INTO usuario (nombreUsuario, apellidoUsuario, contraseñaUsuario, correoUsuario, hashUsuario, idPerfilUsuario) VALUES (:nombreUsuario, :apellidoUsuario, :contrasenaUsuario, :correoUsuario, :hashUsuario, '3')";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':correoUsuario',$_POST['correoUsuario']);
+    $stmt->bindParam(':correoUsuario', $_POST['correoUsuario']);
     $nombre = ($_POST['nombreUsuario']);
-    $hash = md5( rand(0,1000) );
+    $hash = md5(rand(0, 1000));
     $stmt->bindParam(':hashUsuario', $hash);
     $stmt->bindParam(':apellidoUsuario', $_POST['apellidoUsuario']);
     $stmt->bindParam(':contrasenaUsuario', $_POST['contrasenaUsuario']);
-    $stmt->bindParam(':nombreUsuario',$_POST['nombreUsuario']);
+    $stmt->bindParam(':nombreUsuario', $_POST['nombreUsuario']);
     $email = $_POST['correoUsuario'];
     $_password_us = $_POST['contrasenaUsuario'];
     $sql1 = "INSERT INTO peticionNegocio (nombreNegocio, nombrePropietario, nitNegocio , razonsocialNegocio, telefonoNegocio, fechaFundacion, nombreTipoNegocio) VALUES (:nombreNegocio, :nombrePropietario, :nitNegocio , :razonsocialNegocio, :telefonoNegocio, :fechaFundacion, :nombreTipoNegocio)";
     $stmt1 = $conn->prepare($sql1);
-    $stmt1->bindParam(':nombreNegocio',$_POST['nombreNegocio']);
+    $stmt1->bindParam(':nombreNegocio', $_POST['nombreNegocio']);
     $stmt1->bindParam(':nombrePropietario', $_POST['nombrePropietario']);
     $stmt1->bindParam(':nitNegocio', $_POST['nitNegocio']);
     $stmt1->bindParam(':razonsocialNegocio', $_POST['razonsocialNegocio']);
@@ -52,31 +37,32 @@ if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !e
     $mail = new PHPMailer(true);
     try {
         //$mail->SMTPDebug = 2;  // Sacar esta línea para no mostrar salida debug
-       # $mail->SMTPDebug = 2;
-        $mail->SMTPOptions = array( 
-            'ssl' => array(
-             'verify_peer' => false,
-             'verify_peer_name' => false,
-             'allow_self_signed' => true 
-            )
-            );
+        # $mail->SMTPDebug = 2;
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true,
+            ]
+        ];
         $mail->isSMTP();
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Host = 'smtp.gmail.com';  // Host de conexión SMTP
         $mail->SMTPAuth = true;
         $mail->Username = 'dcomprasteam@gmail.com';                 // Usuario SMTP
         $mail->Password = '123dcompras';                           // Password SMTP
-        $mail->SMTPSecure = 'tls';                            // Activar seguridad TLS
+        $mail->SMTPSecure = 'tsl';                            // Activar seguridad TLS
         $mail->Port = 587;                                    // Puerto SMTP
-    
+
         #$mail->SMTPOptions = ['ssl'=> ['allow_self_signed' => true]];  // Descomentar si el servidor SMTP tiene un certificado autofirmado
         #$mail->SMTPSecure = false;				// Descomentar si se requiere desactivar cifrado (se suele usar en conjunto con la siguiente línea)
         #$mail->SMTPAutoTLS = false;			// Descomentar si se requiere desactivar completamente TLS (sin cifrado)
-     
-        $mail->setFrom($email);		// Mail del remitente
+
+        $mail->setFrom($email);        // Mail del remitente
         $mail->addAddress('dcomprasteam@gmail.com');     // Mail del destinatario
-     
+
         $mail->isHTML(true);
-        $mail->Subject = 'Nueva peticion de negocio! '+$negocio;  // Asunto del mensaje
+        $mail->Subject = 'Nueva peticion de negocio! ' + $negocio;  // Asunto del mensaje
         $mail->Body    = '
         <!DOCTYPE html>
         <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -384,7 +370,7 @@ if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !e
                         <tr>
                             <td style="padding: 0 2.5em; text-align: center; padding-bottom: 3em;">
                                 <div class="text">
-                                    <h2>Bienvenido a <span class="org" style="color: #F17C12;">Dcompras</span><br><b> '.$nombre.'</b></h2>
+                                    <h2>Bienvenido a <span class="org" style="color: #F17C12;">Dcompras</span><br><b> ' . $nombre . '</b></h2>
                                 </div>
                             </td>
                         </tr>
@@ -393,7 +379,7 @@ if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !e
                                   <div class="text-author">
                                   <img src="https://raw.githubusercontent.com/LuisC111/Dcompras-Frontend/main/images/perfil.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; display: block;">                                      
                                       <b><span class="position" style="color: black;">Tu solicitud se ha enviado con exito, en los proximos dias te llegara una respuesta</span></b>
-                                       <p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn-custom">Si no funciona, haz click aquí!</a></p>
+                                       <p><a href="'.APP_ROOT.'App/model/activacionModel.php?email=' . $email . '&hash=' . $hash . '" class="btn-custom">Si no funciona, haz click aquí!</a></p>
                                    </div>
                               </td>
                             </tr>
@@ -458,12 +444,12 @@ if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !e
         
         ';    // Contenido del mensaje (acepta HTML)
         $mail->AltBody = 'Este es el contenido del mensaje en texto plano';    // Contenido del mensaje alternativo (texto plano)
-     
+
 
         $nuevo_usuario = mysqli_query($link, "SELECT * FROM usuario WHERE correoUsuario='$email'");
-    if (mysqli_num_rows($nuevo_usuario) > 0) {
-        $Duplicado = "!El correo $email ya envio una solicitud!";
-        echo "<script> window.addEventListener('load', init, false);
+        if (mysqli_num_rows($nuevo_usuario) > 0) {
+            $Duplicado = "!El correo $email ya envio una solicitud!";
+            echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
                 title: '¡Ha ocurrido un error!',
@@ -473,18 +459,18 @@ if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !e
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             } else {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             }
           });
         }
         
-          </script>";  
-    }else if($stmt->execute()){
-        $mail->send();
-        $exito = "Revisa tu correo electronico $email para revisar la respuesta a tu solicituid.";
-        echo "<script> window.addEventListener('load', init, false);
+          </script>";
+        } else if ($stmt->execute()) {
+            $mail->send();
+            $exito = "Revisa tu correo electronico $email para revisar la respuesta a tu solicituid.";
+            echo "<script> window.addEventListener('load', init, false);
         function init () {
             Swal.fire({
                 title: '¡Solicitud enviada con exito!',
@@ -494,44 +480,42 @@ if (!empty($_POST['nombreNegocio']) && !empty($_POST['nombrePropietario']) && !e
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             } else {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             }
           });
         }
         
-          </script>";  
-    }
-        
-
+          </script>";
+        }
     } catch (Exception $e) {
         echo 'Hubo un error al enviar tu solicitud de negocio: ', $mail->ErrorInfo;
     }
-
-
-
 }
 
 ?>
+<html>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<head>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+        * {
+            font-family: "Poppins";
+        }
+    </style>
 
-		</body>
+</head>
+
+<body>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+</body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

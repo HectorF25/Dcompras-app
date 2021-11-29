@@ -1,4 +1,3 @@
-
 <?php
 include_once "../model/productosModel.php";
 include '../../Config/appConfig.php';
@@ -16,4 +15,4 @@ if (!isset($_POST["idProducto"])) {
 
 # Saber si redireccionamos a tienda o al carrito, esto es porque
 # llamamos a este archivo desde la tienda y desde el carrito
-
+?>

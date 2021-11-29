@@ -15,8 +15,8 @@ if (!isset($correoUsuario) || $idPerfilUsuario != 1 ) {
     window.location.href="../../index";
     </script>'; 
      } else{
-    $conex = mysqli_connect('localhost', 'root', '');
-mysqli_select_db($conex, 'imake');
+    $conex = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
+    mysqli_select_db($conex, DB_NAME);
 
 $log = mysqli_query($conex, "SELECT * FROM Usuario INNER JOIN perfilusuario pf on usuario.idPerfilUsuario = pf.idPerfilUsuario
     WHERE idUsuario='$idUsuario'");
@@ -29,7 +29,7 @@ $log = mysqli_query($conex, "SELECT * FROM Usuario INNER JOIN perfilusuario pf o
         $_SESSION["nombrePerfilUsuario"] = $row['nombrePerfilUsuario'];
 
 
-    $consulta=mysqli_query($conex,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
+    $consulta = mysqli_query($conex, "SELECT imgUsuario FROM usuario WHERE idUsuario = '$idUsuario'");               
     while($filas=mysqli_fetch_array($consulta)){
          $img=$filas['imgUsuario'];                           
 }

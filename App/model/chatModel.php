@@ -1,10 +1,10 @@
 <?php
 class Chat{
 	
-    private $host  = 'localhost';
-    private $user  = 'root';
-    private $password   = "";
-    private $database  = "imake";      
+    private $host  = DB_HOST;
+    private $user  = DB_USER;
+    private $password   = DB_PASS;
+    private $database  = DB_NAME;      
     private $chatTable = 'chat';
 	private $chatUsersTable = 'usuario';
 	private $chatLoginDetailsTable = 'chat_login_details';
@@ -23,7 +23,7 @@ class Chat{
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error en la consulta: '. mysqli_error($conn));
+			die('Error en la consulta: '. mysqli_error($this->dbConnect));
 		}
 		$data= array();
 		/*while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {*/
@@ -35,7 +35,7 @@ class Chat{
 	private function getNumRows($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error en la consulta: '. mysqli_error($conn));
+			die('Error en la consulta: '. mysqli_error($this->dbConnect));
 		}
 		$numRows = mysqli_num_rows($result);
 		return $numRows;
@@ -78,7 +78,7 @@ class Chat{
 			VALUES ('".$reciever_userid."', '".$user_id."', '".$chat_message."', '1')";
 		$result = mysqli_query($this->dbConnect, $sqlInsert);
 		if(!$result){
-			return ('Error en la consulta: '. mysqli_error($conn));
+			return ('Error en la consulta: '. mysqli_error($this->dbConnect));
 		} else {
 			$conversation = $this->getUserChat($user_id, $reciever_userid);
 			$data = array(

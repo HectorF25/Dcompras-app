@@ -1,18 +1,3 @@
-<html>
-<head>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-*{
-  font-family: "Poppins";
-}
-</style>
-
-</head>
-<body>
-
-
 <?php
 
 include '../../Config/appConfig.php';
@@ -55,9 +40,9 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             } else {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             }
           });
         }
@@ -76,9 +61,9 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             } else {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             }
           });
         }
@@ -99,9 +84,9 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
             dangerMode: true,
           }).then((willDelete) => {
         if (willDelete) {
-            location.href = '${DIR_PUBLIC}Views/index.php';
+            location.href = '".APP_VIEWS."index.php';
         } else {
-            location.href = '${DIR_PUBLIC}Views/index.php';
+            location.href = '".APP_VIEWS."index.php';
         }
       });
     }
@@ -109,6 +94,19 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
       </script>"; 
 }
 ?>
+<html>
+<head>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+*{
+  font-family: "Poppins";
+}
+</style>
+
+</head>
+<body>
 
 
 

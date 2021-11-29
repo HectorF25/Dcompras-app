@@ -1,17 +1,3 @@
-<html>
-<head>
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-*{
-  font-family: "Poppins";
-}
-</style>
-
-</head>
-<body>
-
 <?php
 session_start();
 use PHPMailer\PHPMailer\PHPMailer;
@@ -22,8 +8,6 @@ require '../include/PHPMailer/src/PHPMailer.php';
 require '../include/PHPMailer/src/SMTP.php';
 include '../../Config/appConfig.php';
 require_once(APP_CONFIG_ROUTE . 'Conexion.php');
-
-$DIR_PUBLIC = APP_PUBLIC_DIR;
 
 $message = '';
 
@@ -44,19 +28,20 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
     try {
         //$mail->SMTPDebug = 2;  // Sacar esta línea para no mostrar salida debug
        # $mail->SMTPDebug = 2;
-        $mail->SMTPOptions = array( 
-            'ssl' => array(
-             'verify_peer' => false,
-             'verify_peer_name' => false,
-             'allow_self_signed' => true 
-            )
-            );
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true,
+            ]
+        ];
         $mail->isSMTP();
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Host = 'smtp.gmail.com';  // Host de conexión SMTP
         $mail->SMTPAuth = true;
         $mail->Username = 'dcomprasteam@gmail.com';                 // Usuario SMTP
         $mail->Password = '123dcompras';                           // Password SMTP
-        $mail->SMTPSecure = 'tls';                            // Activar seguridad TLS
+        $mail->SMTPSecure = 'tsl';                            // Activar seguridad TLS
         $mail->Port = 587;                                    // Puerto SMTP
     
         #$mail->SMTPOptions = ['ssl'=> ['allow_self_signed' => true]];  // Descomentar si el servidor SMTP tiene un certificado autofirmado
@@ -386,8 +371,8 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
                                   <div class="text-author">
                                   <img src="https://raw.githubusercontent.com/LuisC111/Dcompras-Frontend/main/images/perfil.jpg" alt="" style="width: 100px; max-width: 600px; height: auto; margin: auto; display: block;">                                      
                                       <b><span class="position" style="color: black;">Haz click en el botón para verificarte</span></b>
-                                      <b><p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn btn-primary">¡Verificarme!</a></p></b>
-                                       <p><a href="http://localhost/Dcompras-app/App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn-custom">Si no funciona, haz click aquí!</a></p>
+                                      <b><p><a href="'.APP_ROOT.'App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn btn-primary">¡Verificarme!</a></p></b>
+                                       <p><a href="'.APP_ROOT.'App/model/activacionModel.php?email='.$email.'&hash='.$hash.'" class="btn-custom">Si no funciona, haz click aquí!</a></p>
                                    </div>
                               </td>
                             </tr>
@@ -467,9 +452,9 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             } else {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             }
           });
         }
@@ -488,9 +473,9 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             } else {
-                location.href = '${DIR_PUBLIC}Views/index.php';
+                location.href = '".APP_VIEWS."index.php';
             }
           });
         }
@@ -508,12 +493,24 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
 }
 
 ?>
+<html>
+<head>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+*{
+  font-family: "Poppins";
+}
+</style>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
 
-		</body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+
+</body>
 
 </html>
 

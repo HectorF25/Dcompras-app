@@ -1,5 +1,5 @@
 <?php
-include '../../Config/appConfig.php';
+require_once '../../Config/appConfig.php';
 ?>
 <!doctype html>
 <html lang="en">

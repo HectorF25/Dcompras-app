@@ -1,5 +1,5 @@
 <?php
-include ('../../../App/model/chatModel.php');
+include('../../../App/model/chatModel.php');
 
 session_start();
 $chat = new Chat();
@@ -14,49 +14,50 @@ $correoUsuario = $_SESSION['correo'];
 $nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
 $imgUsuario = $_SESSION["imgUsuario"];
 $estado = $_SESSION["estadoUsuario"];
-if(!isset($correoUsuario) || $idPerfilUsuario != 2){
-    echo'<script type="text/javascript">
+if (!isset($correoUsuario) || $idPerfilUsuario != 2) {
+    echo '<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
     window.location.href="../../../index";
     </script>';
 } else {
-    $conexion = mysqli_connect('localhost', 'root', '');
-    mysqli_select_db($conexion, 'imake');	 
-    $consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
-    while($filas=mysqli_fetch_array($consulta)){
-         $img=$filas['imgUsuario'];                           
-}
+    $conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
+    mysqli_select_db($conexion, DB_NAME);
+    $consulta = mysqli_query($conexion, "select imgUsuario from usuario where idUsuario = $idUsuario");
+    while ($filas = mysqli_fetch_array($consulta)) {
+        $img = $filas['imgUsuario'];
+    }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dcompras | Clientes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-            <!-- google fonts cdn link  -->
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-            <!-- JavaScript -->
-            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- google fonts cdn link  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-            <!-- CSS -->
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-            <!-- font awesome cdn link  -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-            <!-- custom css file link  -->
-            <link rel="stylesheet" href="./vendors/form.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./vendors/form.css">
 
 
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- aos css cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -102,6 +103,7 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
     <link href="./assets/libs/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="./assets/libs/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
 
 
@@ -150,21 +152,21 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                     </li>
 
                     <li class="nav-item nav-settings d-none d-lg-block nolink">
-                    <a class="nav-link count-indicator dropdown-toggle" href="ver_carrito.php">
-                    <i class="mdi mdi-cart-outline" style="text-decoration: none;"></i>
+                        <a class="nav-link count-indicator dropdown-toggle" href="ver_carrito.php">
+                            <i class="mdi mdi-cart-outline" style="text-decoration: none;"></i>
 
                             <strong><?php
-                                                include_once "../../../App/model/productosModel.php";
-                                                $conteo = cantidadDeProductos();
-                                                if ($conteo > 0) {
-                                                    //printf("(%d)", $conteo);
-                                                    echo "<sup class='sup'>$conteo</sup>";
-                                                }
-                                                ?>
-                                                </strong>
-                    </a>
+                                    include_once "../../../App/model/productosModel.php";
+                                    $conteo = cantidadDeProductos();
+                                    if ($conteo > 0) {
+                                        //printf("(%d)", $conteo);
+                                        echo "<sup class='sup'>$conteo</sup>";
+                                    }
+                                    ?>
+                            </strong>
+                        </a>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <i class="mdi mdi-email-outline"></i>
@@ -175,23 +177,23 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                             <div class="dropdown-divider"></div>
 
                             <?php
-                        
+
                             $mensajesNuevos = $chat->getUnreadMessages($_SESSION['idUsuario']);
-                            foreach($mensajesNuevos as $mensaje){
-                            echo '<a class="dropdown-item preview-item" href="chat.php">';
-                            echo '<div class="preview-thumbnail">';
-                            echo '<img src="../perfiladmin/administrador/'.$mensaje['imgUsuario'].'" alt="" class="profile-pic" />';
-                            echo '</div>';
-                            echo '<div class="preview-item-content d-flex align-items-start flex-column justify-content-center">';
-                            echo  '<h6 class="preview-subject ellipsis mb-1 font-weight-normal" style="color: #000;">'.$mensaje["message"].'</h6>';
-                            echo  '<p class="text-gray mb-0">'.$mensaje["nombreUsuario"].' - '.$mensaje["hora"].' </p>';
-                            echo  '</div>';
-                            echo  '</a>';
-                            echo  '<div class="dropdown-divider">';
-                            echo  '</div>';
+                            foreach ($mensajesNuevos as $mensaje) {
+                                echo '<a class="dropdown-item preview-item" href="chat.php">';
+                                echo '<div class="preview-thumbnail">';
+                                echo '<img src="../perfiladmin/administrador/' . $mensaje['imgUsuario'] . '" alt="" class="profile-pic" />';
+                                echo '</div>';
+                                echo '<div class="preview-item-content d-flex align-items-start flex-column justify-content-center">';
+                                echo  '<h6 class="preview-subject ellipsis mb-1 font-weight-normal" style="color: #000;">' . $mensaje["message"] . '</h6>';
+                                echo  '<p class="text-gray mb-0">' . $mensaje["nombreUsuario"] . ' - ' . $mensaje["hora"] . ' </p>';
+                                echo  '</div>';
+                                echo  '</a>';
+                                echo  '<div class="dropdown-divider">';
+                                echo  '</div>';
                             }
                             ?>
-                           
+
                             <div class="dropdown-divider"></div>
                             <h6 class="p-3 mb-0 text-center"><?php echo $chat->getUnreadMessagesCountAll($_SESSION['idUsuario']); ?> nuevos mensajes</h6>
                         </div>
@@ -306,26 +308,26 @@ if(!isset($correoUsuario) || $idPerfilUsuario != 2){
                 </ul>
             </nav>
 
-           
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="../assets/vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
 
-<!-- Plugin js for this page -->
-<script src="../assets/vendors/chart.js/Chart.min.js"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="../assets/js/off-canvas.js"></script>
-<script src="../assets/js/hoverable-collapse.js"></script>
-<script src="../assets/js/misc.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
-<script src="../assets/js/dashboard.js"></script>
-<script src="../assets/js/todolist.js"></script>
+            <script src="../assets/vendors/js/vendor.bundle.base.js"></script>
+            <!-- endinject -->
+
+            <!-- Plugin js for this page -->
+            <script src="../assets/vendors/chart.js/Chart.min.js"></script>
+            <!-- End plugin js for this page -->
+            <!-- inject:js -->
+            <script src="../assets/js/off-canvas.js"></script>
+            <script src="../assets/js/hoverable-collapse.js"></script>
+            <script src="../assets/js/misc.js"></script>
+            <!-- endinject -->
+            <!-- Custom js for this page -->
+            <script src="../assets/js/dashboard.js"></script>
+            <script src="../assets/js/todolist.js"></script>

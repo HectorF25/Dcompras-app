@@ -9,22 +9,22 @@ class pedidoController{
         $this->model = new pedido();
     }
     public function Cliente(){
-        require_once '../../../Views/perfilCliente/modules/headerCliente.php';
-        require_once '../../../Views/perfilCliente/cliente/PedidosRegistrados.php';
-        require_once '../../../Views/perfilCliente/modules/footerCliente.php';
+        require_once  APP_VIEWS.'perfilCliente/modules/headerCliente.php';
+        require_once  APP_VIEWS.'perfilCliente/cliente/PedidosRegistrados.php';
+        require_once  APP_VIEWS.'perfilCliente/modules/footerCliente.php';
     }
     public function crudPedido(){
         $pedidos = new pedido();
         
         if(isset($_REQUEST['idPedido'])){
             $pedidos = $this->model->Obtener($_REQUEST['idPedido']);
-            require_once '../../../Views/perfilCliente/modules/headerCliente.php';
-            require_once '../../../Views/perfilCliente/cliente/ActualizarPedidos.php';
-            require_once '../../../Views/perfilCliente/modules/footerCliente.php';
+            require_once  APP_VIEWS.'perfilCliente/modules/headerCliente.php';
+            require_once  APP_VIEWS.'perfilCliente/cliente/ActualizarPedidos.php';
+            require_once  APP_VIEWS.'perfilCliente/modules/footerCliente.php';
         }else{
-            require_once '../../../Views/perfilCliente/modules/headerCliente.php';
-            require_once '../../../Views/perfilCliente/cliente/CrearPedidos.php';
-            require_once '../../../Views/perfilCliente/modules/footerCliente.php';
+            require_once  APP_VIEWS.'perfilCliente/modules/headerCliente.php';
+            require_once  APP_VIEWS.'perfilCliente/cliente/CrearPedidos.php';
+            require_once  APP_VIEWS.'perfilCliente/modules/footerCliente.php';
         }
         
     }

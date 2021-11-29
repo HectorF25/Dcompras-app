@@ -1,19 +1,3 @@
-<html>
-
-<head>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
-    <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-    * {
-        font-family: "Poppins";
-    }
-    </style>
-
-</head>
-
-<body>
-
 <?php
 include './Connet.php';
 $restorePoint=SGBD::limpiarCadena($_POST['restorePoint']);
@@ -34,9 +18,9 @@ function init () {
         dangerMode: true,
         }).then((willDelete) => {
         if (willDelete) {
-            location.href = '../../Public/Views/perfiladmin/administrador/Backup';
+            location.href = '../../Public/Views/perfiladmin/administrador/index.php?c=administrador&a=backup';
         } else {
-            location.href = '../../Public/Views/perfiladmin/administrador/Backup';
+            location.href = '../../Public/Views/perfiladmin/administrador/index.php?c=administrador&a=backup';
         }
           });
         }
@@ -53,9 +37,9 @@ function init () {
             dangerMode: true,
             }).then((willDelete) => {
             if (willDelete) {
-                location.href = '../../Public/Views/perfiladmin/administrador/Backup';
+                location.href = '../../Public/Views/perfiladmin/administrador/index.php?c=administrador&a=backup';
             } else {
-                location.href = '../../Public/Views/perfiladmin/administrador/Backup';
+                location.href = '../../Public/Views/perfiladmin/administrador/index.php?c=administrador&a=backup';
             }
               });
             }
@@ -63,7 +47,21 @@ function init () {
 }
 
 ?>
+<html>
 
+<head>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+    * {
+        font-family: "Poppins";
+    }
+    </style>
+
+</head>
+
+<body>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

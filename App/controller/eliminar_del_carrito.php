@@ -12,6 +12,8 @@ quitarProductoDelCarrito($_POST["idProducto"]);
 # llamamos a este archivo desde la tienda y desde el carrito
 if (isset($_POST["redireccionar_carrito"])) {
     header("Location: ${DIR_PUBLIC}Views/carritoCompras/ver_carrito.php");
+} else if (isset($_POST["terminar_compra"])) {
+    header("Location: ${DIR_PUBLIC}Views/carritoCompras/terminar_compra.php");
 } else {
     header("Location: ${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php");
 }

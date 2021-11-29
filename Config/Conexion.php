@@ -1,26 +1,22 @@
 <?php
 
-$server = 'localhost'; //Host name
-$username = 'root'; //Bd username 
-$password = ''; //Bd password
-$database = 'imake'; //Bd name
-
+include 'appConfig.php';
 
 try{
-	$conn = new PDO("mysql:host=$server;dbname=$database;",$username, $password);
+	$conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
 	
 	die('Error de conexión: '.$e->getMessage());
 }
 
-$link = mysqli_connect("localhost", "root", "", "imake") or die($link);
-
+$link = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME) or die("Error " . mysqli_error($link));; 
 
 class Conexion
 {
 	public static function Conectar()
 	{
-		$pdo = new PDO('mysql:host=localhost;dbname=imake;charset=utf8', 'root', '');
+		$pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8",DB_USER, DB_PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);	
 		return $pdo;
 	}
@@ -29,4 +25,3 @@ class Conexion
 		return $this->pdo;
 	}
 }
-

@@ -1,6 +1,6 @@
 <?php
 
-include ('../../../../App/model/chatModelAdmin.php');
+require_once '../../../../App/model/chatModelAdmin.php';
 
 error_reporting(0);
 session_start();
@@ -15,27 +15,19 @@ $apellidoUsuario = $_SESSION["apellidoUsuario"];
 $nombrePerfilUsuario = $_SESSION["nombrePerfilUsuario"];
 $imgUsuario = $_SESSION["imgUsuario"];
 $correoUsuario = $_SESSION['correo'];
-if (!isset($correoUsuario) || $idPerfilUsuario != 1 ) {
+if (!isset($correoUsuario) || $idPerfilUsuario != 1) {
     echo '<script type="text/javascript">
     alert("La pagina a la cual intenta acceder requiere haber iniciado sesion previamente o no tiene permisos para acceder a la misma");
     window.location.href="../../index";
     </script>';
 } else {
-    $conexion = mysqli_connect('localhost', 'root', '');
-    mysqli_select_db($conexion, 'imake');	 
-    $consulta=mysqli_query($conexion,"select imgUsuario from usuario where idUsuario = $idUsuario");                  
-    while($filas=mysqli_fetch_array($consulta)){
-         $img=$filas['imgUsuario'];                           
+    $conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASS);
+    mysqli_select_db($conexion, DB_NAME);
+    $consulta = mysqli_query($conexion, "SELECT imgUsuario FROM usuario WHERE idUsuario = '$idUsuario'");
+    while ($filas = mysqli_fetch_array($consulta)) {
+        $img = $filas['imgUsuario'];
+    }
 }
-}
-/*
-$sesion = true;
-
-if($sesion){
-$codigo = 6;
-
-
-*/
 ?>
 <!DOCTYPE html>
 
@@ -45,27 +37,27 @@ $codigo = 6;
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dcompras | Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-            <!-- google fonts cdn link  -->
-            <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
-            <!-- JavaScript -->
-            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- google fonts cdn link  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
-            <!-- CSS -->
-            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-            <!-- font awesome cdn link  -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-            <!-- custom css file link  -->
-            <link rel="stylesheet" href="./vendors/form.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./vendors/form.css">
 
 
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-            <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- aos css cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -148,8 +140,8 @@ $codigo = 6;
                             <a class="dropdown-item" href="index.php?c=administrador&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
                                 <i class="mdi mdi-account mr-2 text-primary"></i> Editar perfil </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../administrador/Backup">
-                            <i class="mdi mdi-content-save mr-2 text-success"></i> Backup BD </a>
+                            <a class="dropdown-item" href="index.php?c=administrador&a=backup">
+                                <i class="mdi mdi-content-save mr-2 text-success"></i> Backup BD </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../../../../App/controller/logoutController.php">
                                 <i class="mdi mdi-logout mr-2 text-danger"></i> Cerrar sesión </a>
@@ -166,32 +158,32 @@ $codigo = 6;
                             <span class="count-symbol bg-warning"></span>
                         </a>
 
-                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                             <h6 class="p-3 mb-0">Mensajes</h6>
                             <div class="dropdown-divider"></div>
 
                             <?php
-                        
-                        $mensajesNuevos = $chat->getUnreadMessages($_SESSION['idUsuario']);
-                        foreach($mensajesNuevos as $mensaje){
-                        echo '<a class="dropdown-item preview-item" href="chat.php">';
-                        echo '<div class="preview-thumbnail">';
-                        echo '<img src="./administrador/'.$mensaje['imgUsuario'].'" alt="" class="profile-pic" />';
-                        echo '</div>';
-                        echo '<div class="preview-item-content d-flex align-items-start flex-column justify-content-center">';
-                        echo  '<h6 class="preview-subject ellipsis mb-1 font-weight-normal" style="color: #000;">'.$mensaje["message"].'</h6>';
-                        echo  '<p class="text-gray mb-0">'.$mensaje["nombreUsuario"].' - '.$mensaje["hora"].' </p>';
-                        echo  '</div>';
-                        echo  '</a>';
-                        echo  '<div class="dropdown-divider">';
-                        echo  '</div>';
-                        }
-                        ?>
-                           
+
+                            $mensajesNuevos = $chat->getUnreadMessages($_SESSION['idUsuario']);
+                            foreach ($mensajesNuevos as $mensaje) {
+                                echo '<a class="dropdown-item preview-item" href="chat.php">';
+                                echo '<div class="preview-thumbnail">';
+                                echo '<img src="./administrador/' . $mensaje['imgUsuario'] . '" alt="" class="profile-pic" />';
+                                echo '</div>';
+                                echo '<div class="preview-item-content d-flex align-items-start flex-column justify-content-center">';
+                                echo  '<h6 class="preview-subject ellipsis mb-1 font-weight-normal" style="color: #000;">' . $mensaje["message"] . '</h6>';
+                                echo  '<p class="text-gray mb-0">' . $mensaje["nombreUsuario"] . ' - ' . $mensaje["hora"] . ' </p>';
+                                echo  '</div>';
+                                echo  '</a>';
+                                echo  '<div class="dropdown-divider">';
+                                echo  '</div>';
+                            }
+                            ?>
+
                             <div class="dropdown-divider"></div>
                             <h6 class="p-3 mb-0 text-center"><?php echo $chat->getUnreadMessagesCountAll($_SESSION['idUsuario']); ?> nuevos mensajes</h6>
                         </div>
-                            
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
@@ -303,7 +295,7 @@ $codigo = 6;
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="chat.php">
+                        <a class="nav-link" href="index.php?c=administrador&a=chat">
                             <span class="menu-title">Atención al cliente</span>
                             <i class="mdi mdi-worker menu-icon"></i>
                         </a>

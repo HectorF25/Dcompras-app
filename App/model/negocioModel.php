@@ -27,7 +27,7 @@ class negocio
         }
     }
 
-    public function __Negocio($idNegocio, $nombreNegocio, $direccionNegocio, $nitNegocio, $estadoNegocio, $fechaFundacion, $telefonoFundacion, $idTipoNegocio, $idBarrio, $idUsuario, $idPeticionNegocio)
+    public function __Negocio($idNegocio, $nombreNegocio, $direccionNegocio, $nitNegocio, $estadoNegocio, $fechaFundacion, $telefonoNegocio, $idTipoNegocio, $idBarrio, $idUsuario, $idPeticionNegocio)
     {
         $this->idNegocio = $idNegocio;
         $this->nombreNegocio = $nombreNegocio;
