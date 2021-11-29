@@ -2,10 +2,10 @@
 
 include '../../Config/appConfig.php';
 
-$server = 'localhost';
-$username = 'root'; 
-$password = ''; 
-$database = 'imake'; 
+$server =  DB_HOST;
+$username = DB_USER; 
+$password = DB_PASS; 
+$database = DB_NAME; 
 
 
 try{
@@ -15,7 +15,7 @@ try{
 	die('Connection failed: '.$e->getMessage());
 }
 
-$link = mysqli_connect("localhost", "root", "", "imake") or die($link);
+$link = mysqli_connect($server, $username, $password, $database) or die("Error " . mysqli_error($link));
 $DIR_PUBLIC = APP_PUBLIC_DIR;
 
 

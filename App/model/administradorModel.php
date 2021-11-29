@@ -15,6 +15,7 @@ class administrador extends Usuario
     private $imgUsuario;
     private $idtipodoc;
     private $idPerfilUsuario;
+    private $hashUsuario;
 
     public function __CONSTRUCT()
     {

@@ -9,22 +9,22 @@ class tipoNegocioController{
         $this->model = new tipoNegocio();
     }
     public function tipoNegocios(){
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/tipoNegocios.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/administrador/tipoNegocios.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
     }
     public function crudNegocio(){
         $negocios = new tipoNegocio();
         
         if(isset($_REQUEST['idTipoNegocio'])){
             $negocios = $this->model->Obtener($_REQUEST['idTipoNegocio']);
-            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/ModificacionTipoNego.php';
-            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/administrador/ModificacionTipoNego.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
         }else{
-            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/CrearTipoNego.php';
-            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/administrador/CrearTipoNego.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
         }
         
     }

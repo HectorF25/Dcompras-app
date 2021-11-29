@@ -9,22 +9,22 @@ class peticionNegocioController{
         $this->model = new peticionNegocio();
     }
     public function petiNegocios(){
-        require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-        require_once '../../../Views/perfilAdmin/administrador/petiNegocios.php';
-        require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/administrador/petiNegocios.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
     }
     public function crudNegocio(){
         $negocios = new peticionNegocio();
         
         if(isset($_REQUEST['idPeticionNegocio'])){
             $negocios = $this->model->Obtener($_REQUEST['idPeticionNegocio']);
-            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/ModificacionPeticiones.php';
-            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/administrador/ModificacionPeticiones.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
         }else{
-            require_once '../../../Views/perfilAdmin/modules/headerAdmin.php';
-            require_once '../../../Views/perfilAdmin/administrador/CrearPeticion.php';
-            require_once '../../../Views/perfilAdmin/modules/footerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/administrador/CrearPeticion.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
         }
         
     }

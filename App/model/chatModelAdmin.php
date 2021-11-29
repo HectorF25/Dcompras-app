@@ -1,9 +1,9 @@
 <?php
 class Chat{
-    private $host  = DB_HOST;
-    private $user  = DB_USER;
-    private $password   = DB_PASS;
-    private $database  = DB_NAME;        
+    private $host  = 'localhost';
+    private $user  = 'root';
+    private $password   = '';
+    private $database  = 'imake';        
     private $chatTable = 'chat';
 	private $chatUsersTable = 'usuario';
 	private $chatLoginDetailsTable = 'chat_login_details';
