@@ -28,33 +28,33 @@ class administradorController
             require_once APP_VIEWS.'perfilAdmin/administrador/AjustesPerfil.php';
             require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
         } else {
-            require_once  APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
-            require_once  APP_VIEWS.'perfilAdmin/administrador/CrearUsuarios.php';
-            require_once  APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+            require_once APP_VIEWS.'perfilAdmin/administrador/CrearUsuarios.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
         }
     }
     public function fallasSistema()
     {
-        require_once  APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
-        require_once  APP_VIEWS.'perfilAdmin/administrador/FallasSistema.php';
-        require_once  APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/administrador/FallasSistema.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
     }
     public function chat()
     {
-        require_once  APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
-        require_once  APP_VIEWS.'perfilAdmin/administrador/chat.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/administrador/chat.php';
     }
     public function backup()
     {
-        require_once  APP_VIEWS.'perfilAdmin/modules/headerBackup.php';
-        require_once  APP_VIEWS.'perfilAdmin/administrador/Backup.php';
-        require_once  APP_VIEWS.'perfilAdmin/modules/footerBackup.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/headerBackup.php';
+        require_once APP_VIEWS.'perfilAdmin/administrador/Backup.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/footerBackup.php';
     }
     public function ModificionUsuarios()
     {
-        require_once  APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
-        require_once  APP_VIEWS.'perfilAdmin/administrador/ModificacionUsuarios.php';
-        require_once  APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/headerAdmin.php';
+        require_once APP_VIEWS.'perfilAdmin/administrador/ModificacionUsuarios.php';
+        require_once APP_VIEWS.'perfilAdmin/modules/footerAdmin.php';
     }
     public function crudUsuarios()
     {
@@ -62,13 +62,13 @@ class administradorController
 
         if (isset($_REQUEST['idUsuario'])) {
             $administradores = $this->model->Obtener($_REQUEST['idUsuario']);
-            require_once  APP_VIEWS.'perfilAdmin/modules/headerPerfil.php';
-            require_once  APP_VIEWS.'perfilAdmin/administrador/FormularioModificacionUsuarios.php';
-            require_once  APP_VIEWS.'perfilAdmin/modules/footerPerfil.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/headerPerfil.php';
+            require_once APP_VIEWS.'perfilAdmin/administrador/FormularioModificacionUsuarios.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/footerPerfil.php';
         } else {
-            require_once  APP_VIEWS.'perfilAdmin/modules/headerPerfil.php';
-            require_once  APP_VIEWS.'perfilAdmin/administrador/CrearUsuarios.php';
-            require_once  APP_VIEWS.'perfilAdmin/modules/footerPerfil.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/headerPerfil.php';
+            require_once APP_VIEWS.'perfilAdmin/administrador/CrearUsuarios.php';
+            require_once APP_VIEWS.'perfilAdmin/modules/footerPerfil.php';
         }
     }
     public function Guardar()

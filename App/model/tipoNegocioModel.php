@@ -1,6 +1,6 @@
 <?php
 
-class negocio
+class tipoNegocio
 {
 
     private $pdo;
@@ -113,7 +113,7 @@ class negocio
         }
     }
 
-    public function Registrar(negocio $data)
+    public function Registrar(tipoNegocio $data)
     {
         try {
             $sql = "INSERT INTO tiponegocio (nombreTipoNegocio) 

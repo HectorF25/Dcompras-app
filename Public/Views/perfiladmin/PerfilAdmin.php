@@ -91,10 +91,10 @@ if (!isset($correoUsuario) || $idPerfilUsuario != 1) {
                                 </div>
                             </a>
                             <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="./administrador/index.php?c=administrador&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
+                                <a class="dropdown-item" href="./administrador/?c=administrador&a=editarPerfilUsuario&idUsuario=<?php echo $idUsuario; ?>">
                                     <i class="mdi mdi-account mr-2 text-primary"></i> Editar perfil </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="./administrador/index.php?c=administrador&a=backup">
+                                <a class="dropdown-item" href="./administrador/?c=administrador&a=backup">
                                     <i class="mdi mdi-content-save mr-2 text-success"></i> Backup BD </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../../../App/controller/logoutController.php">
@@ -223,33 +223,33 @@ if (!isset($correoUsuario) || $idPerfilUsuario != 1) {
                             </a>
                             <div class="collapse" id="ui-basic">
                                 <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios&a=negocios">Negocios Registrados</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios1&a=petiNegocios">Peticiones de Negocios</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="./administrador/index.php?c=negocios2&a=tipoNegocios">Tipo de Negocio</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="./administrador/?c=negocios&a=negocios">Negocios Registrados</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="./administrador/?c=peticionNegocio&a=petiNegocios">Peticiones de Negocios</a></li>
+                                    <li class="nav-item"> <a class="nav-link" href="./administrador/?c=tipoNegocio&a=tipoNegocios">Tipo de Negocio</a></li>
 
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./administrador/index.php?c=administrador&a=modificionusuarios">
+                            <a class="nav-link" href="./administrador/?c=administrador&a=modificionusuarios">
                                 <span class="menu-title">Usuarios</span>
                                 <i class="mdi mdi-contacts menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./administrador/index.php?c=documento&a=documento">
+                            <a class="nav-link" href="./administrador/?c=documento&a=documento">
                                 <span class="menu-title">Tipos de documento</span>
                                 <i class="mdi mdi-account-card-details menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./administrador/index.php?c=pago&a=pago">
+                            <a class="nav-link" href="./administrador/?c=pago&a=pago">
                                 <span class="menu-title">Medios de pago</span>
                                 <i class="mdi mdi-credit-card-multiple menu-icon"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./administrador/index.php?c=categorias&a=categorias">
+                            <a class="nav-link" href="./administrador/?c=categorias&a=categorias">
                                 <span class="menu-title">Categorías</span>
                                 <i class="mdi mdi-food-apple menu-icon"></i>
                             </a>
@@ -262,7 +262,7 @@ if (!isset($correoUsuario) || $idPerfilUsuario != 1) {
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="./administrador/index.php?c=administrador&a=chat">
+                            <a class="nav-link" href="./administrador/?c=administrador&a=chat">
                                 <span class="menu-title">Atención al cliente</span>
                                 <i class="mdi mdi-worker menu-icon"></i>
                             </a>

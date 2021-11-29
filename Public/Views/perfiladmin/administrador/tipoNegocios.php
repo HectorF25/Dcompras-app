@@ -57,7 +57,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="table-responsive">
-                                    <a class="btn btn-gradient-primary mr-2 float-left" href="?c=negocios2&a=crudNegocio"><i class="mdi mdi-store menu-icon"> Nueva Petición de Negocio</i></a>
+                                    <a class="btn btn-gradient-primary mr-2 float-left" href="?c=tipoNegocio&a=crudNegocio"><i class="mdi mdi-store menu-icon"> Nueva Petición de Negocio</i></a>
                                     <a class="btn btn-gradient-danger mr-2 float-right" href="ReportePDF_Negocios.php"><i class="mdi mdi-chart-areaspline menu-icon"> Generar reporte</i></a>
                                     <br><br><br><br>
 
@@ -76,10 +76,10 @@
                                                         <td><?php echo $c->idTipoNegocio; ?></td>
                                                         <td><?php echo $c->nombreTipoNegocio; ?></td>
                                                         <td>
-                                                            <a id="btn-abrir-popup" href="?c=negocios2&a=crudNegocio&idTipoNegocio=<?php echo $c->idTipoNegocio; ?>"  class="btn-abrir-popup">Modificar</a>
+                                                            <a id="btn-abrir-popup" href="?c=tipoNegocio&a=crudNegocio&idTipoNegocio=<?php echo $c->idTipoNegocio; ?>"  class="btn-abrir-popup">Modificar</a>
                                                         </td>
                                                         <td>
-                                                            <a id="btn-abrir-popup" href="?c=negocios2&a=Eliminar&idTipoNegocio=<?php echo $c->idTipoNegocio; ?>" class="btn-abrir-popup">Eliminar</a>
+                                                            <a id="btn-abrir-popup" href="?c=tipoNegocio&a=Eliminar&idTipoNegocio=<?php echo $c->idTipoNegocio; ?>" class="btn-abrir-popup">Eliminar</a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
