@@ -142,7 +142,7 @@
     position: absolute;
     opacity: 0;
     visibility: hidden;
-    width: 250px;
+    width: 150px;
     margin: 70px 0 0 0;
     border-radius: 6px;
     z-index: 99;
@@ -162,7 +162,7 @@
   #frame #sidepanel #profile .wrap #status-options.active {
     opacity: 1;
     visibility: visible;
-    margin: 20px 0 0 0;
+    margin: 75px 0 0 0;
   }
   @media screen and (max-width: 735px) {
     #frame #sidepanel #profile .wrap #status-options.active {
@@ -189,7 +189,7 @@
     border-radius: 6px;
   }
   #frame #sidepanel #profile .wrap #status-options ul li {
-    padding: 15px 0 30px 8px;
+    padding: 15px 0 30px 18px;
     display: block;
     cursor: pointer;
   }
@@ -584,7 +584,7 @@
     
   }
   #frame .content .messages ul li.sent p {
-    background: #F17C12;
+    background: #128C7E;
     color: #f5f5f5;
     float: right;
   }
@@ -593,7 +593,7 @@
     margin: 6px 0 0 8px;
   }
   #frame .content .messages ul li.replies p {
-    background: #ece473;
+    background: #DCF8C6;
     float: left;
   }
   #frame .content .messages ul li img {
