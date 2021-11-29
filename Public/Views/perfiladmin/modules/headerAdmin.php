@@ -1,5 +1,7 @@
 <?php
 
+include './../modules/functionAdmin.php';
+require_once '../../../../Config/Conexion.php';
 include ('../../../../App/model/chatModelAdmin.php');
 
 error_reporting(0);
@@ -280,7 +282,8 @@ $codigo = 6;
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios&a=negocios">Negocios Registrados</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Peticiones de Negocios</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios1&a=petiNegocios">Peticiones de Negocios</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="../administrador/index.php?c=negocios2&a=tipoNegocios">Tipo de Negocio</a></li>
                             </ul>
                         </div>
                     </li>
@@ -288,6 +291,24 @@ $codigo = 6;
                         <a class="nav-link" href="index.php?c=administrador&a=modificionusuarios">
                             <span class="menu-title">Usuarios</span>
                             <i class="mdi mdi-contacts menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../administrador/index.php?c=documento&a=documento">
+                            <span class="menu-title">Tipos de documento</span>
+                            <i class="mdi mdi-account-card-details menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../administrador/index.php?c=pago&a=pago">
+                            <span class="menu-title">Medios de pago</span>
+                            <i class="mdi mdi-credit-card-multiple menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../administrador/index.php?c=categorias&a=categorias">
+                            <span class="menu-title">Categorías</span>
+                            <i class="mdi mdi-food-apple menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
