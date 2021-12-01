@@ -23,7 +23,7 @@ class Chat{
 	private function getData($sqlQuery) {
 		$result = mysqli_query($this->dbConnect, $sqlQuery);
 		if(!$result){
-			die('Error en la consulta: '. mysqli_error($this->dbConnect));
+			die('Error en la consulta : '. mysqli_error($this->dbConnect));
 		}
 		$data= array();
 		/*while ($row = mysqli_fetch_array($result, MYSQL_ASSOC)) {*/
