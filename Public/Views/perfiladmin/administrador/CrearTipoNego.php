@@ -24,7 +24,7 @@
                     <h6 class="m-0">Datos del tipo de negocio</h6>
                 </div>
                 <div class="card-body">
-                    <form action="?c=negocios2&a=Guardar" target="" method="POST" value="<?php echo $negocios->getIdTipoNegocio(); ?>" class="form-sample" id="formulario">
+                    <form action="?c=tipoNegocio&a=Guardar" target="" method="POST" value="<?php echo $negocios->getIdTipoNegocio(); ?>" class="form-sample" id="formulario">
                         <input type="hidden" id="idTipoNegocio" name="idTipoNegocio" value="<?php echo $negocios->getIdTipoNegocio(); ?>" />
 
 
@@ -42,22 +42,11 @@
                                 </div>
                             </div>
 
-                       
+            
                         <div class="row">
-
-                        
-                            
-
                             </div>
                             </div>
                        
-
-                      
-
-                            
-
-
-
                             <button type="submit" class="btn btn-gradient-primary crear" style="float: right;">Actualizar Datos</button>
 
                         </div>

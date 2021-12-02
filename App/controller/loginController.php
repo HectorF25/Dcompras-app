@@ -120,9 +120,9 @@ if (isset($_POST['correo'])) {
                     dangerMode: true,
                   }).then((willDelete) => {
                 if (willDelete) {
-                    location.href = '".APP_VIEWS_ROTE."perfilVendedor/perfil_Vendedor.php';                
+                    location.href = '".APP_VIEWS_ROTE."perfilVendedor/PerfilVendedor.php';                
                 } else {
-                        location.href = '".APP_VIEWS_ROTE."perfilVendedor/perfil_Vendedor.php';              
+                        location.href = '".APP_VIEWS_ROTE."perfilVendedor/PerfilVendedor.php';              
                     }
               });
             }

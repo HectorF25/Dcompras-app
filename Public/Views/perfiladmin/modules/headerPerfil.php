@@ -333,7 +333,7 @@ $codigo = 6;
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?c=categorias&a=categorias">
+                        <a class="nav-link" href="?c=categoria&a=categoria">
                             <span class="menu-title">Categorías</span>
                             <i class="mdi mdi-food-apple menu-icon"></i>
                         </a>

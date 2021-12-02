@@ -17,3 +17,4 @@ if (isset($_POST["redireccionar_carrito"])) {
 } else {
     header("Location: ${DIR_PUBLIC}Views/carritoCompras/catalogoCompras.php");
 }
+?>

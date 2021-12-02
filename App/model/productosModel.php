@@ -1,7 +1,5 @@
 <?php
 
-require_once '../../../../Config/appConfig.php';
-
 function obtenerProductosEnCarrito()
 {
     $bd = obtenerConexion();

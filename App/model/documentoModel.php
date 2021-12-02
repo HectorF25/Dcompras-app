@@ -1,6 +1,6 @@
 <?php
 
-class negocio
+class documento
 {
 
     private $pdo;
@@ -18,7 +18,7 @@ class negocio
         }
     }
 
-    public function __Negocio($idTipoDoc, $nombreTipDoc)
+    public function __Documento($idTipoDoc, $nombreTipoDoc)
     {
         $this->idTipoDoc = $idTipoDoc;
         $this->nombreTipoDoc = $nombreTipoDoc;    
@@ -59,7 +59,7 @@ class negocio
      *
      * @return  self
      */
-    public function setNombreTipoNegocio($nombreTipoDoc)
+    public function setNombreTipoDoc($nombreTipoDoc)
     {
         $this->nombreTipoDoc = $nombreTipoDoc;
 
@@ -69,7 +69,7 @@ class negocio
    
    
 
-    public function ListarNegocio()
+    public function Listar()
     {
         try {
             $sql = $this->pdo->prepare("SELECT * FROM tipodocumento");
@@ -80,13 +80,13 @@ class negocio
         }
     }
 
-    public function Obtener($idnegocio)
+    public function Obtener($id)
     {
         try {
             $sql = $this->pdo->prepare("SELECT * 
             FROM tipodocumento
             WHERE idTipoDoc = ?");
-            $sql->execute(array($idnegocio));
+            $sql->execute(array($id));
             return $sql->fetch(PDO::FETCH_OBJ);
         } catch (Exception $e) {
             die($e->getMessage());
@@ -99,7 +99,7 @@ class negocio
             $sql = "UPDATE tipodocumento SET 
 						nombreTipoDoc  = ?
 						
-				    WHERE tipodocumento = ?";
+				    WHERE idTipoDoc = ?";
 
             $this->pdo->prepare($sql)
                 ->execute(
@@ -113,7 +113,7 @@ class negocio
         }
     }
 
-    public function Registrar(negocio $data)
+    public function Registrar(documento $data)
     {
         try {
             $sql = "INSERT INTO tipodocumento (nombreTipoDoc) 
@@ -130,13 +130,13 @@ class negocio
         }
     }
 
-    public function Eliminar($idnegocio)
+    public function Eliminar($id)
     {
         try {
             $sql = "DELETE FROM tipodocumento WHERE idTipoDoc = ?";
             $this->pdo->prepare($sql)
                 ->execute(
-                    array($idnegocio)
+                    array($id)
                 );
         } catch (Exception $e) {
             die($e->getMessage());

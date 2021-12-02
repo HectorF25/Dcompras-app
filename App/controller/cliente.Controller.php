@@ -40,7 +40,7 @@ class clienteController
         $tipo = $_FILES['imgUsuario']['type'];
         $tamano = $_FILES['imgUsuario']['size'];
         $guardado = $_FILES['imgUsuario']['tmp_name'];
-        $ruta = "../../perfiladmin/administrador/images/fotos_perfil/" . $imgUsuario;
+        $ruta = "/images/fotos_perfil/" . $imgUsuario;
 
         if (isset($imgUsuario) && $imgUsuario != "") {
 

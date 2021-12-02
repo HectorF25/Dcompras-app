@@ -1,14 +1,13 @@
 <?php
-
-class crearProducto
+require_once 'productoModel.php';
+class crearProducto extends Producto
 {
 
     private $pdo;
 
     private $idProductoNegocio;
-    private $idProducto;
     private $idNegocio;
-    private $precioProducto;
+    private $precioProductoNegocio;
     private $cantidadProducto;
     private $estadoProductoNegocio;
 
@@ -22,19 +21,19 @@ class crearProducto
         }
     }
 
-    public function __crearProducto($idProductoNegocio,$idProducto,$idNegocio, $precioProducto, $cantidadProducto, $estadoProductoNegocio)
+    public function __crearProducto($idProducto, $nombreProducto, $ivaProducto, $precioProducto, $especificacionProducto, $imgProducto, $estadoProducto, $idSubCategoria, $idProductoNegocio, $idNegocio, $precioProductoNegocio, $cantidadProducto, $estadoProductoNegocio)
     {
+        parent::__PRODUCTO($idProducto, $nombreProducto, $ivaProducto, $precioProducto, $especificacionProducto, $imgProducto, $estadoProducto, $idSubCategoria);
         $this->idProductoNegocio = $idProductoNegocio;
-        $this->idProducto = $idProducto;
         $this->idNegocio = $idNegocio;
-        $this->idNegocio = $precioProducto;
+        $this->precioProductoNegocio = $precioProductoNegocio;
         $this->cantidadProducto = $cantidadProducto;
         $this->estadoProductoNegocio = $estadoProductoNegocio;
     }
-    
+
     /**
      * Get the value of idProductoNegocio
-     */ 
+     */
     public function getIdProductoNegocio()
     {
         return $this->idProductoNegocio;
@@ -44,32 +43,14 @@ class crearProducto
      * Set the value of idProductoNegocio
      *
      * @return  self
-     */ 
+     */
     public function setIdProductoNegocio($idProductoNegocio)
     {
         $this->idProductoNegocio = $idProductoNegocio;
 
         return $this;
     }
-    /**
-     * Get the value of idProducto
-     */
-    public function getIdProducto()
-    {
-        return $this->idProducto;
-    }
 
-    /**
-     * Set the value of idProducto
-     *
-     * @return  self
-     */
-    public function setIdProducto($idProducto)
-    {
-        $this->idProducto = $idProducto;
-
-        return $this;
-    }
     /**
      * Get the value of idNegocio
      */
@@ -94,7 +75,7 @@ class crearProducto
      */
     public function getPrecioProducto()
     {
-        return $this->precioProducto;
+        return $this->precioProductoNegocio;
     }
 
     /**
@@ -102,9 +83,9 @@ class crearProducto
      *
      * @return  self
      */
-    public function setPrecioProducto($precioProducto)
+    public function setPrecioProducto($precioProductoNegocio)
     {
-        $this->precioProducto = $precioProducto;
+        $this->precioProductoNegocio = $precioProductoNegocio;
 
         return $this;
     }
@@ -127,7 +108,7 @@ class crearProducto
 
         return $this;
     }
-/**
+    /**
      * Get the value of estadoProducto
      */
     public function getEstadoProductoNegocio()
@@ -226,37 +207,46 @@ class crearProducto
                         $data->getIdNegocio(),
                         $data->getPrecioProducto(),
                         $data->getCantidadProducto(),
-                        $data->getEstadoProductoNegocio()            
+                        $data->getEstadoProductoNegocio()
                     )
                 );
         } catch (Exception $e) {
             die($e->getMessage());
         }
     }
-    public function InactivarProducto($idProductoNegocio){
+    public function InactivarProducto($idProductoNegocio)
+    {
         try {
-            
-            $sql =$this->pdo->prepare("UPDATE producto_negocio SET 
+
+            $sql = $this->pdo->prepare("UPDATE producto_negocio SET 
 						estadoProductoNegocio  = 0
 				    WHERE `producto_negocio`.`idProductoNegocio`  = ?");
 
             $sql->execute(array($idProductoNegocio));
-		    } catch (Exception $e) 
-		    {
-			die($e->getMessage());
-		    }
-	}
-    public function activarProducto($idProductoNegocio){
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function activarProducto($idProductoNegocio)
+    {
         try {
-            
-            $sql =$this->pdo->prepare("UPDATE producto_negocio SET 
+
+            $sql = $this->pdo->prepare("UPDATE producto_negocio SET 
 						estadoProductoNegocio  = 1
 				    WHERE `producto_negocio`.`idProductoNegocio`  = ?");
 
             $sql->execute(array($idProductoNegocio));
-		    } catch (Exception $e) 
-		    {
-			die($e->getMessage());
-		    }
+        } catch (Exception $e) {
+            die($e->getMessage());
         }
+    }
+    public function ListarSubCategoria(){
+        try {
+            $sql = $this->pdo->prepare("SELECT * FROM subcategoriaproducto");
+            $sql->execute();
+            return $sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }

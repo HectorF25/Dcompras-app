@@ -34,10 +34,10 @@ class crearProductosController{
         require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
     }
     public function crudCrearP(){
-        $crearP = new crearProducto();
+        $crearProducto = new crearProducto();
         
         if(isset($_REQUEST['idProductoNegocio'])){
-            $crearP = $this->model->Obtener($_REQUEST['idProductoNegocio']);
+            $crearProducto = $this->model->Obtener($_REQUEST['idProductoNegocio']);
             require_once  APP_VIEWS.'perfilVendedor/modules/headerVendedor.php';
             require_once  APP_VIEWS.'perfilVendedor/vendedor/modificarProducto.php';
             require_once  APP_VIEWS.'perfilVendedor/modules/footerVendedor.php';
