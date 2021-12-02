@@ -1,5 +1,3 @@
-
-
 <?php
 
 require('../../../../App/include/fpdf/fpdf.php');

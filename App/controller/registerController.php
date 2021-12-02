@@ -6,8 +6,8 @@ use PHPMailer\PHPMailer\Exception;
 require '../include/PHPMailer/src/Exception.php';
 require '../include/PHPMailer/src/PHPMailer.php';
 require '../include/PHPMailer/src/SMTP.php';
-include '../../Config/appConfig.php';
-require_once(APP_CONFIG_ROUTE . 'Conexion.php');
+
+require_once '../../Config/Conexion.php';
 
 $message = '';
 
@@ -452,9 +452,9 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '../../Public/Views/index.php';
             } else {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '../../Public/Views/index.php';
             }
           });
         }
@@ -473,9 +473,9 @@ if (!empty($_POST['correoUsuario'])  && !empty($_POST['contrasenaUsuario'])){
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '../../Public/Views/index.php';
             } else {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '../../Public/Views/index.php';
             }
           });
         }

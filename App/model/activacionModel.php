@@ -40,9 +40,9 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '".APP_VIEWS_ROTE."index.php';
             } else {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '".APP_VIEWS_ROTE."index.php';
             }
           });
         }
@@ -61,9 +61,9 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
                 dangerMode: true,
               }).then((willDelete) => {
             if (willDelete) {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '".APP_VIEWS_ROTE."index.php';
             } else {
-                location.href = '".APP_VIEWS."index.php';
+                location.href = '".APP_VIEWS_ROTE."index.php';
             }
           });
         }
@@ -84,9 +84,9 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
             dangerMode: true,
           }).then((willDelete) => {
         if (willDelete) {
-            location.href = '".APP_VIEWS."index.php';
+            location.href = '".APP_VIEWS_ROTE."index.php';
         } else {
-            location.href = '".APP_VIEWS."index.php';
+            location.href = '".APP_VIEWS_ROTE."index.php';
         }
       });
     }

@@ -1306,7 +1306,7 @@ Automotive
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="<?= APP_DIR; ?>assets/js1/index/main.js"></script>
         <script src="<?= APP_DIR; ?>assets/js1/index/app.js"></script>
-        <script src="<?= APP_DIR; ?>assets/js/xssDisable.js"></script>
+        <!-- <script src="<?= APP_DIR; ?>assets/js/xssDisable.js"></script> -->
 
         <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
